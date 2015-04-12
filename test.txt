@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-GitHub test
-GitHub test
-NO NO NO //I don't know what i am doing
-Hey Hey YO YO,Come on Boys!//Good Night 
-=======
-GitHub test
->>>>>>> origin/master
