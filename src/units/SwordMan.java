@@ -3,48 +3,58 @@ package units;
 import dataBase.DataBase;
 
 public class SwordMan extends Soldier implements Runnable{
-
-
+	//swordman's health point
+	private int hp;
+	// location
+	private int x,y;
+	private int speed;
+	//attacking point
+	private int atk;
+	//attacking range
+	private int ar;
 	
 	//initialization
-	public SwordMan(DataBase data){
-    	x=0;
-    	y=0;
-    	hp=db.SWORDMAN_HP;
+	public SwordMan(DataBase db){
+    	this.hp=db.SWORDMAN_HP;
+    	this.x=0;
+    	this.y=0;
+    	this.speed=db.SWORDMAN_SPD;
+    	this.atk=db.SWORDMAN_ATK;
+    	this.ar=db.SWORDMAN_AR ;
     	
     }
 	
 	
-	
+	private int getX() {
+		return x;
+	}
+	private void setX(int x) {
+		this.x = x;
+	}
+	private int getY() {
+		return y;
+	}
+	private void setY(int y) {
+		this.y = y;
+	}
 	
     
     @Override
 	public void move() {
-		x+=db.SWORDMAN_SPD;
-		y+=db.SWORDMAN_SPD;
+		x+=speed;
+		y+=speed;
 		
 	}
 
-	//判断与自己最近的敌人是否在攻击范围内
-	public boolean canAttack(){
-		//取出距离自己最近的那个敌人
-		Unit ce= db.enemyList.get(detect());
-		int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
-		if(distance>db.SWORDMAN_AR){
-			return false;
-		}else{
-			return true;
-		}
+	@Override
+	public void attack() {
+		
+		
 	}
-	
-public void attack() {
-	if(canAttack()){
-		Unit ce = db.enemyList.get(detect());
-		ce.hp-=db.SWORDMAN_ATK;
-		if(ce.hp<=0){
-			db.enemyList.remove(ce);
-		}
-	}
+
+	@Override
+	public void detect() {
+		// TODO Auto-generated method stub
 		
 	}
 	@Override

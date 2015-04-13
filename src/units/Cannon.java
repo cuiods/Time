@@ -3,16 +3,41 @@ package units;
 import dataBase.DataBase;
 
 public class Cannon extends Soldier implements Runnable {
-	 
+	    // health point
+		private int hp;
+		// location
+		private int x,y;
+		private int speed;
+		//attacking point
+		private int atk;
+		//attacking range
+		private int ar;
 		
-		public Cannon(DataBase data){
-			
-			x=0;
-			y=0;
-			
+		public Cannon(DataBase db){
+			this.hp=db.CANNON_HP;
+			this.x=0;
+			this.y=0;
+			this.speed=db.CANNON_SPD;
+			this.atk=db.CANNON_ATK;
+			this.ar=db.CANNON_AR;
 		}
 		
-	
+	private int getX() {
+			return x;
+		}
+
+		private void setX(int x) {
+			this.x = x;
+		}
+
+		private int getY() {
+			return y;
+		}
+
+		private void setY(int y) {
+			this.y = y;
+		}
+
 	@Override
 	public void run() {
 		
@@ -21,33 +46,20 @@ public class Cannon extends Soldier implements Runnable {
 
 	@Override
 	public void move() {
-		x+=db.CANNON_SPD;
-		y+=db.CANNON_SPD;
-	}
-	
-	//判断与自己最近的敌人是否在攻击范围内
-	public boolean canAttack(){
-		//取出距离自己最近的那个敌人
-		Unit ce= db.enemyList.get(detect());
-		int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
-		if(distance>db.GUNNER_AR){
-			return false;
-		}else{
-			return true;
-		}
-	}
-	@Override
-	public void attack() {
-		if(canAttack()){
-			Unit ce = db.enemyList.get(detect());
-			ce.hp-=db.GUNNER_ATK;
-			if(ce.hp<=0){
-				db.enemyList.remove(ce);
-			}
-		}
+		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void detect() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

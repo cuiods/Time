@@ -7,17 +7,36 @@ public class Gunner extends Soldier implements Runnable {
 		private int hp;
 		// location
 		private int x,y;
-		//to transmit data
-		DataBase db;
+		private int speed;
+		//attacking point
+		private int atk;
+		//attacking range
+		private int ar;
 		
-		public Gunner(DataBase data){
-		
+		public Gunner(DataBase db){
+			this.hp=db.GUNNER_HP;
 			this.x=0;
 			this.y=0;
-		
+			this.speed=db.GUNNER_SPD;
+			this.atk=db.GUNNER_ATK;
+			this.ar=db.GUNNER_AR;
 		}
 		
-	  
+	   private int getX() {
+			return x;
+		}
+
+		private void setX(int x) {
+			this.x = x;
+		}
+
+		private int getY() {
+			return y;
+		}
+
+		private void setY(int y) {
+			this.y = y;
+		}
 
 	@Override
 	public void run() {
@@ -27,35 +46,21 @@ public class Gunner extends Soldier implements Runnable {
 
 	@Override
 	public void move() {
-		x+=db.GUNNER_SPD;
-		y+=db.GUNNER_SPD;
-		
-	}
-	
-	//判断与自己最近的敌人是否在攻击范围内
-	public boolean canAttack(){
-		//取出距离自己最近的那个敌人
-		Unit ce= db.enemyList.get(detect());
-		int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
-		if(distance>db.GUNNER_AR){
-			return false;
-		}else{
-			return true;
-		}
-	}
-	@Override
-	public void attack() {
-		if(canAttack()){
-			Unit ce = db.enemyList.get(detect());
-			ce.hp-=db.GUNNER_ATK;
-			if(ce.hp<=0){
-				db.enemyList.remove(ce);
-			}
-		}
+		x+=speed;
+		y+=speed;
 		
 	}
 
-	
-	
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void detect() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
