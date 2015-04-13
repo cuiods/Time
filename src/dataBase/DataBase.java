@@ -8,6 +8,8 @@ public class DataBase {
 	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
 	
+	public static final int CASTLE_HP_STG1 = 300;//我方城堡的生命值
+	
 	public static final int SWORDMAN_P = 100;//the price of swordman
 	public static final int SWORDMAN_HP = 10;//The health point of swordman
 	public static final int SWORDMAN_ATK = 1;//the attacking point of swordman
