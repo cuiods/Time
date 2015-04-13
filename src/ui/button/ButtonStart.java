@@ -14,11 +14,11 @@ import ui.PanelFight;
 
 public class ButtonStart extends JLabel implements MouseListener{
 
-	ImageIcon startButtonImage = null;
-	
+	ImageIcon ButtonImage = null;
+	String filepath = "graphics/button/startButton.png";
 	public ButtonStart(){
-		startButtonImage = new ImageIcon("graphics/button/classicButton.png");
-		this.setIcon(startButtonImage);
+		ButtonImage = new ImageIcon(filepath);
+		this.setIcon(ButtonImage);
 
 	}
 
