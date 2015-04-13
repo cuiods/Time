@@ -8,6 +8,8 @@ public class DataBase {
 	public static ArrayList<Unit> EnermyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> PlayerList = new ArrayList<Unit>();
 	
+	public static final int CASTLE_HP_STG1 = 500;//the health point of the castle of stage 1
+	
 	public static final int SWORDMAN_P = 100;//the price of swordman
 	public static final int SWORDMAN_HP = 10;//The health point of swordman
 	public static final int SWORDMAN_ATK = 1;//the attacking point of swordman
