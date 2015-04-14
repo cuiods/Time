@@ -51,7 +51,7 @@ public class PanelStart extends JPanel{
 		this.setLayout(null);
 		
 		//set location of the buttons
-		startButton.setBounds(420,300,120,100);
+		startButton.setBounds(420,300,400,300);
 		exitButton.setBounds(300, 200, 120, 100);
 		
 		//add listener
@@ -60,7 +60,7 @@ public class PanelStart extends JPanel{
 		
 		//add buttons
 		this.add(startButton);
-		this.add(exitButton);
+		//this.add(exitButton);
 		
 	}
 	
