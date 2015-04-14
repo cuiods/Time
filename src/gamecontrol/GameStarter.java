@@ -1,4 +1,4 @@
-package gameControl;
+package gamecontrol;
 /**
  * 
  * main:start the game

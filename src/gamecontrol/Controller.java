@@ -1,4 +1,4 @@
-package gameControl;
+package gamecontrol;
 
 import ui.*;
 /**
@@ -15,6 +15,7 @@ public class Controller {
 	public Controller(){}
 	
 	public void startGame(){
+		//start game
 		gameframe = new FrameGame();
 		gameframe.showFirstPanel();
 	}

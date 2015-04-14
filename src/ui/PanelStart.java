@@ -1,6 +1,6 @@
 package ui;
 
-import gameControl.*;
+import gamecontrol.*;
 
 import java.awt.*;
 

@@ -1,6 +1,6 @@
 package ui.button;
 
-import gameControl.Controller;
+import gamecontrol.Controller;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
