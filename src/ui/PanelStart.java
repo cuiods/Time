@@ -1,6 +1,6 @@
 package ui;
 
-import gamecontrol.*;
+import gameControl.*;
 
 import java.awt.*;
 
@@ -19,8 +19,8 @@ public class PanelStart extends JPanel{
 	Image startBackGround = null;
 	ButtonStart startButton = null;
 	ButtonExit exitButton = null;
-	ButtonLoad setButton = null;
-	ButtonSet loadButton = null;
+	ButtonSet setButton = null;
+	ButtonLoad loadButton = null;
 	ButtonClassic classicButton = null;
 	
 	public PanelStart(){
@@ -29,30 +29,17 @@ public class PanelStart extends JPanel{
 		
 		//load background image
 		startBackGround = new ImageIcon("graphics/background/startbackground.jpg").getImage();
-		//load button image
-//		exitButtonImage = new ImageIcon("graphics/button/exitButton.png");
-//		setButtonImage = new ImageIcon("graphics/button/setButton.png");
-//		loadButtonImage = new ImageIcon("graphics/button/loadButton.png");
-//		classicButtonImage = new ImageIcon("graphics/button/classicButton.png");
 		
 		//create buttons
 		startButton = new ButtonStart();
 		exitButton = new ButtonExit();
-		setButton = new ButtonLoad();
-		loadButton = new ButtonSet();
+		setButton = new ButtonSet();
+		loadButton = new ButtonLoad();
 		classicButton = new ButtonClassic();
 		
-//		exitButton = new JLabel(exitButtonImage);
-//		setButton = new JLabel(setButtonImage);
-//		loadButton = new JLabel(loadButtonImage);
-//		classicButton = new JLabel(classicButtonImage);
 		
 		//clear layout
 		this.setLayout(null);
-		
-		//set location of the buttons
-		startButton.setBounds(420,300,400,300);
-		exitButton.setBounds(300, 200, 120, 100);
 		
 		//add listener
 		startButton.addMouseListener(startButton);
@@ -60,7 +47,10 @@ public class PanelStart extends JPanel{
 		
 		//add buttons
 		this.add(startButton);
-		//this.add(exitButton);
+		this.add(exitButton);
+		this.add(classicButton);
+		this.add(loadButton);
+		this.add(setButton);
 		
 	}
 	
@@ -68,14 +58,6 @@ public class PanelStart extends JPanel{
 	public void paintComponent(Graphics g){
 		g.drawImage(startBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 	}
-	
-//	public void setIcon(String file, JButton iconButton) {  
-//        ImageIcon icon = new ImageIcon(file);  
-//        Image temp = icon.getImage().getScaledInstance(iconButton.getWidth(),  
-//                iconButton.getHeight(), icon.getImage().SCALE_DEFAULT);  
-//        icon = new ImageIcon(temp);  
-//        iconButton.setIcon(icon);  
-//    }  
 	
 	
 }

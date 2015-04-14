@@ -1,6 +1,6 @@
 package ui.button;
 
-import gamecontrol.Controller;
+import gameControl.Controller;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -19,6 +19,7 @@ public class ButtonStart extends JLabel implements MouseListener{
 	public ButtonStart(){
 		ButtonImage = new ImageIcon(filepath);
 		this.setIcon(ButtonImage);
+		this.setBounds(400,400,170,170);
 
 	}
 
@@ -30,11 +31,14 @@ public class ButtonStart extends JLabel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		Controller.gameframe.getContentPane().removeAll();
-		Controller.gameframe.setContentPane(new PanelFight());
-		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(); 
-		gd.setFullScreenWindow(Controller.gameframe);
+		
+		Controller.gameframe.startPanel.setVisible(false);
+		Controller.gameframe.fightPanel = new PanelFight();
+		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+		
+		//full screen (if needed)
+//		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(); 
+//		gd.setFullScreenWindow(Controller.gameframe);
 		
 	}
 

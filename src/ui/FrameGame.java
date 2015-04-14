@@ -6,6 +6,9 @@ import javax.swing.*;
 
 public class FrameGame extends JFrame{
 
+	public PanelStart startPanel = null;
+	public PanelFight fightPanel = null;
+	
 	public FrameGame(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000, 600);
@@ -16,12 +19,12 @@ public class FrameGame extends JFrame{
 //		Rectangle bounds = new Rectangle( screenSize );
 //		
 //		this.setBounds(bounds);
-		
+		this.setUndecorated(true);
 		this.setVisible(true);
 	}
 	
 	public void showFirstPanel(){
-		PanelStart startPanel = new PanelStart();
+		startPanel = new PanelStart();
 		this.setContentPane(startPanel);
 	}
 }

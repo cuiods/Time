@@ -1,4 +1,4 @@
-package gamecontrol;
+package gameControl;
 
 import ui.*;
 /**

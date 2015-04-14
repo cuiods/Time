@@ -8,12 +8,12 @@ import javax.swing.JLabel;
 
 public class ButtonExit extends JLabel implements MouseListener{
 
-	ImageIcon ButtonImage = null;
-	String filepath = "graphics/button/exitButton.png";
+	public ImageIcon ButtonImage = null;
+	public String filepath = "graphics/button/exitButton.png";
 	public ButtonExit(){
-		super();
 		ButtonImage = new ImageIcon(filepath);
 		this.setIcon(ButtonImage);
+		this.setBounds(660, 400, 140, 140);
 	}
 
 	@Override
