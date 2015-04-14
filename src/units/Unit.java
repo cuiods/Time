@@ -9,10 +9,9 @@ public abstract class Unit {
 	protected DataBase db;  //用于引用数据
 	
 
-	protected int price;   
+	
 	protected int hp;//health point
-	protected int atk;//attacking point
-	protected int ar;//attacking range
+	
 	public abstract void move();  //用于变化x和y
 	public abstract void attack();//用于攻击，减少攻击范围内敌方的生命值
 	public abstract int detect();//返回距离自己最近的敌人的序号
