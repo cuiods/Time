@@ -1,6 +1,6 @@
 package ui.button;
 
-import gameControl.Controller;
+import gamecontrol.Controller;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -35,6 +35,9 @@ public class ButtonStart extends JLabel implements MouseListener{
 		Controller.gameframe.startPanel.setVisible(false);
 		Controller.gameframe.fightPanel = new PanelFight();
 		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+		
+		Thread ft = new Thread(Controller.gameframe.fightPanel);
+		ft.start();
 		
 		//full screen (if needed)
 //		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(); 

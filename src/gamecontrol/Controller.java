@@ -1,4 +1,4 @@
-package gameControl;
+package gamecontrol;
 
 import ui.*;
 /**
@@ -14,9 +14,14 @@ public class Controller {
 	
 	public Controller(){}
 	
-	public void startGame(){
+	public static void startGame(){
+		//start game
 		gameframe = new FrameGame();
 		gameframe.showFirstPanel();
+	}
+	
+	public static void exitGame(){
+		System.exit(0);
 	}
 
 }

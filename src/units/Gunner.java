@@ -17,18 +17,28 @@ public class Gunner extends Soldier implements Runnable {
 
 	@Override
 	public void run() {
+<<<<<<< HEAD
 		while(true){
 			if(canAttack()){
 				attack();
 			}else{
 				move();
 			}
+=======
+		if(this.hp>0){
+			move();
+>>>>>>> origin/master
 		}
 	}
 
 	@Override
 	public void move() {
+<<<<<<< HEAD
 	    	try {
+=======
+		while(true){
+    		try {
+>>>>>>> origin/master
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -36,6 +46,11 @@ public class Gunner extends Soldier implements Runnable {
 			}
     		x+=db.GUNNER_SPD;
     		y+=db.GUNNER_SPD;
+<<<<<<< HEAD
+=======
+		}
+		
+>>>>>>> origin/master
 	}
 		
 	
@@ -58,6 +73,7 @@ public class Gunner extends Soldier implements Runnable {
 	}
 	@Override
 	public void attack() {
+<<<<<<< HEAD
 
 		//取出可以攻打的对象
 		Unit ce;
@@ -72,6 +88,18 @@ public class Gunner extends Soldier implements Runnable {
 				}
 				ce.hp-=db.GUNNER_ATK;
 			}else{
+=======
+		if(canAttack()){
+			//取出可以攻打的对象
+			Unit ce;
+			if(this.kind==1){
+				ce = db.enemyList.get(detect());
+			}else{
+				ce=db.playerList.get(detect());
+			}
+			ce.hp-=db.GUNNER_ATK;
+			if(ce.hp<=0){
+>>>>>>> origin/master
 				db.enemyList.remove(ce);
 			}
 		}else{

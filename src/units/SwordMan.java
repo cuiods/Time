@@ -20,6 +20,10 @@ public class SwordMan extends Soldier implements Runnable{
     
     @Override
 	public void move()  {
+<<<<<<< HEAD
+=======
+    	while(true){
+>>>>>>> origin/master
     		try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
@@ -28,7 +32,15 @@ public class SwordMan extends Soldier implements Runnable{
 			}
     		x+=db.SWORDMAN_SPD;
     		y+=db.SWORDMAN_SPD;
+<<<<<<< HEAD
     	}
+=======
+    		
+    	}
+		
+		
+	}
+>>>>>>> origin/master
 
 	//判断与自己最近的敌人是否在攻击范围内
 	public boolean canAttack(){
@@ -49,11 +61,16 @@ public class SwordMan extends Soldier implements Runnable{
 	}
 	
 public void attack() {
+<<<<<<< HEAD
 	
+=======
+	if(canAttack()){
+>>>>>>> origin/master
 		//取出可以攻打的对象
 		Unit ce;
 		if(this.kind==1){
 			ce = db.enemyList.get(detect());
+<<<<<<< HEAD
 			if(ce.hp>0){
 				try {
 					Thread.sleep(200);
@@ -78,10 +95,19 @@ public void attack() {
 			}else{
 				db.playerList.remove(ce);
 			}
+=======
+		}else{
+			ce=db.playerList.get(detect());
+		}
+		ce.hp-=db.SWORDMAN_ATK;
+		if(ce.hp<=0){
+			db.enemyList.remove(ce);
+>>>>>>> origin/master
 		}
 }
 	@Override
 	public void run() {
+<<<<<<< HEAD
 			while(true){
 				if(canAttack()){
 					attack();
@@ -90,6 +116,18 @@ public void attack() {
 				}
 			}
 			
+=======
+		if(this.hp>0){
+			move();
+			while(true){
+				int i = this.detect();
+				System.out.println(i);
+				canAttack();
+				attack();
+			}
+		}
+		
+>>>>>>> origin/master
 	}
      
 }
