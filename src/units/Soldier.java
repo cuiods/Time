@@ -23,9 +23,7 @@ public abstract class Soldier extends Unit{
 		public int detect() {
 
 			//to record the temporary minimum distance and its index
-			int temp=0;
-			System.out.println("detecting");
-			
+			int temp=0;			
 			if(this.kind==1){
 				if(db.enemyList.size()!=0){
 					//初始值为距离列表中第一个敌人的距离

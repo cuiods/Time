@@ -20,11 +20,8 @@ public class Controller {
 		gameframe.showFirstPanel();
 	}
 	
-<<<<<<< HEAD
-=======
 	public static void exitGame(){
 		System.exit(0);
 	}
 
->>>>>>> origin/master
 }

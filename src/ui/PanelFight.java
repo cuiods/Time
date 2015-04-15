@@ -118,7 +118,7 @@ public class PanelFight extends JPanel implements Runnable{
 	 */
 	public void drawSwordman(Graphics g,SwordMan o){
 		Image swordman = new ImageIcon("graphics/soldiers/s1.png").getImage();
-		g.drawImage(swordman,o.getX(), o.getY(), 40, 60, this);
+		g.drawImage(swordman,o.getX(), o.getY(), 50, 80, this);
 	}
 
 	/**

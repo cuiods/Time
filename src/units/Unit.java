@@ -3,10 +3,9 @@ package units;
 import dataBase.DataBase;
 
 public abstract class Unit {
-
-	protected int x;
-	protected int y;
 	protected DataBase db;  //用于引用数据
+	protected int x = db.START_LOC_X_STG1;
+	protected int y = db.START_LOC_Y_STG1;
 	//士兵的种类（步兵0，火枪手1，火炮2）
 	private int type;
 

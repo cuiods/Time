@@ -8,8 +8,8 @@ public class SwordMan extends Soldier implements Runnable{
 	
 	//initialization
 	public SwordMan(){
-    	this.x=0;
-    	this.y=0;
+    	this.x=db.START_LOC_X_STG1 ;
+    	this.y=db.START_LOC_Y_STG1;
     	hp=db.SWORDMAN_HP;
     	setType(0);
     }
@@ -28,7 +28,7 @@ public class SwordMan extends Soldier implements Runnable{
 				e.printStackTrace();
 			}
     		x+=db.SWORDMAN_SPD;
-    		y+=db.SWORDMAN_SPD;
+    		y+=db.PATH_AGL_STG1*db.SWORDMAN_SPD;
 
     	}
 
@@ -37,6 +37,7 @@ public class SwordMan extends Soldier implements Runnable{
 		
 		//取出距离自己最近的那个敌人
 		Unit ce;
+		if(detect()!=-1){
 		if(this.kind==1){
 			 ce= db.enemyList.get(detect());
 		}else{
@@ -48,6 +49,9 @@ public class SwordMan extends Soldier implements Runnable{
 		}else{
 			return true;
 		}
+	}else{
+		return false;
+	}
 	}
 	
 	public void attack() {
