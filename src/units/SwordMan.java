@@ -7,11 +7,11 @@ public class SwordMan extends Soldier implements Runnable{
 
 	
 	//initialization
-	public SwordMan(DataBase data){
+	public SwordMan(){
     	this.x=0;
     	this.y=0;
     	hp=db.SWORDMAN_HP;
-    	type=0;
+    	setType(0);
     }
 	
 	

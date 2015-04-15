@@ -10,7 +10,7 @@ public class Cannon extends Soldier implements Runnable {
 			this.x=0;
 			this.y=0;
 			hp=db.CANNON_HP;
-			type=2;
+			setType(2);
 		}
 		
 	

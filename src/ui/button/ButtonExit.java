@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -24,8 +26,7 @@ public class ButtonExit extends JLabel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		System.exit(0);
+		Controller.exitGame();
 		
 	}
 

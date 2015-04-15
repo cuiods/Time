@@ -16,10 +16,6 @@ public abstract class Soldier extends Unit{
 	 */
 	
 
-	
-	
-	//士兵的种类（步兵0，火枪手1，火炮2）
-	int type;
 	//电脑的士兵代号为0 玩家的为1
 	int kind;//原谅我英语不好想不出合适的词0.0
 	

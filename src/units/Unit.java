@@ -7,9 +7,8 @@ public abstract class Unit {
 	protected int x;
 	protected int y;
 	protected DataBase db;  //用于引用数据
-	
-
-	
+	//士兵的种类（步兵0，火枪手1，火炮2）
+	private int type;
 	protected int hp;//health point
 	
 	public abstract void move();  //用于变化x和y
@@ -32,6 +31,12 @@ public abstract class Unit {
 	}
 	public void setY(int y) {
 		this.y = y;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 	
 	

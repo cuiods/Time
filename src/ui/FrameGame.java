@@ -19,6 +19,7 @@ public class FrameGame extends JFrame{
 //		Rectangle bounds = new Rectangle( screenSize );
 //		
 //		this.setBounds(bounds);
+		
 		this.setUndecorated(true);
 		this.setVisible(true);
 	}

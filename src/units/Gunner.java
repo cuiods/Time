@@ -10,7 +10,7 @@ public class Gunner extends Soldier implements Runnable {
 			this.x=0;
 			this.y=0;
 		    hp=db.GUNNER_HP;
-		    type=1;
+		    setType(1);
 		}
 		
 	  
