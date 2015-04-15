@@ -8,8 +8,8 @@ public class Cannon extends Soldier implements Runnable {
 
 		public Cannon(){
 			
-			this.x=0;
-			this.y=0;
+			this.x=db.START_LOC_X_STG1;
+			this.y=db.START_LOC_Y_STG1;
 			hp=db.CANNON_HP;
 			setType(2);
 		}
@@ -37,7 +37,7 @@ public class Cannon extends Soldier implements Runnable {
 					e.printStackTrace();
 				}
 			    x+=db.CANNON_SPD;
-			    y+=db.CANNON_SPD;
+			    y+=db.PATH_AGL_STG1*db.CANNON_SPD;
 			
 		}
 	}

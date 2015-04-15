@@ -7,8 +7,8 @@ public class Gunner extends Soldier implements Runnable {
 		
 		public Gunner(){
 		
-			this.x=0;
-			this.y=0;
+			this.x=db.START_LOC_X_STG1;
+			this.y=db.START_LOC_Y_STG1;
 		    hp=db.GUNNER_HP;
 		    setType(1);
 		}
@@ -36,7 +36,7 @@ public class Gunner extends Soldier implements Runnable {
 				e.printStackTrace();
 			}
     		x+=db.GUNNER_SPD;
-    		y+=db.GUNNER_SPD;
+    		y+=db.PATH_AGL_STG1 *db.GUNNER_SPD;
 
 	}
 		
