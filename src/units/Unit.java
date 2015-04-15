@@ -3,19 +3,13 @@ package units;
 import dataBase.DataBase;
 
 public abstract class Unit {
-	//士兵的种类（步兵0，火枪手1，火炮2）
-	private  int type;
+
 	protected int x;
 	protected int y;
 	protected DataBase db;  //用于引用数据
-<<<<<<< HEAD
-	
-
-	
-=======
 	//士兵的种类（步兵0，火枪手1，火炮2）
 	private int type;
->>>>>>> origin/master
+
 	protected int hp;//health point
 	
 	public abstract void move();  //用于变化x和y
