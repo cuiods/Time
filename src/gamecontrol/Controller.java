@@ -19,5 +19,5 @@ public class Controller {
 		gameframe = new FrameGame();
 		gameframe.showFirstPanel();
 	}
-
+	
 }
