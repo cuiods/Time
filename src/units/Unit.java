@@ -3,16 +3,16 @@ package units;
 import dataBase.DataBase;
 
 public abstract class Unit {
-	
+	//士兵的种类（步兵0，火枪手1，火炮2）
+	private  int type;
 	protected int x;
 	protected int y;
 	protected DataBase db;  //用于引用数据
 	
 
-	protected int price;   
+	
 	protected int hp;//health point
-	protected int atk;//attacking point
-	protected int ar;//attacking range
+	
 	public abstract void move();  //用于变化x和y
 	public abstract void attack();//用于攻击，减少攻击范围内敌方的生命值
 	public abstract int detect();//返回距离自己最近的敌人的序号
@@ -33,6 +33,12 @@ public abstract class Unit {
 	}
 	public void setY(int y) {
 		this.y = y;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 	
 	

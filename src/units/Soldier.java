@@ -15,24 +15,58 @@ public abstract class Soldier extends Unit{
 	 单位设为SwordMan(步兵)，GUNNER(火枪手)，CANNON(火炮)三种;每个相应的参数值都已经在database类中写好。
 	 */
 	
+
+	
+	
+
+	
+	//电脑的士兵代号为0 玩家的为1
+	int kind;//原谅我英语不好想不出合适的词0.0
+	
 	//找到距离swordman最小的敌人的index
 		public int detect() {
 
 			//to record the temporary minimum distance and its index
 			int temp=0;
-			//初始值为距离列表中第一个敌人的距离
-			int minidistance= caldistance(this.x,db.enemyList.get(0).getX(),this.y,db.enemyList.get(0).getY());
-			for(int i=0;i<db.enemyList.size();i++){
-				Unit enemy=db.enemyList.get(i);
-				int distance= caldistance(this.x,enemy.getX(),this.y,enemy.getY());
-				//判断是否是当前最小距离
-				if(distance<minidistance){
-						minidistance=distance;
-						temp=i;
+			System.out.println("detecting");
+			
+			if(this.kind==1){
+				if(db.enemyList.size()!=0){
+					//初始值为距离列表中第一个敌人的距离
+					int minidistance= caldistance(this.x,db.enemyList.get(0).getX(),
+							this.y,db.enemyList.get(0).getY());
+					for(int i=0;i<db.enemyList.size();i++){
+						Unit enemy=db.enemyList.get(i);
+						int distance= caldistance(this.x,enemy.getX(),this.y,enemy.getY());
+						//判断是否是当前最小距离
+						if(distance<minidistance){
+								minidistance=distance;
+								temp=i;
+						}
+					}
+					return temp;
+				}else{
+					return -1;
 				}
-			}
-			return temp;
+			}else{
+					if(db.playerList.size()!=0){
+						int minidistance= caldistance(this.x,db.playerList.get(0).getX(),this.y,db.playerList.get(0).getY());
+						for(int i=0;i<db.playerList.size();i++){
+							Unit player=db.playerList.get(i);
+							int distance= caldistance(this.x,player.getX(),this.y,player.getY());
+							//判断是否是当前最小距离
+							if(distance<minidistance){
+								minidistance=distance;
+								temp=i;
+							}
+						}
+						return temp;
+					}else{
+						return -1;
+					}
+				}
 			
 		}
+		
 	
 }
