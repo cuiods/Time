@@ -1,17 +1,17 @@
 package units;
 
-import dataBase.DataBase;
+
 
 public class SwordMan extends Soldier implements Runnable{
 
 
 	
 	//initialization
-	public SwordMan(DataBase data){
+	public SwordMan(){
     	this.x=0;
     	this.y=0;
     	hp=db.SWORDMAN_HP;
-    	type=0;
+    	setType(0);
     }
 	
 	
@@ -20,7 +20,7 @@ public class SwordMan extends Soldier implements Runnable{
     
     @Override
 	public void move()  {
-    	while(true){
+
     		try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
@@ -29,14 +29,12 @@ public class SwordMan extends Soldier implements Runnable{
 			}
     		x+=db.SWORDMAN_SPD;
     		y+=db.SWORDMAN_SPD;
-    		
+
     	}
-		
-		
-	}
 
 	//判断与自己最近的敌人是否在攻击范围内
 	public boolean canAttack(){
+		
 		//取出距离自己最近的那个敌人
 		Unit ce;
 		if(this.kind==1){
@@ -52,34 +50,50 @@ public class SwordMan extends Soldier implements Runnable{
 		}
 	}
 	
-public void attack() {
-	if(canAttack()){
+	public void attack() {
 		//取出可以攻打的对象
 		Unit ce;
 		if(this.kind==1){
 			ce = db.enemyList.get(detect());
+
+			if(ce.hp>0){
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ce.hp-=db.SWORDMAN_ATK;
+			}else{
+				db.enemyList.remove(ce);
+			}
 		}else{
 			ce=db.playerList.get(detect());
-		}
-		ce.hp-=db.SWORDMAN_ATK;
-		if(ce.hp<=0){
-			db.enemyList.remove(ce);
-		}
-	}
-		
-	}
-	@Override
-	public void run() {
-		if(this.hp>0){
-			move();
-			while(true){
-				int i = this.detect();
-				System.out.println(i);
-				canAttack();
-				attack();
+			if(ce.hp>0){
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ce.hp-=db.SWORDMAN_ATK;
+			}else{
+				db.playerList.remove(ce);
 			}
 		}
-		
+	}
+
+	@Override
+	public void run() {
+
+			while(true){
+				if(canAttack()){
+					attack();
+				}else{
+					move();
+				}
+			}
+			
 	}
      
 }

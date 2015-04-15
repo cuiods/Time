@@ -28,7 +28,7 @@ public class PanelStart extends JPanel{
 		this.setSize(Controller.gameframe.getWidth(), Controller.gameframe.getHeight());
 		
 		//load background image
-		startBackGround = new ImageIcon("graphics/background/startbackground.jpg").getImage();
+		startBackGround = new ImageIcon("graphics/background/background.png").getImage();
 		
 		//create buttons
 		startButton = new ButtonStart();
@@ -58,6 +58,8 @@ public class PanelStart extends JPanel{
 	public void paintComponent(Graphics g){
 		g.drawImage(startBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 	}
+	
+	
 	
 	
 }

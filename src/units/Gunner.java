@@ -5,27 +5,31 @@ import dataBase.DataBase;
 public class Gunner extends Soldier implements Runnable {
 
 		
-		public Gunner(DataBase data){
+		public Gunner(){
 		
 			this.x=0;
 			this.y=0;
 		    hp=db.GUNNER_HP;
-		    type=1;
+		    setType(1);
 		}
 		
 	  
 
 	@Override
 	public void run() {
-		if(this.hp>0){
-			move();
+		while(true){
+			if(canAttack()){
+				attack();
+			}else{
+				move();
+			}
 		}
 	}
 
 	@Override
 	public void move() {
-		while(true){
-    		try {
+
+	    	try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -33,9 +37,10 @@ public class Gunner extends Soldier implements Runnable {
 			}
     		x+=db.GUNNER_SPD;
     		y+=db.GUNNER_SPD;
-		}
-		
+
 	}
+		
+	
 	
 	//判断与自己最近的敌人是否在攻击范围内
 	public boolean canAttack(){
@@ -55,19 +60,37 @@ public class Gunner extends Soldier implements Runnable {
 	}
 	@Override
 	public void attack() {
-		if(canAttack()){
-			//取出可以攻打的对象
-			Unit ce;
-			if(this.kind==1){
-				ce = db.enemyList.get(detect());
+
+		//取出可以攻打的对象
+		Unit ce;
+		if(this.kind==1){
+			ce = db.enemyList.get(detect());
+			if(ce.hp>0){
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ce.hp-=db.GUNNER_ATK;
 			}else{
-				ce=db.playerList.get(detect());
-			}
-			ce.hp-=db.GUNNER_ATK;
-			if(ce.hp<=0){
 				db.enemyList.remove(ce);
 			}
+		}else{
+			ce=db.playerList.get(detect());
+			if(ce.hp>0){
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ce.hp-=db.GUNNER_ATK;
+			}else{
+				db.playerList.remove(ce);
+			}
 		}
+		
 		
 	}
 

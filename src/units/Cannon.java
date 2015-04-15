@@ -5,19 +5,24 @@ import dataBase.DataBase;
 public class Cannon extends Soldier implements Runnable {
 	 
 		
-		public Cannon(DataBase data){
+
+		public Cannon(){
 			
 			this.x=0;
 			this.y=0;
 			hp=db.CANNON_HP;
-			type=2;
+			setType(2);
 		}
 		
 	
 	@Override
 	public void run() {
-		if(this.hp>0){
-			move();
+		while(true){
+			if(canAttack()){
+				attack();
+			}else{
+				move();
+			}
 		}
 	}
 
@@ -56,17 +61,34 @@ public class Cannon extends Soldier implements Runnable {
 	}
 	@Override
 	public void attack() {
-		if(canAttack()){
-			//取出可以攻打的对象
-			Unit ce;
-			if(this.kind==1){
-				ce = db.enemyList.get(detect());
+
+		//取出可以攻打的对象
+		Unit ce;
+		if(this.kind==1){
+			ce = db.enemyList.get(detect());
+			if(ce.hp>0){
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ce.hp-=db.CANNON_ATK;
 			}else{
-				ce=db.playerList.get(detect());
-			}
-			ce.hp-=db.GUNNER_ATK;
-			if(ce.hp<=0){
 				db.enemyList.remove(ce);
+			}
+		}else{
+			ce=db.playerList.get(detect());
+			if(ce.hp>0){
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ce.hp-=db.CANNON_ATK;
+			}else{
+				db.playerList.remove(ce);
 			}
 		}
 		
