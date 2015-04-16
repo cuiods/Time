@@ -41,6 +41,8 @@ public class PanelFight extends JPanel implements Runnable{
 		//add buttons
 		this.add(butExit);
 		this.add(butUnit);
+		
+		//create and start AI  @niansong1996
 
 	}
 	
@@ -58,7 +60,7 @@ public class PanelFight extends JPanel implements Runnable{
 	 */
 	private void setExitButton(){
 		butExit = new ButtonExit();
-		butExit.setIcon(new ImageIcon("graphics/button/close.png"));
+		butExit.type = 1;
 		butExit.setBounds(920, 10, 50, 50);
 		butExit.addMouseListener(butExit);
 	}
@@ -104,7 +106,26 @@ public class PanelFight extends JPanel implements Runnable{
 	 * draw solders, and so on 
 	 */
 	public void drawUnits(Graphics g){
+		/*
+		 * draw player units
+		 */
 		for(Unit o:DataBase.playerList){
+			switch(o.getType()){
+			case 0:
+				drawSwordman(g,(SwordMan)o);
+				break;
+			case 1:
+				drawGunner(g,(Gunner)o);
+				break;
+			case 2:
+				drawCannon(g,(Cannon)o);
+				break;
+			}
+		}
+		/*
+		 * draw enemy units
+		 */
+		for(Unit o:DataBase.enemyList){
 			switch(o.getType()){
 			case 0:
 				drawSwordman(g,(SwordMan)o);
@@ -123,24 +144,46 @@ public class PanelFight extends JPanel implements Runnable{
 	 * draw sword man
 	 */
 	public void drawSwordman(Graphics g,SwordMan o){
-		Image swordman = new ImageIcon("graphics/soldiers/s1.png").getImage();
-		g.drawImage(swordman,o.getX(), o.getY(), 50, 80, this);
+		switch(o.getKind()){
+		case 1:
+			Image swordman1 = new ImageIcon("graphics/soldiers/s1.png").getImage();
+			g.drawImage(swordman1,o.getX(), o.getY(), 50, 80, this);
+			break;
+		case 0:
+			Image swordman0 = new ImageIcon("graphics/soldiers/soldier1.png").getImage();
+			g.drawImage(swordman0,o.getX(), o.getY(), 50, 80, this);
+			break;
+		}
 	}
 	
 	/**
 	 * draw gunner
 	 */
 	public void drawGunner(Graphics g,Gunner o){
-		Image gunner = new ImageIcon("graphics/soldiers/s3.png").getImage();
-		g.drawImage(gunner,o.getX(), o.getY(), 50, 80, this);
+		switch(o.getKind()){
+		case 1:
+			Image gunner1 = new ImageIcon("graphics/soldiers/s3.png").getImage();
+			g.drawImage(gunner1,o.getX(), o.getY(), 50, 80, this);
+			break;
+		case 0:
+			Image gunner0 = new ImageIcon("graphics/soldiers/soldier2.png").getImage();
+			g.drawImage(gunner0,o.getX(), o.getY(), 50, 80, this);
+		}
 	}
 	
 	/**
 	 * draw cannon
 	 */
 	public void drawCannon(Graphics g,Cannon o){
-		Image cannon = new ImageIcon("graphics/soldiers/s2.png").getImage();
-		g.drawImage(cannon,o.getX(), o.getY(), 50, 80, this);
+		switch(o.getKind()){
+		case 1:
+			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
+			g.drawImage(cannon1,o.getX(), o.getY(), 50, 80, this);
+			break;
+		case 0:
+			Image cannon0 = new ImageIcon("graphics/soldiers/soldier3.png").getImage();
+			g.drawImage(cannon0,o.getX(), o.getY(), 50, 80, this);
+		}
 	}
 	
 	/**

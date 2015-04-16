@@ -14,12 +14,17 @@ public class Controller {
 	
 	public Controller(){}
 	
+	/**
+	 * start game:show start panel
+	 */
 	public static void startGame(){
-		//start game
 		gameframe = new FrameGame();
 		gameframe.showFirstPanel();
 	}
 	
+	/**
+	 * exit game
+	 */
 	public static void exitGame(){
 		System.exit(0);
 	}

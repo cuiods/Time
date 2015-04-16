@@ -2,8 +2,10 @@ package ui.button;
 
 import gamecontrol.Controller;
 
+import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -14,18 +16,36 @@ import ui.PanelFight;
 
 public class ButtonStart extends JLabel implements MouseListener{
 
-	ImageIcon ButtonImage = null;
-	String filepath = "graphics/button/startButton.png";
+	Image ButtonImage = null;
+	String filepath = null;
+	static boolean isIn = false;
+	
 	public ButtonStart(){
-		ButtonImage = new ImageIcon(filepath);
-		this.setIcon(ButtonImage);
-		this.setBounds(400,400,170,170);
 
+		filepath = "graphics/button/startButton.png";
+		ButtonImage = new ImageIcon(filepath).getImage();
+		this.setBounds(400,400,170,170);
+	}
+	
+	public void paintComponent(Graphics g){
+		if(!isIn){
+			filepath = "graphics/button/startButton.png";
+			ButtonImage = new ImageIcon(filepath).getImage();
+		}else{
+			filepath = "graphics/button/startButtonMoveIn.png";
+			ButtonImage = new ImageIcon(filepath).getImage();
+		}
+		g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Controller.gameframe.startPanel.setVisible(false);
+		Controller.gameframe.fightPanel = new PanelFight();
+		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+		
+		Thread ft = new Thread(Controller.gameframe.fightPanel);
+		ft.start();
 		
 	}
 
@@ -53,13 +73,14 @@ public class ButtonStart extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		isIn = true;
+		this.repaint();
 	}
+	
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		isIn = false;
+		this.repaint();
 	}
 }

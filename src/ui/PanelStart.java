@@ -44,6 +44,9 @@ public class PanelStart extends JPanel{
 		//add listener
 		startButton.addMouseListener(startButton);
 		exitButton.addMouseListener(exitButton);
+		setButton.addMouseListener(setButton);
+		loadButton.addMouseListener(loadButton);
+		classicButton.addMouseListener(classicButton);
 		
 		//add buttons
 		this.add(startButton);

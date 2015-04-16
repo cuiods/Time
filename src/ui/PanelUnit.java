@@ -119,7 +119,7 @@ public class PanelUnit extends JPanel implements MouseListener{
 		Thread st = new Thread(cannon);
 		st.start();
 		
-		DataBase.Money-=DataBase.GUNNER_P;
+		DataBase.Money-=DataBase.CANNON_P;
 		
 		Controller.gameframe.repaint();
 	}
