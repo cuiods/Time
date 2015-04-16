@@ -8,7 +8,9 @@ public abstract class Unit {
 	protected int y = db.START_LOC_Y_STG1;
 	//士兵的种类（步兵0，火枪手1，火炮2）
 	private int type;
-
+	//电脑的士兵代号为0 玩家的为1
+	private int kind;//原谅我英语不好想不出合适的词0.0
+		
 	protected int hp;//health point
 	
 	public abstract void move();  //用于变化x和y
@@ -37,6 +39,12 @@ public abstract class Unit {
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
 	}
 	
 	

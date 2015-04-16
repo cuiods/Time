@@ -34,7 +34,17 @@ public class PanelUnit extends JPanel implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getX()<=50){
-			this.addSwordman();
+			if(DataBase.Money >= DataBase.SWORDMAN_P){
+				this.addSwordman();
+			}
+		}else if(e.getX()<=100){
+			if(DataBase.Money >= DataBase.GUNNER_P){
+				this.addGunner();
+			}
+		}else if(e.getX()<=150){
+			if(DataBase.Money >= DataBase.CANNON_P){
+				this.addCannon();
+			}
 		}
 		
 		ButtonUnit.pressTime = 0;
@@ -61,16 +71,58 @@ public class PanelUnit extends JPanel implements MouseListener{
 	}
 	
 	/**
-	 * add sword man to enemyList
+	 * add sword man to playerList
 	 */
 	public void addSwordman(){
+		//create sword man
 		SwordMan swordman = new SwordMan();
-		DataBase.enemyList.add(swordman);
+		// set player
+		swordman.setKind(1);
+		// add to player list
+		DataBase.playerList.add(swordman);
 		
+		//start thread
 		Thread st = new Thread(swordman);
 		st.start();
 		
+		//deduct money
+		DataBase.Money-=DataBase.SWORDMAN_P;
+		
 		Controller.gameframe.repaint();
 	}
+	
+	/**
+	 * add sword man to playerList
+	 */
+	public void addGunner() {
+		Gunner gunner = new Gunner();
+		gunner.setKind(1);
+		DataBase.playerList.add(gunner);
+		
+		Thread st = new Thread(gunner);
+		st.start();
+		
+		DataBase.Money-=DataBase.GUNNER_P;
+		
+		Controller.gameframe.repaint();
+		
+	}
+	
+	/**
+	 * add cannon man to playerList
+	 */
+	public void addCannon(){
+		Cannon cannon = new Cannon();
+		cannon.setKind(1);
+		DataBase.playerList.add(cannon);
+		
+		Thread st = new Thread(cannon);
+		st.start();
+		
+		DataBase.Money-=DataBase.GUNNER_P;
+		
+		Controller.gameframe.repaint();
+	}
+
 	
 }

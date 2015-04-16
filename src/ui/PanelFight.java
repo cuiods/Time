@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 
 import dataBase.DataBase;
 import ui.button.*;
+import units.Cannon;
+import units.Gunner;
 import units.SwordMan;
 import units.Unit;
 
@@ -16,6 +18,7 @@ import units.Unit;
 public class PanelFight extends JPanel implements Runnable{
 
 	Image fightBackGround = null;
+	Image money = null;
 	ButtonExit butExit = null;
 	ButtonUnit butUnit = null;
 	static PanelUnit unitPanel = null;
@@ -26,6 +29,7 @@ public class PanelFight extends JPanel implements Runnable{
 		
 		//load background image
 		fightBackGround = new ImageIcon("graphics/background/fightbackground1.jpg").getImage();
+		money = new ImageIcon("graphics/info/money.png").getImage();
 		
 		//set buttons
 		this.setExitButton();
@@ -43,13 +47,9 @@ public class PanelFight extends JPanel implements Runnable{
 	@Override
 	public void paintComponent(Graphics g){
 		
-		//draw background
-		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
-		
-		/*
-		 * draw units
-		 */
-		this.drawUnits(g);
+		drawBackground(g);
+
+		drawUnits(g);
 		
 	}
 	
@@ -104,10 +104,16 @@ public class PanelFight extends JPanel implements Runnable{
 	 * draw solders, and so on 
 	 */
 	public void drawUnits(Graphics g){
-		for(Unit o:DataBase.enemyList){
+		for(Unit o:DataBase.playerList){
 			switch(o.getType()){
 			case 0:
 				drawSwordman(g,(SwordMan)o);
+				break;
+			case 1:
+				drawGunner(g,(Gunner)o);
+				break;
+			case 2:
+				drawCannon(g,(Cannon)o);
 				break;
 			}
 		}
@@ -119,6 +125,36 @@ public class PanelFight extends JPanel implements Runnable{
 	public void drawSwordman(Graphics g,SwordMan o){
 		Image swordman = new ImageIcon("graphics/soldiers/s1.png").getImage();
 		g.drawImage(swordman,o.getX(), o.getY(), 50, 80, this);
+	}
+	
+	/**
+	 * draw gunner
+	 */
+	public void drawGunner(Graphics g,Gunner o){
+		Image gunner = new ImageIcon("graphics/soldiers/s3.png").getImage();
+		g.drawImage(gunner,o.getX(), o.getY(), 50, 80, this);
+	}
+	
+	/**
+	 * draw cannon
+	 */
+	public void drawCannon(Graphics g,Cannon o){
+		Image cannon = new ImageIcon("graphics/soldiers/s2.png").getImage();
+		g.drawImage(cannon,o.getX(), o.getY(), 50, 80, this);
+	}
+	
+	/**
+	 * draw background
+	 */
+	public void drawBackground(Graphics g){
+		//show background image
+		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
+		//show money
+		g.drawImage(money, 360, 0, money.getWidth(this), money.getHeight(this), this);
+		g.setColor(Color.YELLOW);
+		Font myFont = new Font("",Font.BOLD,26);
+		g.setFont(myFont);
+		g.drawString(DataBase.Money+"", 480, 25);
 	}
 
 	/**

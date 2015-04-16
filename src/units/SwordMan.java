@@ -38,26 +38,26 @@ public class SwordMan extends Soldier implements Runnable{
 		//取出距离自己最近的那个敌人
 		Unit ce;
 		if(detect()!=-1){
-		if(this.kind==1){
-			 ce= db.enemyList.get(detect());
+			if(this.getKind()==1){
+				ce= db.enemyList.get(detect());
+			}else{
+				ce=db.playerList.get(detect());
+			}
+			int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
+			if(distance>db.SWORDMAN_AR){
+				return false;
+			}else{
+				return true;
+			}
 		}else{
-			 ce=db.playerList.get(detect());
-		}
-		int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
-		if(distance>db.SWORDMAN_AR){
-			return false;
-		}else{
-			return true;
-		}
-	}else{
 		return false;
-	}
+		}
 	}
 	
 	public void attack() {
 		//取出可以攻打的对象
 		Unit ce;
-		if(this.kind==1){
+		if(this.getKind()==1){
 			ce = db.enemyList.get(detect());
 
 			if(ce.hp>0){

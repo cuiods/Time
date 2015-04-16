@@ -16,15 +16,12 @@ public abstract class Soldier extends Unit{
 	 */
 	
 
-	//电脑的士兵代号为0 玩家的为1
-	int kind;//原谅我英语不好想不出合适的词0.0
-	
 	//找到距离swordman最小的敌人的index
 		public int detect() {
 
 			//to record the temporary minimum distance and its index
 			int temp=0;			
-			if(this.kind==1){
+			if(this.getKind()==1){
 				if(db.enemyList.size()!=0){
 					//初始值为距离列表中第一个敌人的距离
 					int minidistance= caldistance(this.x,db.enemyList.get(0).getX(),
