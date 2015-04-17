@@ -7,12 +7,14 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import ai.simpleAI;
 import dataBase.DataBase;
 import ui.button.*;
 import units.Cannon;
 import units.Gunner;
 import units.SwordMan;
 import units.Unit;
+import tools.Money;
 
 
 public class PanelFight extends JPanel implements Runnable{
@@ -43,7 +45,16 @@ public class PanelFight extends JPanel implements Runnable{
 		this.add(butUnit);
 		
 		//create and start AI  @niansong1996
-
+		/*
+		 * Test by Anthony
+		 */
+		simpleAI ai = new simpleAI();
+		Thread th = new Thread(ai);
+		th.start();
+		
+		Money mon = new Money();
+		Thread monTh = new Thread(mon);
+		monTh.start();
 	}
 	
 	@Override
@@ -52,6 +63,7 @@ public class PanelFight extends JPanel implements Runnable{
 		drawBackground(g);
 
 		drawUnits(g);
+	
 		
 	}
 	
@@ -198,6 +210,16 @@ public class PanelFight extends JPanel implements Runnable{
 		Font myFont = new Font("",Font.BOLD,26);
 		g.setFont(myFont);
 		g.drawString(DataBase.Money+"", 480, 25);
+		/*
+		 * µ˜ ‘”√ @Anthony
+		 */
+		for(int i=0;i<DataBase.enemyList.size();i++){
+		g.drawString(DataBase.enemyList.get(i).getHp()+"", 900, 20+40*i);
+		}
+		for(int i=0;i<DataBase.playerList.size();i++){
+			g.drawString(DataBase.playerList.get(i).getHp()+"", 900, 400+40*i);
+			}
+		
 	}
 
 	/**

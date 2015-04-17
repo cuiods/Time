@@ -20,7 +20,7 @@ public class FrameGame extends JFrame{
 //		
 //		this.setBounds(bounds);
 		
-		this.setUndecorated(true);
+		//sthis.setUndecorated(true);
 		this.setVisible(true);
 	}
 	

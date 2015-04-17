@@ -1,22 +1,67 @@
 package ai;
 
-public class simpleAI extends AI{
+import units.Unit;
 
+public class simpleAI extends AI implements Runnable{
 	@Override
 	public void detect() {
-		// TODO 自动生成的方法存根
-		
+		while(true){
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		execute(analyze());
+		}
 	}
 
 	@Override
 	public int analyze() {
-		// TODO 自动生成的方法存根
-		return 0;
+		Threat = 0;
+		int atk=0;
+		for(Unit u :db.playerList){
+			switch(u.getType()){
+			case 0: atk=1; break;
+			case 1: atk=3; break;
+			case 2: atk=5; break;
+			}
+			Threat+=u.getHp()*atk;
+		}
+		for(Unit u:db.enemyList){
+			switch(u.getType()){
+			case 0: atk=1; break;
+			case 1: atk=3; break;
+			case 2: atk=5; break;
+			}
+			Threat-=u.getHp()*atk*1.1;
+		} 
+		System.out.println(Threat);
+		return Threat;
+	}
+
+	public void execute(int Threat) {
+		AIcommander AIC = new AIcommander();
+		if(Threat>-30&&Threat<0&&Math.random()>0.98){
+			AIC.addSwordMan();
+			AIC.addGunner();
+		}else if(Threat>0&&Threat<20&&Math.random()>0.4){
+			AIC.addSwordMan();
+		}else if(Threat>=20&&Threat<80&&Math.random()>0.3){
+			AIC.addSwordMan();
+			AIC.addGunner();
+		}else if(Threat>=80&&Threat<150&&Math.random()>0.4){
+			AIC.addSwordMan();
+			AIC.addSwordMan();
+			AIC.addGunner();
+		}else if(Threat>=150&&Threat<300){
+			AIC.addCannon();
+		}
 	}
 
 	@Override
-	public void execute() {
-		// TODO 自动生成的方法存根
+	public void run() {
+		detect();
 		
 	}
 

@@ -4,8 +4,8 @@ import dataBase.DataBase;
 
 public abstract class Unit {
 	protected DataBase db;  //用于引用数据
-	protected int x = db.START_LOC_X_STG1;
-	protected int y = db.START_LOC_Y_STG1;
+	protected int x = 0;
+	protected int y = 0;
 	//士兵的种类（步兵0，火枪手1，火炮2）
 	private int type;
 	//电脑的士兵代号为0 玩家的为1
@@ -19,7 +19,7 @@ public abstract class Unit {
 	public abstract boolean canAttack();//用于检测距离自己最近的敌人是否在自己攻击范围内
 	public int caldistance(int x1,int x2,int y1,int y2){
 		
-		return (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);
+		return (int) Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 		
 	}
 	public int getX() {
@@ -45,6 +45,12 @@ public abstract class Unit {
 	}
 	public void setKind(int kind) {
 		this.kind = kind;
+	}
+	public int getHp(){
+		return hp;
+	}
+	public void setHp(int hp){
+		this.hp = hp;
 	}
 	
 	

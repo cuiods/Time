@@ -8,8 +8,8 @@ public class SwordMan extends Soldier implements Runnable{
 	
 	//initialization
 	public SwordMan(){
-    	this.x=db.START_LOC_X_STG1 ;
-    	this.y=db.START_LOC_Y_STG1;
+		x = db.START_LOC_X_STG1;
+		y = db.START_LOC_Y_STG1;
     	hp=db.SWORDMAN_HP;
     	setType(0);
     }
@@ -27,9 +27,14 @@ public class SwordMan extends Soldier implements Runnable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    		x+=db.SWORDMAN_SPD;
-    		y+=db.PATH_AGL_STG1*db.SWORDMAN_SPD;
-
+    		if(this.getKind()==1){
+    		x+=db.PATH_AGLX_STG1*db.SWORDMAN_SPD;
+    		y+=db.PATH_AGLY_STG1*db.SWORDMAN_SPD;
+    		}
+    		else{
+    			x+=db.PATH_AGLX_ENM*db.SWORDMAN_SPD;
+        		y+=db.PATH_AGLY_ENM*db.SWORDMAN_SPD;
+    		}
     	}
 
 	//判断与自己最近的敌人是否在攻击范围内
@@ -47,7 +52,9 @@ public class SwordMan extends Soldier implements Runnable{
 			if(distance>db.SWORDMAN_AR){
 				return false;
 			}else{
+				if(this.hp>0)
 				return true;
+				else return false;
 			}
 		}else{
 		return false;
@@ -59,8 +66,7 @@ public class SwordMan extends Soldier implements Runnable{
 		Unit ce;
 		if(this.getKind()==1){
 			ce = db.enemyList.get(detect());
-
-			if(ce.hp>0){
+			if(ce.hp>0&&this.hp>0){
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
@@ -73,7 +79,7 @@ public class SwordMan extends Soldier implements Runnable{
 			}
 		}else{
 			ce=db.playerList.get(detect());
-			if(ce.hp>0){
+			if(ce.hp>0&&this.hp>0){
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
@@ -89,8 +95,15 @@ public class SwordMan extends Soldier implements Runnable{
 
 	@Override
 	public void run() {
-
 			while(true){
+				if(this.hp<=0){
+					if(this.getKind()==0){
+						db.enemyList.remove(db.enemyList.indexOf(this));
+					}
+					else{
+						db.playerList.remove(db.playerList.indexOf(this));
+					}
+				}
 				if(canAttack()){
 					attack();
 				}else{

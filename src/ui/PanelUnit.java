@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import ai.simpleAI;
 import ui.button.ButtonUnit;
 import units.*;
 import dataBase.DataBase;

@@ -15,7 +15,7 @@ public class cleverAI extends AI{
 	}
 
 	@Override
-	public void execute() {
+	public void execute(int Threat) {
 		// TODO 自动生成的方法存根
 		
 	}

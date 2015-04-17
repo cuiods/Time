@@ -6,9 +6,8 @@ public class Gunner extends Soldier implements Runnable {
 
 		
 		public Gunner(){
-		
-			this.x=db.START_LOC_X_STG1;
-			this.y=db.START_LOC_Y_STG1;
+			x = db.START_LOC_X_STG1;
+			y = db.START_LOC_Y_STG1;
 		    hp=db.GUNNER_HP;
 		    setType(1);
 		}
@@ -18,6 +17,14 @@ public class Gunner extends Soldier implements Runnable {
 	@Override
 	public void run() {
 		while(true){
+			if(this.hp<=0){
+				if(this.getKind()==0){
+					db.enemyList.remove(db.enemyList.indexOf(this));
+				}
+				else{
+					db.playerList.remove(db.playerList.indexOf(this));
+				}
+			}
 			if(canAttack()){
 				attack();
 			}else{
@@ -35,9 +42,14 @@ public class Gunner extends Soldier implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    		x+=db.GUNNER_SPD;
-    		y+=db.PATH_AGL_STG1 *db.GUNNER_SPD;
-
+	    	if(this.getKind()==1){
+	    		x+=db.PATH_AGLX_STG1*db.GUNNER_SPD;
+	    		y+=db.PATH_AGLY_STG1*db.GUNNER_SPD;
+	    		}
+	    		else{
+	    			x+=db.PATH_AGLX_ENM*db.GUNNER_SPD;
+	        		y+=db.PATH_AGLY_ENM*db.GUNNER_SPD;
+	    		}
 	}
 		
 	
@@ -56,7 +68,9 @@ public class Gunner extends Soldier implements Runnable {
 			if(distance>db.GUNNER_AR){
 				return false;
 			}else{
-				return true;
+				if(this.hp>0)
+					return true;
+					else return false;
 			}
 		}else{
 			return false;
@@ -64,12 +78,11 @@ public class Gunner extends Soldier implements Runnable {
 	}
 	@Override
 	public void attack() {
-
 		//取出可以攻打的对象
 		Unit ce;
 		if(this.getKind()==1){
 			ce = db.enemyList.get(detect());
-			if(ce.hp>0){
+			if(ce.hp>0&&this.hp>0){
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
@@ -82,7 +95,7 @@ public class Gunner extends Soldier implements Runnable {
 			}
 		}else{
 			ce=db.playerList.get(detect());
-			if(ce.hp>0){
+			if(ce.hp>0&&this.hp>0){
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
