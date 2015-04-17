@@ -2,17 +2,22 @@ package ui;
 
 import gamecontrol.Controller;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import dataBase.DataBase;
-import ui.button.*;
+import tools.PicturePlayer;
+import ui.button.ButtonExit;
+import ui.button.ButtonUnit;
 import units.Cannon;
 import units.Gunner;
 import units.SwordMan;
 import units.Unit;
+import dataBase.DataBase;
 
 
 public class PanelFight extends JPanel implements Runnable{
@@ -154,6 +159,7 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(swordman0,o.getX(), o.getY(), 50, 80, this);
 			break;
 		}
+		
 	}
 	
 	/**
