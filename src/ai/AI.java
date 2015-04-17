@@ -1,8 +1,9 @@
 package ai;
-
+import dataBase.DataBase;
 public abstract class AI {
-	public int Threat;
+	DataBase db = new DataBase();
+	public int Threat=0;
 	public abstract void detect();
 	public abstract int analyze();
-	public abstract void execute();  
+	public abstract void execute(int Threat);  
 }
