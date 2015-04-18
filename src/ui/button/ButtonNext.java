@@ -1,12 +1,17 @@
 package ui.button;
 import gamecontrol.Controller;
 
-import javax.swing.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import ui.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-import java.awt.*;
-import java.awt.event.*;
+import ui.PanelFight;
+import ui.Panelstory2;
+import ui.Panelstory3;
 public class ButtonNext extends JLabel implements MouseListener{
      Image buttonImage;
      int flag;
@@ -33,6 +38,9 @@ public class ButtonNext extends JLabel implements MouseListener{
 			Controller.gameframe.storyPlayer.third.setVisible(false);
 			Controller.gameframe.fightPanel= new PanelFight();
 			Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+			
+			Thread fp = new Thread(Controller.gameframe.fightPanel);
+			fp.start();
 		}
 	}
 

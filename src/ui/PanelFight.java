@@ -176,6 +176,14 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(swordman0,o.getX(), o.getY(), 50, 80, this);
 			break;
 		}
+		//draw life
+		int lifePercentage = (int)(50 * (o.getHp()/DataBase.SWORDMAN_HP));
+		g.setColor(Color.GREEN);
+		g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
+		if(lifePercentage!=50){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20, 50-lifePercentage, 5, false);
+		}
 		
 	}
 	
@@ -192,6 +200,14 @@ public class PanelFight extends JPanel implements Runnable{
 			Image gunner0 = new ImageIcon("graphics/soldiers/soldier2.png").getImage();
 			g.drawImage(gunner0,o.getX(), o.getY(), 50, 80, this);
 		}
+		//draw life
+		int lifePercentage = (int)(50 * (o.getHp()/DataBase.GUNNER_HP));
+		g.setColor(Color.GREEN);
+		g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
+		if(lifePercentage!=50){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20, 50-lifePercentage, 5, false);
+		}
 	}
 	
 	/**
@@ -206,6 +222,14 @@ public class PanelFight extends JPanel implements Runnable{
 		case 0:
 			Image cannon0 = new ImageIcon("graphics/soldiers/soldier3.png").getImage();
 			g.drawImage(cannon0,o.getX(), o.getY(), 50, 80, this);
+		}
+		//draw life
+	    int lifePercentage = (int)(50 * (o.getHp()/DataBase.CANNON_HP));
+		g.setColor(Color.GREEN);
+	    g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
+		if(lifePercentage!=50){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20, 50-lifePercentage, 5, false);
 		}
 	}
 	
@@ -224,12 +248,12 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * µ˜ ‘”√ @Anthony
 		 */
-		for(int i=0;i<DataBase.enemyList.size();i++){
-		g.drawString(DataBase.enemyList.get(i).getHp()+"", 900, 20+40*i);
-		}
-		for(int i=0;i<DataBase.playerList.size();i++){
-			g.drawString(DataBase.playerList.get(i).getHp()+"", 900, 400+40*i);
-			}
+//		for(int i=0;i<DataBase.enemyList.size();i++){
+//		g.drawString(DataBase.enemyList.get(i).getHp()+"", 900, 20+40*i);
+//		}
+//		for(int i=0;i<DataBase.playerList.size();i++){
+//			g.drawString(DataBase.playerList.get(i).getHp()+"", 900, 400+40*i);
+//			}
 		
 	}
 
