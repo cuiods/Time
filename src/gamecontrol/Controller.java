@@ -11,6 +11,7 @@ import ui.*;
 public class Controller {
 	
 	public static FrameGame gameframe = null;
+	
 	public Controller(){}
 	
 	/**
