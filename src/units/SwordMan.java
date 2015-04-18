@@ -22,7 +22,7 @@ public class SwordMan extends Soldier implements Runnable{
 	public void move()  {
 
     		try {
-				Thread.sleep(200);
+				Thread.sleep(150);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

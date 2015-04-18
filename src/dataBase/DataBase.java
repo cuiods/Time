@@ -9,15 +9,15 @@ public class DataBase {
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
 	//Parameters for stage1
 	public static final int CASTLE_HP_STG1 = 300;//我方城堡的生命值
-	public static final int START_LOC_X_STG1 = 0;//设置第一关的出发位置
-	public static final int START_LOC_Y_STG1 = 550;
-	public static final int PATH_AGLX_STG1 = 1;//设置第一关路径的斜率
+	public static final int START_LOC_X_STG1 = 50;//设置第一关的出发位置
+	public static final int START_LOC_Y_STG1 = 500;
+	public static final int PATH_AGLX_STG1 = 2;//设置第一关路径的斜率
 	public static final int PATH_AGLY_STG1 = -1;
 	
 	public static final int CASTLE_HP_ENM = 200;//敌方城堡的生命值
-	public static final int START_LOC_X_ENM = 550;//设置第一关敌人的出发位置
-	public static final int START_LOC_Y_ENM = 0;
-	public static final int PATH_AGLX_ENM = -1;//设置第一关敌人路径的斜率
+	public static final int START_LOC_X_ENM = 950;//设置第一关敌人的出发位置
+	public static final int START_LOC_Y_ENM = 50;
+	public static final int PATH_AGLX_ENM = -2;//设置第一关敌人路径的斜率
 	public static final int PATH_AGLY_ENM = 1;
 	//General parameters for the game
 	public static int Money = 2000; //记录玩家当前的金钱数

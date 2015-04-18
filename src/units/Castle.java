@@ -48,7 +48,7 @@ public class Castle extends Unit implements Runnable{
 			}
 			
 			try {
-				Thread.sleep(100);
+				Thread.sleep(500);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

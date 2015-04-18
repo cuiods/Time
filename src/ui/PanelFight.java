@@ -248,11 +248,11 @@ public class PanelFight extends JPanel implements Runnable{
 	 * draw castle
 	 */
 	public void drawCastle(Graphics g,Castle o){
-		Image castle = new ImageIcon("graphics/soldiers/castle.png").getImage();
 		
 		//show life
 		if(o.getKind() == 0){
-			g.drawImage(castle,o.getX(), o.getY(), 200, 200, this);
+			Image ecastle = new ImageIcon("graphics/soldiers/ecastle.png").getImage();
+			g.drawImage(ecastle,o.getX()-50, o.getY()-50, 200, 200, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(625, 30, lifePercent, 20, false);
@@ -262,7 +262,8 @@ public class PanelFight extends JPanel implements Runnable{
 				
 			}
 		}else if(o.getKind() == 1){
-			g.drawImage(castle,o.getX(), o.getY()-150, 200, 200, this);
+			Image castle = new ImageIcon("graphics/soldiers/castle.png").getImage();
+			g.drawImage(castle,o.getX()-60, o.getY()-80, 200, 200, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(360-lifePercent, 30, lifePercent, 20, false);
