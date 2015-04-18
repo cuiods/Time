@@ -8,13 +8,13 @@ public class DataBase {
 	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
 	//Parameters for stage1
-	public static final int CASTLE_HP_STG1 = 300;//我方城堡的生命值
+	public static final int CASTLE_HP_STG1 = 3000;//我方城堡的生命值
 	public static final int START_LOC_X_STG1 = 50;//设置第一关的出发位置
 	public static final int START_LOC_Y_STG1 = 500;
 	public static final int PATH_AGLX_STG1 = 2;//设置第一关路径的斜率
 	public static final int PATH_AGLY_STG1 = -1;
 	
-	public static final int CASTLE_HP_ENM = 200;//敌方城堡的生命值
+	public static final int CASTLE_HP_ENM = 2000;//敌方城堡的生命值
 	public static final int START_LOC_X_ENM = 950;//设置第一关敌人的出发位置
 	public static final int START_LOC_Y_ENM = 50;
 	public static final int PATH_AGLX_ENM = -2;//设置第一关敌人路径的斜率
@@ -29,11 +29,11 @@ public class DataBase {
 	public static boolean Tech_4 = false;
 	public static boolean Tech_5 = false;
 	//Parameters for Tech_1
-	public static final int Tech_1_P = 2000;//效果：能造cannon了
+	public static final int Tech_1_P = 1000;//效果：能造cannon了
 	//Parameters for Tech_2
-	public static final int Tech_2_P = 4000;//效果：让金钱增长速度变成1.5倍
+	public static final int Tech_2_P = 2500;//效果：让金钱增长速度变成1.5倍
 	//Parameters for Tech_3
-	public static final int Tech_3_p = 3000;//效果：随机摧毁敌人80%的单位
+	public static final int Tech_3_p = 1500;//效果：随机摧毁敌人80%的单位
 		
 	public static final int SWORDMAN_P = 100;//the price of swordman
 	public static final int SWORDMAN_HP = 50;//The health point of swordman

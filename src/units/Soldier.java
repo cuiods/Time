@@ -57,6 +57,120 @@ public abstract class Soldier extends Unit{
 					}
 				}
 		}
+		public void run() {
+			while(true){
+//				if(this.hp<=0){
+//					if(this.getKind()==0){
+//						db.enemyList.remove(db.enemyList.indexOf(this));
+//					}
+//					else{
+//						db.playerList.remove(db.playerList.indexOf(this));
+//					}
+//				}
+				if(canAttack()){
+					attack();
+					
+				}else{
+					move();
+				}
+			}
+		}
+
+		@Override
+		public void move() {
+			int spd=0;
+			switch(this.getType()){
+			case 0:spd = db.SWORDMAN_SPD;break;
+			case 1:spd = db.GUNNER_SPD;break;
+			case 2:spd = db.CANNON_SPD;break;
+			}
+
+		    	try {
+					Thread.sleep(150);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    	if(this.getKind()==1){
+		    		x+=db.PATH_AGLX_STG1*spd;
+		    		y+=db.PATH_AGLY_STG1*spd;
+		    		}
+		    		else{
+		    			x+=db.PATH_AGLX_ENM*spd;
+		        		y+=db.PATH_AGLY_ENM*spd;
+		    		}
+		}
+			
+		
+		
+		//判断与自己最近的敌人是否在攻击范围内
+		public boolean canAttack(){
+			int ar=0;
+			switch(this.getType()){
+			case 0:ar = db.SWORDMAN_AR;break;
+			case 1:ar = db.GUNNER_AR;break;
+			case 2:ar = db.CANNON_AR;break;
+			}
+			//取出距离自己最近的那个敌人
+			Unit ce;
+			if(detect()!=-1){
+				if(this.getKind()==1){
+					 ce= db.enemyList.get(detect());
+				}else{
+					 ce=db.playerList.get(detect());
+				}
+				int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
+				if(distance>ar){
+					return false;
+				}else{
+					if(this.hp>0)
+						return true;
+						else return false;
+				}
+			}else{
+				return false;
+			}
+		}
+		@Override
+		public void attack() {
+			int atk=0;
+			switch(this.getType()){
+			case 0:atk = db.SWORDMAN_ATK;break;
+			case 1:atk = db.GUNNER_ATK;break;
+			case 2:atk = db.CANNON_ATK;break;
+			}
+			//取出可以攻打的对象
+			Unit ce;
+			if(this.getKind()==1){
+				ce = db.enemyList.get(detect());
+				if(ce.hp>0&&this.hp>0){
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					ce.hp-=atk;
+				}else{
+					db.enemyList.remove(ce);
+				}
+			}else{
+				ce=db.playerList.get(detect());
+				if(ce.hp>0&&this.hp>0){
+					try {
+						Thread.sleep(50);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					ce.hp-=atk;
+				}else{
+					db.playerList.remove(ce);
+				}
+			}
+			
+			
+		}
 		
 	
 }
