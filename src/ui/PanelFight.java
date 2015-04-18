@@ -177,7 +177,7 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		}
 		//draw life
-		int lifePercentage = (int)(50 * (o.getHp()/DataBase.SWORDMAN_HP));
+		int lifePercentage = (int)(50 * 1.0*(o.getHp()*1.00/DataBase.SWORDMAN_HP));
 		g.setColor(Color.GREEN);
 		g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
 		if(lifePercentage!=50){
@@ -201,7 +201,7 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(gunner0,o.getX(), o.getY(), 50, 80, this);
 		}
 		//draw life
-		int lifePercentage = (int)(50 * (o.getHp()/DataBase.GUNNER_HP));
+		int lifePercentage = (int)(50 *1.0* (o.getHp()*1.00/DataBase.GUNNER_HP));
 		g.setColor(Color.GREEN);
 		g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
 		if(lifePercentage!=50){
@@ -224,7 +224,7 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(cannon0,o.getX(), o.getY(), 50, 80, this);
 		}
 		//draw life
-	    int lifePercentage = (int)(50 * (o.getHp()/DataBase.CANNON_HP));
+	    int lifePercentage = (int)(50 * 1.0*(o.getHp()*1.0/DataBase.CANNON_HP));
 		g.setColor(Color.GREEN);
 	    g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
 		if(lifePercentage!=50){
