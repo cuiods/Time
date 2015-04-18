@@ -96,14 +96,14 @@ public class SwordMan extends Soldier implements Runnable{
 	@Override
 	public void run() {
 			while(true){
-				if(this.hp<=0){
-					if(this.getKind()==0){
-						db.enemyList.remove(db.enemyList.indexOf(this));
-					}
-					else{
-						db.playerList.remove(db.playerList.indexOf(this));
-					}
-				}
+//				if(this.hp<=0){
+//					if(this.getKind()==0){
+//						db.enemyList.remove(db.enemyList.indexOf(this));
+//					}
+//					else{
+//						db.playerList.remove(db.playerList.indexOf(this));
+//					}
+//				}
 				if(canAttack()){
 					attack();
 				}else{
