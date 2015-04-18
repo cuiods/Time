@@ -43,7 +43,7 @@ public class PanelUnit extends JPanel implements MouseListener{
 				this.addGunner();
 			}
 		}else if(e.getX()<=150){
-			if(DataBase.Money >= DataBase.CANNON_P){
+			if(DataBase.Money >= DataBase.CANNON_P&&DataBase.Tech_1){
 				this.addCannon();
 			}
 		}

@@ -34,7 +34,7 @@ public class PanelFight extends JPanel implements Runnable{
 	ButtonExit butExit = null;
 	ButtonUnit butUnit = null;
 	static PanelUnit unitPanel = null;
-	
+	static PanelScience sciencePanel = null;
 	static boolean panelUnitExist = false;
 	
 	public PanelFight(){
@@ -47,12 +47,17 @@ public class PanelFight extends JPanel implements Runnable{
 		this.setExitButton();
 		this.setUnitButton();
 		
+		//set science panel
+		sciencePanel = new PanelScience();
+		sciencePanel.addMouseListener(sciencePanel);
+		
 		//clear Layout
 		this.setLayout(null);
 		
-		//add buttons
+		//add components
 		this.add(butExit);
 		this.add(butUnit);
+		this.add(sciencePanel);
 		
 		//create and start AI  @niansong1996
 		/*
