@@ -10,20 +10,16 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import tools.PicturePlayer;
+import tools.Money;
 import ui.button.ButtonExit;
 import ui.button.ButtonUnit;
-
-import ai.simpleAI;
-import dataBase.DataBase;
-import ui.button.*;
-
 import units.Cannon;
+import units.Castle;
 import units.Gunner;
 import units.SwordMan;
 import units.Unit;
-
-import tools.Money;
+import ai.simpleAI;
+import dataBase.DataBase;
 
 
 
@@ -42,6 +38,9 @@ public class PanelFight extends JPanel implements Runnable{
 		//load background image
 		fightBackGround = new ImageIcon("graphics/background/fightbackground1.jpg").getImage();
 		money = new ImageIcon("graphics/info/money.png").getImage();
+		
+		//set castles
+		this.setCastle();
 		
 		//set buttons
 		this.setExitButton();
@@ -147,6 +146,9 @@ public class PanelFight extends JPanel implements Runnable{
 			case 2:
 				drawCannon(g,(Cannon)o);
 				break;
+			default:
+				drawCastle(g, (Castle) o);
+				break;
 			}
 		}
 		/*
@@ -163,6 +165,10 @@ public class PanelFight extends JPanel implements Runnable{
 			case 2:
 				drawCannon(g,(Cannon)o);
 				break;
+			default:
+				drawCastle(g, (Castle) o);
+				break;
+				
 			}
 		}
 	}
@@ -238,6 +244,51 @@ public class PanelFight extends JPanel implements Runnable{
 		}
 	}
 	
+	/**
+	 * draw castle
+	 */
+	public void drawCastle(Graphics g,Castle o){
+		Image castle = new ImageIcon("graphics/soldiers/castle.png").getImage();
+		
+		//show life
+		if(o.getKind() == 0){
+			g.drawImage(castle,o.getX(), o.getY(), 200, 200, this);
+			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
+			g.setColor(Color.GREEN);
+			g.fill3DRect(625, 0, lifePercent, 20, false);
+			if(lifePercent!=200){
+				g.setColor(Color.RED);
+				g.fill3DRect(625+lifePercent, 0, 200-lifePercent, 20, false);			
+				
+			}
+		}else if(o.getKind() == 1){
+			g.drawImage(castle,o.getX(), o.getY()-150, 200, 200, this);
+			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
+			g.setColor(Color.GREEN);
+			g.fill3DRect(360-lifePercent, 0, lifePercent, 20, false);
+			if(lifePercent!=200){
+				g.setColor(Color.RED);
+				g.fill3DRect(160, 0, 200-lifePercent, 20, false);			
+				
+			}
+		}
+	}
+	
+	public void setCastle(){
+		Castle mycastle = new Castle();
+		mycastle.setKind(1);
+		
+		Thread cp1 = new Thread(mycastle);
+		cp1.start();
+		DataBase.playerList.add(mycastle);
+		
+		Castle enemycastle = new Castle();
+		Thread cp2 = new Thread(enemycastle);
+		cp2.start();
+		enemycastle.setX(DataBase.START_LOC_X_ENM-80);
+		enemycastle.setY(DataBase.START_LOC_Y_ENM+50);
+		DataBase.enemyList.add(enemycastle);
+	}
 	/**
 	 * draw background
 	 */

@@ -32,13 +32,13 @@ public class PanelScience extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(e.getX()<=40&&(!DataBase.Tech_1)){
+		if(e.getX()<=40&&(!DataBase.Tech_1)&&(DataBase.Money-DataBase.Tech_1_P>=0)){
 			new Tech1();
 			DataBase.Money -= DataBase.Tech_1_P;
-		}else if(e.getX()<=80&&(!DataBase.Tech_2)){
+		}else if(e.getX()<=80&&(!DataBase.Tech_2)&&(e.getX()>40)&&(DataBase.Money-DataBase.Tech_2_P>=0)){
 			new Tech2();
 			DataBase.Money -= DataBase.Tech_2_P;
-		}else if(e.getX()<=120){
+		}else if(e.getX()<=120&&(e.getX()>80)&&(DataBase.Money-DataBase.Tech_3_p>=0)){
 			new Tech3();
 			DataBase.Money -= DataBase.Tech_3_p;
 		}
