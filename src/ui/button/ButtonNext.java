@@ -17,16 +17,16 @@ public class ButtonNext extends JLabel implements MouseListener{
      int flag;
      static boolean isIn = false;
      public ButtonNext(int f){
-    	 buttonImage = new ImageIcon("graphics/button/nextButton.png").getImage();
+    	 buttonImage = new ImageIcon("graphics/button/next.png").getImage();
     	 this.setBounds(900, 500, 50, 50);
     	 this.flag=f;
      }
      
      public void paintComponent(Graphics g){
     	 if(!isIn){
-    		 buttonImage = new ImageIcon("graphics/button/nextButton.png").getImage();
+    		 buttonImage = new ImageIcon("graphics/button/next.png").getImage();
     	 }else{
-    		 buttonImage = new ImageIcon("graphics/button/nextButton1.png").getImage();
+    		 buttonImage = new ImageIcon("graphics/button/next1.png").getImage();
     	 }
     	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
      }
