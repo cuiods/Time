@@ -7,9 +7,8 @@ public class Cannon extends Soldier implements Runnable {
 		
 
 		public Cannon(){
-			
-			this.x=db.START_LOC_X_STG1;
-			this.y=db.START_LOC_Y_STG1;
+			x = db.START_LOC_X_STG1;
+			y = db.START_LOC_Y_STG1;
 			hp=db.CANNON_HP;
 			setType(2);
 		}
@@ -18,6 +17,14 @@ public class Cannon extends Soldier implements Runnable {
 	@Override
 	public void run() {
 		while(true){
+			if(this.hp<=0){
+				if(this.getKind()==0){
+					db.enemyList.remove(db.enemyList.indexOf(this));
+				}
+				else{
+					db.playerList.remove(db.playerList.indexOf(this));
+				}
+			}
 			if(canAttack()){
 				attack();
 			}else{
@@ -36,8 +43,14 @@ public class Cannon extends Soldier implements Runnable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			    x+=db.CANNON_SPD;
-			    y+=db.PATH_AGL_STG1*db.CANNON_SPD;
+				if(this.getKind()==1){
+		    		x+=db.PATH_AGLX_STG1*db.CANNON_SPD;
+		    		y+=db.PATH_AGLY_STG1*db.CANNON_SPD;
+		    		}
+		    		else{
+		    			x+=db.PATH_AGLX_ENM*db.CANNON_SPD;
+		        		y+=db.PATH_AGLY_ENM*db.CANNON_SPD;
+		    		}
 			
 		}
 	}
@@ -57,7 +70,9 @@ public class Cannon extends Soldier implements Runnable {
 			if(distance>db.GUNNER_AR){
 				return false;
 			}else{
-				return true;
+				if(this.hp>0)
+					return true;
+					else return false;
 			}
 		}else{
 			return false;
@@ -70,7 +85,7 @@ public class Cannon extends Soldier implements Runnable {
 		Unit ce;
 		if(this.getKind()==1){
 			ce = db.enemyList.get(detect());
-			if(ce.hp>0){
+			if(ce.hp>0&&this.hp>0){
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
@@ -83,7 +98,7 @@ public class Cannon extends Soldier implements Runnable {
 			}
 		}else{
 			ce=db.playerList.get(detect());
-			if(ce.hp>0){
+			if(ce.hp>0&&this.hp>0){
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
