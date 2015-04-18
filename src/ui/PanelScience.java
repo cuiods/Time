@@ -17,7 +17,7 @@ public class PanelScience extends JPanel implements MouseListener{
 	
 	Image image = new ImageIcon("graphics/info/tech.png").getImage();
 	public PanelScience() {
-		this.setBounds(20,0, 120, 40);
+		this.setBounds(20,50, 120, 40);
 	}
 
 	@Override

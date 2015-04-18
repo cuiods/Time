@@ -18,7 +18,7 @@ public class PanelUnit extends JPanel implements MouseListener{
 	
 	Image image = new ImageIcon("graphics/soldiers/unit1.png").getImage();
 	public PanelUnit(){
-		this.setBounds(70, 50, 150, 60);
+		this.setBounds(70, 100, 150, 60);
 	}
 
 	@Override

@@ -255,20 +255,20 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(castle,o.getX(), o.getY(), 200, 200, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM));
 			g.setColor(Color.GREEN);
-			g.fill3DRect(625, 0, lifePercent, 20, false);
+			g.fill3DRect(625, 30, lifePercent, 20, false);
 			if(lifePercent!=200){
 				g.setColor(Color.RED);
-				g.fill3DRect(625+lifePercent, 0, 200-lifePercent, 20, false);			
+				g.fill3DRect(625+lifePercent, 30, 200-lifePercent, 20, false);			
 				
 			}
 		}else if(o.getKind() == 1){
 			g.drawImage(castle,o.getX(), o.getY()-150, 200, 200, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 			g.setColor(Color.GREEN);
-			g.fill3DRect(360-lifePercent, 0, lifePercent, 20, false);
+			g.fill3DRect(360-lifePercent, 30, lifePercent, 20, false);
 			if(lifePercent!=200){
 				g.setColor(Color.RED);
-				g.fill3DRect(160, 0, 200-lifePercent, 20, false);			
+				g.fill3DRect(160, 30, 200-lifePercent, 20, false);			
 				
 			}
 		}
@@ -297,11 +297,11 @@ public class PanelFight extends JPanel implements Runnable{
 		//show background image
 		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 		//show money
-		g.drawImage(money, 360, 0, money.getWidth(this), money.getHeight(this), this);
+		g.drawImage(money, 360, 0,260, 80, this);
 		g.setColor(Color.YELLOW);
 		Font myFont = new Font("",Font.BOLD,26);
 		g.setFont(myFont);
-		g.drawString(DataBase.Money+"", 480, 25);
+		g.drawString(DataBase.Money+"", 500, 50);
 		/*
 		 * µ˜ ‘”√ @Anthony
 		 */
