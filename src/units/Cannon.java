@@ -35,25 +35,24 @@ public class Cannon extends Soldier implements Runnable {
 
 	@Override
 	public void move() {
-		while(true){
-			
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if(this.getKind()==1){
-		    		x+=db.PATH_AGLX_STG1*db.CANNON_SPD;
-		    		y+=db.PATH_AGLY_STG1*db.CANNON_SPD;
-		    		}
-		    		else{
-		    			x+=db.PATH_AGLX_ENM*db.CANNON_SPD;
-		        		y+=db.PATH_AGLY_ENM*db.CANNON_SPD;
-		    		}
-			
-		}
+
+	    	try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	if(this.getKind()==1){
+	    		x+=db.PATH_AGLX_STG1*db.CANNON_SPD;
+	    		y+=db.PATH_AGLY_STG1*db.CANNON_SPD;
+	    		}
+	    		else{
+	    			x+=db.PATH_AGLX_ENM*db.CANNON_SPD;
+	        		y+=db.PATH_AGLY_ENM*db.CANNON_SPD;
+	    		}
 	}
+		
+	
 	
 	//判断与自己最近的敌人是否在攻击范围内
 	public boolean canAttack(){
@@ -65,9 +64,8 @@ public class Cannon extends Soldier implements Runnable {
 			}else{
 				 ce=db.playerList.get(detect());
 			}
-			
 			int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
-			if(distance>db.GUNNER_AR){
+			if(distance>db.CANNON_AR){
 				return false;
 			}else{
 				if(this.hp>0)
@@ -80,7 +78,6 @@ public class Cannon extends Soldier implements Runnable {
 	}
 	@Override
 	public void attack() {
-
 		//取出可以攻打的对象
 		Unit ce;
 		if(this.getKind()==1){
@@ -110,6 +107,7 @@ public class Cannon extends Soldier implements Runnable {
 				db.playerList.remove(ce);
 			}
 		}
+		
 		
 	}
 

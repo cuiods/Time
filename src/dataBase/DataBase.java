@@ -50,6 +50,6 @@ public class DataBase {
 	public static final int CANNON_P = 1000;
 	public static final int CANNON_HP = 50;
 	public static final int CANNON_ATK = 5;
-	public static final int CANNON_AR = 400;
+	public static final int CANNON_AR = 180;
 	public static final int CANNON_SPD = 1;
 }
