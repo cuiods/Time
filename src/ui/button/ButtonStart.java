@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import ui.PanelFight;
+import ui.Panelstory1;
 
 public class ButtonStart extends JLabel implements MouseListener{
 
@@ -40,24 +41,28 @@ public class ButtonStart extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+	
+//		Controller.gameframe.startPanel.setVisible(false);
+//		Controller.gameframe.fightPanel = new PanelFight();
+//		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+//		
+//		Thread ft = new Thread(Controller.gameframe.fightPanel);
+//		ft.start();
 		Controller.gameframe.startPanel.setVisible(false);
-		Controller.gameframe.fightPanel = new PanelFight();
-		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-		
-		Thread ft = new Thread(Controller.gameframe.fightPanel);
-		ft.start();
+		Controller.gameframe.storyPlayer.first = new Panelstory1();
+		Controller.gameframe.setContentPane(Controller.gameframe.storyPlayer.first);
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
-		Controller.gameframe.startPanel.setVisible(false);
-		Controller.gameframe.fightPanel = new PanelFight();
-		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-		
-		Thread ft = new Thread(Controller.gameframe.fightPanel);
-		ft.start();
+//		Controller.gameframe.startPanel.setVisible(false);
+//		Controller.gameframe.fightPanel = new PanelFight();
+//		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+//		
+//		Thread ft = new Thread(Controller.gameframe.fightPanel);
+//		ft.start();
 		
 		//full screen (if needed)
 //		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(); 

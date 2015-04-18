@@ -8,6 +8,7 @@ public class FrameGame extends JFrame{
 
 	public PanelStart startPanel = null;
 	public PanelFight fightPanel = null;
+    public StoryPlayer storyPlayer = null;
 	
 	public FrameGame(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
