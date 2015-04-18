@@ -253,7 +253,7 @@ public class PanelFight extends JPanel implements Runnable{
 		//show life
 		if(o.getKind() == 0){
 			g.drawImage(castle,o.getX(), o.getY(), 200, 200, this);
-			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
+			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(625, 0, lifePercent, 20, false);
 			if(lifePercent!=200){
@@ -283,6 +283,7 @@ public class PanelFight extends JPanel implements Runnable{
 		DataBase.playerList.add(mycastle);
 		
 		Castle enemycastle = new Castle();
+		enemycastle.setHp(DataBase.CASTLE_HP_ENM);
 		Thread cp2 = new Thread(enemycastle);
 		cp2.start();
 		enemycastle.setX(DataBase.START_LOC_X_ENM-80);
