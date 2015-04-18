@@ -36,20 +36,20 @@ public class DataBase {
 	public static final int Tech_3_p = 3000;//Ð§¹û£ºËæ»ú´Ý»ÙµÐÈË80%µÄµ¥Î»
 		
 	public static final int SWORDMAN_P = 100;//the price of swordman
-	public static final int SWORDMAN_HP = 10;//The health point of swordman
+	public static final int SWORDMAN_HP = 50;//The health point of swordman
 	public static final int SWORDMAN_ATK = 1;//the attacking point of swordman
-	public static final int SWORDMAN_AR = 20;//¹¥»÷·¶Î§ attacking range
+	public static final int SWORDMAN_AR = 60;//¹¥»÷·¶Î§ attacking range
 	public static final int SWORDMAN_SPD = 4;//speed
 	
 	public static final int GUNNER_P = 300;
-	public static final int GUNNER_HP = 7;
+	public static final int GUNNER_HP = 21;
 	public static final int GUNNER_ATK = 3;
-	public static final int GUNNER_AR = 30;
+	public static final int GUNNER_AR = 120;
 	public static final int GUNNER_SPD = 3;
 	
 	public static final int CANNON_P = 1000;
-	public static final int CANNON_HP = 15;
+	public static final int CANNON_HP = 50;
 	public static final int CANNON_ATK = 5;
-	public static final int CANNON_AR = 80;
+	public static final int CANNON_AR = 400;
 	public static final int CANNON_SPD = 1;
 }

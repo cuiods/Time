@@ -45,16 +45,16 @@ public class simpleAI extends AI implements Runnable{
 		if(Threat>-30&&Threat<0&&Math.random()>0.98){
 			AIC.addSwordMan();
 			AIC.addGunner();
-		}else if(Threat>0&&Threat<20&&Math.random()>0.4){
+		}else if(Threat>0&&Threat<200&&Math.random()>0.4){
 			AIC.addSwordMan();
-		}else if(Threat>=20&&Threat<80&&Math.random()>0.3){
+		}else if(Threat>=200&&Threat<240&&Math.random()>0.3){
+			AIC.addSwordMan();
+			AIC.addSwordMan();
+		}else if(Threat>=240&&Threat<450&&Math.random()>0.4){
+			AIC.addSwordMan();
 			AIC.addSwordMan();
 			AIC.addGunner();
-		}else if(Threat>=80&&Threat<150&&Math.random()>0.4){
-			AIC.addSwordMan();
-			AIC.addSwordMan();
-			AIC.addGunner();
-		}else if(Threat>=150&&Threat<300){
+		}else if(Threat>=450&&Threat<900){
 			AIC.addCannon();
 		}
 	}
