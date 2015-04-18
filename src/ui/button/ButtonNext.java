@@ -15,6 +15,7 @@ import ui.Panelstory3;
 public class ButtonNext extends JLabel implements MouseListener{
      Image buttonImage;
      int flag;
+     static boolean isIn = false;
      public ButtonNext(int f){
     	 buttonImage = new ImageIcon("graphics/button/nextButton.png").getImage();
     	 this.setBounds(900, 500, 50, 50);
@@ -22,6 +23,11 @@ public class ButtonNext extends JLabel implements MouseListener{
      }
      
      public void paintComponent(Graphics g){
+    	 if(!isIn){
+    		 buttonImage = new ImageIcon("graphics/button/nextButton.png").getImage();
+    	 }else{
+    		 buttonImage = new ImageIcon("graphics/button/nextButton1.png").getImage();
+    	 }
     	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
      }
 	@Override
@@ -46,13 +52,15 @@ public class ButtonNext extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		isIn = true;
+		this.repaint();
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		isIn = false;
+		this.repaint();
 		
 	}
 

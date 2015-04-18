@@ -15,14 +15,14 @@ public class ButtonClassic extends JLabel implements MouseListener{
 	static boolean isIn = false;
 	
 	public ButtonClassic(){
-		filepath = "graphics/button/classicButton.png";
+		filepath = "graphics/button/classicbutton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
 		this.setBounds(550, 250, 140, 140);
 	}
 	
 	public void paintComponent(Graphics g){
 		if(!isIn){
-			filepath = "graphics/button/classicButton.png";
+			filepath = "graphics/button/classic1.png";
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}else{
 			filepath = "graphics/button/classicButtonMoveIn.png";

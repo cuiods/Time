@@ -17,7 +17,7 @@ public class ButtonExit extends JLabel implements MouseListener{
 	static boolean isIn = false;
 	public int type = 0;
 	public ButtonExit(){
-		filepath = "graphics/button/exitButton.png";
+		filepath = "graphics/button/exitbutton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
 		this.setBounds(660, 400, 140, 140);
 	}
@@ -25,14 +25,18 @@ public class ButtonExit extends JLabel implements MouseListener{
 	public void paintComponent(Graphics g){
 		if(type == 0){
 			if(!isIn){
-				filepath = "graphics/button/exitButton.png";
+				filepath = "graphics/button/exitbutton1.png";
 				ButtonImage = new ImageIcon(filepath).getImage();
 			}else{
 				filepath = "graphics/button/exitButtonMoveIn.png";
 				ButtonImage = new ImageIcon(filepath).getImage();
 			}
 		}else if(type == 1){
-			filepath = "graphics/button/close.png";
+			if(!isIn){
+				filepath = "graphics/button/close.png";
+			}else{
+				filepath = "graphics/button/close1.png";
+			}
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}
 		g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
