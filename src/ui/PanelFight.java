@@ -31,6 +31,7 @@ public class PanelFight extends JPanel implements Runnable{
 	ButtonUnit butUnit = null;
 	static PanelUnit unitPanel = null;
 	static PanelScience sciencePanel = null;
+	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
 	
 	public PanelFight(){
@@ -224,7 +225,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw cannon
 	 */
-	public void drawCannon(Graphics g,Cannon o){
+	public void drawCannon(Graphics g,Cannon o){  	
 		switch(o.getKind()){
 		case 1:
 			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
@@ -321,6 +322,10 @@ public class PanelFight extends JPanel implements Runnable{
 	@Override
 	public void run() {
 		while(true){
+			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+				gameOverPanel = new PanelGameOver(false);
+				this.add(gameOverPanel);
+			}
 			try {
 				Thread.sleep(50);
 			} catch (Exception e) {

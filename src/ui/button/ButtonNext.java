@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import ui.PanelFight;
+import ui.PanelLoading;
 import ui.Panelstory1;
 import ui.StoryPlayer;
 
@@ -69,10 +70,13 @@ public class ButtonNext extends JLabel implements MouseListener{
 		
 			if(chanNum==3){
 				Controller.gameframe.storyPlayer.first.setVisible(false);
-				Controller.gameframe.fightPanel= new PanelFight();
-				Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-				Thread fp = new Thread(Controller.gameframe.fightPanel);
-				fp.start();
+//				Controller.gameframe.fightPanel= new PanelFight();
+//				Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+//				Thread fp = new Thread(Controller.gameframe.fightPanel);
+//				fp.start();
+				
+				Controller.gameframe.loadingPanel = new PanelLoading();
+				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
 			}
 		}else if(flag==2){
 			
