@@ -120,8 +120,8 @@ public abstract class Soldier extends Unit{
 				if(distance>ar){
 					return false;
 				}else{
-					if(this.hp>0)
-						return true;
+					if(DataBase.playerList.contains(this)||DataBase.enemyList.contains(this)){
+						return true;}
 						else return false;
 				}
 			}else{
@@ -151,6 +151,8 @@ public abstract class Soldier extends Unit{
 				}else{
 					if(ce.hp<=0)
 					DataBase.enemyList.remove(ce);
+					if(this.hp<=0)
+						DataBase.playerList.remove(this);
 				}
 			}else{
 				ce=DataBase.playerList.get(detect());
@@ -165,6 +167,8 @@ public abstract class Soldier extends Unit{
 				}else{
 					if(ce.hp<=0)
 					DataBase.playerList.remove(ce);
+					if(this.hp<=0)
+						DataBase.enemyList.remove(this);
 				}
 			}
 			
