@@ -59,14 +59,14 @@ public abstract class Soldier extends Unit{
 		}
 		public void run() {
 			while(true){
-//				if(this.hp<=0){
-//					if(this.getKind()==0){
-//						db.enemyList.remove(db.enemyList.indexOf(this));
-//					}
-//					else{
-//						db.playerList.remove(db.playerList.indexOf(this));
-//					}
-//				}
+				if(this.hp<=0){
+					if(this.getKind()==0){
+						db.enemyList.remove(db.enemyList.indexOf(this));
+					}
+					else{
+						db.playerList.remove(db.playerList.indexOf(this));
+					}
+				}
 				if(canAttack()){
 					attack();
 					
@@ -151,9 +151,9 @@ public abstract class Soldier extends Unit{
 						e.printStackTrace();
 					}
 					ce.hp-=atk;
-				}else{
-					db.enemyList.remove(ce);
-				}
+				}//else{
+				//	db.enemyList.remove(ce);
+			//	}
 			}else{
 				ce=db.playerList.get(detect());
 				if(ce.hp>0&&this.hp>0){
@@ -164,8 +164,8 @@ public abstract class Soldier extends Unit{
 						e.printStackTrace();
 					}
 					ce.hp-=atk;
-				}else{
-					db.playerList.remove(ce);
+			//	}else{
+			//		db.playerList.remove(ce);
 				}
 			}
 			

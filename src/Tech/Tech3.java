@@ -12,8 +12,10 @@ public class Tech3 {
 	}
 	public void execute(){
 		for(Unit u :db.enemyList){
+			if(u.getType()!=100){
 			if(Math.random()>=0.2){
 				u.setHp(0);;//°´ÕÕ80%¸ÅÂÊÈÃËûËÀµô
+			}
 			}
 		}
 		for(int i = 0; i<db.enemyList.size(); i++){

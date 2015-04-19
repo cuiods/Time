@@ -33,7 +33,7 @@ public class DataBase {
 	//Parameters for Tech_2
 	public static final int Tech_2_P = 2500;//效果：让金钱增长速度变成1.5倍
 	//Parameters for Tech_3
-	public static final int Tech_3_p = 1500;//效果：随机摧毁敌人80%的单位
+	public static final int Tech_3_p = 500;//效果：随机摧毁敌人80%的单位
 		
 	public static final int SWORDMAN_P = 100;//the price of swordman
 	public static final int SWORDMAN_HP = 50;//The health point of swordman
