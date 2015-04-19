@@ -61,7 +61,6 @@ public class simpleAI extends AI implements Runnable{
 
 	public void execute(int Threat) {
 		AutoAtkRate-=0.001;
-		System.out.println(AutoAtkRate);
 		if(Threat>-30&&Threat<0&&Math.random()>0.9){
 			AIC.addSwordMan();
 			try {

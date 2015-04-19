@@ -12,7 +12,6 @@ public class AIcommander {
 		Thread th = new Thread(s);
 		th.start();
 		db.enemyList.add(s);
-		System.out.println("add a swordman!");
 	}
 	public void addGunner(){
 		Gunner g = new Gunner();
@@ -21,7 +20,6 @@ public class AIcommander {
 		Thread th = new Thread(g);
 		th.start();
 		db.enemyList.add(g);
-		System.out.println("add a gunner!");
 	}
 	public void addCannon(){
 		Cannon c = new Cannon();
@@ -30,7 +28,6 @@ public class AIcommander {
 		Thread th = new Thread(c);
 		th.start();
 		db.enemyList.add(c);
-		System.out.println("add a cannon!");
 	}
 	public void addSquad1(){
 		
