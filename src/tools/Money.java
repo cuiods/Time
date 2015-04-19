@@ -5,7 +5,7 @@ public class Money implements Runnable{
 	@Override
 	public void run() {
 		while(true){
-		db.Money+=2;
+		db.Money+=db.Money_Increment;
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {

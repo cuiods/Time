@@ -6,6 +6,6 @@ public class Tech2 {
 	DataBase db = new DataBase();
 	public Tech2(){
 		db.Tech_2 = true;
-		db.Money_Increment = (int) ((int) db.Money_Increment*1.5);
+		db.Money_Increment = (int) ((int) db.Money_Increment*2.5);
 	}
 }

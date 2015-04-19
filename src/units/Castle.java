@@ -7,7 +7,7 @@ public class Castle extends Unit implements Runnable{
 	int addSpeed = 1;
 	
 	public Castle(){
-		x = DataBase.START_LOC_X_STG1-10 ;
+		x = DataBase.START_LOC_X_STG1-20 ;
 		y = DataBase.START_LOC_Y_STG1+10 ;
 		hp = DataBase.CASTLE_HP_STG1;
 		setType(100);

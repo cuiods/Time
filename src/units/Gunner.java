@@ -6,9 +6,9 @@ public class Gunner extends Soldier implements Runnable {
 
 		
 		public Gunner(){
-			x = db.START_LOC_X_STG1;
-			y = db.START_LOC_Y_STG1;
-		    hp=db.GUNNER_HP;
+			x = DataBase.START_LOC_X_STG1;
+			y = DataBase.START_LOC_Y_STG1;
+		    hp=DataBase.GUNNER_HP;
 		    setType(1);
 		}
 }
