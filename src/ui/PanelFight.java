@@ -36,7 +36,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public PanelFight(){
 		
 		//load background image
-		fightBackGround = new ImageIcon("graphics/background/fightbackground1.jpg").getImage();
+		fightBackGround = new ImageIcon("graphics/background/fightbackground1.png").getImage();
 		money = new ImageIcon("graphics/info/money.png").getImage();
 		
 		//set castles
