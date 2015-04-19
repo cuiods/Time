@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import ui.PanelFight;
+import ui.PanelStart;
 import ui.Panelstory1;
 import ui.StoryPlayer;
 public class ButtonLast extends JLabel implements MouseListener{
@@ -60,10 +61,15 @@ public class ButtonLast extends JLabel implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if(flag==1){
-			if(Panelstory1.picNum>0){
+			if(Panelstory1.picNum>1){
 				Panelstory1.picNum-=1;
-				StoryPlayer.first.story=new ImageIcon(path+StoryPlayer.first.picNum+".png").getImage();
+				StoryPlayer.first.story=new ImageIcon(path+Panelstory1.picNum+".png").getImage();
 				StoryPlayer.first.repaint();
+			}else {
+				Panelstory1.picNum=1;
+				StoryPlayer.first.setVisible(false);
+				Controller.gameframe.startPanel= new PanelStart();
+				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
 			}
 		}
 	}
