@@ -51,7 +51,7 @@ public class simpleAI extends AI implements Runnable{
 			Threat-=u.getHp()*atk*1.1;
 		} 
 		for(Unit u:db.playerList){
-			int dis = (int) Math.sqrt((db.START_LOC_X_ENM-u.getX())*(db.START_LOC_X_ENM-u.getX())-
+			int dis = (int) Math.sqrt((db.START_LOC_X_ENM-u.getX())*(db.START_LOC_X_ENM-u.getX())+
 					(db.START_LOC_Y_ENM-u.getY())*(db.START_LOC_Y_ENM-u.getY()));
 			if (dis <=200) Threat +=100;
 			
@@ -88,7 +88,6 @@ public class simpleAI extends AI implements Runnable{
 			AIC.addCannon();
 		}
 	}
-
 	@Override
 	public void run() {
 		detect();
