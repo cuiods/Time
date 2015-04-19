@@ -8,7 +8,7 @@ public class simpleAI extends AI implements Runnable{
 	public simpleAI(){
 		AIC.addSwordMan();
 		try {
-			Thread.sleep(500);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();

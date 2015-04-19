@@ -158,7 +158,7 @@ public abstract class Soldier extends Unit{
 				ce=db.playerList.get(detect());
 				if(ce.hp>0&&this.hp>0){
 					try {
-						Thread.sleep(50);
+						Thread.sleep(200);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
