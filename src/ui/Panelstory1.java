@@ -1,27 +1,44 @@
 package ui;
+import gamecontrol.Controller;
+
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import ui.button.ButtonLast;
 import ui.button.ButtonNext;
-public class Panelstory1 extends JLabel {
+public class Panelstory1 extends JPanel{
 	
-	ButtonNext next;
-	Image back2;
-	
+	public ButtonNext next;
+	ButtonLast last;
+	public Image story;
+	  //图片计数器
+   public  static int picNum=1;
+
 	public Panelstory1(){
-		 back2 = new ImageIcon("graphics/storyteller/background2.jpg").getImage();
+		
+		
    	     next = new ButtonNext(1);
+   	     last = new ButtonLast(1);
+  
    	     this.setLayout(null);
  		 this.add(next);
+ 		 this.add(last);
+ 		 last.addMouseListener(last);
  		 next.addMouseListener(next);
+ 		 
+ 		 story=new ImageIcon("graphics/storyteller/story1.png").getImage();
+ 		
 	}
 	
 	  public void paintComponent(Graphics g){
-  		g.drawImage(back2, 0, 0, this.getWidth(),this.getHeight(),this);
-  		Font myFont = new Font("",Font.BOLD,26);
-  		g.setFont(myFont);
-  		g.drawString("1789年7月14日，欧洲，法国，巴黎，巴士底狱", 50, 50);
-  		g.drawString("法国大革命爆发", 100, 100);
-  	 } 
+	
+  		g.drawImage(story, 0, 0, this.getWidth(),this.getHeight(),this);
+  	  
+  	 }
+ 
+	
 }
+
