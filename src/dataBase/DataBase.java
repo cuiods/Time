@@ -52,4 +52,16 @@ public class DataBase {
 	public static final int CANNON_ATK = 5;
 	public static final int CANNON_AR = 180;
 	public static final int CANNON_SPD = 1;
+	
+	public static void recover(){
+		enemyList.removeAll(enemyList);
+		playerList.removeAll(playerList);
+		Money = 2000;
+		Money_Increment = 2;
+		Tech_1 = false;
+		Tech_2 = false;
+		Tech_3 = false;
+		Tech_4 = false;
+		Tech_5 = false;
+	}
 }

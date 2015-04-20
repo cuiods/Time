@@ -29,7 +29,7 @@ public class PanelLoading extends JPanel{
 			loadingPath = new ImageIcon("graphics/progress bar/50%.png").getImage();
 		}else if(time >= 300){
 			loadingPath = new ImageIcon("graphics/progress bar/75%.png").getImage();
-		}else if(time >= 20){
+		}else if(time >= 280){
 			loadingPath = new ImageIcon("graphics/progress bar/100%.png").getImage();
 		}else{
 			Controller.gameframe.getContentPane().setVisible(false);

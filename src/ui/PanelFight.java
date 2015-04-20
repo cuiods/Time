@@ -324,7 +324,10 @@ public class PanelFight extends JPanel implements Runnable{
 		while(true){
 			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
 				gameOverPanel = new PanelGameOver(false);
+				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);
+//				Thread gf = new Thread(gameOverPanel);
+//				gf.start();
 			}
 			try {
 				Thread.sleep(50);

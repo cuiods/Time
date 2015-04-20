@@ -23,7 +23,7 @@ public class ButtonStart extends JLabel implements MouseListener{
 	
 	public ButtonStart(){
 
-		filepath = "graphics/button/startButton.png";
+		filepath = "graphics/button/startButton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
 		this.setBounds(400,400,170,170);
 	}
@@ -48,9 +48,6 @@ public class ButtonStart extends JLabel implements MouseListener{
 //		
 //		Thread ft = new Thread(Controller.gameframe.fightPanel);
 //		ft.start();
-		Controller.gameframe.startPanel.setVisible(false);
-		Controller.gameframe.storyPlayer.first = new Panelstory1();
-		Controller.gameframe.setContentPane(Controller.gameframe.storyPlayer.first);
 		
 	}
 
@@ -72,7 +69,10 @@ public class ButtonStart extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Controller.gameframe.startPanel.setVisible(false);
+		Controller.gameframe.storyPlayer.first = new Panelstory1();
+		Controller.gameframe.setContentPane(Controller.gameframe.storyPlayer.first);
+		isIn = false;
 		
 	}
 
