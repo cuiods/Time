@@ -30,8 +30,13 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 		this.setBounds(320, 100, 400, 300);
 		Controller.gameframe.remove(Controller.gameframe.fightPanel);
 		gameover = new ImageIcon("graphics/info/gameover.png").getImage();
-		if(isWin){
+		if(iswin){
+			System.out.println("yes");
 			win = new ImageIcon("graphics/info/win.png").getImage();
+			exit = new ImageIcon("graphics/button/exit2.png").getImage();
+			next = new ImageIcon("graphics/button/nextGame.png").getImage();
+			exit1 = new ImageIcon("graphics/button/exitgame1.png").getImage();
+			next1 = new ImageIcon("graphics/button/again1.png").getImage();
 		}else{
 			win = new ImageIcon("graphics/info/lose.png").getImage();
 			exit = new ImageIcon("graphics/button/exitgame.png").getImage();

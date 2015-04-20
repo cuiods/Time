@@ -136,38 +136,38 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * draw player units
 		 */
-		for(Unit o:DataBase.playerList){
-			switch(o.getType()){
+		for(int i = 0;i < DataBase.playerList.size();i++){
+			switch(DataBase.playerList.get(i).getType()){
 			case 0:
-				drawSwordman(g,(SwordMan)o);
+				drawSwordman(g,(SwordMan)DataBase.playerList.get(i));
 				break;
 			case 1:
-				drawGunner(g,(Gunner)o);
+				drawGunner(g,(Gunner)DataBase.playerList.get(i));
 				break;
 			case 2:
-				drawCannon(g,(Cannon)o);
+				drawCannon(g,(Cannon)DataBase.playerList.get(i));
 				break;
 			default:
-				drawCastle(g, (Castle) o);
+				drawCastle(g, (Castle) DataBase.playerList.get(i));
 				break;
 			}
 		}
 		/*
 		 * draw enemy units
 		 */
-		for(Unit o:DataBase.enemyList){
-			switch(o.getType()){
+		for(int i = 0;i < DataBase.enemyList.size();i++){
+			switch(DataBase.enemyList.get(i).getType()){
 			case 0:
-				drawSwordman(g,(SwordMan)o);
+				drawSwordman(g,(SwordMan)DataBase.enemyList.get(i));
 				break;
 			case 1:
-				drawGunner(g,(Gunner)o);
+				drawGunner(g,(Gunner)DataBase.enemyList.get(i));
 				break;
 			case 2:
-				drawCannon(g,(Cannon)o);
+				drawCannon(g,(Cannon)DataBase.enemyList.get(i));
 				break;
-			default:
-				drawCastle(g, (Castle) o);
+			case 100:
+				drawCastle(g, (Castle) DataBase.enemyList.get(i));
 				break;
 				
 			}
@@ -326,8 +326,17 @@ public class PanelFight extends JPanel implements Runnable{
 				gameOverPanel = new PanelGameOver(false);
 				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);
+				this.repaint();
+				break;
 //				Thread gf = new Thread(gameOverPanel);
 //				gf.start();
+			}
+			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
+				gameOverPanel = new PanelGameOver(true);
+				gameOverPanel.addMouseListener(gameOverPanel);
+				this.add(gameOverPanel);
+				this.repaint();
+				break;
 			}
 			try {
 				Thread.sleep(50);
