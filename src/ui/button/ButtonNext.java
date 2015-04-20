@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import dataBase.DataBase;
 import ui.PanelFight;
 import ui.PanelLoading;
 import ui.Panelstory1;
@@ -69,6 +70,7 @@ public class ButtonNext extends JLabel implements MouseListener{
 			}
 		
 			if(chanNum==3){
+				
 				Controller.gameframe.storyPlayer.first.setVisible(false);
 //				Controller.gameframe.fightPanel= new PanelFight();
 //				Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
@@ -77,6 +79,8 @@ public class ButtonNext extends JLabel implements MouseListener{
 				
 				Controller.gameframe.loadingPanel = new PanelLoading();
 				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+				isIn = false;
+
 			}
 		}else if(flag==2){
 			
@@ -88,7 +92,7 @@ public class ButtonNext extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

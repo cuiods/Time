@@ -8,6 +8,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import dataBase.DataBase;
+
 public class PanelLoading extends JPanel{
 
 	Image loadingPath = null;
@@ -32,6 +34,10 @@ public class PanelLoading extends JPanel{
 		}else if(time >= 280){
 			loadingPath = new ImageIcon("graphics/progress bar/100%.png").getImage();
 		}else{
+			/*
+			 * to be changed  @Warning!
+			 */
+			DataBase.recover();
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.fightPanel= new PanelFight();
 			Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);

@@ -87,10 +87,13 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 	public void mouseReleased(MouseEvent e) {
 		if(e.getX()>=220&&e.getX()<=340&&e.getY()>=200&&e.getY()<=250){
 			//return to start panel("exit")
+			DataBase.recover();
+			//@warning!!!!!!!!!!!!!!!!!!!!!@tj!!!!!!!!!
+			Panelstory1.picNum = 1;
+			//restart
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.setContentPane(new PanelStart());
 			Controller.gameframe.repaint();
-			DataBase.recover();
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){
 			//restart the game
 			DataBase.recover();
