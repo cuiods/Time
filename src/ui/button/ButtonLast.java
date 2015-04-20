@@ -17,7 +17,7 @@ public class ButtonLast extends JLabel implements MouseListener{
 	 Image buttonImage;
      int flag;
      static boolean isIn = false;
-     //Í¼Æ¬ÇÐ»»´ÎÊý
+     //Í¼Æ¬ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½
      static private int chanNum=0;
    //picture path
      String path;
