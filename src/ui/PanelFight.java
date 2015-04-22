@@ -18,6 +18,7 @@ import units.Castle;
 import units.Gunner;
 import units.SwordMan;
 import units.Unit;
+import ai.cleverAI;
 import ai.simpleAI;
 import dataBase.DataBase;
 
@@ -63,7 +64,7 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * Test by Anthony
 		 */
-		simpleAI ai = new simpleAI();
+		cleverAI ai = new cleverAI();
 		Thread th = new Thread(ai);
 		th.start();
 		
