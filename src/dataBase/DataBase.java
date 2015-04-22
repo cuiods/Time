@@ -53,6 +53,13 @@ public class DataBase {
 	public static final int CANNON_AR = 180;
 	public static final int CANNON_SPD = 1;
 	
+	public static final int MEDICTEAM_P = 200;
+	public static final int MEDICTEAM_HP = 20;
+	public static final int MEDICTEAM_ATK = 0;
+	public static final int MEDICTEAM__AR = 0;
+	public static final int MEDICTEAM__SPD = 0;
+	public static final int MEDICTEAM_HEAL = 10;
+	
 	public static void recover(){
 		enemyList.removeAll(enemyList);
 		playerList.removeAll(playerList);

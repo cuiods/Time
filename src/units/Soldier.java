@@ -80,6 +80,7 @@ public abstract class Soldier extends Unit{
 			case 0:spd = DataBase.SWORDMAN_SPD;break;
 			case 1:spd = DataBase.GUNNER_SPD;break;
 			case 2:spd = DataBase.CANNON_SPD;break;
+			case 3:spd = DataBase.MEDICTEAM__SPD;break;
 			}
 
 		    	try {
@@ -107,6 +108,7 @@ public abstract class Soldier extends Unit{
 			case 0:ar = DataBase.SWORDMAN_AR;break;
 			case 1:ar = DataBase.GUNNER_AR;break;
 			case 2:ar = DataBase.CANNON_AR;break;
+			case 3:ar = DataBase.MEDICTEAM__AR;break;
 			}
 			//取出距离自己最近的那个敌人
 			Unit ce;
