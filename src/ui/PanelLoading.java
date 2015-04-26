@@ -46,7 +46,7 @@ public class PanelLoading extends JPanel{
 		}
 		time-=2;
 		this.repaint();
-	//	g.drawImage(background,0, 0, this.getWidth(), this.getHeight(),this);
+		g.drawImage(background,0, 0, this.getWidth(), this.getHeight(),this);
 		g.drawImage(loading,0, 0,this.getWidth(), this.getHeight(),this);
 		g.drawImage(loadingPath, 300, 500, 400,20,this);
 		
