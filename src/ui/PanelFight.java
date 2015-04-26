@@ -6,11 +6,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import tools.Money;
+import tools.PicturePlayer;
 import ui.button.ButtonExit;
 import ui.button.ButtonUnit;
 import units.Cannon;
@@ -34,6 +36,8 @@ public class PanelFight extends JPanel implements Runnable{
 	static PanelScience sciencePanel = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
+	static boolean isTech_3 = false;
+	static ArrayList<Unit> enemy = new ArrayList<Unit>();
 	
 	public PanelFight(){
 		
@@ -79,8 +83,9 @@ public class PanelFight extends JPanel implements Runnable{
 		drawBackground(g);
 
 		drawUnits(g);
-	
 		
+		drawEffects(g);
+	
 	}
 	
 	/**
@@ -133,7 +138,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw solders, and so on 
 	 */
-	public void drawUnits(Graphics g){
+	private void drawUnits(Graphics g){
 		/*
 		 * draw player units
 		 */
@@ -178,7 +183,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw sword man
 	 */
-	public void drawSwordman(Graphics g,SwordMan o){
+	private void drawSwordman(Graphics g,SwordMan o){
 		switch(o.getKind()){
 		case 1:
 			Image swordman1 = new ImageIcon("graphics/soldiers/s1.png").getImage();
@@ -203,7 +208,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw gunner
 	 */
-	public void drawGunner(Graphics g,Gunner o){
+	private void drawGunner(Graphics g,Gunner o){
 		switch(o.getKind()){
 		case 1:
 			Image gunner1 = new ImageIcon("graphics/soldiers/s3.png").getImage();
@@ -226,7 +231,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw cannon
 	 */
-	public void drawCannon(Graphics g,Cannon o){  	
+	private void drawCannon(Graphics g,Cannon o){  	
 		switch(o.getKind()){
 		case 1:
 			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
@@ -249,7 +254,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw castle
 	 */
-	public void drawCastle(Graphics g,Castle o){
+	private void drawCastle(Graphics g,Castle o){
 		
 		//show life
 		if(o.getKind() == 0){
@@ -277,7 +282,7 @@ public class PanelFight extends JPanel implements Runnable{
 		}
 	}
 	
-	public void setCastle(){
+	private void setCastle(){
 		Castle mycastle = new Castle();
 		mycastle.setKind(1);
 		
@@ -296,7 +301,7 @@ public class PanelFight extends JPanel implements Runnable{
 	/**
 	 * draw background
 	 */
-	public void drawBackground(Graphics g){
+	private void drawBackground(Graphics g){
 		//show background image
 		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 		//show money
@@ -315,6 +320,22 @@ public class PanelFight extends JPanel implements Runnable{
 //			g.drawString(DataBase.playerList.get(i).getHp()+"", 900, 400+40*i);
 //			}
 		
+	}
+	
+	private void drawEffects(Graphics g){
+		if(isTech_3){
+			String[] pictures = {"graphics/stunt/tech3_1.png","graphics/stunt/tech3_2.png","graphics/stunt/tech3_3.png","graphics/stunt/tech3_4.png","graphics/stunt/tech3_5.png","graphics/stunt/tech3_6.png","graphics/stunt/tech3_7.png","graphics/stunt/tech3_8.png","graphics/stunt/tech3_9.png","graphics/stunt/tech3_10.png"};
+			for(int i = 0; i <enemy.size();i++){
+				if(PicturePlayer.time0>=20){
+					PicturePlayer pic1 = new PicturePlayer(pictures, false, 20);
+					pic1.panelPlay(enemy.get(i).getX()-15, enemy.get(i).getY(), g, this,0);
+				}else{
+					isTech_3 = false;
+					PicturePlayer.time0 = 1000;
+					enemy.removeAll(enemy);
+				}
+			}
+		}
 	}
 
 	/**

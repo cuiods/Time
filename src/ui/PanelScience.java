@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import dataBase.DataBase;
+import units.Unit;
 import Tech.Tech1;
 import Tech.Tech2;
 import Tech.Tech3;
@@ -39,6 +40,9 @@ public class PanelScience extends JPanel implements MouseListener{
 			new Tech2();
 			DataBase.Money -= DataBase.Tech_2_P;
 		}else if(e.getX()<=120&&(e.getX()>80)&&(DataBase.Money-DataBase.Tech_3_p>=0)){
+			PanelFight.enemy.addAll(DataBase.enemyList);
+			PanelFight.enemy.remove(0);
+			PanelFight.isTech_3 = true;
 			new Tech3();
 			DataBase.Money -= DataBase.Tech_3_p;
 		}
@@ -47,19 +51,16 @@ public class PanelScience extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 

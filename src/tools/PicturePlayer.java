@@ -25,7 +25,16 @@ public class PicturePlayer {
 	//define image size
 	private int imageSize = 10;
 	//set time
-	private static int time = 1000;
+	public static int time0 = 1000;
+	public static int time1 = 1000;
+	public static int time2 = 1000;
+	public static int time3 = 1000;
+	public static int time4 = 1000;
+	public static int time5 = 1000;
+	public static int time6 = 1000;
+	public static int time7 = 1000;
+	public static int time8 = 1000;
+	public static int time9 = 1000;
 	
 	/**
 	 * set picture player
@@ -75,8 +84,41 @@ public class PicturePlayer {
 	 * @param g  graphics g
 	 * @param p  panel which will show the picture
 	 */
-	public void panelPlay(int x, int y,Graphics g,JPanel p){
+	public void panelPlay(int x, int y,Graphics g,JPanel p,int chooseTime){
 	
+		int time = 0;
+		switch(chooseTime){
+		case 0:
+			time = time0;
+		    break;
+		case 1:
+			time = time1;
+		    break;
+		case 2:
+			time = time2;
+		    break;
+		case 3:
+			time = time3;
+		    break;
+		case 4:
+			time = time4;
+		    break;
+		case 5:
+			time = time5;
+		    break;
+		case 6:
+			time = time6;
+		    break;
+		case 7:
+			time = time7;
+		    break;
+		case 8:
+			time = time8;
+		    break;
+		case 9:
+			time = time9;
+		    break;
+		}
 			if(time > 900){
 				g.drawImage(images.get(0), x, y, images.get(0).getWidth(p), images.get(0).getHeight(p), p);
 				//System.out.println("1");
@@ -107,24 +149,115 @@ public class PicturePlayer {
 			}else{
 				g.drawImage(images.get(9), x, y, images.get(9).getWidth(p), images.get(9).getHeight(p), p);
 				if(time < 100){
-					if(isRepeat){
-						time = 1000;
+					switch(chooseTime){
+					case 0:
+						if(isRepeat){
+							time0 = 1000;
+						}
+					    break;
+					case 1:
+						if(isRepeat){
+							time1 = 1000;
+						}
+					    break;
+					case 2:
+						if(isRepeat){
+							time2 = 1000;
+						}
+					    break;
+					case 3:
+						if(isRepeat){
+							time3 = 1000;
+						}
+					    break;
+					case 4:
+						if(isRepeat){
+							time4 = 1000;
+						}
+					    break;
+					case 5:
+						if(isRepeat){
+							time5 = 1000;
+						}
+					    break;
+					case 6:
+						if(isRepeat){
+							time6 = 1000;
+						}
+					    break;
+					case 7:
+						if(isRepeat){
+							time7 = 1000;
+						}
+					    break;
+					case 8:
+						if(isRepeat){
+							time8 = 1000;
+						}
+					    break;
+					case 9:
+						if(isRepeat){
+							time9 = 1000;
+						}
+					    break;
 					}
 				}
 			}
-			if(time - speed >= 0){
-				time -= speed;
+			switch(chooseTime){
+			case 0:
+				if(time0 - speed >= 0){
+					time0 -= speed;
+				}
+			    break;
+			case 1:
+				if(time1 - speed >= 0){
+					time1 -= speed;
+				}
+			    break;
+			case 2:
+				if(time2 - speed >= 0){
+					time2 -= speed;
+				}
+			    break;
+			case 3:
+				if(time3 - speed >= 0){
+					time3 -= speed;
+				}
+			    break;
+			case 4:
+				if(time4 - speed >= 0){
+					time4 -= speed;
+				}
+			    break;
+			case 5:
+				if(time5 - speed >= 0){
+					time5 -= speed;
+				}
+			    break;
+			case 6:
+				if(time6 - speed >= 0){
+					time6 -= speed;
+				}
+			    break;
+			case 7:
+				if(time7 - speed >= 0){
+					time7 -= speed;
+				}
+			    break;
+			case 8:
+				if(time8 - speed >= 0){
+					time8 -= speed;
+				}
+			    break;
+			case 9:
+				if(time9 - speed >= 0){
+					time9 -= speed;
+				}
+			    break;
 			}
 		
 	}
 	
-	/**
-	 * set time
-	 * @param time Default time is 1000
-	 */
-	public void setTime(int time){
-		PicturePlayer.time = time;
-	}
 		
 
 }

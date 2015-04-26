@@ -6,6 +6,7 @@ import dataBase.DataBase;
 public class Tech3 {
 	DataBase db = new DataBase();
 	public Tech3(){
+		
 		db.Tech_3 = true;
 		execute();
 		db.Tech_3 = false;//第三个科技不是一次性的，可以多次买多次使用
