@@ -3,6 +3,9 @@ package units;
 import dataBase.DataBase;
 
 public abstract class Soldier extends Unit{
+	public boolean attacking = false;
+	public boolean moving = false;
+	public int ran = (int) (Math.random()*50);
 	/*
 	 必须在继承soldier的类中新建构造函数
 	 且构造函数必须包含以下内容：
@@ -65,9 +68,17 @@ public abstract class Soldier extends Unit{
 				//	this.die();
 				}
 				if(canAttack()){
+					synchronized(this){
+					this.moving = false;
+					this.attacking = true;
+					}
 					attack();
 					
 				}else{
+					synchronized(this){
+					this.attacking = false;
+					this.moving = true;
+					}
 					move();
 				}
 			}
@@ -80,7 +91,8 @@ public abstract class Soldier extends Unit{
 			case 0:spd = DataBase.SWORDMAN_SPD;break;
 			case 1:spd = DataBase.GUNNER_SPD;break;
 			case 2:spd = DataBase.CANNON_SPD;break;
-			case 3:spd = DataBase.MEDICTEAM__SPD;break;
+			case 3:spd = DataBase.MEDICTEAM_SPD;break;
+			case 4:spd = DataBase.SNIPER_SPD;break;
 			}
 
 		    	try {
@@ -108,7 +120,8 @@ public abstract class Soldier extends Unit{
 			case 0:ar = DataBase.SWORDMAN_AR;break;
 			case 1:ar = DataBase.GUNNER_AR;break;
 			case 2:ar = DataBase.CANNON_AR;break;
-			case 3:ar = DataBase.MEDICTEAM__AR;break;
+			case 3:ar = DataBase.MEDICTEAM_AR;break;
+			case 4:ar = DataBase.SNIPER_AR;break;
 			}
 			//取出距离自己最近的那个敌人
 			Unit ce;
@@ -137,6 +150,7 @@ public abstract class Soldier extends Unit{
 			case 0:atk = DataBase.SWORDMAN_ATK;break;
 			case 1:atk = DataBase.GUNNER_ATK;break;
 			case 2:atk = DataBase.CANNON_ATK;break;
+			case 4:atk = DataBase.SNIPER_ATK;break;
 			}
 			//取出可以攻打的对象
 			Unit ce;

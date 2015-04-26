@@ -12,6 +12,7 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class MusicPlayer {
+	public boolean stop = false;
 	public void play(String file, boolean loop) throws UnsupportedAudioFileException, IOException, LineUnavailableException{ 
 		do{
 		// 获取音频输入流
@@ -31,6 +32,10 @@ public class MusicPlayer {
 		while ((count = audioInputStream.read(tempBuffer, 0, tempBuffer.length)) != -1) {
 			if (count > 0) {
 				sourceDataLine.write(tempBuffer, 0, count);
+			}
+			if(stop){
+				sourceDataLine.drain();
+				sourceDataLine.close();
 			}
 		} 
 		// 清空数据缓冲,并关闭输入

@@ -68,7 +68,7 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * Test by Anthony
 		 */
-		cleverAI ai = new cleverAI();
+		simpleAI ai = new simpleAI();
 		Thread th = new Thread(ai);
 		th.start();
 		
@@ -187,20 +187,20 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(o.getKind()){
 		case 1:
 			Image swordman1 = new ImageIcon("graphics/soldiers/s1.png").getImage();
-			g.drawImage(swordman1,o.getX(), o.getY(), 50, 80, this);
+			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		case 0:
 			Image swordman0 = new ImageIcon("graphics/soldiers/soldier1.png").getImage();
-			g.drawImage(swordman0,o.getX(), o.getY(), 50, 80, this);
+			g.drawImage(swordman0,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		}
 		//draw life
 		int lifePercentage = (int)(50 * 1.0*(o.getHp()*1.00/DataBase.SWORDMAN_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
+		g.fill3DRect(o.getX(), o.getY()-20+o.ran, lifePercentage, 5, false);
 		if(lifePercentage!=50){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20, 50-lifePercentage, 5, false);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-20, 50-lifePercentage, 5, false);
 		}
 		
 	}
@@ -212,19 +212,19 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(o.getKind()){
 		case 1:
 			Image gunner1 = new ImageIcon("graphics/soldiers/s3.png").getImage();
-			g.drawImage(gunner1,o.getX(), o.getY(), 50, 80, this);
+			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		case 0:
 			Image gunner0 = new ImageIcon("graphics/soldiers/soldier2.png").getImage();
-			g.drawImage(gunner0,o.getX(), o.getY(), 50, 80, this);
+			g.drawImage(gunner0,o.getX(), o.getY()+o.ran, 50, 80, this);
 		}
 		//draw life
 		int lifePercentage = (int)(50 *1.0* (o.getHp()*1.00/DataBase.GUNNER_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
+		g.fill3DRect(o.getX(), o.getY()-20+o.ran, lifePercentage, 5, false);
 		if(lifePercentage!=50){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20, 50-lifePercentage, 5, false);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20+o.ran, 50-lifePercentage, 5, false);
 		}
 	}
 	
@@ -235,19 +235,19 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(o.getKind()){
 		case 1:
 			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
-			g.drawImage(cannon1,o.getX(), o.getY(), 50, 80, this);
+			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		case 0:
 			Image cannon0 = new ImageIcon("graphics/soldiers/soldier3.png").getImage();
-			g.drawImage(cannon0,o.getX(), o.getY(), 50, 80, this);
+			g.drawImage(cannon0,o.getX(), o.getY()+o.ran, 50, 80, this);
 		}
 		//draw life
 	    int lifePercentage = (int)(50 * 1.0*(o.getHp()*1.0/DataBase.CANNON_HP));
 		g.setColor(Color.GREEN);
-	    g.fill3DRect(o.getX(), o.getY()-20, lifePercentage, 5, false);
+	    g.fill3DRect(o.getX(), o.getY()-20+o.ran, lifePercentage, 5, false);
 		if(lifePercentage!=50){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20, 50-lifePercentage, 5, false);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20+o.ran, 50-lifePercentage, 5, false);
 		}
 	}
 	

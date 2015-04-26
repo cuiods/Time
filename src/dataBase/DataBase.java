@@ -54,11 +54,25 @@ public class DataBase {
 	public static final int CANNON_SPD = 1;
 	
 	public static final int MEDICTEAM_P = 200;
-	public static final int MEDICTEAM_HP = 20;
+	public static final int MEDICTEAM_HP = 10;
 	public static final int MEDICTEAM_ATK = 0;
-	public static final int MEDICTEAM__AR = 0;
-	public static final int MEDICTEAM__SPD = 0;
+	public static final int MEDICTEAM_AR = 0;
+	public static final int MEDICTEAM_SPD = 0;
 	public static final int MEDICTEAM_HEAL = 10;
+	
+	public static final int SNIPER_P = 500;
+	public static final int SNIPER_HP = 20;
+	public static final int SNIPER_ATK = 2;
+	public static final int SNIPER_AR = 500;
+	public static final int SNIPER_SPD = 0;
+	
+	public static final int TRUCK_P = 400;
+	public static final int TRUCK_HP = 100;
+	public static final int TRUCK_ATK = 0;
+	public static final int TRUCK_AR = 0;
+	public static final int TRUCK_SPD = 4;
+	
+	
 	
 	public static void recover(){
 		enemyList.removeAll(enemyList);

@@ -28,5 +28,6 @@ public class MedicTeam extends Soldier implements Runnable{
 		heal();
 		}
 	}
+	public void attack(){}
 
 }
