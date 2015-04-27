@@ -18,7 +18,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	
 	public ButtonUnit(){
 		image = new ImageIcon(filepath).getImage();
-		this.setBounds(10, 100, 60, 60);
+		this.setBounds(30, 250, 60, 60);
 	}
 	
 	@Override

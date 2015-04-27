@@ -41,9 +41,6 @@ public class PanelFight extends JPanel implements Runnable{
 	
 	public PanelFight(){
 		
-		//load background image
-		fightBackGround = new ImageIcon("graphics/background/fightbackground1.png").getImage();
-		money = new ImageIcon("graphics/info/money.png").getImage();
 		
 		//set castles
 		this.setCastle();
@@ -262,54 +259,48 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(ecastle,o.getX()-50, o.getY()-50, 200, 200, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM));
 			g.setColor(Color.GREEN);
-			g.fill3DRect(625, 30, lifePercent, 20, false);
+			g.fill3DRect(625, 32, lifePercent, 10, false);
 			if(lifePercent!=200){
 				g.setColor(Color.RED);
-				g.fill3DRect(625+lifePercent, 30, 200-lifePercent, 20, false);			
+				g.fill3DRect(625+lifePercent, 32, 200-lifePercent, 10, false);			
 				
 			}
 		}else if(o.getKind() == 1){
 			Image castle = new ImageIcon("graphics/soldiers/castle.png").getImage();
-			g.drawImage(castle,o.getX()-60, o.getY()-80, 200, 200, this);
+			g.drawImage(castle,o.getX()-60, o.getY()-150, 150, 150, this);
+			g.drawImage(new ImageIcon("graphics/soldiers/castle1_2.png").getImage(), 20, 460, 100, 150, this);
+			g.drawImage(new ImageIcon("graphics/soldiers/castle1_1.png").getImage(), 150, 480, 100, 150, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 			g.setColor(Color.GREEN);
-			g.fill3DRect(360-lifePercent, 30, lifePercent, 20, false);
+			g.fill3DRect(340-lifePercent, 32, lifePercent, 10, false);
 			if(lifePercent!=200){
 				g.setColor(Color.RED);
-				g.fill3DRect(160, 30, 200-lifePercent, 20, false);			
+				g.fill3DRect(140, 32, 200-lifePercent, 10, false);			
 				
 			}
 		}
 	}
 	
-	private void setCastle(){
-		Castle mycastle = new Castle();
-		mycastle.setKind(1);
-		
-		Thread cp1 = new Thread(mycastle);
-		cp1.start();
-		DataBase.playerList.add(mycastle);
-		
-		Castle enemycastle = new Castle();
-		enemycastle.setHp(DataBase.CASTLE_HP_ENM);
-		Thread cp2 = new Thread(enemycastle);
-		cp2.start();
-		enemycastle.setX(DataBase.START_LOC_X_ENM-80);
-		enemycastle.setY(DataBase.START_LOC_Y_ENM+50);
-		DataBase.enemyList.add(enemycastle);
-	}
 	/**
 	 * draw background
 	 */
 	private void drawBackground(Graphics g){
+		//load background image
+		fightBackGround = new ImageIcon("graphics/background/fightbackground1.png").getImage();
+		money = new ImageIcon("graphics/info/money1.png").getImage();
+		Image tech = new ImageIcon("graphics/info/tech.png").getImage();
 		//show background image
 		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
+		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 120, 15, 240, 45, this);
+		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 605, 15, 240, 45, this);
+		g.drawImage(tech, 350, 95, 60, 30, this);
+
 		//show money
-		g.drawImage(money, 360, 0,260, 80, this);
+		g.drawImage(money, 355, 0,260, 80, this);
 		g.setColor(Color.YELLOW);
-		Font myFont = new Font("",Font.BOLD,26);
+		Font myFont = new Font("华文隶书",Font.BOLD,24);
 		g.setFont(myFont);
-		g.drawString(DataBase.Money+"", 500, 50);
+		g.drawString(DataBase.Money+"", 450, 65);
 		/*
 		 * 调试用 @Anthony
 		 */
@@ -326,8 +317,8 @@ public class PanelFight extends JPanel implements Runnable{
 		if(isTech_3){
 			String[] pictures = {"graphics/stunt/tech3_1.png","graphics/stunt/tech3_2.png","graphics/stunt/tech3_3.png","graphics/stunt/tech3_4.png","graphics/stunt/tech3_5.png","graphics/stunt/tech3_6.png","graphics/stunt/tech3_7.png","graphics/stunt/tech3_8.png","graphics/stunt/tech3_9.png","graphics/stunt/tech3_10.png"};
 			for(int i = 0; i <enemy.size();i++){
-				if(PicturePlayer.time0>=20){
-					PicturePlayer pic1 = new PicturePlayer(pictures, false, 20);
+				if(PicturePlayer.time0>=30){
+					PicturePlayer pic1 = new PicturePlayer(pictures, false, 30);
 					pic1.panelPlay(enemy.get(i).getX()-15, enemy.get(i).getY(), g, this,0);
 				}else{
 					isTech_3 = false;
@@ -336,6 +327,23 @@ public class PanelFight extends JPanel implements Runnable{
 				}
 			}
 		}
+	}
+
+	private void setCastle(){
+		Castle mycastle = new Castle();
+		mycastle.setKind(1);
+		
+		Thread cp1 = new Thread(mycastle);
+		cp1.start();
+		DataBase.playerList.add(mycastle);
+		
+		Castle enemycastle = new Castle();
+		enemycastle.setHp(DataBase.CASTLE_HP_ENM);
+		Thread cp2 = new Thread(enemycastle);
+		cp2.start();
+		enemycastle.setX(DataBase.START_LOC_X_ENM-80);
+		enemycastle.setY(DataBase.START_LOC_Y_ENM+50);
+		DataBase.enemyList.add(enemycastle);
 	}
 
 	/**

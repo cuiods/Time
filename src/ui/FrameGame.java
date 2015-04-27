@@ -25,7 +25,7 @@ public class FrameGame extends JFrame{
 		//set cursor
 		Toolkit toolkit = Toolkit.getDefaultToolkit();   
 		Image image = toolkit.getImage("graphics/icon/cursor.png");
-		Cursor c = toolkit.createCustomCursor(image , new Point(5,6), "icon/cursor.png");  
+		Cursor c = toolkit.createCustomCursor(image , new Point(5,5), "icon/cursor.png");  
 		this.setCursor (c);
 		
 		this.setUndecorated(true);

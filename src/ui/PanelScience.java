@@ -16,14 +16,18 @@ import Tech.Tech3;
 
 public class PanelScience extends JPanel implements MouseListener{
 	
-	Image image = new ImageIcon("graphics/info/tech.png").getImage();
+	Image image1 = new ImageIcon("graphics/info/tech1.png").getImage();
+	Image image2 = new ImageIcon("graphics/info/tech2.png").getImage();
+	Image image3 = new ImageIcon("graphics/info/tech3.png").getImage();
 	public PanelScience() {
-		this.setBounds(20,50, 120, 40);
+		this.setBounds(430,90, 180, 50);
 	}
 
 	@Override
 	public void paintComponent(Graphics g){
-		g.drawImage(image,0,0,this.getWidth(),this.getHeight(),this);
+		g.drawImage(image1,0,0,50,50,this);
+		g.drawImage(image2,60,0,50,50,this);
+		g.drawImage(image3,120,0,50,50,this);
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -33,13 +37,13 @@ public class PanelScience extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(e.getX()<=40&&(!DataBase.Tech_1)&&(DataBase.Money-DataBase.Tech_1_P>=0)){
+		if(e.getX()<=50&&(!DataBase.Tech_1)&&(DataBase.Money-DataBase.Tech_1_P>=0)){
 			new Tech1();
 			DataBase.Money -= DataBase.Tech_1_P;
-		}else if(e.getX()<=80&&(!DataBase.Tech_2)&&(e.getX()>40)&&(DataBase.Money-DataBase.Tech_2_P>=0)){
+		}else if(e.getX()>=60&&e.getX()<=110&&(!DataBase.Tech_2)&&(e.getX()>40)&&(DataBase.Money-DataBase.Tech_2_P>=0)){
 			new Tech2();
 			DataBase.Money -= DataBase.Tech_2_P;
-		}else if(e.getX()<=120&&(e.getX()>80)&&(DataBase.Money-DataBase.Tech_3_p>=0)){
+		}else if(e.getX()>=120&&e.getX()<=170&&(e.getX()>80)&&(DataBase.Money-DataBase.Tech_3_p>=0)){
 			PanelFight.enemy.addAll(DataBase.enemyList);
 			PanelFight.enemy.remove(0);
 			PanelFight.isTech_3 = true;
