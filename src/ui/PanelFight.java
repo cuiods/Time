@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import tools.Money;
 import tools.PicturePlayer;
 import ui.button.ButtonExit;
+import ui.button.ButtonGameSet;
 import ui.button.ButtonScience;
 import ui.button.ButtonUnit;
 import units.Cannon;
@@ -36,6 +37,7 @@ public class PanelFight extends JPanel implements Runnable{
 	private ButtonScience tech1 = null;
 	private ButtonScience tech2 = null;
 	private ButtonScience tech3 = null;
+	private ButtonGameSet gameSet = null;
 	static PanelUnit unitPanel = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
@@ -59,6 +61,8 @@ public class PanelFight extends JPanel implements Runnable{
 		tech2.addMouseListener(tech2);
 		tech3 = new ButtonScience(3);
 		tech3.addMouseListener(tech3);
+		gameSet = new ButtonGameSet();
+		gameSet.addMouseListener(gameSet);
 		
 		//clear Layout
 		this.setLayout(null);
@@ -69,6 +73,7 @@ public class PanelFight extends JPanel implements Runnable{
 		this.add(tech1);
 		this.add(tech2);
 		this.add(tech3);
+		this.add(gameSet);
 		
 		//create and start AI  @niansong1996
 		/*
@@ -100,7 +105,7 @@ public class PanelFight extends JPanel implements Runnable{
 	private void setExitButton(){
 		butExit = new ButtonExit();
 		butExit.type = 1;
-		butExit.setBounds(920, 10, 50, 50);
+		butExit.setBounds(960, 10, 30, 30);
 		butExit.addMouseListener(butExit);
 	}
 	

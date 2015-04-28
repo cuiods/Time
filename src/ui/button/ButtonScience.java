@@ -19,7 +19,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 	private boolean isIn = false;
 	public ButtonScience(int kind) {
 		this.kind = kind;
-		this.setBounds(410+(kind-1)*70, 90, 60, 60);
+		this.setBounds(410+(kind-1)*70, 80, 60, 60);
 	}
 	
 	@Override
