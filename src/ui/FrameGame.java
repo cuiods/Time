@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class FrameGame extends JFrame{
 
+	
 	public PanelStart startPanel = null;
 	public PanelFight fightPanel = null;
     public StoryPlayer storyPlayer = null;

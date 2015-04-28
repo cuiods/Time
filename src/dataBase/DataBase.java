@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import units.Unit;
 
 public class DataBase {
+	//记录已到关卡数和当前游戏关卡数
+	public static int pass = 1;
+	public static int passAlready = 1;
+	
 	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
 	//Parameters for stage1
