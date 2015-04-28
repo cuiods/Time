@@ -21,7 +21,7 @@ public class FrameGame extends JFrame{
 		
 //		Rectangle bounds = new Rectangle( screenSize );
 //		
-//		this.setBounds(bounds);
+//		this.setBounds(bounds);	
 		
 		//set cursor
 		Toolkit toolkit = Toolkit.getDefaultToolkit();   
