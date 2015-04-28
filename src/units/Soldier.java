@@ -102,17 +102,15 @@ public abstract class Soldier extends Unit{
 					e.printStackTrace();
 				}
 		    	if(this.getKind()==1){
-		    		x+=DataBase.PATH_AGLX_STG1*spd;
-		    		y+=DataBase.PATH_AGLY_STG1*spd;
+		    		x+=spd;
+		    		y=(int) (0.0000007*x*x*x-0.001*x*x+0.1566*x+399.32);
 		    		}
 		    		else{
-		    			x+=DataBase.PATH_AGLX_ENM*spd;
-		        		y+=DataBase.PATH_AGLY_ENM*spd;
+		    			x-=spd;
+		        		y=(int) (0.0000007*x*x*x-0.001*x*x+0.1566*x+399.32);
 		    		}
 		}
-			
-		
-		
+					
 		//判断与自己最近的敌人是否在攻击范围内
 		public boolean canAttack(){
 			int ar=0;
