@@ -183,7 +183,13 @@ public class PanelFight extends JPanel implements Runnable{
 	private void drawSwordman(Graphics g,SwordMan o){
 		switch(o.getKind()){
 		case 1:
-			Image swordman1 = new ImageIcon("graphics/soldiers/s1.png").getImage();
+			Image swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
+			if(o.moving){
+				swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
+			}else if(o.attacking){
+				swordman1 = new ImageIcon("graphics/soldiers/s1fight.gif").getImage();
+			}
+			
 			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		case 0:
@@ -209,6 +215,11 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(o.getKind()){
 		case 1:
 			Image gunner1 = new ImageIcon("graphics/soldiers/s3.png").getImage();
+			if(o.moving){
+				gunner1 = new ImageIcon("graphics/soldiers/s3walk.gif").getImage();
+			}else if(o.attacking){
+				gunner1 = new ImageIcon("graphics/soldiers/s3fight.gif").getImage();
+			}
 			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		case 0:
@@ -232,6 +243,11 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(o.getKind()){
 		case 1:
 			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
+			if(o.moving){
+				cannon1 = new ImageIcon("graphics/soldiers/s2walk.gif").getImage();
+			}else if(o.attacking){
+				cannon1 = new ImageIcon("graphics/soldiers/s2fight.gif").getImage();
+			}
 			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
 		case 0:

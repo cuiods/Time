@@ -77,7 +77,7 @@ public class DataBase {
 	public static void recover(){
 		enemyList.removeAll(enemyList);
 		playerList.removeAll(playerList);
-		Money = 2000;
+		Money = 200000;
 		Money_Increment = 2;
 		Tech_1 = false;
 		Tech_2 = false;
