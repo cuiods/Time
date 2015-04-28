@@ -17,17 +17,17 @@ import ui.StoryPlayer;
 
 public class ButtonNext extends JLabel implements MouseListener{
      Image buttonImage;
-     int flag;
+
      static boolean isIn = false;
      //picture path
      String path;
    
      
 
-	public ButtonNext(int f){
+	public ButtonNext(){
     	 buttonImage = new ImageIcon("graphics/button/next.png").getImage();
-    	 this.setBounds(900, 500, 50, 50);
-    	 this.flag=f;
+    	 this.setBounds(900, 530, 40, 40);
+    
     	 path="graphics/storyteller/story";
      }
      
@@ -62,16 +62,16 @@ public class ButtonNext extends JLabel implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		if(flag==1){
-			int chanNum=Panelstory1.picNum+=1;
+		if(DataBase.pass==1){
+			int chanNum=StoryPlayer.picNum+=1;
 			if(chanNum==2){
-				StoryPlayer.first.story=new ImageIcon(path+Panelstory1.picNum+".png").getImage();
+				StoryPlayer.first.story=new ImageIcon(path+StoryPlayer.picNum+".png").getImage();
 				StoryPlayer.first.repaint();
 			}
 		
 			if(chanNum==3){
 				
-				Controller.gameframe.storyPlayer.first.setVisible(false);
+				StoryPlayer.first.setVisible(false);
 //				Controller.gameframe.fightPanel= new PanelFight();
 //				Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
 //				Thread fp = new Thread(Controller.gameframe.fightPanel);
@@ -82,9 +82,19 @@ public class ButtonNext extends JLabel implements MouseListener{
 				isIn = false;
 
 			}
-		}else if(flag==2){
+		}else if(DataBase.pass==2){
+			StoryPlayer.picNum+=1;
+			if(StoryPlayer.picNum<=5){
+				StoryPlayer.second.story=new ImageIcon(path+StoryPlayer.picNum+".png").getImage();
+				StoryPlayer.second.repaint();
+			}else{
+				Controller.gameframe.loadingPanel = new PanelLoading();
+				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+				isIn = false;
+			}
+		
 			
-		}else if(flag==3){
+		}else if(DataBase.pass==3){
 			
 			
 		}

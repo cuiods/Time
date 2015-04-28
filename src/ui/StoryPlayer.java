@@ -4,18 +4,23 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import dataBase.DataBase;
 import ui.button.ButtonNext;
 
 public class StoryPlayer {
-          //关卡
-          int pass;
+       
+        public static int picNum=1;
+        public static PanelStory0 zero = null;
       	public static Panelstory1 first = null;
-    	
-          //关卡作为参数传进来
-          public StoryPlayer(int pass){
-        	 this.pass = pass;
-        	 if(pass==1)
-        	 first = new Panelstory1();
+    	public static PanelStory2 second = null;
+          
+          public StoryPlayer(){
+        	//初始化
+        	zero= new PanelStory0();
+        	first = new Panelstory1();
+        	second= new PanelStory2();
+        	
+        	
            }
           
     

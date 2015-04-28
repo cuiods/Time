@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import tools.Money;
 import tools.PicturePlayer;
 import ui.button.ButtonExit;
+import ui.button.ButtonScience;
 import ui.button.ButtonUnit;
 import units.Cannon;
 import units.Castle;
@@ -28,16 +29,18 @@ import dataBase.DataBase;
 
 public class PanelFight extends JPanel implements Runnable{
 
-	Image fightBackGround = null;
-	Image money = null;
-	ButtonExit butExit = null;
-	ButtonUnit butUnit = null;
+	private Image fightBackGround = null;
+	private Image money = null;
+	private ButtonExit butExit = null;
+	private ButtonUnit butUnit = null;
+	private ButtonScience tech1 = null;
+	private ButtonScience tech2 = null;
+	private ButtonScience tech3 = null;
 	static PanelUnit unitPanel = null;
-	static PanelScience sciencePanel = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
-	static boolean isTech_3 = false;
-	static ArrayList<Unit> enemy = new ArrayList<Unit>();
+	public static boolean isTech_3 = false;
+	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
 	
 	public PanelFight(){
 		
@@ -50,8 +53,12 @@ public class PanelFight extends JPanel implements Runnable{
 		this.setUnitButton();
 		
 		//set science panel
-		sciencePanel = new PanelScience();
-		sciencePanel.addMouseListener(sciencePanel);
+		tech1 = new ButtonScience(1);
+		tech1.addMouseListener(tech1);
+		tech2 = new ButtonScience(2);
+		tech2.addMouseListener(tech2);
+		tech3 = new ButtonScience(3);
+		tech3.addMouseListener(tech3);
 		
 		//clear Layout
 		this.setLayout(null);
@@ -59,7 +66,9 @@ public class PanelFight extends JPanel implements Runnable{
 		//add components
 		this.add(butExit);
 		this.add(butUnit);
-		this.add(sciencePanel);
+		this.add(tech1);
+		this.add(tech2);
+		this.add(tech3);
 		
 		//create and start AI  @niansong1996
 		/*
@@ -309,7 +318,7 @@ public class PanelFight extends JPanel implements Runnable{
 		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 120, 15, 240, 45, this);
 		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 605, 15, 240, 45, this);
-		g.drawImage(tech, 350, 95, 60, 30, this);
+		g.drawImage(tech, 330, 95, 60, 30, this);
 
 		//show money
 		g.drawImage(money, 355, 0,260, 80, this);

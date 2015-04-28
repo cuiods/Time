@@ -14,14 +14,13 @@ public class Panelstory1 extends JPanel{
 	public ButtonNext next;
 	ButtonLast last;
 	public Image story;
-	  //Í¼Æ¬¼ÆÊýÆ÷
-   public  static int picNum=1;
+
 
 	public Panelstory1(){
 		
 		
-   	     next = new ButtonNext(1);
-   	     last = new ButtonLast(1);
+   	     next = new ButtonNext();
+   	     last = new ButtonLast();
   
    	     this.setLayout(null);
  		 this.add(next);
