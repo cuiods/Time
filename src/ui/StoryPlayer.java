@@ -13,7 +13,8 @@ public class StoryPlayer {
         public static PanelStory0 zero = null;
       	public static Panelstory1 first = null;
     	public static PanelStory2 second = null;
-          
+    	public static PanelStory3 third = null;
+    	public static PanelStory4 four = null;
           public StoryPlayer(){
         	//≥ı ºªØ
         	zero= new PanelStory0();

@@ -85,10 +85,17 @@ public class ButtonNext extends JLabel implements MouseListener{
 			}
 		}else if(DataBase.pass==2){
 			
-			if(Panelstory1.picNum==1){
-				Panelstory1.picNum+=1;
-				StoryPlayer.first.story=new ImageIcon(path1+Panelstory1.picNum+".png").getImage();
-				StoryPlayer.first.repaint();
+			if(PanelStory2.picNum==0){
+				    if(Panelstory1.picNum==2){
+				    	Controller.gameframe.getContentPane().setVisible(false);
+				    	Controller.gameframe.loadingPanel = new PanelLoading();
+				    	Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+				    }else{
+				    Panelstory1.picNum+=1;
+					StoryPlayer.first.story=new ImageIcon(path1+Panelstory1.picNum+".png").getImage();
+					StoryPlayer.first.repaint();
+				    }
+			
 			}else{
 				PanelStory2.picNum+=1;
 				if(PanelStory2.picNum<=3){

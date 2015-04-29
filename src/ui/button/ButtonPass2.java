@@ -20,24 +20,22 @@ public class ButtonPass2 extends JLabel implements MouseListener {
 	Image buttonImage;
       public ButtonPass2(){
     	
-    	  buttonImage = new ImageIcon("graphics/storyteller/telescope.png").getImage();
+    	  buttonImage = new ImageIcon("graphics/storyteller/teles1.png").getImage();
    		  this.setBounds(245, 410, 70, 70);
    		
       }
       public void paintComponent(Graphics g){
-    	 switch(DataBase.passAlready){
-    	 case 1:
+    	 if(DataBase.passAlready<1)
     		 
     			 buttonImage = new ImageIcon("graphics/storyteller/teles1.png").getImage();
     		
-    		 break;
-    	 case 2:
+    	 else{	 
+    	
     		 if(!isIn){
     			 buttonImage = new ImageIcon("graphics/storyteller/telescope.png").getImage();
     		 }else{
     			 buttonImage = new ImageIcon("graphics/storyteller/telescope1.png").getImage(); 
     	     }
-    		 break;
     	 }
     	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
       }

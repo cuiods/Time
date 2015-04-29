@@ -15,7 +15,7 @@ public class ButtonPass1 extends JLabel implements MouseListener{
 	 Image buttonImage;
     
      static boolean isIn = false;
-     public static boolean isClick=false;
+  
    
 
  	public ButtonPass1(){
@@ -68,7 +68,7 @@ public class ButtonPass1 extends JLabel implements MouseListener{
 		StoryPlayer.first= new Panelstory1();
 		Controller.gameframe.setContentPane(StoryPlayer.first);
 		isIn=false;
-		isClick=true;
+		
 	}
 
 }
