@@ -54,6 +54,7 @@ public class PanelLoad extends JPanel implements MouseListener{
 			if(e.getY()>=192&&e.getY()<=260){
 				image = new ImageIcon("graphics/info/load1.png").getImage();
 				this.repaint();
+
 			}
 			else if(e.getY()>=263&&e.getY()<=331){
 				image = new ImageIcon("graphics/info/load2.png").getImage();
@@ -61,11 +62,11 @@ public class PanelLoad extends JPanel implements MouseListener{
 			}
 			else if(e.getY()>=334&&e.getY()<=402){
 				image = new ImageIcon("graphics/info/load3.png").getImage();
-				this.repaint();
+	            this.repaint();
 			}
 			else if(e.getY()>=405&&e.getY()<=473){
 				image = new ImageIcon("graphics/info/load4.png").getImage();
-				this.repaint();
+                this.repaint();
 			}
 		}
 	}
