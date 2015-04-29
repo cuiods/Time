@@ -7,11 +7,7 @@ import units.Unit;
 public class DataBase {
 	//记录已到关卡数和当前游戏关卡数
 	public static int pass = 1;
-<<<<<<< HEAD
-    public static int passAlready =2;
-=======
     public static int passAlready = 2;
->>>>>>> origin/master
     
     //记录是否暂停
     public static boolean isPause = false;
