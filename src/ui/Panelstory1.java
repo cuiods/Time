@@ -14,7 +14,7 @@ public class Panelstory1 extends JPanel{
 	public ButtonNext next;
 	ButtonLast last;
 	public Image story;
-
+    public static int picNum=0;
 
 	public Panelstory1(){
 		

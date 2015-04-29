@@ -10,7 +10,7 @@ public class PanelStory2 extends JPanel {
      public ButtonNext next;
      public ButtonLast last;
      public Image story;
-
+     public static int picNum=0;
      
      public PanelStory2(){
     	 next = new ButtonNext();

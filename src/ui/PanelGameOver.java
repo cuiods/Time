@@ -89,7 +89,7 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			//return to start panel("exit")
 			DataBase.recover();
 			//@warning!!!!!!!!!!!!!!!!!!!!!@tj!!!!!!!!!
-			StoryPlayer.picNum = 1;
+			
 			//restart
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.setContentPane(new PanelStart());

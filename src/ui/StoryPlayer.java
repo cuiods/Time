@@ -9,7 +9,7 @@ import ui.button.ButtonNext;
 
 public class StoryPlayer {
        
-        public static int picNum=1;
+        
         public static PanelStory0 zero = null;
       	public static Panelstory1 first = null;
     	public static PanelStory2 second = null;

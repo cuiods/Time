@@ -13,6 +13,7 @@ import dataBase.DataBase;
 import ui.PanelFight;
 import ui.PanelStart;
 import ui.PanelStory0;
+import ui.PanelStory2;
 import ui.Panelstory1;
 import ui.StoryPlayer;
 public class ButtonLast extends JLabel implements MouseListener{
@@ -21,13 +22,16 @@ public class ButtonLast extends JLabel implements MouseListener{
      static boolean isIn = false;
  
    //picture path
-     String path;
+     String path1,path2,path3,path4;
 
  	public ButtonLast(){
  		buttonImage = new ImageIcon("graphics/button/last.png").getImage();
  		this.setBounds(30, 530, 40, 40);
  	
- 		path="graphics/storyteller/story";
+ 		 path1="graphics/storyteller/pass1/story";
+    	 path2="graphics/storyteller/pass2/story";
+    	 path3="graphics/storyteller/pass3/story";
+    	 path4="graphics/storyteller/pass4/story";
     }
  	
  	 public void paintComponent(Graphics g){
@@ -62,50 +66,42 @@ public class ButtonLast extends JLabel implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-			
-		
-		if(DataBase.pass==1){
-			StoryPlayer.picNum-=1;
-			if(StoryPlayer.picNum>=1){
-				
-				StoryPlayer.first.story=new ImageIcon(path+StoryPlayer.picNum+".png").getImage();
-				StoryPlayer.first.repaint();
-			}else if(StoryPlayer.picNum==0){
-			
-				StoryPlayer.first.setVisible(false);
-				StoryPlayer.zero = new PanelStory0();
-				Controller.gameframe.setContentPane(StoryPlayer.zero);
-			}else{
-				StoryPlayer.picNum=0;
-				StoryPlayer.zero.setVisible(false);
-				Controller.gameframe.startPanel= new PanelStart();
-				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
-			}
-		}else if(DataBase.pass==2){
-			StoryPlayer.picNum-=1;
-			if(StoryPlayer.picNum>=3){
-				
-				StoryPlayer.second.story=new ImageIcon(path+StoryPlayer.picNum+".png").getImage();
-				StoryPlayer.second.repaint();
-			}else if(StoryPlayer.picNum==2){
-				
-				StoryPlayer.second.setVisible(false);
-				StoryPlayer.zero=new PanelStory0();
-				Controller.gameframe.setContentPane(StoryPlayer.zero);
-			}else{
-				StoryPlayer.picNum=0;
-				StoryPlayer.zero.setVisible(false);
-				Controller.gameframe.startPanel= new PanelStart();
-				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
-			}
-		
-		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(DataBase.pass==1){
+			if(Panelstory1.picNum>0){
+				Panelstory1.picNum=0;
+				StoryPlayer.first.setVisible(false);
+				StoryPlayer.zero = new PanelStory0();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+			}else{
+				StoryPlayer.zero.setVisible(false);
+				Controller.gameframe.startPanel= new PanelStart();
+				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+			}
+
+		}else if(DataBase.pass==2){
+			if(Panelstory1.picNum>0){
+				Panelstory1.picNum=0;
+				StoryPlayer.first.setVisible(false);
+				StoryPlayer.zero = new PanelStory0();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+			}else if(PanelStory2.picNum>0){
+				PanelStory2.picNum=0;
+				StoryPlayer.second.setVisible(false);
+				StoryPlayer.zero = new PanelStory0();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+			}else{
+				StoryPlayer.zero.setVisible(false);
+				Controller.gameframe.startPanel= new PanelStart();
+				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+			}
+
+        }
+		isIn=false;
 	}
 
 }

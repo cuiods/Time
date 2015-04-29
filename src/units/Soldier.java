@@ -65,34 +65,36 @@ public abstract class Soldier extends Unit{
 		public void run() {
 			while(true){
 				if(this.hp<=0){
-				//	this.die();
-				}
-				if(canAttack()){
-					synchronized(this){
-					this.moving = false;
-					this.attacking = true;
+					//	this.die();
 					}
-					attack();
-					
-				}else{
-					synchronized(this){
-					this.attacking = false;
-					this.moving = true;
+					if(canAttack()){
+						synchronized(this){
+						this.moving = false;
+						this.attacking = true;
+						}
+						attack();
+						
+					}else{
+						synchronized(this){
+						this.attacking = false;
+						this.moving = true;
+						}
+						move();
 					}
-					move();
-				}
 			}
 		}
 
 		@Override
 		public void move() {
 			int spd=0;
-			switch(this.getType()){
-			case 0:spd = DataBase.SWORDMAN_SPD;break;
-			case 1:spd = DataBase.GUNNER_SPD;break;
-			case 2:spd = DataBase.CANNON_SPD;break;
-			case 3:spd = DataBase.MEDICTEAM_SPD;break;
-			case 4:spd = DataBase.SNIPER_SPD;break;
+			if(!DataBase.isPause){
+				switch(this.getType()){
+				case 0:spd = DataBase.SWORDMAN_SPD;break;
+				case 1:spd = DataBase.GUNNER_SPD;break;
+				case 2:spd = DataBase.CANNON_SPD;break;
+				case 3:spd = DataBase.MEDICTEAM_SPD;break;
+				case 4:spd = DataBase.SNIPER_SPD;break;
+				}
 			}
 
 		    	try {
@@ -144,11 +146,13 @@ public abstract class Soldier extends Unit{
 		@Override
 		public void attack() {
 			int atk=0;
-			switch(this.getType()){
-			case 0:atk = DataBase.SWORDMAN_ATK;break;
-			case 1:atk = DataBase.GUNNER_ATK;break;
-			case 2:atk = DataBase.CANNON_ATK;break;
-			case 4:atk = DataBase.SNIPER_ATK;break;
+			if(!DataBase.isPause){
+				switch(this.getType()){
+				case 0:atk = DataBase.SWORDMAN_ATK;break;
+				case 1:atk = DataBase.GUNNER_ATK;break;
+				case 2:atk = DataBase.CANNON_ATK;break;
+				case 4:atk = DataBase.SNIPER_ATK;break;
+				}
 			}
 			//取出可以攻打的对象
 			Unit ce;
