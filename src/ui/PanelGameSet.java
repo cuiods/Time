@@ -8,17 +8,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import ui.button.ButtonExit;
+import ui.button.ButtonSave;
 
 public class PanelGameSet extends JPanel implements MouseListener{
 
-	private ButtonExit butExit = null;
+	ButtonExit butExit = null;
 	public PanelGameSet() {
+		//set exit button
 		butExit = new ButtonExit();
 		butExit.type = 2;
-		butExit.setBounds(280, 20, 30, 30);
+		butExit.setBounds(210, 20, 30, 30);
 		butExit.addMouseListener(butExit);
-		this.setBounds(320, 130, 320, 380);
 		this.add(butExit);
+		//set save button
+		ButtonSave saveButton = new ButtonSave();
+		saveButton.addMouseListener(saveButton);
+		this.add(saveButton);
+		//set size
+		this.setBounds(350, 130, 250, 380);
 	}
 	
 	
