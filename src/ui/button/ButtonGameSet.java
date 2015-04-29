@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import dataBase.DataBase;
 import ui.PanelGameSet;
 
 public class ButtonGameSet extends JPanel implements MouseListener {
@@ -60,6 +61,7 @@ public class ButtonGameSet extends JPanel implements MouseListener {
 			Controller.gameframe.fightPanel.add(gameSetPanel);
 			Controller.gameframe.fightPanel.repaint();
 			isLocked = true;
+			DataBase.isPause = true;
 		}	
 	}
 }

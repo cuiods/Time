@@ -10,6 +10,8 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import dataBase.DataBase;
+
 public class ButtonExit extends JLabel implements MouseListener{
 
 	Image ButtonImage = null;
@@ -62,6 +64,7 @@ public class ButtonExit extends JLabel implements MouseListener{
 			Controller.gameframe.fightPanel.remove(ButtonGameSet.gameSetPanel);
 			ButtonGameSet.isLocked = false;
 			isIn2 = false;
+			DataBase.isPause = false;
 		}
 	}
 

@@ -7,11 +7,15 @@ import units.Unit;
 public class DataBase {
 	//记录已到关卡数和当前游戏关卡数
 	public static int pass = 1;
-        public static int passAlready = 1;
+    public static int passAlready = 1;
+    
+    //记录是否暂停
+    public static boolean isPause = false;
 
-
+    //记录所有单位信息
 	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
+	
 	//Parameters for stage1
 	public static final int CASTLE_HP_STG1 = 3000;//我方城堡的生命值
 	public static final int START_LOC_X_STG1 = 50;//设置第一关的出发位置

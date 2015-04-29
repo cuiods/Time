@@ -15,6 +15,7 @@ import tools.Money;
 import tools.PicturePlayer;
 import ui.button.ButtonExit;
 import ui.button.ButtonGameSet;
+import ui.button.ButtonPause;
 import ui.button.ButtonScience;
 import ui.button.ButtonUnit;
 import units.Cannon;
@@ -22,7 +23,6 @@ import units.Castle;
 import units.Gunner;
 import units.SwordMan;
 import units.Unit;
-import ai.cleverAI;
 import ai.simpleAI;
 import dataBase.DataBase;
 
@@ -38,6 +38,7 @@ public class PanelFight extends JPanel implements Runnable{
 	private ButtonScience tech2 = null;
 	private ButtonScience tech3 = null;
 	private ButtonGameSet gameSet = null;
+	private ButtonPause pause = null;
 	static PanelUnit unitPanel = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
@@ -63,6 +64,8 @@ public class PanelFight extends JPanel implements Runnable{
 		tech3.addMouseListener(tech3);
 		gameSet = new ButtonGameSet();
 		gameSet.addMouseListener(gameSet);
+		pause = new ButtonPause();
+		pause.addMouseListener(pause);
 		
 		//clear Layout
 		this.setLayout(null);
@@ -74,6 +77,7 @@ public class PanelFight extends JPanel implements Runnable{
 		this.add(tech2);
 		this.add(tech3);
 		this.add(gameSet);
+		this.add(pause);
 		
 		//create and start AI  @niansong1996
 		/*
@@ -199,9 +203,17 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:
 			Image swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
 			if(o.moving){
-				swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
+				if(!DataBase.isPause){
+					swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
+				}else{
+					swordman1 = new ImageIcon("graphics/soldiers/s1walk.png").getImage();
+				}
 			}else if(o.attacking){
-				swordman1 = new ImageIcon("graphics/soldiers/s1fight.gif").getImage();
+				if(!DataBase.isPause){
+					swordman1 = new ImageIcon("graphics/soldiers/s1fight.gif").getImage();
+				}else{
+					swordman1 = new ImageIcon("graphics/soldiers/s1£¨fight£©.png").getImage();
+				}
 			}
 			
 			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 50, 80, this);
@@ -230,9 +242,17 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:
 			Image gunner1 = new ImageIcon("graphics/soldiers/s3.png").getImage();
 			if(o.moving){
-				gunner1 = new ImageIcon("graphics/soldiers/s3walk.gif").getImage();
+				if(!DataBase.isPause){
+					gunner1 = new ImageIcon("graphics/soldiers/s3walk.gif").getImage();
+				}else{
+					gunner1 = new ImageIcon("graphics/soldiers/s3walk.png").getImage();
+				}
 			}else if(o.attacking){
-				gunner1 = new ImageIcon("graphics/soldiers/s3fight.gif").getImage();
+				if(!DataBase.isPause){
+					gunner1 = new ImageIcon("graphics/soldiers/s3fight.gif").getImage();
+				}else{
+					gunner1 = new ImageIcon("graphics/soldiers/s2(fight).png").getImage();
+				}
 			}
 			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
@@ -258,9 +278,17 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:
 			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
 			if(o.moving){
-				cannon1 = new ImageIcon("graphics/soldiers/s2walk.gif").getImage();
+				if(!DataBase.isPause){
+					cannon1 = new ImageIcon("graphics/soldiers/s2walk.gif").getImage();
+				}else{
+					cannon1 = new ImageIcon("graphics/soldiers/s2walk.png").getImage();
+				}
 			}else if(o.attacking){
-				cannon1 = new ImageIcon("graphics/soldiers/s2fight.gif").getImage();
+				if(!DataBase.isPause){
+					cannon1 = new ImageIcon("graphics/soldiers/s2fight.gif").getImage();
+				}else{
+					cannon1 = new ImageIcon("graphics/soldiers/s2fight.png").getImage();
+				}
 			}
 			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 50, 80, this);
 			break;
