@@ -32,7 +32,7 @@ public class ButtonExit extends JLabel implements MouseListener{
 				filepath = "graphics/button/exitButtonMoveIn.png";
 				ButtonImage = new ImageIcon(filepath).getImage();
 			}
-		}else if(type == 1||type == 2){
+		}else if(type == 1||type == 2||type==3){
 			if(!isIn1&&type == 1){
 				filepath = "graphics/button/close.png";
 			}else if(type == 1){
@@ -41,6 +41,11 @@ public class ButtonExit extends JLabel implements MouseListener{
 			if(!isIn2&&type == 2){
 				filepath = "graphics/button/close.png";
 			}else if(type == 2){
+				filepath = "graphics/button/close1.png";
+			}
+			if(!isIn2&&type == 3){
+				filepath = "graphics/button/close.png";
+			}else if(type == 3){
 				filepath = "graphics/button/close1.png";
 			}
 			ButtonImage = new ImageIcon(filepath).getImage();
@@ -61,6 +66,10 @@ public class ButtonExit extends JLabel implements MouseListener{
 		}else if(type == 2){
 			Controller.gameframe.fightPanel.remove(ButtonGameSet.gameSetPanel);
 			ButtonGameSet.isLocked = false;
+			isIn2 = false;
+		}else if(type == 3){
+			Controller.gameframe.startPanel.remove(ButtonLoad.loadPanel);
+			ButtonLoad.isLocked = false;
 			isIn2 = false;
 		}
 	}
