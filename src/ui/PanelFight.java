@@ -49,35 +49,13 @@ public class PanelFight extends JPanel implements Runnable{
 		
 		
 		//set castles
-		this.setCastle();
+		setCastle();
 		
 		//set buttons
-		this.setExitButton();
-		this.setUnitButton();
-		
-		//set science panel
-		tech1 = new ButtonScience(1);
-		tech1.addMouseListener(tech1);
-		tech2 = new ButtonScience(2);
-		tech2.addMouseListener(tech2);
-		tech3 = new ButtonScience(3);
-		tech3.addMouseListener(tech3);
-		gameSet = new ButtonGameSet();
-		gameSet.addMouseListener(gameSet);
-		pause = new ButtonPause();
-		pause.addMouseListener(pause);
+		setButtons();
 		
 		//clear Layout
-		this.setLayout(null);
-		
-		//add components
-		this.add(butExit);
-		this.add(butUnit);
-		this.add(tech1);
-		this.add(tech2);
-		this.add(tech3);
-		this.add(gameSet);
-		this.add(pause);
+		setLayout(null);
 		
 		//create and start AI  @niansong1996
 		/*
@@ -103,22 +81,51 @@ public class PanelFight extends JPanel implements Runnable{
 	
 	}
 	
+	
 	/**
-	 * set the exit button
+	 * set technology according to pass
 	 */
-	private void setExitButton(){
+	private void setTech(){
+		switch(DataBase.pass){
+		case 1:
+			tech1 = new ButtonScience(1);
+			tech1.addMouseListener(tech1);
+			tech2 = new ButtonScience(2);
+			tech2.addMouseListener(tech2);
+			tech3 = new ButtonScience(3);
+			tech3.addMouseListener(tech3);
+			this.add(tech1);
+			this.add(tech2);
+			this.add(tech3);
+			break;
+		}
+	}
+	
+	/**
+	 * set all the buttons in the fight panel
+	 */
+	public void setButtons(){
+		//set science panel
+		setTech();
+		
+		gameSet = new ButtonGameSet();
+		gameSet.addMouseListener(gameSet);
+		pause = new ButtonPause();
+		pause.addMouseListener(pause);
+		
 		butExit = new ButtonExit();
 		butExit.type = 1;
 		butExit.setBounds(960, 10, 30, 30);
 		butExit.addMouseListener(butExit);
-	}
-	
-	/**
-	 * set unit button
-	 */
-	private void setUnitButton(){
+		
 		butUnit = new ButtonUnit();
 		butUnit.addMouseListener(butUnit);
+		
+		this.add(butExit);
+		this.add(butUnit);
+		this.add(gameSet);
+		this.add(pause);
+		
 	}
 	
 	/**
@@ -344,7 +351,14 @@ public class PanelFight extends JPanel implements Runnable{
 	 */
 	private void drawBackground(Graphics g){
 		//load background image
-		fightBackGround = new ImageIcon("graphics/background/fightbackground1.png").getImage();
+		switch(DataBase.pass){
+		case 1:
+			fightBackGround = new ImageIcon("graphics/background/fightbackground1.png").getImage();
+			break;
+		case 2:
+			fightBackGround = new ImageIcon("graphics/background/fightbackground2.png").getImage();
+			break;
+		}
 		money = new ImageIcon("graphics/info/money1.png").getImage();
 		Image tech = new ImageIcon("graphics/info/tech.png").getImage();
 		//show background image

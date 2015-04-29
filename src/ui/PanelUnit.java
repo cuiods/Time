@@ -35,19 +35,22 @@ public class PanelUnit extends JPanel implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getX()<=50){
-			image = new ImageIcon("graphics/soldiers/unit_2.png").getImage();
+			//image = new ImageIcon("graphics/soldiers/unit_2.png").getImage();
 			this.repaint();
-			if(DataBase.Money >= DataBase.SWORDMAN_P){
-				this.addSwordman();
+			switch(DataBase.pass){
+			case 1:
+				if(DataBase.Money >= DataBase.SWORDMAN_P){
+					this.addSwordman();
+				}
 			}
 		}else if(e.getX()<=100){
-			image = new ImageIcon("graphics/soldiers/unit_3.png").getImage();
+			//image = new ImageIcon("graphics/soldiers/unit_3.png").getImage();
 			this.repaint();
 			if(DataBase.Money >= DataBase.GUNNER_P){
 				this.addGunner();
 			}
 		}else if(e.getX()<=150){
-			image = new ImageIcon("graphics/soldiers/unit_4.png").getImage();
+			//image = new ImageIcon("graphics/soldiers/unit_4.png").getImage();
 			this.repaint();
 			if(DataBase.Money >= DataBase.CANNON_P&&DataBase.Tech_1){
 				this.addCannon();

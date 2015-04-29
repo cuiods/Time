@@ -103,14 +103,27 @@ public abstract class Soldier extends Unit{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		    	if(this.getKind()==1){
-		    		x+=spd;
-		    		y=(int) (0.0000007*x*x*x-0.001*x*x+0.1566*x+399.32);
-		    		}
-		    		else{
-		    			x-=spd;
-		        		y=(int) (0.0000007*x*x*x-0.001*x*x+0.1566*x+399.32);
-		    		}
+		    	switch(DataBase.pass){
+	    		case 1:
+	    			if(this.getKind()==1){
+	    	    		x+=db.PATH_AGLX_STG1*db.GUNNER_SPD;
+	    	    		y+=db.PATH_AGLY_STG1*db.GUNNER_SPD;
+	    	    		}
+	    	    		else{
+	    	    			x+=db.PATH_AGLX_ENM*db.GUNNER_SPD;
+	    	        		y+=db.PATH_AGLY_ENM*db.GUNNER_SPD;
+	    	    		}
+	    			break;
+	    		case 2:
+	    			if(this.getKind()==1){
+			    		x+=spd;
+			    		y=(int) (0.0000007*x*x*x-0.001*x*x+0.1566*x+399.32);
+			    	}else{
+			    		x-=spd;
+			        	y=(int) (0.0000007*x*x*x-0.001*x*x+0.1566*x+399.32);
+			    	}
+		    		break;
+	    		}
 		}
 					
 		//判断与自己最近的敌人是否在攻击范围内
