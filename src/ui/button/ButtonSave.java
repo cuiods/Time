@@ -3,9 +3,12 @@ package ui.button;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import tools.Save;
 
 public class ButtonSave extends JLabel implements MouseListener{
 
@@ -46,7 +49,13 @@ public class ButtonSave extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		
+		Save sv = new Save();
+		try {
+			sv.Save();
+		} catch (IOException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
 	}
 
 }

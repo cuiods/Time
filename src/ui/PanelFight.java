@@ -456,8 +456,8 @@ public class PanelFight extends JPanel implements Runnable{
 		enemycastle.setHp(DataBase.CASTLE_HP_ENM);
 		Thread cp2 = new Thread(enemycastle);
 		cp2.start();
-		enemycastle.setX(DataBase.START_LOC_X_ENM-80);
-		enemycastle.setY(DataBase.START_LOC_Y_ENM+50);
+		enemycastle.setX(DataBase.START_LOC_X_ENM_STG1-80);
+		enemycastle.setY(DataBase.START_LOC_Y_ENM_STG1+50);
 		DataBase.enemyList.add(enemycastle);
 	}
 

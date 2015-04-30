@@ -6,10 +6,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import tools.Save;
 import ui.PanelLoad;
 
 public class ButtonLoad extends JLabel implements MouseListener{
@@ -55,6 +57,7 @@ public class ButtonLoad extends JLabel implements MouseListener{
 			loadPanel.repaint();
 			Controller.gameframe.repaint();
 		}	
+		
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {

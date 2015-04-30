@@ -4,7 +4,7 @@ import dataBase.DataBase;
 
 public class Castle extends Unit implements Runnable{
 	
-	int addSpeed = 1;
+	private int addSpeed = 1;
 	
 	public Castle(){
 		x = DataBase.START_LOC_X_STG1 ;

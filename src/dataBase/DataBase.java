@@ -20,12 +20,16 @@ public class DataBase {
 	public static final int CASTLE_HP_STG1 = 3000;//我方城堡的生命值
 	public static final int START_LOC_X_STG1 = 50;//设置第一关的出发位置
 	public static final int START_LOC_Y_STG1 = 500;
+	public static final int START_LOC_X_STG2 = 0;//设置第二关的出发位置
+	public static final int START_LOC_Y_STG2 = 400;
 	public static final int PATH_AGLX_STG1 = 2;//设置第一关路径的斜率
 	public static final int PATH_AGLY_STG1 = -1;
 	
 	public static final int CASTLE_HP_ENM = 2000;//敌方城堡的生命值
-	public static final int START_LOC_X_ENM = 950;//设置第一关敌人的出发位置
-	public static final int START_LOC_Y_ENM = 50;
+	public static final int START_LOC_X_ENM_STG1 = 950;//设置第一关敌人的出发位置
+	public static final int START_LOC_Y_ENM_STG1 = 50;
+	public static final int START_LOC_X_ENM_STG2 = 990;//设置第二关敌人的出发位置
+	public static final int START_LOC_Y_ENM_STG2 = 180;
 	public static final int PATH_AGLX_ENM = -2;//设置第一关敌人路径的斜率
 	public static final int PATH_AGLY_ENM = 1;
 	//General parameters for the game

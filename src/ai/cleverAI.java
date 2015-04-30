@@ -63,8 +63,8 @@ public class cleverAI extends AI implements Runnable{
 		} 
 		for(int i=0;i<DataBase.playerList.size();i++){
 			Unit u = DataBase.playerList.get(i); 
-			int dis = (int) Math.sqrt((db.START_LOC_X_ENM-u.getX())*(db.START_LOC_X_ENM-u.getX())+
-					(db.START_LOC_Y_ENM-u.getY())*(db.START_LOC_Y_ENM-u.getY()));
+			int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG1-u.getX())*(db.START_LOC_X_ENM_STG1-u.getX())+
+					(db.START_LOC_Y_ENM_STG1-u.getY())*(db.START_LOC_Y_ENM_STG1-u.getY()));
 			if (dis <=200) Threat +=200;
 			
 		}
@@ -100,6 +100,7 @@ public class cleverAI extends AI implements Runnable{
 		}
 	}
 	public void run() {
+		if(!DataBase.isPause)
 		detect();
 		
 	}

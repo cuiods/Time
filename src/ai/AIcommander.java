@@ -39,7 +39,7 @@ public class AIcommander {
 		
 	}
 	public void setLoc(Unit u){
-		u.setX(db.START_LOC_X_ENM);
-		u.setY(db.START_LOC_Y_ENM);
+		u.setX(db.START_LOC_X_ENM_STG1);
+		u.setY(db.START_LOC_Y_ENM_STG1);
 	}
 }
