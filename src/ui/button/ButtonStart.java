@@ -70,7 +70,7 @@ public class ButtonStart extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		//@warning!!!!!!!!!!!!!!!!!!@tj
+		
 		Controller.gameframe.getContentPane().setVisible(false);
 		StoryPlayer sp = new StoryPlayer();
 		Controller.gameframe.setContentPane(StoryPlayer.zero);

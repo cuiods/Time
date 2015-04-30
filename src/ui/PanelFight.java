@@ -33,13 +33,11 @@ public class PanelFight extends JPanel implements Runnable{
 	private Image fightBackGround = null;
 	private Image money = null;
 	private ButtonExit butExit = null;
-	private ButtonUnit butUnit = null;
 	private ButtonScience tech1 = null;
 	private ButtonScience tech2 = null;
 	private ButtonScience tech3 = null;
 	private ButtonGameSet gameSet = null;
 	private ButtonPause pause = null;
-	static PanelUnit unitPanel = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
 	public static boolean isTech_3 = false;
@@ -118,44 +116,25 @@ public class PanelFight extends JPanel implements Runnable{
 		butExit.setBounds(960, 10, 30, 30);
 		butExit.addMouseListener(butExit);
 		
-		butUnit = new ButtonUnit();
-		butUnit.addMouseListener(butUnit);
+		ButtonUnit butUnit = null;
+		switch(DataBase.pass){
+		case 1:
+			for(int i = 0; i< 3;i++){
+				butUnit = new ButtonUnit(i+1);
+				butUnit.setBounds(30+i*70, 80, 65, 60);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
+			break;
+			
+		}
 		
 		this.add(butExit);
-		this.add(butUnit);
 		this.add(gameSet);
 		this.add(pause);
 		
 	}
 	
-	/**
-	 * add a panel showing all the units that can be built
-	 */
-	public static void addUnitPanel(){
-		if(!panelUnitExist){
-			//create new unit panel
-			unitPanel = new PanelUnit();
-			//add unit panel
-			Controller.gameframe.fightPanel.add(unitPanel);
-			//repaint panel
-			Controller.gameframe.fightPanel.repaint();			
-			//unit panel has existed, in case add new unit panel
-			panelUnitExist = true;
-			//add mouseListener
-			unitPanel.addMouseListener(unitPanel);
-		}
-	}
-	
-	/**
-	 * remove unit panel
-	 */
-	public static void removeUnitPanel(){
-		if(panelUnitExist){
-			Controller.gameframe.fightPanel.remove(unitPanel);
-			Controller.gameframe.fightPanel.repaint();
-			panelUnitExist = false;
-		}
-	}
 	
 	/**
 	 * draw solders, and so on 
@@ -208,35 +187,67 @@ public class PanelFight extends JPanel implements Runnable{
 	private void drawSwordman(Graphics g,SwordMan o){
 		switch(o.getKind()){
 		case 1:
-			Image swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
+			Image swordman1 = null;
+			switch(DataBase.pass){
+			case 1:
+				if(o.moving){
+					if(!DataBase.isPause){
+						swordman1 = new ImageIcon("graphics/soldiers/s/s1walk.gif").getImage();
+					}else{
+						swordman1 = new ImageIcon("graphics/soldiers/s/s1.png").getImage();
+					}
+				}else if(o.attacking){
+					if(!DataBase.isPause){
+						swordman1 = new ImageIcon("graphics/soldiers/s/s1fight.gif").getImage();
+					}else{
+						swordman1 = new ImageIcon("graphics/soldiers/s/s1fight.png").getImage();
+					}
+				}
+				break;
+			case 2:
+				if(o.moving){
+					if(!DataBase.isPause){
+						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+					}else{
+						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+					}
+				}else if(o.attacking){
+					if(!DataBase.isPause){
+						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+					}else{
+						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+					}
+				}
+				break;
+			}
+			
+			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 40, 60, this);
+			break;
+		case 0:
+			Image swordman0 = new ImageIcon("graphics/soldiers/en/en1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					swordman1 = new ImageIcon("graphics/soldiers/s1walk.gif").getImage();
+					swordman0 = new ImageIcon("graphics/soldiers/en/en1walk.gif").getImage();
 				}else{
-					swordman1 = new ImageIcon("graphics/soldiers/s1walk.png").getImage();
+					swordman0 = new ImageIcon("graphics/soldiers/en/en1.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					swordman1 = new ImageIcon("graphics/soldiers/s1fight.gif").getImage();
+					swordman0 = new ImageIcon("graphics/soldiers/en/en1fight.gif").getImage();
 				}else{
-					swordman1 = new ImageIcon("graphics/soldiers/s1£¨fight£©.png").getImage();
+					swordman0 = new ImageIcon("graphics/soldiers/en/en1fight.png").getImage();
 				}
 			}
-			
-			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 50, 80, this);
-			break;
-		case 0:
-			Image swordman0 = new ImageIcon("graphics/soldiers/soldier1.png").getImage();
-			g.drawImage(swordman0,o.getX(), o.getY()+o.ran, 50, 80, this);
+			g.drawImage(swordman0,o.getX(), o.getY()+o.ran, 40, 60, this);
 			break;
 		}
 		//draw life
-		int lifePercentage = (int)(50 * 1.0*(o.getHp()*1.00/DataBase.SWORDMAN_HP));
+		int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SWORDMAN_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-20+o.ran, lifePercentage, 5, false);
-		if(lifePercentage!=50){
+		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-20, 50-lifePercentage, 5, false);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 		}
 		
 	}
@@ -247,33 +258,46 @@ public class PanelFight extends JPanel implements Runnable{
 	private void drawGunner(Graphics g,Gunner o){
 		switch(o.getKind()){
 		case 1:
-			Image gunner1 = new ImageIcon("graphics/soldiers/s3.png").getImage();
+			Image gunner1 = new ImageIcon("graphics/soldiers/s/s3.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					gunner1 = new ImageIcon("graphics/soldiers/s3walk.gif").getImage();
+					gunner1 = new ImageIcon("graphics/soldiers/s/s2walk.gif").getImage();
 				}else{
-					gunner1 = new ImageIcon("graphics/soldiers/s3walk.png").getImage();
+					gunner1 = new ImageIcon("graphics/soldiers/s/s3.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					gunner1 = new ImageIcon("graphics/soldiers/s3fight.gif").getImage();
+					gunner1 = new ImageIcon("graphics/soldiers/s/s3fight.gif").getImage();
 				}else{
-					gunner1 = new ImageIcon("graphics/soldiers/s2(fight).png").getImage();
+					gunner1 = new ImageIcon("graphics/soldiers/s/s2(fight).png").getImage();
 				}
 			}
-			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 50, 80, this);
+			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 40, 60, this);
 			break;
 		case 0:
-			Image gunner0 = new ImageIcon("graphics/soldiers/soldier2.png").getImage();
-			g.drawImage(gunner0,o.getX(), o.getY()+o.ran, 50, 80, this);
+			Image gunner0 = new ImageIcon("graphics/soldiers/en/en2.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					gunner0 = new ImageIcon("graphics/soldiers/en/en2walk.gif").getImage();
+				}else{
+					gunner0 = new ImageIcon("graphics/soldiers/en/en3.png").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					gunner0 = new ImageIcon("graphics/soldiers/en/en2fight.gif").getImage();
+				}else{
+					gunner0 = new ImageIcon("graphics/soldiers/en/en2(fight).png").getImage();
+				}
+			}
+			g.drawImage(gunner0,o.getX(), o.getY()+o.ran, 40, 60, this);
 		}
 		//draw life
-		int lifePercentage = (int)(50 *1.0* (o.getHp()*1.00/DataBase.GUNNER_HP));
+		int lifePercentage = (int)(40 *1.0* (o.getHp()*1.00/DataBase.GUNNER_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-20+o.ran, lifePercentage, 5, false);
-		if(lifePercentage!=50){
+		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20+o.ran, 50-lifePercentage, 5, false);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-10+o.ran, 40-lifePercentage, 3, false);
 		}
 	}
 	
@@ -283,33 +307,46 @@ public class PanelFight extends JPanel implements Runnable{
 	private void drawCannon(Graphics g,Cannon o){  	
 		switch(o.getKind()){
 		case 1:
-			Image cannon1 = new ImageIcon("graphics/soldiers/s2.png").getImage();
+			Image cannon1 = new ImageIcon("graphics/soldiers/s/s2.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					cannon1 = new ImageIcon("graphics/soldiers/s2walk.gif").getImage();
+					cannon1 = new ImageIcon("graphics/soldiers/s/s3walk.gif").getImage();
 				}else{
-					cannon1 = new ImageIcon("graphics/soldiers/s2walk.png").getImage();
+					cannon1 = new ImageIcon("graphics/soldiers/s/s2.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					cannon1 = new ImageIcon("graphics/soldiers/s2fight.gif").getImage();
+					cannon1 = new ImageIcon("graphics/soldiers/s/s2fight.gif").getImage();
 				}else{
-					cannon1 = new ImageIcon("graphics/soldiers/s2fight.png").getImage();
+					cannon1 = new ImageIcon("graphics/soldiers/s/s2fight.png").getImage();
 				}
 			}
-			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 50, 80, this);
+			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 40, 60, this);
 			break;
 		case 0:
-			Image cannon0 = new ImageIcon("graphics/soldiers/soldier3.png").getImage();
-			g.drawImage(cannon0,o.getX(), o.getY()+o.ran, 50, 80, this);
+			Image cannon0 = new ImageIcon("graphics/soldiers/en/en2.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					cannon0 = new ImageIcon("graphics/soldiers/en/en3walk.gif").getImage();
+				}else{
+					cannon0 = new ImageIcon("graphics/soldiers/en/en2.png").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					cannon0 = new ImageIcon("graphics/soldiers/en/en3fight.gif").getImage();
+				}else{
+					cannon0 = new ImageIcon("graphics/soldiers/en/en2fight.png").getImage();
+				}
+			}
+			g.drawImage(cannon0,o.getX(), o.getY()+o.ran, 40, 60, this);
 		}
 		//draw life
-	    int lifePercentage = (int)(50 * 1.0*(o.getHp()*1.0/DataBase.CANNON_HP));
+	    int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.0/DataBase.CANNON_HP));
 		g.setColor(Color.GREEN);
-	    g.fill3DRect(o.getX(), o.getY()-20+o.ran, lifePercentage, 5, false);
-		if(lifePercentage!=50){
+	    g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()-20+o.ran, 50-lifePercentage, 5, false);
+			g.fill3DRect(o.getX()+lifePercentage, o.getY()-10+o.ran, 40-lifePercentage, 3, false);
 		}
 	}
 	

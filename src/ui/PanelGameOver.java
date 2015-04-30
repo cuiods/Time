@@ -27,6 +27,7 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 	boolean isIn2 = false;
 	
 	public PanelGameOver(boolean iswin){
+		this.isWin = iswin;
 		this.setBounds(320, 140, 400, 300);
 		Controller.gameframe.remove(Controller.gameframe.fightPanel);
 		gameover = new ImageIcon("graphics/info/gameover.png").getImage();
@@ -88,18 +89,28 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 		if(e.getX()>=220&&e.getX()<=340&&e.getY()>=200&&e.getY()<=250){
 			//return to start panel("exit")
 			DataBase.recover();
-			//@warning!!!!!!!!!!!!!!!!!!!!!@tj!!!!!!!!!
 			
 			//restart
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.setContentPane(new PanelStart());
 			Controller.gameframe.repaint();
+			
+			
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){
+			
 			//restart the game
-			DataBase.recover();
-
-			Controller.gameframe.getContentPane().setVisible(false);
-			Controller.gameframe.setContentPane(new PanelLoading());
+			if(!isWin){
+				DataBase.recover();
+				Controller.gameframe.getContentPane().setVisible(false);
+				Controller.gameframe.setContentPane(new PanelLoading());
+			}else{
+				if(DataBase.pass==DataBase.passAlready){
+					DataBase.passAlready++;
+				}
+				Controller.gameframe.getContentPane().setVisible(false);
+				StoryPlayer sp = new StoryPlayer();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+			}
 			
 		}
 		

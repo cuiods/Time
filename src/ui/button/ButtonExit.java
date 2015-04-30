@@ -72,7 +72,6 @@ public class ButtonExit extends JLabel implements MouseListener{
 			DataBase.isPause = false;
 		}else if(type == 3){
 			Controller.gameframe.startPanel.remove(ButtonLoad.loadPanel);
-			ButtonLoad.isLocked = false;
 			isIn2 = false;
 		}
 	}

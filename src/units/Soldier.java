@@ -31,15 +31,19 @@ public abstract class Soldier extends Unit{
 					//初始值为距离列表中第一个敌人的距离
 					int minidistance= caldistance(this.x,DataBase.enemyList.get(0).getX(),
 							this.y,DataBase.enemyList.get(0).getY());
-					for(int i=0;i<DataBase.enemyList.size();i++){
-						Unit enemy=DataBase.enemyList.get(i);
-						int distance= caldistance(this.x,enemy.getX(),this.y,enemy.getY());
-						//判断是否是当前最小距离
-						if(distance<minidistance){
-								minidistance=distance;
-								temp=i;
+					
+						for(int i=0;i<DataBase.enemyList.size();i++){
+							synchronized (this) {
+								Unit enemy=DataBase.enemyList.get(i);
+								int distance= caldistance(this.x,enemy.getX(),this.y,enemy.getY());
+								//判断是否是当前最小距离
+								if(distance<minidistance){
+									minidistance=distance;
+									temp=i;
+								}
+							}
 						}
-					}
+		
 					return temp;
 				}else{
 					return -1;
@@ -106,13 +110,13 @@ public abstract class Soldier extends Unit{
 		    	switch(DataBase.pass){
 	    		case 1:
 	    			if(this.getKind()==1){
-	    	    		x+=db.PATH_AGLX_STG1*db.GUNNER_SPD;
-	    	    		y+=db.PATH_AGLY_STG1*db.GUNNER_SPD;
-	    	    		}
-	    	    		else{
-	    	    			x+=db.PATH_AGLX_ENM*db.GUNNER_SPD;
-	    	        		y+=db.PATH_AGLY_ENM*db.GUNNER_SPD;
-	    	    		}
+			    		x+=DataBase.PATH_AGLX_STG1*spd;
+			    		y+=DataBase.PATH_AGLY_STG1*spd;
+			    		}
+			    		else{
+			    			x+=DataBase.PATH_AGLX_ENM*spd;
+			        		y+=DataBase.PATH_AGLY_ENM*spd;
+			    		}
 	    			break;
 	    		case 2:
 	    			if(this.getKind()==1){
