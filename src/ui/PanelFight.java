@@ -119,14 +119,20 @@ public class PanelFight extends JPanel implements Runnable{
 		ButtonUnit butUnit = null;
 		switch(DataBase.pass){
 		case 1:
-			for(int i = 0; i< 3;i++){
+			for(int i = 0; i < 3;i++){
 				butUnit = new ButtonUnit(i+1);
 				butUnit.setBounds(30+i*70, 80, 65, 60);
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
 			}
 			break;
-			
+		case 2:
+			for(int i = 0; i < 1;i++){
+				butUnit = new ButtonUnit(i+4);
+				butUnit.setBounds(30+i*70, 80, 65, 60);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
 		}
 		
 		this.add(butExit);
@@ -207,21 +213,21 @@ public class PanelFight extends JPanel implements Runnable{
 			case 2:
 				if(o.moving){
 					if(!DataBase.isPause){
-						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+						swordman1 = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
 					}else{
-						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+						swordman1 = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
 					}
 				}else if(o.attacking){
 					if(!DataBase.isPause){
-						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+						swordman1 = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
 					}else{
-						swordman1 = new ImageIcon("graphics/soldiers/s4walk1.gif").getImage();
+						swordman1 = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
 					}
 				}
 				break;
 			}
 			
-			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 40, 60, this);
+			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 40, 62, this);
 			break;
 		case 0:
 			Image swordman0 = new ImageIcon("graphics/soldiers/en/en1.png").getImage();
@@ -238,7 +244,7 @@ public class PanelFight extends JPanel implements Runnable{
 					swordman0 = new ImageIcon("graphics/soldiers/en/en1fight.png").getImage();
 				}
 			}
-			g.drawImage(swordman0,o.getX(), o.getY()+o.ran, 40, 60, this);
+			g.drawImage(swordman0,o.getX(), o.getY()+o.ran, 40, 62, this);
 			break;
 		}
 		//draw life
@@ -272,7 +278,7 @@ public class PanelFight extends JPanel implements Runnable{
 					gunner1 = new ImageIcon("graphics/soldiers/s/s2(fight).png").getImage();
 				}
 			}
-			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 40, 60, this);
+			g.drawImage(gunner1,o.getX(), o.getY()+o.ran, 40, 81, this);
 			break;
 		case 0:
 			Image gunner0 = new ImageIcon("graphics/soldiers/en/en2.png").getImage();
@@ -289,7 +295,7 @@ public class PanelFight extends JPanel implements Runnable{
 					gunner0 = new ImageIcon("graphics/soldiers/en/en2(fight).png").getImage();
 				}
 			}
-			g.drawImage(gunner0,o.getX(), o.getY()+o.ran, 40, 60, this);
+			g.drawImage(gunner0,o.getX(), o.getY()+o.ran, 40, 81, this);
 		}
 		//draw life
 		int lifePercentage = (int)(40 *1.0* (o.getHp()*1.00/DataBase.GUNNER_HP));
@@ -321,7 +327,7 @@ public class PanelFight extends JPanel implements Runnable{
 					cannon1 = new ImageIcon("graphics/soldiers/s/s2fight.png").getImage();
 				}
 			}
-			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 40, 60, this);
+			g.drawImage(cannon1,o.getX(), o.getY()+o.ran, 40, 64, this);
 			break;
 		case 0:
 			Image cannon0 = new ImageIcon("graphics/soldiers/en/en2.png").getImage();
@@ -338,7 +344,7 @@ public class PanelFight extends JPanel implements Runnable{
 					cannon0 = new ImageIcon("graphics/soldiers/en/en2fight.png").getImage();
 				}
 			}
-			g.drawImage(cannon0,o.getX(), o.getY()+o.ran, 40, 60, this);
+			g.drawImage(cannon0,o.getX(), o.getY()+o.ran, 40, 64, this);
 		}
 		//draw life
 	    int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.0/DataBase.CANNON_HP));
@@ -371,7 +377,7 @@ public class PanelFight extends JPanel implements Runnable{
 			Image castle = new ImageIcon("graphics/soldiers/castle.png").getImage();
 			g.drawImage(castle,o.getX()-60, o.getY()-150, 150, 150, this);
 			g.drawImage(new ImageIcon("graphics/soldiers/castle1_2.png").getImage(), 20, 460, 100, 150, this);
-			g.drawImage(new ImageIcon("graphics/soldiers/castle1_1.png").getImage(), 150, 480, 100, 150, this);
+			//g.drawImage(new ImageIcon("graphics/soldiers/castle1_1.png").getImage(), 150, 480, 100, 150, this);
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(340-lifePercent, 32, lifePercent, 10, false);

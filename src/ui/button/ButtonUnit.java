@@ -44,7 +44,12 @@ public class ButtonUnit extends JLabel implements MouseListener{
 				g.drawImage(new ImageIcon("graphics/info/units/s3_2.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 			}
 			break;
-			
+		case 4:
+			if(!isIn){
+				g.drawImage(new ImageIcon("graphics/info/units/s4_1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/info/units/s4_2.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}
 		}
 	}
 
@@ -73,6 +78,11 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		case 3:
 			if(DataBase.Tech_1&&DataBase.Money-DataBase.CANNON_P>=0){
 				addCannon();
+			}
+			break;
+		case 4:
+			if(DataBase.Money-DataBase.SWORDMAN_P>=0){
+				addSwordman();
 			}
 			break;
 		}
