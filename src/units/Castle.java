@@ -1,10 +1,12 @@
 package units;
 
+import java.io.Serializable;
+
 import dataBase.DataBase;
 
-public class Castle extends Unit implements Runnable{
+public class Castle extends Unit implements Runnable, Serializable{
 	
-	private int addSpeed = 1;
+	public int addSpeed = 1;
 	
 	public Castle(){
 		x = DataBase.START_LOC_X_STG1 ;

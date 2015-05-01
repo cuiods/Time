@@ -3,10 +3,12 @@ package ui.button;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import tools.Save;
 import ui.PanelFight;
 import Tech.Tech1;
 import Tech.Tech2;
@@ -83,6 +85,16 @@ public class ButtonScience extends JPanel implements MouseListener{
 					PanelFight.isTech_3 = true;
 					new Tech3();
 					DataBase.Money -= DataBase.Tech_3_p;
+				}
+				Save sv = new Save();
+				try {
+					sv.Recover();
+				} catch (ClassNotFoundException e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
 				}
 				break;
 			}

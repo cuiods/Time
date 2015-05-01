@@ -1,8 +1,10 @@
 package units;
 
+import java.io.Serializable;
+
 import dataBase.DataBase;
 
-public abstract class Unit {
+public abstract class Unit implements Serializable, Runnable{
 	protected DataBase db;  //用于引用数据
 	protected int x = 0;
 	protected int y = 0;
@@ -52,7 +54,7 @@ public abstract class Unit {
 	public void setHp(int hp){
 		this.hp = hp;
 	}
-	
+	public abstract void run();
 	
 	
 }

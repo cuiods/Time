@@ -33,7 +33,7 @@ public class DataBase {
 	public static final int PATH_AGLX_ENM = -2;//设置第一关敌人路径的斜率
 	public static final int PATH_AGLY_ENM = 1;
 	//General parameters for the game
-	public static int Money = 2000; //记录玩家当前的金钱数
+	public static int Money = 200000; //记录玩家当前的金钱数
 	public static int Money_Increment = 2;
 	public static int Castle_HP; //记录玩家当前城堡的生命值，要根据关的不同初始化不同的值
 	public static boolean Tech_1 = false;//各个可能出现的科技，先用12345替代

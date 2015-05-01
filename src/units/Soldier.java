@@ -66,6 +66,7 @@ public abstract class Soldier extends Unit{
 					}
 				}
 		}
+		@Override
 		public void run() {
 			while(true){
 				if(this.hp<=0){
