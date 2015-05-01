@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class Truck extends Soldier{
+public class Truck extends Soldier implements Runnable{
 	public Truck(){
 		x = DataBase.START_LOC_X_STG1;
 		y = DataBase.START_LOC_Y_STG1;
@@ -22,10 +22,11 @@ public class Truck extends Soldier{
 				}else{
 					db.playerList.add(s);
 				}
-			}else if(this.hp<0){
-			}else
+			}else if(!(this.hp<0)){
+			
 				move();
 			}
 		}
+	}
 }
 
