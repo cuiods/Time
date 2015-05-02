@@ -16,13 +16,13 @@ import dataBase.DataBase;
 public class PanelFight extends JPanel implements Runnable{
 
 	private Image fightBackGround = null;
-	private Image money = null;
 	private ButtonExit butExit = null;
 	private ButtonScience tech1 = null;
 	private ButtonScience tech2 = null;
 	private ButtonScience tech3 = null;
 	private ButtonGameSet gameSet = null;
 	private ButtonPause pause = null;
+	private Time time = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
 	public static boolean isTech_3 = false;
@@ -87,7 +87,7 @@ public class PanelFight extends JPanel implements Runnable{
 			th1.start();	
 			break;
 		case 2:
-			//@niansong
+			time = new Time();
 			simpleAI_STG2 ai2 = new simpleAI_STG2();
 			Thread th2 = new Thread(ai2);
 			th2.start();
@@ -195,6 +195,7 @@ public class PanelFight extends JPanel implements Runnable{
 				break;
 			case 3:
 				drawMedicTeam(g, (MedicTeam)DataBase.enemyList.get(i));
+				break;
 			case 4:
 				drawSniper(g,(Sniper)DataBase.enemyList.get(i));
 				break;
@@ -207,7 +208,6 @@ public class PanelFight extends JPanel implements Runnable{
 			case 100:
 				drawCastle(g, (Castle) DataBase.enemyList.get(i));
 				break;
-				
 			}
 		}
 	}
@@ -596,10 +596,15 @@ public class PanelFight extends JPanel implements Runnable{
 				
 			}
 		}else if(o.getKind() == 1){
-			Image castle = new ImageIcon("graphics/soldiers/castle.png").getImage();
-			g.drawImage(castle,o.getX()-60, o.getY()-150, 150, 150, this);
-			g.drawImage(new ImageIcon("graphics/soldiers/castle1_2.png").getImage(), 20, 460, 100, 150, this);
-			//g.drawImage(new ImageIcon("graphics/soldiers/castle1_1.png").getImage(), 150, 480, 100, 150, this);
+			switch(DataBase.pass){
+			case 1:
+				g.drawImage(new ImageIcon("graphics/soldiers/castle.png").getImage(),o.getX()-60, o.getY()-150, 150, 150, this);
+				g.drawImage(new ImageIcon("graphics/soldiers/castle1_2.png").getImage(), 20, 460, 100, 150, this);
+				break;
+			case 2:
+				g.drawImage(new ImageIcon("graphics/soldiers/castle2.png").getImage(), 10,250 , 106, 147, this);
+				break;
+			}
 			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(340-lifePercent, 32, lifePercent, 10, false);
@@ -624,8 +629,9 @@ public class PanelFight extends JPanel implements Runnable{
 			fightBackGround = new ImageIcon("graphics/background/fightbackground2.png").getImage();
 			break;
 		}
-		money = new ImageIcon("graphics/info/money1.png").getImage();
+		Image money = new ImageIcon("graphics/info/money1.png").getImage();
 		Image tech = new ImageIcon("graphics/info/tech.png").getImage();
+		
 		//show background image
 		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 120, 15, 240, 45, this);
@@ -638,19 +644,17 @@ public class PanelFight extends JPanel implements Runnable{
 		Font myFont = new Font("华文隶书",Font.BOLD,24);
 		g.setFont(myFont);
 		g.drawString(DataBase.Money+"", 450, 65);
-		/*
-		 * 调试用 @Anthony
-		 */
-//		for(int i=0;i<DataBase.enemyList.size();i++){
-//		g.drawString(DataBase.enemyList.get(i).getHp()+"", 900, 20+40*i);
-//		}
-//		for(int i=0;i<DataBase.playerList.size();i++){
-//			g.drawString(DataBase.playerList.get(i).getHp()+"", 900, 400+40*i);
-//			}
-		
 	}
 	
+	/**
+	 * draw special effects
+	 * @param graphics g
+	 * @see PicturePlayer
+	 */
 	private void drawEffects(Graphics g){
+		/*
+		 * draw tech 3 effects
+		 */
 		if(isTech_3){
 			String[] pictures = {"graphics/stunt/tech3_1.png","graphics/stunt/tech3_2.png","graphics/stunt/tech3_3.png","graphics/stunt/tech3_4.png","graphics/stunt/tech3_5.png","graphics/stunt/tech3_6.png","graphics/stunt/tech3_7.png","graphics/stunt/tech3_8.png","graphics/stunt/tech3_9.png","graphics/stunt/tech3_10.png"};
 			for(int i = 0; i <enemy.size();i++){
@@ -664,23 +668,49 @@ public class PanelFight extends JPanel implements Runnable{
 				}
 			}
 		}
+		if(time!=null){
+			int min = time.getRemainTime()/60;
+			int second = time.getRemainTime()%60;
+			g.setColor(Color.red);
+			Font myFont = new Font("华文隶书",Font.BOLD,28);
+			g.setFont(myFont);
+			g.drawString(min+"", 680, 80);
+			g.drawString(":", 700, 80);
+			g.drawString(second+"", 720, 80);			
+		}
 	}
 
+	/**
+	 * add unit castle and set location and start thread
+	 * @see Castle
+	 */
 	private void setCastle(){
-		Castle mycastle = new Castle();
-		mycastle.setKind(1);
-		
-		Thread cp1 = new Thread(mycastle);
-		cp1.start();
-		DataBase.playerList.add(mycastle);
-		
-		Castle enemycastle = new Castle();
-		enemycastle.setHp(DataBase.CASTLE_HP_ENM_STG1);
-		Thread cp2 = new Thread(enemycastle);
-		cp2.start();
-		enemycastle.setX(DataBase.START_LOC_X_ENM_STG1-80);
-		enemycastle.setY(DataBase.START_LOC_Y_ENM_STG1+50);
-		DataBase.enemyList.add(enemycastle);
+		switch(DataBase.pass){
+		case 1:
+			Castle mycastle = new Castle();
+			mycastle.setKind(1);
+			
+			Thread cp11 = new Thread(mycastle);
+			cp11.start();
+			DataBase.playerList.add(mycastle);
+			
+			Castle enemycastle = new Castle();
+			enemycastle.setHp(DataBase.CASTLE_HP_ENM_STG1);
+			Thread cp21 = new Thread(enemycastle);
+			cp21.start();
+			enemycastle.setX(DataBase.START_LOC_X_ENM_STG1-80);
+			enemycastle.setY(DataBase.START_LOC_Y_ENM_STG1+50);
+			DataBase.enemyList.add(enemycastle);
+			break;
+		case 2:
+			Castle mycastle2 = new Castle();
+			mycastle2.setKind(1);
+			
+			Thread cp12 = new Thread(mycastle2);
+			cp12.start();
+			DataBase.playerList.add(mycastle2);
+			break;
+		}
 	}
 
 	/**
@@ -689,7 +719,7 @@ public class PanelFight extends JPanel implements Runnable{
 	@Override
 	public void run() {
 		while(true){
-			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+			if(win()<0){
 				gameOverPanel = new PanelGameOver(false);
 				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);
@@ -698,7 +728,7 @@ public class PanelFight extends JPanel implements Runnable{
 //				Thread gf = new Thread(gameOverPanel);
 //				gf.start();
 			}
-			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
+			if(win()>0){
 				gameOverPanel = new PanelGameOver(true);
 				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);
@@ -714,5 +744,31 @@ public class PanelFight extends JPanel implements Runnable{
 			this.repaint();
 		}
 		
+	}
+	
+	/**
+	 * whether win or lose
+	 * @return 1 if win; -1 if lose ; 0 neither
+	 */
+	private int win(){
+		switch(DataBase.pass){
+		case 1:
+			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+				return -1;
+			}
+			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
+				return 1;
+			}
+			break;
+		case 2:
+			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+				return -1;
+			}
+			if(time.getRemainTime()<=0){
+				return 1;
+			}
+			break;
+		}
+		return 0;
 	}
 }
