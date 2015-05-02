@@ -15,6 +15,8 @@ public abstract class Unit implements Serializable, Runnable{
 		
 	protected int hp;//health point
 	
+	public int ran = (int) (Math.random()*50);
+	
 	public abstract void move();  //用于变化x和y
 	public abstract void attack();//用于攻击，减少攻击范围内敌方的生命值
 	public abstract int detect();//返回距离自己最近的敌人的序号

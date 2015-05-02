@@ -65,7 +65,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			}
 			break;
 		case 3:
-			if(DataBase.Money-DataBase.MEDICTEAM_P>=0){
+			if(DataBase.Money-DataBase.MEDICTEAM_P>=0&&DataBase.Tech_MedicEnable){
 				addMedicTeam();
 			}
 			break;
@@ -80,7 +80,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			}
 			break;
 		case 6:
-			if(DataBase.Money-DataBase.SWORDMAN_P>=0){
+			if(DataBase.Money-DataBase.RIFLE_P>=0){
 				addRifle();
 			}
 			break;

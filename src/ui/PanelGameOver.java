@@ -94,8 +94,7 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.setContentPane(new PanelStart());
 			Controller.gameframe.repaint();
-			
-			
+						
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){
 			
 			//restart the game
@@ -110,9 +109,9 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 				Controller.gameframe.getContentPane().setVisible(false);
 				StoryPlayer sp = new StoryPlayer();
 				Controller.gameframe.setContentPane(StoryPlayer.zero);
-			}
-			
+			}		
 		}
+		DataBase.isPause = false;
 		
 	}
 

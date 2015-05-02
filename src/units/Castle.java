@@ -46,10 +46,7 @@ public class Castle extends Unit implements Runnable, Serializable{
 	@Override
 	public void run() {
 		while(true){
-			if(hp+addSpeed<=DataBase.CASTLE_HP_STG1&&this.getKind() == 1){
-				hp+=addSpeed;
-			}
-			if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG1&&this.getKind() == 0){
+			if(needAdd()){
 				hp+=addSpeed;
 			}
 			
@@ -60,6 +57,14 @@ public class Castle extends Unit implements Runnable, Serializable{
 			}
 		}
 		
+	}
+	
+	private boolean needAdd(){
+		switch(DataBase.pass){
+		case 1:if(hp+addSpeed<=DataBase.CASTLE_HP_STG1){return true;}break;
+		case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_STG2){return true;}break;
+		}
+		return false;
 	}
 
 }

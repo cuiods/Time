@@ -17,15 +17,15 @@ public class PanelFight extends JPanel implements Runnable{
 
 	private Image fightBackGround = null;
 	private ButtonExit butExit = null;
-	private ButtonScience tech1 = null;
-	private ButtonScience tech2 = null;
-	private ButtonScience tech3 = null;
 	private ButtonGameSet gameSet = null;
 	private ButtonPause pause = null;
 	private Time time = null;
 	static PanelGameOver gameOverPanel = null;
 	static boolean panelUnitExist = false;
 	public static boolean isTech_3 = false;
+	public static boolean isTech_6 = false;
+	public static boolean isTech_7 = false;
+	public static boolean isTech_8 = false;
 	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
 	
 	public PanelFight(){
@@ -60,18 +60,16 @@ public class PanelFight extends JPanel implements Runnable{
 	 * set technology according to pass
 	 */
 	private void setTech(){
+		ButtonScience tech = null;
+		int begin = 1, end = 4;
 		switch(DataBase.pass){
-		case 1:
-			tech1 = new ButtonScience(1);
-			tech1.addMouseListener(tech1);
-			tech2 = new ButtonScience(2);
-			tech2.addMouseListener(tech2);
-			tech3 = new ButtonScience(3);
-			tech3.addMouseListener(tech3);
-			this.add(tech1);
-			this.add(tech2);
-			this.add(tech3);
-			break;
+		case 1:break;	
+		case 2:begin = 4; end = 9; break;
+		}
+		for(int i = begin; i < end; i++){
+			tech = new ButtonScience(i);
+			tech.addMouseListener(tech);
+			this.add(tech);
 		}
 	}
 	
@@ -406,7 +404,7 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:
 			int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.MEDICTEAM_HP));
 			g.setColor(Color.GREEN);
-			g.fill3DRect(o.getX(), o.getY()-10-150+o.ran, lifePercentage, 3, false);
+			g.fill3DRect(o.getX(), o.getY()-10-200+o.ran, lifePercentage, 3, false);
 			if(lifePercentage!=40){
 				g.setColor(Color.RED);		
 				g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10-200, 40-lifePercentage, 3, false);		
@@ -415,7 +413,7 @@ public class PanelFight extends JPanel implements Runnable{
 		case 0:
 			int lifePercentage0 = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.MEDICTEAM_HP));
 			g.setColor(Color.GREEN);
-			g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage0, 3, false);
+			g.fill3DRect(o.getX(), o.getY()-10+o.ran+200, lifePercentage0, 3, false);
 			if(lifePercentage0!=40){
 				g.setColor(Color.RED);		
 				g.fill3DRect(o.getX()+lifePercentage0, o.getY()+o.ran-10+200, 40-lifePercentage0, 3, false);		
@@ -482,18 +480,14 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(o.getKind()){
 		case 1:
 			Image truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
-			if(o.moving){
-				if(!DataBase.isPause){
+			if(!DataBase.isPause){
+				if(DataBase.Tech_TruckReinforce){
 					truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
 				}else{
-					truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
+					truck = new ImageIcon("graphics/soldiers/s2/truck1.png").getImage();
 				}
-			}else if(o.attacking){
-				if(!DataBase.isPause){
-					truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
-				}else{
-					truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
-				}
+			}else{
+				truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
 			}
 			g.drawImage(truck,o.getX(), o.getY()+o.ran, 96, 78, this);
 			break;
@@ -520,10 +514,10 @@ public class PanelFight extends JPanel implements Runnable{
 		//draw life 
 		int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.TRUCK_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+20, o.getY()-10+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+20+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 		}
 	}
 	
@@ -596,16 +590,18 @@ public class PanelFight extends JPanel implements Runnable{
 				
 			}
 		}else if(o.getKind() == 1){
+			int lifePercent = 0;
 			switch(DataBase.pass){
 			case 1:
 				g.drawImage(new ImageIcon("graphics/soldiers/castle.png").getImage(),o.getX()-60, o.getY()-150, 150, 150, this);
 				g.drawImage(new ImageIcon("graphics/soldiers/castle1_2.png").getImage(), 20, 460, 100, 150, this);
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 				break;
 			case 2:
 				g.drawImage(new ImageIcon("graphics/soldiers/castle2.png").getImage(), 10,250 , 106, 147, this);
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG2));
 				break;
 			}
-			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(340-lifePercent, 32, lifePercent, 10, false);
 			if(lifePercent!=200){
@@ -668,6 +664,10 @@ public class PanelFight extends JPanel implements Runnable{
 				}
 			}
 		}
+		
+		/*
+		 * show time left
+		 */
 		if(time!=null){
 			int min = time.getRemainTime()/60;
 			int second = time.getRemainTime()%60;
@@ -678,6 +678,64 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawString(":", 700, 80);
 			g.drawString(second+"", 720, 80);			
 		}
+		
+		/*
+		 * draw pass2 castle animation
+		 */
+		if(DataBase.pass == 2){
+			String[] pictures2 = {"graphics/stunt/castle2_1.png","graphics/stunt/castle2_2.png","graphics/stunt/castle2_3.png","graphics/stunt/castle2_4.png","graphics/stunt/castle2_5.png","graphics/stunt/castle2_6.png","graphics/stunt/castle2_7.png","graphics/stunt/castle2_8.png","graphics/stunt/castle2_9.png","graphics/stunt/castle2_10.png"};
+			PicturePlayer pic2 = new PicturePlayer(pictures2, true, 40);
+			pic2.panelPlay(2, 215, g, this, 0);
+		}
+		
+		/*
+		 * draw pass2 tech6 effects
+		 */
+		if(isTech_6){
+			String[] pictures3 = {"graphics/stunt/clock1.png","graphics/stunt/clock2.png","graphics/stunt/clock3.png","graphics/stunt/clock4.png","graphics/stunt/clock5.png","graphics/stunt/clock4.png","graphics/stunt/clock3.png","graphics/stunt/clock2.png","graphics/stunt/clock1.png","graphics/stunt/clock3.png"};
+			PicturePlayer pic3 = new PicturePlayer(pictures3, false, 30);
+			pic3.panelPlay(400, 250, g, this, 1);
+			if(PicturePlayer.time1 < 20){
+				isTech_6 = false;
+				PicturePlayer.time1 = 1000;
+			}
+		}
+		
+		/*
+		 * draw pass2 tech7 effects
+		 */
+		if(isTech_7){
+			String[] pictures4 = {"graphics/stunt/tech7_1.png","graphics/stunt/tech7_2.png","graphics/stunt/tech7_3.png","graphics/stunt/tech7_4.png","graphics/stunt/tech7_5.png","graphics/stunt/tech7_6.png","graphics/stunt/tech7_7.png","graphics/stunt/tech7_8.png","graphics/stunt/tech7_9.png","graphics/stunt/tech7_10.png"};
+			for(int i = 1; i <DataBase.playerList.size(); i ++){
+				PicturePlayer pic4 = new PicturePlayer(pictures4, false,30);
+				int xchange = 0,ychange = 0;
+				switch(DataBase.playerList.get(i).getType()){
+				case 6:xchange = -22;ychange = 20;break;
+				case 5:ychange = 18;break;
+				case 4:xchange = -20;break;
+				case 3:xchange = -24;ychange = -200;break;
+				}
+				pic4.panelPlay(DataBase.playerList.get(i).getX()+xchange, DataBase.playerList.get(i).getY()+DataBase.playerList.get(i).ran+ychange, g, this, 2);
+			}
+			if(PicturePlayer.time2 < 30){
+				isTech_7 = false;
+				PicturePlayer.time2 = 1000;
+			}
+		}
+		
+		/*
+		 * draw pass2 tech8 effects
+		 */
+		if(isTech_8){
+			String pictures5[] = {"graphics/stunt/rcastle1.png","graphics/stunt/rcastle2.png","graphics/stunt/rcastle3.png","graphics/stunt/rcastle4.png","graphics/stunt/rcastle5.png","graphics/stunt/rcastle6.png","graphics/stunt/rcastle7.png","graphics/stunt/rcastle8.png","graphics/stunt/rcastle9.png","graphics/stunt/rcastle10.png"};
+			PicturePlayer pic = new PicturePlayer(pictures5, false,30);
+			pic.panelPlay(-120, 160, g, this, 3);
+			if(PicturePlayer.time3 < 31){
+				isTech_8 = false;
+				PicturePlayer.time3 = 1000;
+			}
+		}
+		
 	}
 
 	/**
@@ -720,6 +778,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public void run() {
 		while(true){
 			if(win()<0){
+				DataBase.isPause = true;
 				gameOverPanel = new PanelGameOver(false);
 				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);
@@ -729,6 +788,7 @@ public class PanelFight extends JPanel implements Runnable{
 //				gf.start();
 			}
 			if(win()>0){
+				DataBase.isPause = true;
 				gameOverPanel = new PanelGameOver(true);
 				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);

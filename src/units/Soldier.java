@@ -5,7 +5,6 @@ import dataBase.DataBase;
 public abstract class Soldier extends Unit{
 	public boolean attacking = false;
 	public boolean moving = false;
-	public int ran = (int) (Math.random()*50);
 	/*
 	 必须在继承soldier的类中新建构造函数
 	 且构造函数必须包含以下内容：
