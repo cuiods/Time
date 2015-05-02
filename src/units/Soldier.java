@@ -185,6 +185,10 @@ public abstract class Soldier extends Unit{
 				ce = DataBase.enemyList.get(detect());
 				if(ce.hp>0&&this.hp>0){
 					try {
+						if(this.getType()==4){
+							Thread.sleep(1000);
+						}
+						else
 						Thread.sleep(200);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block

@@ -101,7 +101,7 @@ public class DataBase {
 	
 	public static final int SNIPER_P = 500;
 	public static final int SNIPER_HP = 20;
-	public static final int SNIPER_ATK = 2;
+	public static final int SNIPER_ATK = 20;
 	public static final int SNIPER_AR = 500;
 	public static final int SNIPER_SPD = 0;
 	
