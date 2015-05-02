@@ -22,10 +22,10 @@ public class Truck extends Soldier{
 				}else{
 					db.playerList.add(s);
 				}
-			}else if(this.hp<0){
-			}else
+			}else if(!(this.hp<0)){
 				move();
 			}
 		}
+	}
 }
 

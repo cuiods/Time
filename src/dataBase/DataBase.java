@@ -35,7 +35,8 @@ public class DataBase {
 	//General parameters for the game
 	public static int Money = 200000; //记录玩家当前的金钱数
 	public static int Money_Increment = 2;
-	public static int Castle_HP; //记录玩家当前城堡的生命值，要根据关的不同初始化不同的值
+	public static int Castle_HP_ply; //记录玩家当前城堡的生命值，要根据关的不同初始化不同的值
+	public static int Castle_HP_enm;
 	public static boolean Tech_1 = false;//各个可能出现的科技，先用12345替代
 	public static boolean Tech_2 = false;
 	public static boolean Tech_3 = false;

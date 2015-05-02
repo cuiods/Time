@@ -5,7 +5,6 @@ import java.io.Serializable;
 import dataBase.DataBase;
 
 public class Castle extends Unit implements Runnable, Serializable{
-	
 	public int addSpeed = 1;
 	
 	public Castle(){

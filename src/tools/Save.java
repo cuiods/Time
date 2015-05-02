@@ -1,8 +1,11 @@
 package tools;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,12 +15,34 @@ import units.Unit;
 import dataBase.DataBase;
 
 public class Save {
+	public synchronized void SaveMoney(){
+		try{
+			FileWriter writer = new FileWriter("Money.txt");
+			writer.write(DataBase.Money+"");
+			writer.close();
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
+	public synchronized void RecoverMoney(){
+		
+		try{
+			FileReader reader = new FileReader("Money.txt");
+			BufferedReader BReader = new BufferedReader(reader);
+			String sentence = BReader.readLine();
+			DataBase.Money = Integer.parseInt(sentence);
+			reader.close();
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
 	public synchronized void Recover() throws IOException, ClassNotFoundException{
 		FileInputStream fileStream = new FileInputStream("SaveData.ser");
 		ObjectInputStream ois = new ObjectInputStream(fileStream);
-		DataBase.Money = ois.read();
 		DataBase.pass = ois.read();
 		DataBase.passAlready = ois.read();
+	//	DataBase.Castle_HP_ply = ois.read();
+	//	DataBase.Castle_HP_enm = ois.read();
 		System.out.println(DataBase.Money);
 		DataBase.Money_Increment = ois.read();
 		System.out.println(DataBase.Money_Increment);
@@ -32,7 +57,7 @@ public class Save {
 		while(!DataBase.playerList.isEmpty()){
 			DataBase.playerList.remove(0);
 		}
-		System.out.println("remove complete!");
+//		System.out.println("remove complete!");
 		for(int i=0;i<enemyNum;i++){
 			Unit temp = (Unit) ois.readObject();			
 			DataBase.enemyList.add(temp);
@@ -50,13 +75,15 @@ public class Save {
 	//		temp.run();
 		}
 		ois.close();
+		RecoverMoney();
 	}
 	public synchronized void Save() throws IOException{
 		FileOutputStream fileStream = new FileOutputStream("SaveData.ser");
 		ObjectOutputStream ops = new ObjectOutputStream(fileStream);
-		ops.write(DataBase.Money);
 		ops.write(DataBase.pass);
 		ops.write(DataBase.passAlready);
+	//	ops.write(DataBase.Castle_HP_ply);
+	//	ops.write(DataBase.Castle_HP_enm);
 		System.out.println(DataBase.Money);
 		System.out.println(DataBase.Money_Increment);
 		ops.write(DataBase.Money_Increment);
@@ -72,6 +99,6 @@ public class Save {
 			ops.writeObject(DataBase.playerList.get(i));
 		}
 		ops.close();
-		
+		SaveMoney();
 	}
 }

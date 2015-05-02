@@ -12,7 +12,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import tools.Save;
+import ui.PanelFight;
 import ui.PanelLoad;
+import ui.Panelstory1;
+import ui.StoryPlayer;
 
 public class ButtonLoad extends JLabel implements MouseListener{
 	Image load=null;
@@ -49,14 +52,27 @@ public class ButtonLoad extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(!isLocked){
+	/*	if(!isLocked){
 			loadPanel = new PanelLoad();
 			loadPanel.addMouseListener(loadPanel);
 			Controller.gameframe.startPanel.removeAll();
 			Controller.gameframe.startPanel.add(loadPanel);
 			loadPanel.repaint();
 			Controller.gameframe.repaint();
-		}	
+			
+		}	*/
+		Save sv = new Save();
+		try {
+			sv.Recover();
+		} catch (ClassNotFoundException | IOException e1) {
+			// TODO 自动生成的 catch 块
+			e1.printStackTrace();
+		}
+		Controller.gameframe.getContentPane().setVisible(false);
+		Controller.gameframe.fightPanel = new PanelFight();
+		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+		Thread fp = new Thread(Controller.gameframe.fightPanel);
+		fp.start();
 		
 	}
 	@Override

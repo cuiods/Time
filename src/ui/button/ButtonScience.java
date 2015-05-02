@@ -86,16 +86,6 @@ public class ButtonScience extends JPanel implements MouseListener{
 					new Tech3();
 					DataBase.Money -= DataBase.Tech_3_p;
 				}
-				Save sv = new Save();
-				try {
-					sv.Recover();
-				} catch (ClassNotFoundException e1) {
-					// TODO 自动生成的 catch 块
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO 自动生成的 catch 块
-					e1.printStackTrace();
-				}
 				break;
 			}
 			break;
