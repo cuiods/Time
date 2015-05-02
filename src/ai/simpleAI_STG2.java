@@ -4,7 +4,7 @@ import units.Unit;
 import dataBase.DataBase;
 
 public class simpleAI_STG2 extends AI implements Runnable{
-	double AutoAtkRate = 0.9;
+	double AutoAtkRate = 0.7;
 	AIcommander AIC = new AIcommander();
 	public simpleAI_STG2(){
 		AIC.addRifle();
@@ -69,12 +69,13 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			if (dis <=200) Threat +=100;
 			
 		}
+		System.out.println(Threat);
 		return Threat;
 	}
 
 	public void execute(int Threat) {
 		AutoAtkRate-=0.001;
-		if(Threat>-30&&Threat<0&&Math.random()>0.9){
+		if(Threat<0&&Math.random()>AutoAtkRate){
 			AIC.addRifle();
 			try {
 				Thread.sleep(500);
@@ -82,9 +83,10 @@ public class simpleAI_STG2 extends AI implements Runnable{
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addRifle();
+			AIC.addTruck();
 		}else if(Threat>0&&Threat<200&&Math.random()>0.4){
 			AIC.addRifle();
+			AIC.addTruck();
 		}else if(Threat>=200&&Threat<340&&Math.random()>0.3){
 			AIC.addRifle();
 			try {
@@ -93,6 +95,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
+			AIC.addTruck();
 			AIC.addSniper();
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4){
 			AIC.addSniper();
