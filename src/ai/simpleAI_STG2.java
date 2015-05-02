@@ -7,21 +7,6 @@ public class simpleAI_STG2 extends AI implements Runnable{
 	double AutoAtkRate = 0.7;
 	AIcommander AIC = new AIcommander();
 	public simpleAI_STG2(){
-		AIC.addRifle();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		AIC.addRifle();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		AIC.addRifle();
 	}
 	@Override
 	public void detect() {
@@ -114,6 +99,21 @@ public class simpleAI_STG2 extends AI implements Runnable{
 	}
 	@Override
 	public void run() {
+		AIC.addRifle();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addRifle();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addRifle();
 		if(!DataBase.isPause)
 		detect();
 		
