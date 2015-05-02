@@ -5,8 +5,8 @@ import dataBase.DataBase;
 public class Truck extends Soldier{
 	public boolean NotRelease = true;
 	public Truck(){
-		x = DataBase.START_LOC_X_STG1;
-		y = DataBase.START_LOC_Y_STG1;
+		x = DataBase.START_LOC_X_STG2;
+		y = DataBase.START_LOC_Y_STG2;
 		if(DataBase.Tech_TruckReinforce){
 			hp=DataBase.TRUCK_HP*2;
 		}

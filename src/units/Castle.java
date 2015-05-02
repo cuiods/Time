@@ -8,9 +8,14 @@ public class Castle extends Unit implements Runnable, Serializable{
 	public int addSpeed = 1;
 	
 	public Castle(){
-		x = DataBase.START_LOC_X_STG1 ;
+		switch(DataBase.pass){
+		case 1:x = DataBase.START_LOC_X_STG1 ;
 		y = DataBase.START_LOC_Y_STG1 ;
-		hp = DataBase.CASTLE_HP_STG1;
+		hp = DataBase.CASTLE_HP_STG1;break;
+		case 2:x = DataBase.START_LOC_X_STG2 ;
+		y = DataBase.START_LOC_Y_STG2 ;
+		hp = DataBase.CASTLE_HP_STG2;break;
+		}
 		setType(100);
 	}
 
