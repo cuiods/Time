@@ -5,6 +5,8 @@ import gamecontrol.Controller;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -16,6 +18,7 @@ import units.Rifle;
 import units.Sniper;
 import units.SwordMan;
 import units.Truck;
+import units.Unit;
 import dataBase.DataBase;
 
 public class ButtonUnit extends JLabel implements MouseListener{
@@ -85,6 +88,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			}
 			break;
 		}
+		Collections.sort(DataBase.playerList);
 	}
 
 	private void addCannon() {

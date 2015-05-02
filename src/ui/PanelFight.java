@@ -511,8 +511,13 @@ public class PanelFight extends JPanel implements Runnable{
 			
 		}
 		
+		int lifePercentage = 0;
+		if(!DataBase.Tech_TruckReinforce){
+			lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.TRUCK_HP));
+		}else{
+			lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/(2*DataBase.TRUCK_HP)));
+		}
 		//draw life 
-		int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.TRUCK_HP));
 		g.setColor(Color.GREEN);
 		g.fill3DRect(o.getX()+20, o.getY()-10+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){

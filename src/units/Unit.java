@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import dataBase.DataBase;
 
-public abstract class Unit implements Serializable, Runnable{
+public abstract class Unit implements Serializable, Runnable,Comparable<Unit>{
 	protected DataBase db;  //用于引用数据
 	protected int x = 0;
 	protected int y = 0;
@@ -57,6 +57,18 @@ public abstract class Unit implements Serializable, Runnable{
 		this.hp = hp;
 	}
 	public abstract void run();
+	
+	@Override
+	public int compareTo(Unit o){
+		if(o.getType()==100){
+			return 1;
+		}
+		if(this.ran<=o.ran){
+			return -1;
+		}else{
+			return 1;
+		}
+	}
 	
 	
 }

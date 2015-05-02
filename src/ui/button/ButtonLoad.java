@@ -22,8 +22,6 @@ public class ButtonLoad extends JLabel implements MouseListener{
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
-	static boolean isLocked=false;
-	static PanelLoad loadPanel=null;
 	
 	public ButtonLoad(){
 		filepath = "graphics/button/loadbutton1.png";
@@ -52,27 +50,21 @@ public class ButtonLoad extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-	/*	if(!isLocked){
-			loadPanel = new PanelLoad();
-			loadPanel.addMouseListener(loadPanel);
-			Controller.gameframe.startPanel.removeAll();
-			Controller.gameframe.startPanel.add(loadPanel);
-			loadPanel.repaint();
-			Controller.gameframe.repaint();
-			
-		}	*/
-		Save sv = new Save();
-		try {
-			sv.Recover();
-		} catch (ClassNotFoundException | IOException e1) {
-			// TODO 自动生成的 catch 块
-			e1.printStackTrace();
-		}
 		Controller.gameframe.getContentPane().setVisible(false);
-		Controller.gameframe.fightPanel = new PanelFight();
-		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-		Thread fp = new Thread(Controller.gameframe.fightPanel);
-		fp.start();
+		Controller.gameframe.loadPanel = new PanelLoad();
+		Controller.gameframe.setContentPane(Controller.gameframe.loadPanel);
+		Controller.gameframe.repaint();
+//		Save sv = new Save();
+//		try {
+//			sv.Recover();
+//		} catch (ClassNotFoundException | IOException e1) {
+//			e1.printStackTrace();
+//		}
+//		Controller.gameframe.getContentPane().setVisible(false);
+//		Controller.gameframe.fightPanel = new PanelFight();
+//		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
+//		Thread fp = new Thread(Controller.gameframe.fightPanel);
+//		fp.start();
 		
 	}
 	@Override

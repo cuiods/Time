@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import ui.PanelStart;
 import dataBase.DataBase;
 
 public class ButtonExit extends JLabel implements MouseListener{
@@ -71,7 +72,11 @@ public class ButtonExit extends JLabel implements MouseListener{
 			isIn2 = false;
 			DataBase.isPause = false;
 		}else if(type == 3){
-			Controller.gameframe.startPanel.remove(ButtonLoad.loadPanel);
+			Controller.gameframe.getContentPane().setVisible(false);
+			Controller.gameframe.startPanel = new PanelStart();
+			Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+			Controller.gameframe.repaint();
+			isIn1 = false;
 			isIn2 = false;
 		}
 	}

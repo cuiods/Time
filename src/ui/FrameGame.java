@@ -11,6 +11,7 @@ public class FrameGame extends JFrame{
 	public PanelFight fightPanel = null;
     public StoryPlayer storyPlayer = null;
     public PanelLoading loadingPanel = null;
+    public PanelLoad loadPanel = null;
 	
 	public FrameGame(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
