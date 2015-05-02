@@ -3,13 +3,13 @@ package Tech;
 import units.Unit;
 import dataBase.DataBase;
 
-public class Tech3 {
+public class Tech_Destroy_STG1 {
 	DataBase db = new DataBase();
-	public Tech3(){
+	public Tech_Destroy_STG1(){
 		
-		db.Tech_3 = true;
+		db.Tech_Destroy = true;
 		execute();
-		db.Tech_3 = false;//第三个科技不是一次性的，可以多次买多次使用
+		db.Tech_Destroy = false;//第三个科技不是一次性的，可以多次买多次使用
 	}
 	public void execute(){
 		for(Unit u :db.enemyList){

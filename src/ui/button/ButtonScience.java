@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 
 import tools.Save;
 import ui.PanelFight;
-import Tech.Tech1;
-import Tech.Tech2;
-import Tech.Tech3;
+import Tech.Tech_CannonEnable_STG1;
+import Tech.Tech_MoneyBoom_STG1;
+import Tech.Tech_Destroy_STG1;
 import dataBase.DataBase;
 
 public class ButtonScience extends JPanel implements MouseListener{
@@ -67,24 +67,24 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 1:
 			switch(kind){
 			case 1:
-				if((!DataBase.Tech_1)&&(DataBase.Money-DataBase.Tech_1_P>=0)){
-					new Tech1();
-					DataBase.Money -= DataBase.Tech_1_P;
+				if((!DataBase.Tech_CannonEnable)&&(DataBase.Money-DataBase.Tech_CannonEnable_P>=0)){
+					new Tech_CannonEnable_STG1();
+					DataBase.Money -= DataBase.Tech_CannonEnable_P;
 				}
 				break;
 			case 2:
-				if((!DataBase.Tech_2)&&(e.getX()>40)&&(DataBase.Money-DataBase.Tech_2_P>=0)){
-					new Tech2();
-					DataBase.Money -= DataBase.Tech_2_P;
+				if((!DataBase.Tech_MoneyBoom)&&(e.getX()>40)&&(DataBase.Money-DataBase.Tech_MoneyBoom_P>=0)){
+					new Tech_MoneyBoom_STG1();
+					DataBase.Money -= DataBase.Tech_MoneyBoom_P;
 				}
 				break;
 			case 3:
-				if((DataBase.Money-DataBase.Tech_3_p>=0)){
+				if((DataBase.Money-DataBase.Tech_Destroy_P>=0)){
 					PanelFight.enemy.addAll(DataBase.enemyList);
 					PanelFight.enemy.remove(0);
 					PanelFight.isTech_3 = true;
-					new Tech3();
-					DataBase.Money -= DataBase.Tech_3_p;
+					new Tech_Destroy_STG1();
+					DataBase.Money -= DataBase.Tech_Destroy_P;
 				}
 				break;
 			}

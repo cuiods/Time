@@ -46,9 +46,9 @@ public class Save {
 		System.out.println(DataBase.Money);
 		DataBase.Money_Increment = ois.read();
 		System.out.println(DataBase.Money_Increment);
-		DataBase.Tech_1 = ois.readBoolean();
-		DataBase.Tech_2 = ois.readBoolean();
-		DataBase.Tech_3 = ois.readBoolean();
+		DataBase.Tech_CannonEnable = ois.readBoolean();
+		DataBase.Tech_MoneyBoom = ois.readBoolean();
+		DataBase.Tech_Destroy = ois.readBoolean();
 		int enemyNum = ois.read();
 		int playerNum = ois.read();
 		while(!DataBase.enemyList.isEmpty()){
@@ -87,9 +87,9 @@ public class Save {
 		System.out.println(DataBase.Money);
 		System.out.println(DataBase.Money_Increment);
 		ops.write(DataBase.Money_Increment);
-		ops.writeBoolean(DataBase.Tech_1);
-		ops.writeBoolean(DataBase.Tech_2);
-		ops.writeBoolean(DataBase.Tech_3);
+		ops.writeBoolean(DataBase.Tech_CannonEnable);
+		ops.writeBoolean(DataBase.Tech_MoneyBoom);
+		ops.writeBoolean(DataBase.Tech_Destroy);
 		ops.write(DataBase.enemyList.size());
 		ops.write(DataBase.playerList.size());
 		for(int i=0;i<DataBase.enemyList.size();i++){

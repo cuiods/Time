@@ -60,7 +60,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			}
 			break;
 		case 2:
-			if(DataBase.Tech_1&&DataBase.Money-DataBase.CANNON_P>=0){
+			if(DataBase.Tech_CannonEnable&&DataBase.Money-DataBase.CANNON_P>=0){
 				addCannon();
 			}
 			break;
