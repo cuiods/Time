@@ -86,6 +86,12 @@ public class DataBase {
 	public static final int TRUCK_AR = 0;
 	public static final int TRUCK_SPD = 4;
 	
+	public static final int RIFLE_P = 100;
+	public static final int RIFLE_HP = 50;
+	public static final int RIFLE_ATK = 1;
+	public static final int RIFLE_AR = 60;
+	public static final int RIFLE_SPD = 4;
+	
 	
 	
 	public static void recover(){
