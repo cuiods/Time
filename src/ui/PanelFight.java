@@ -82,12 +82,15 @@ public class PanelFight extends JPanel implements Runnable{
 		//create and start AI
 		switch(DataBase.pass){
 		case 1:
-			simpleAI ai = new simpleAI();
-			Thread th = new Thread(ai);
-			th.start();	
+			simpleAI_STG1 ai1 = new simpleAI_STG1();
+			Thread th1 = new Thread(ai1);
+			th1.start();	
 			break;
 		case 2:
 			//@niansong
+			simpleAI_STG2 ai2 = new simpleAI_STG2();
+			Thread th2 = new Thread(ai2);
+			th2.start();
 			break;
 		}
 		
@@ -584,7 +587,7 @@ public class PanelFight extends JPanel implements Runnable{
 		if(o.getKind() == 0){
 			Image ecastle = new ImageIcon("graphics/soldiers/ecastle.png").getImage();
 			g.drawImage(ecastle,o.getX()-50, o.getY()-50, 200, 200, this);
-			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM));
+			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG1));
 			g.setColor(Color.GREEN);
 			g.fill3DRect(625, 32, lifePercent, 10, false);
 			if(lifePercent!=200){
@@ -672,7 +675,7 @@ public class PanelFight extends JPanel implements Runnable{
 		DataBase.playerList.add(mycastle);
 		
 		Castle enemycastle = new Castle();
-		enemycastle.setHp(DataBase.CASTLE_HP_ENM);
+		enemycastle.setHp(DataBase.CASTLE_HP_ENM_STG1);
 		Thread cp2 = new Thread(enemycastle);
 		cp2.start();
 		enemycastle.setX(DataBase.START_LOC_X_ENM_STG1-80);

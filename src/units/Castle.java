@@ -44,7 +44,7 @@ public class Castle extends Unit implements Runnable, Serializable{
 			if(hp+addSpeed<=DataBase.CASTLE_HP_STG1&&this.getKind() == 1){
 				hp+=addSpeed;
 			}
-			if(hp+addSpeed<=DataBase.CASTLE_HP_ENM&&this.getKind() == 0){
+			if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG1&&this.getKind() == 0){
 				hp+=addSpeed;
 			}
 			

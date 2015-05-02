@@ -3,10 +3,11 @@ package ai;
 import dataBase.DataBase;
 import units.Unit;
 
-public class simpleAI extends AI implements Runnable{
-	double AutoAtkRate = 0.9;
+public class cleverAI_STG1 extends AI implements Runnable{
+
+	double AutoAtkRate = 0.7;
 	AIcommander AIC = new AIcommander();
-	public simpleAI(){
+	public cleverAI_STG1(){
 		AIC.addSwordMan();
 		try {
 			Thread.sleep(2000);
@@ -15,6 +16,13 @@ public class simpleAI extends AI implements Runnable{
 			e.printStackTrace();
 		}
 		AIC.addSwordMan();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addGunner();
 	}
 	@Override
 	public void detect() {
@@ -31,7 +39,7 @@ public class simpleAI extends AI implements Runnable{
 
 	@Override
 	public int analyze() {
-		Threat = 0;
+		Threat = 100;
 		int atk=0;
 		for(int i=0;i<DataBase.playerList.size();i++){
 			Unit u = DataBase.playerList.get(i); 
@@ -51,13 +59,13 @@ public class simpleAI extends AI implements Runnable{
 			case 2: atk=db.CANNON_ATK; break;
 			case 100:atk=0;
 			}
-			Threat-=u.getHp()*atk*1.1;
+			Threat-=u.getHp()*atk*0.9;
 		} 
 		for(int i=0;i<DataBase.playerList.size();i++){
 			Unit u = DataBase.playerList.get(i); 
 			int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG1-u.getX())*(db.START_LOC_X_ENM_STG1-u.getX())+
 					(db.START_LOC_Y_ENM_STG1-u.getY())*(db.START_LOC_Y_ENM_STG1-u.getY()));
-			if (dis <=200) Threat +=100;
+			if (dis <=200) Threat +=200;
 			
 		}
 		return Threat;
@@ -91,11 +99,10 @@ public class simpleAI extends AI implements Runnable{
 			AIC.addCannon();
 		}
 	}
-	@Override
 	public void run() {
 		if(!DataBase.isPause)
 		detect();
 		
 	}
-
+	
 }
