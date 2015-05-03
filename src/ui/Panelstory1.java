@@ -28,7 +28,7 @@ public class Panelstory1 extends JPanel{
  		 last.addMouseListener(last);
  		 next.addMouseListener(next);
  		 
- 		 story=new ImageIcon("graphics/storyteller/story1.png").getImage();
+ 		 story=new ImageIcon("graphics/storyteller/pass1/story1.png").getImage();
  		
 	}
 	
