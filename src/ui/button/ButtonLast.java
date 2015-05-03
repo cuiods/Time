@@ -14,6 +14,7 @@ import ui.PanelFight;
 import ui.PanelStart;
 import ui.PanelStory0;
 import ui.PanelStory2;
+import ui.PanelStory3;
 import ui.Panelstory1;
 import ui.StoryPlayer;
 public class ButtonLast extends JLabel implements MouseListener{
@@ -101,8 +102,32 @@ public class ButtonLast extends JLabel implements MouseListener{
 				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
 			}
 
-        }
+        }else if(DataBase.pass==3){
+        	if(Panelstory1.picNum>0){
+        		Panelstory1.picNum=0;
+				StoryPlayer.first.setVisible(false);
+				StoryPlayer.zero = new PanelStory0();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+        	}else if(PanelStory2.picNum>0){
+				PanelStory2.picNum=0;
+				Panelstory1.picNum=0;
+				StoryPlayer.second.setVisible(false);
+				StoryPlayer.zero = new PanelStory0();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+           }else if(PanelStory3.picNum>0){
+        	    PanelStory3.picNum=0;
+				Panelstory1.picNum=0;
+				PanelStory2.picNum=0;
+				StoryPlayer.third.setVisible(false);
+				StoryPlayer.zero = new PanelStory0();
+				Controller.gameframe.setContentPane(StoryPlayer.zero);
+           }else{
+        	    StoryPlayer.zero.setVisible(false);
+				Controller.gameframe.startPanel= new PanelStart();
+				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+           }
 		isIn=false;
 	}
 
+	}
 }

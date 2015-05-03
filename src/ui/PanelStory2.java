@@ -22,7 +22,7 @@ public class PanelStory2 extends JPanel {
  		 last.addMouseListener(last);
  		 next.addMouseListener(next);
  		 
- 		 story=new ImageIcon("graphics/storyteller/story3.png").getImage();
+ 		 story=new ImageIcon("graphics/storyteller/pass2/stoory1.png").getImage();
      }
      public void paintComponent(Graphics g){
     		

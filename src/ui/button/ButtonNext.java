@@ -13,6 +13,7 @@ import dataBase.DataBase;
 import ui.PanelFight;
 import ui.PanelLoading;
 import ui.PanelStory2;
+import ui.PanelStory3;
 import ui.Panelstory1;
 import ui.StoryPlayer;
 
@@ -30,7 +31,7 @@ public class ButtonNext extends JLabel implements MouseListener{
     	 this.setBounds(900, 530, 40, 40);
     
     	 path1="graphics/storyteller/pass1/story";
-    	 path2="graphics/storyteller/pass2/story";
+    	 path2="graphics/storyteller/pass2/stoory";
     	 path3="graphics/storyteller/pass3/story";
     	 path4="graphics/storyteller/pass4/story";
      }
@@ -81,7 +82,7 @@ public class ButtonNext extends JLabel implements MouseListener{
 				Controller.gameframe.loadingPanel = new PanelLoading();
 				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
 				isIn = false;
-               Panelstory1.picNum=0;
+                Panelstory1.picNum=0;
 			}
 		}else if(DataBase.pass==2){
 			
@@ -90,6 +91,7 @@ public class ButtonNext extends JLabel implements MouseListener{
 				    	Controller.gameframe.getContentPane().setVisible(false);
 				    	Controller.gameframe.loadingPanel = new PanelLoading();
 				    	Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+				    	Panelstory1.picNum=0;
 				    }else{
 				    Panelstory1.picNum+=1;
 					StoryPlayer.first.story=new ImageIcon(path1+Panelstory1.picNum+".png").getImage();
@@ -106,12 +108,51 @@ public class ButtonNext extends JLabel implements MouseListener{
 					Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
 					isIn = false;
 					PanelStory2.picNum=0;
+					Panelstory1.picNum=0;
 				}
 			}
 		
 			
 		}else if(DataBase.pass==3){
-			
+			if(PanelStory3.picNum==0){
+				if(PanelStory2.picNum==0){
+					 if(Panelstory1.picNum==2){
+					    	Controller.gameframe.getContentPane().setVisible(false);
+					    	Controller.gameframe.loadingPanel = new PanelLoading();
+					    	Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+					    	Panelstory1.picNum=0;
+					    }else{
+					    Panelstory1.picNum+=1;
+						StoryPlayer.first.story=new ImageIcon(path1+Panelstory1.picNum+".png").getImage();
+						StoryPlayer.first.repaint();
+					    }
+				}else{
+					PanelStory2.picNum+=1;
+					if(PanelStory2.picNum<=3){
+						StoryPlayer.second.story=new ImageIcon(path2+PanelStory2.picNum+".png").getImage();
+						StoryPlayer.second.repaint();
+					}else{
+						Controller.gameframe.loadingPanel = new PanelLoading();
+						Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+						isIn = false;
+						PanelStory2.picNum=0;
+						Panelstory1.picNum=0;
+					}
+				}
+			}else{
+				PanelStory3.picNum+=1;
+				if(PanelStory3.picNum<=5){
+					StoryPlayer.third.story=new ImageIcon(path3+PanelStory3.picNum+".png").getImage();
+					StoryPlayer.third.repaint();
+				}else{
+					Controller.gameframe.loadingPanel = new PanelLoading();
+					Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+					isIn = false;
+					PanelStory3.picNum=0;
+					PanelStory2.picNum=0;
+					Panelstory1.picNum=0;
+				}
+			}
 			
 		}
 	}
