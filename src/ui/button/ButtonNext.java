@@ -81,7 +81,7 @@ public class ButtonNext extends JLabel implements MouseListener{
 				Controller.gameframe.loadingPanel = new PanelLoading();
 				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
 				isIn = false;
-
+               Panelstory1.picNum=0;
 			}
 		}else if(DataBase.pass==2){
 			
@@ -105,6 +105,7 @@ public class ButtonNext extends JLabel implements MouseListener{
 					Controller.gameframe.loadingPanel = new PanelLoading();
 					Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
 					isIn = false;
+					PanelStory2.picNum=0;
 				}
 			}
 		
