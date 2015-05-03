@@ -33,7 +33,7 @@ public class PanelStart extends JPanel{
 	ButtonSet setButton = null;
 	ButtonLoad loadButton = null;
 	ButtonClassic classicButton = null;
-	MusicThread musicPlay  = new MusicThread("music/background/main.wav", true);
+	static MusicThread musicPlay  = new MusicThread("music/background/main.wav", true);
 	static boolean isplay = false;
 	
 	public PanelStart(){
@@ -83,6 +83,7 @@ public class PanelStart extends JPanel{
 		}
 		//create thread
 		if(!isplay){
+			musicPlay = new MusicThread("music/background/main.wav", true);
 			musicPlay.start();
 			isplay = true;
 		}

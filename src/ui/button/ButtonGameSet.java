@@ -16,7 +16,7 @@ public class ButtonGameSet extends JPanel implements MouseListener {
 	
 	static PanelGameSet gameSetPanel = null;
 	private boolean isIn = false;
-	static boolean isLocked = false;
+	public static boolean isLocked = false;
 	public ButtonGameSet() {
 		this.setBounds(920,520, 60, 70);
 	}

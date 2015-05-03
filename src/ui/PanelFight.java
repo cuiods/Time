@@ -53,8 +53,8 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
 	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
-	public MusicPlayer fightPlayer = new MusicPlayer();
-	MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
+	public static MusicPlayer fightPlayer = new MusicPlayer();
+	static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
 	
 	public PanelFight(){
 		//set music
@@ -179,11 +179,10 @@ public class PanelFight extends JPanel implements Runnable{
 		Controller.gameframe.startPanel.musicPlay.stopmusic();
 		Controller.gameframe.startPanel.isplay = false;
 		
+		musicPlay.stopmusic();
+		
 		//new music
-		switch(DataBase.pass){
-		case 1:musicPlay  = new MusicThread("music/background/pass1.wav", true);break;
-		case 2:musicPlay  = new MusicThread("music/background/pass2.wav", true);break;
-		}
+		musicPlay  = new MusicThread("music/background/pass"+DataBase.pass+".wav", true);
 		musicPlay.start();
 	}
 	
@@ -758,7 +757,7 @@ public class PanelFight extends JPanel implements Runnable{
 		if(isTech_7){
 			String[] pictures4 = {"graphics/stunt/tech7_1.png","graphics/stunt/tech7_2.png","graphics/stunt/tech7_3.png","graphics/stunt/tech7_4.png","graphics/stunt/tech7_5.png","graphics/stunt/tech7_6.png","graphics/stunt/tech7_7.png","graphics/stunt/tech7_8.png","graphics/stunt/tech7_9.png","graphics/stunt/tech7_10.png"};
 			for(int i = 1; i <DataBase.playerList.size(); i ++){
-				PicturePlayer pic4 = new PicturePlayer(pictures4, false,30);
+				PicturePlayer pic4 = new PicturePlayer(pictures4, false,20);
 				int xchange = 0,ychange = 0;
 				switch(DataBase.playerList.get(i).getType()){
 				case 6:xchange = -22;ychange = 20;break;

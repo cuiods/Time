@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import ui.button.ButtonGameSet;
 import dataBase.DataBase;
 
 public class PanelGameOver extends JPanel implements MouseListener, Runnable{
@@ -94,6 +95,7 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.startPanel = new PanelStart();
 			Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+			ButtonGameSet.isLocked = false;
 			Controller.gameframe.repaint();
 						
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){

@@ -97,10 +97,10 @@ public class ButtonLast extends JLabel implements MouseListener{
 				Controller.gameframe.setContentPane(StoryPlayer.zero);
 			}else{
 				StoryPlayer.zero.setVisible(false);
+				Controller.gameframe.getContentPane().setVisible(false);
 				Controller.gameframe.startPanel= new PanelStart();
 				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
 			}
-
         }
 		isIn=false;
 	}
