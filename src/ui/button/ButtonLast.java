@@ -102,9 +102,6 @@ public class ButtonLast extends JLabel implements MouseListener{
 				Controller.gameframe.startPanel= new PanelStart();
 				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
 			}
-<<<<<<< HEAD
-        }
-=======
 
         }else if(DataBase.pass==3){
         	if(Panelstory1.picNum>0){
@@ -130,7 +127,6 @@ public class ButtonLast extends JLabel implements MouseListener{
 				Controller.gameframe.startPanel= new PanelStart();
 				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
            }
->>>>>>> origin/master
 		isIn=false;
 	}
 
