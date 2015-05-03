@@ -6,10 +6,14 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import tools.MusicPlayer;
 import ui.PanelStart;
 import dataBase.DataBase;
 
@@ -43,12 +47,12 @@ public class ButtonExit extends JLabel implements MouseListener{
 			}
 			if(!isIn2&&type == 2){
 				filepath = "graphics/button/close.png";
-			}else if(type == 2){
+			}else if(isIn2&&type == 2){
 				filepath = "graphics/button/close1.png";
 			}
 			if(!isIn2&&type == 3){
 				filepath = "graphics/button/close.png";
-			}else if(type == 3){
+			}else if(isIn2&&type == 3){
 				filepath = "graphics/button/close1.png";
 			}
 			ButtonImage = new ImageIcon(filepath).getImage();
@@ -64,26 +68,33 @@ public class ButtonExit extends JLabel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		try {
+			new MusicPlayer().play("music/effects/clicked.wav", false);
+		} catch (UnsupportedAudioFileException | IOException
+				| LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if(type == 0 || type == 1){
 			Controller.exitGame();
 		}else if(type == 2){
 			Controller.gameframe.fightPanel.remove(ButtonGameSet.gameSetPanel);
 			ButtonGameSet.isLocked = false;
+			isIn1 = false;
 			isIn2 = false;
 			DataBase.isPause = false;
 		}else if(type == 3){
+			isIn1 = false;
+			isIn2 = false;
 			Controller.gameframe.getContentPane().setVisible(false);
 			Controller.gameframe.startPanel = new PanelStart();
 			Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
 			Controller.gameframe.repaint();
-			isIn1 = false;
-			isIn2 = false;
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -96,15 +107,20 @@ public class ButtonExit extends JLabel implements MouseListener{
 		}
 		this.repaint();
 		
+		try {
+			new MusicPlayer().play("music/effects/moveIn.wav", false);
+		} catch (UnsupportedAudioFileException | IOException
+				| LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if(type == 1||type == 0){
 			isIn1 = false;
-		}else{
 			isIn2 = false;
-		}
 		this.repaint();
 		
 	}

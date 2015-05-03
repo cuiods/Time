@@ -8,10 +8,14 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import tools.MusicPlayer;
 import ui.PanelFight;
 import ui.Panelstory1;
 import ui.StoryPlayer;
@@ -77,12 +81,29 @@ public class ButtonStart extends JLabel implements MouseListener{
 
 		isIn = false;
 		
+		try {
+			new MusicPlayer().play("music/effects/clicked.wav", false);
+		} catch (UnsupportedAudioFileException | IOException
+				| LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		
 		isIn = true;
 		this.repaint();
+		
+		//play sound
+		try {
+			new MusicPlayer().play("music/effects/moveIn.wav", false);
+		} catch (UnsupportedAudioFileException | IOException
+				| LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 

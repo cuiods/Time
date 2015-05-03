@@ -1,12 +1,23 @@
 package ui;
 
-import gamecontrol.*;
+import gamecontrol.Controller;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
 
-import javax.swing.*;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-import ui.button.*;
+import tools.MusicPlayer;
+import tools.MusicThread;
+import ui.button.ButtonClassic;
+import ui.button.ButtonExit;
+import ui.button.ButtonLoad;
+import ui.button.ButtonSet;
+import ui.button.ButtonStart;
 
 /**
  * the first panel you see when you run the game
@@ -22,6 +33,8 @@ public class PanelStart extends JPanel{
 	ButtonSet setButton = null;
 	ButtonLoad loadButton = null;
 	ButtonClassic classicButton = null;
+	MusicThread musicPlay  = new MusicThread("music/background/main.wav", true);
+	static boolean isplay = false;
 	
 	public PanelStart(){
 		//set the size of the panel
@@ -55,6 +68,7 @@ public class PanelStart extends JPanel{
 		this.add(loadButton);
 		this.add(setButton);
 		
+		setMusic();
 	}
 	
 	@Override
@@ -62,7 +76,15 @@ public class PanelStart extends JPanel{
 		g.drawImage(startBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 	}
 	
-	
-	
-	
+	private void setMusic(){
+		//close music
+		if(Controller.gameframe.fightPanel!=null){
+			Controller.gameframe.fightPanel.musicPlay.stopmusic();
+		}
+		//create thread
+		if(!isplay){
+			musicPlay.start();
+			isplay = true;
+		}
+	}
 }

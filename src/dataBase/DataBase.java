@@ -19,7 +19,7 @@ public class DataBase {
 	//Parameters for stage1
 	public static final int INITIAL_MONEY_STG1 = 200000;
 	public static final int INITIAL_MONEY_INCREMENT_STG1 = 2;
-	public static final int CASTLE_HP_STG1 = 3000;//我方城堡的生命值
+	public static final int CASTLE_HP_STG1 = 3;//我方城堡的生命值
 	public static final int START_LOC_X_STG1 = 50;//设置第一关的出发位置
 	public static final int START_LOC_Y_STG1 = 500;
 	public static final int PATH_AGLX_STG1 = 2;//设置第一关路径的斜率

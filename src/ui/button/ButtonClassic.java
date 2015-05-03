@@ -4,9 +4,14 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import tools.MusicPlayer;
 
 public class ButtonClassic extends JLabel implements MouseListener{
 	
@@ -45,7 +50,13 @@ public class ButtonClassic extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		try {
+			new MusicPlayer().play("music/effects/clicked.wav", false);
+		} catch (UnsupportedAudioFileException | IOException
+				| LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 	}
 
@@ -54,6 +65,13 @@ public class ButtonClassic extends JLabel implements MouseListener{
 		isIn = true;
 		this.repaint();
 		
+		try {
+			new MusicPlayer().play("music/effects/moveIn.wav", false);
+		} catch (UnsupportedAudioFileException | IOException
+				| LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	@Override

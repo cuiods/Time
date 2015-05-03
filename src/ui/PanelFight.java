@@ -1,14 +1,40 @@
 package ui;
 
-import java.awt.*;
+import gamecontrol.Controller;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.swing.*;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-import tools.*;
-import ui.button.*;
-import units.*;
-import ai.*;
+import tools.Money;
+import tools.MusicPlayer;
+import tools.MusicThread;
+import tools.PicturePlayer;
+import tools.Time;
+import ui.button.ButtonExit;
+import ui.button.ButtonGameSet;
+import ui.button.ButtonPause;
+import ui.button.ButtonScience;
+import ui.button.ButtonUnit;
+import units.Cannon;
+import units.Castle;
+import units.Gunner;
+import units.MedicTeam;
+import units.Rifle;
+import units.Sniper;
+import units.SwordMan;
+import units.Truck;
+import units.Unit;
+import ai.simpleAI_STG1;
+import ai.simpleAI_STG2;
 import dataBase.DataBase;
 
 
@@ -27,9 +53,12 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
 	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
+	public MusicPlayer fightPlayer = new MusicPlayer();
+	MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
 	
 	public PanelFight(){
-		
+		//set music
+		setMusic();
 		
 		//set castles
 		setCastle();
@@ -42,6 +71,7 @@ public class PanelFight extends JPanel implements Runnable{
 		
 		//set AI
 		setAI();
+		
 	}
 	
 	@Override
@@ -139,6 +169,22 @@ public class PanelFight extends JPanel implements Runnable{
 		this.add(gameSet);
 		this.add(pause);
 		
+	}
+	
+	/**
+	 * set music
+	 */
+	private void setMusic(){
+		//close other music
+		Controller.gameframe.startPanel.musicPlay.stopmusic();
+		Controller.gameframe.startPanel.isplay = false;
+		
+		//new music
+		switch(DataBase.pass){
+		case 1:musicPlay  = new MusicThread("music/background/pass1.wav", true);break;
+		case 2:musicPlay  = new MusicThread("music/background/pass2.wav", true);break;
+		}
+		musicPlay.start();
 	}
 	
 	

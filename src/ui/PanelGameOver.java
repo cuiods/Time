@@ -92,7 +92,8 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			
 			//restart
 			Controller.gameframe.getContentPane().setVisible(false);
-			Controller.gameframe.setContentPane(new PanelStart());
+			Controller.gameframe.startPanel = new PanelStart();
+			Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
 			Controller.gameframe.repaint();
 						
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){

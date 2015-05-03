@@ -1,6 +1,6 @@
 package tools;
 
-import java.io.File;
+import java.io.*;
 import java.io.IOException;
 
 import javax.sound.sampled.AudioFormat;
@@ -42,5 +42,9 @@ public class MusicPlayer {
 		sourceDataLine.drain();
 		sourceDataLine.close();
 		}while(loop);
+		
+		
 	}
-	} 
+	
+}
+	 
