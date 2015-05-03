@@ -31,7 +31,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			case 3: atk=0;Threat+= 30; break;
 			case 4: atk=db.SNIPER_ATK; break;
 			case 5: atk=0;Threat+=150; break;
-			case 6: atk=db.SWORDMAN_ATK;
+			case 6: atk=db.RIFLE_ATK;
 			case 100:atk=0;
 			}
 			Threat+=u.getHp()*atk;
@@ -42,7 +42,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			case 3: atk=0;Threat+= 30; break;
 			case 4: atk=db.SNIPER_ATK; break;
 			case 5: atk=0;Threat+=150; break;
-			case 6: atk=db.SWORDMAN_ATK;
+			case 6: atk=db.RIFLE_ATK;
 			case 100:atk=0;
 			}
 			Threat-=u.getHp()*atk*1.2;

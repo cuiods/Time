@@ -8,21 +8,7 @@ public class cleverAI_STG1 extends AI implements Runnable{
 	double AutoAtkRate = 0.7;
 	AIcommander AIC = new AIcommander();
 	public cleverAI_STG1(){
-		AIC.addSwordMan();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		AIC.addSwordMan();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		AIC.addGunner();
+		
 	}
 	@Override
 	public void detect() {
@@ -100,6 +86,21 @@ public class cleverAI_STG1 extends AI implements Runnable{
 		}
 	}
 	public void run() {
+		AIC.addSwordMan();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addSwordMan();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addGunner();
 		if(!DataBase.isPause)
 		detect();
 		

@@ -7,14 +7,6 @@ public class simpleAI_STG1 extends AI implements Runnable{
 	double AutoAtkRate = 0.9;
 	AIcommander AIC = new AIcommander();
 	public simpleAI_STG1(){
-		AIC.addSwordMan();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		AIC.addSwordMan();
 	}
 	@Override
 	public void detect() {
@@ -93,6 +85,14 @@ public class simpleAI_STG1 extends AI implements Runnable{
 	}
 	@Override
 	public void run() {
+		AIC.addSwordMan();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addSwordMan();
 		if(!DataBase.isPause)
 		detect();
 		
