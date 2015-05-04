@@ -139,6 +139,8 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 	
 	private void addMedicTeam(){
+		if(MedicTeam.MedicTeam_Num<=3){
+			MedicTeam.MedicTeam_Num++;
 		//create sniper
 		MedicTeam medic = new MedicTeam();
 		// set player
@@ -152,11 +154,13 @@ public class ButtonUnit extends JLabel implements MouseListener{
 						
 		//deduct money
 		DataBase.Money-=DataBase.MEDICTEAM_P;
-						
+		}
 		Controller.gameframe.repaint();
 	}
 	
 	private void addSniper(){
+		if(Sniper.Sniper_Num<=4){
+			Sniper.Sniper_Num++;
 		//create sniper
 		Sniper sniper = new Sniper();
 		// set player
@@ -170,7 +174,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 				
 		//deduct money
 		DataBase.Money-=DataBase.SNIPER_P;
-				
+		}
 		Controller.gameframe.repaint();
 	}
 	
@@ -181,7 +185,9 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		truck.setKind(1);
 		// add to player list
 		DataBase.playerList.add(truck);
-				
+		if(DataBase.Tech_TruckReinforce){
+			truck.setHp(DataBase.TRUCK_HP*2);
+		}
 		//start thread
 		Thread st = new Thread(truck);
 		st.start();

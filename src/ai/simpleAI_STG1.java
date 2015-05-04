@@ -93,7 +93,7 @@ public class simpleAI_STG1 extends AI implements Runnable{
 			e.printStackTrace();
 		}
 		AIC.addSwordMan();
-		if(!DataBase.isPause)
+		if(!DataBase.isPause&&DataBase.pass==1)
 		detect();
 		
 	}

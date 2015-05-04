@@ -91,7 +91,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 				e.printStackTrace();
 			}
 			AIC.addMedicTeam();
-		}else if(Threat>=450&&Threat<900){
+		}else if(Threat>=450){
 			AIC.addMedicTeam();
 			AIC.addSniper();
 			AIC.addTruck();
@@ -114,7 +114,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			e.printStackTrace();
 		}
 		AIC.addRifle();
-		if(!DataBase.isPause)
+		if(!DataBase.isPause&&DataBase.pass==2)
 		detect();
 		
 	}

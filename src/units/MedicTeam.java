@@ -3,7 +3,9 @@ package units;
 import dataBase.DataBase;
 
 public class MedicTeam extends Soldier implements Runnable{
+	public static int MedicTeam_Num = 0;
 	public MedicTeam(){
+		MedicTeam_Num++;
 		x = DataBase.START_LOC_X_STG2;
 		y = DataBase.START_LOC_Y_STG2;
 	    hp=DataBase.MEDICTEAM_HP;
