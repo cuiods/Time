@@ -10,9 +10,9 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import dataBase.DataBase;
-import ui.PanelStory2;
-import ui.Panelstory1;
-import ui.StoryPlayer;
+import ui.PanelStory;
+
+
 
 public class ButtonPass2 extends JLabel implements MouseListener {
 	
@@ -66,10 +66,10 @@ public class ButtonPass2 extends JLabel implements MouseListener {
 		// TODO Auto-generated method stub
 		if(DataBase.passAlready>=1){
 		DataBase.pass=2;
-		PanelStory2.picNum=1;
-		StoryPlayer.zero.setVisible(false);
-		StoryPlayer.second= new PanelStory2();
-		Controller.gameframe.setContentPane(StoryPlayer.second);
+		PanelStory.picNum=3;
+		Controller.gameframe.zero.setVisible(false);
+		Controller.gameframe.storyPanel= new PanelStory();
+		Controller.gameframe.setContentPane(Controller.gameframe.storyPanel);
 		isIn=false;
 		}
 	}

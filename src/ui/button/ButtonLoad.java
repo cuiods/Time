@@ -17,8 +17,8 @@ import tools.MusicPlayer;
 import tools.Save;
 import ui.PanelFight;
 import ui.PanelLoad;
-import ui.Panelstory1;
-import ui.StoryPlayer;
+
+
 
 public class ButtonLoad extends JLabel implements MouseListener{
 	Image load=null;

@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import dataBase.DataBase;
 import ui.*;
 
 
@@ -62,11 +63,11 @@ public class ButtonPass1 extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
-		Panelstory1.picNum=1;
-		StoryPlayer.zero.setVisible(false);
-		StoryPlayer.first= new Panelstory1();
-		Controller.gameframe.setContentPane(StoryPlayer.first);
+		DataBase.pass=1;
+		PanelStory.picNum=1;
+		Controller.gameframe.zero.setVisible(false);
+		Controller.gameframe.storyPanel= new PanelStory();
+		Controller.gameframe.setContentPane(Controller.gameframe.storyPanel);
 		isIn=false;
 		
 	}

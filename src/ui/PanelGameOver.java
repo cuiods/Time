@@ -109,9 +109,10 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 				if(DataBase.pass==DataBase.passAlready){
 					DataBase.passAlready++;
 				}
+			
 				Controller.gameframe.getContentPane().setVisible(false);
-				StoryPlayer sp = new StoryPlayer();
-				Controller.gameframe.setContentPane(StoryPlayer.zero);
+				Controller.gameframe.zero=new PanelStory0();
+				Controller.gameframe.setContentPane(Controller.gameframe.zero);
 			}		
 		}
 		DataBase.isPause = false;

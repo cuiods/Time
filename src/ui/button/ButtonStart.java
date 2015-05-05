@@ -17,8 +17,9 @@ import javax.swing.JLabel;
 
 import tools.MusicPlayer;
 import ui.PanelFight;
-import ui.Panelstory1;
-import ui.StoryPlayer;
+import ui.PanelStory0;
+
+
 
 public class ButtonStart extends JLabel implements MouseListener{
 
@@ -76,8 +77,8 @@ public class ButtonStart extends JLabel implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		
 		Controller.gameframe.getContentPane().setVisible(false);
-		StoryPlayer sp = new StoryPlayer();
-		Controller.gameframe.setContentPane(StoryPlayer.zero);
+		Controller.gameframe.zero=new PanelStory0();
+		Controller.gameframe.setContentPane(Controller.gameframe.zero);
 
 		isIn = false;
 		

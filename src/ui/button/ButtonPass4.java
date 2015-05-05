@@ -10,9 +10,9 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import ui.PanelStory3;
-import ui.PanelStory4;
-import ui.StoryPlayer;
+import ui.PanelStory;
+
+
 import dataBase.DataBase;
 
 public class ButtonPass4 extends JLabel implements MouseListener{
@@ -63,12 +63,12 @@ public class ButtonPass4 extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(DataBase.passAlready>3){
+		if(DataBase.passAlready>=3){
 			DataBase.pass=4;
-			PanelStory4.picNum=1;
-			StoryPlayer.zero.setVisible(false);
-			StoryPlayer.four= new PanelStory4();
-			Controller.gameframe.setContentPane(StoryPlayer.four);
+			PanelStory.picNum=11;
+			Controller.gameframe.zero.setVisible(false);
+			Controller.gameframe.storyPanel= new PanelStory();
+			Controller.gameframe.setContentPane(Controller.gameframe.storyPanel);
 			isIn=false;
 			}
 	}

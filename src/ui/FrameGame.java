@@ -17,7 +17,8 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 	
 	public PanelStart startPanel = null;
 	public PanelFight fightPanel = null;
-    public StoryPlayer storyPlayer = null;
+    public PanelStory storyPanel=null;
+    public PanelStory0 zero=null;
     public PanelLoading loadingPanel = null;
     public PanelLoad loadPanel = null;
     
