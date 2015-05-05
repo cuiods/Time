@@ -64,7 +64,7 @@ public class ButtonPass2 extends JLabel implements MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(DataBase.passAlready>1){
+		if(DataBase.passAlready>=1){
 		DataBase.pass=2;
 		PanelStory2.picNum=1;
 		StoryPlayer.zero.setVisible(false);
