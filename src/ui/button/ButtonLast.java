@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import dataBase.DataBase;
+import ui.FrameGame;
 import ui.PanelFight;
 import ui.PanelStart;
 import ui.PanelStory;
@@ -73,13 +74,9 @@ public class ButtonLast extends JLabel implements MouseListener{
 		    DataBase.pass=0;
 			if(PanelStory.picNum>0){
 				PanelStory.picNum=0;
-				Controller.gameframe.storyPanel.setVisible(false);
-				Controller.gameframe.zero = new PanelStory0();
-				Controller.gameframe.setContentPane(Controller.gameframe.zero);
+				Controller.changeTo(FrameGame.STORYZERO);
 			}else{
-				Controller.gameframe.zero.setVisible(false);
-				Controller.gameframe.startPanel= new PanelStart();
-				Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+				Controller.changeTo(FrameGame.STARTPANEL);
 			}
 
 		

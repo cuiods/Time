@@ -55,6 +55,12 @@ public class ButtonGameSet extends JPanel implements MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		//show set panel
+		/*
+		 * is locked?
+		 * I'm afraid the button will be clicked twice
+		 * then there will be two set panels or more
+		 * it's awful, so use islocked to restrict that the panel will only appears once
+		 */
 		if(!isLocked){
 			gameSetPanel = new PanelGameSet();
 			gameSetPanel.addMouseListener(gameSetPanel);

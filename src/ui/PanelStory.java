@@ -76,8 +76,7 @@ public class PanelStory extends JPanel implements MouseListener {
 				story=new ImageIcon(path+picNum+".png").getImage();
 				this.repaint();
 			}else{
-				Controller.gameframe.loadingPanel = new PanelLoading();
-				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+				Controller.changeTo(FrameGame.LOADING);
 				picNum=0;
 			}
 		}else if(DataBase.pass==2){
@@ -86,8 +85,7 @@ public class PanelStory extends JPanel implements MouseListener {
 				story=new ImageIcon(path+picNum+".png").getImage();
 				this.repaint();
 			}else{
-				Controller.gameframe.loadingPanel = new PanelLoading();
-				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
+				Controller.changeTo(FrameGame.LOADING);
 				picNum=0;
 			}
 		}else if(DataBase.pass==3){

@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import dataBase.DataBase;
+import ui.FrameGame;
 import ui.PanelStory;
 
 
@@ -67,9 +68,7 @@ public class ButtonPass2 extends JLabel implements MouseListener {
 		if(DataBase.passAlready>=1){
 		DataBase.pass=2;
 		PanelStory.picNum=3;
-		Controller.gameframe.zero.setVisible(false);
-		Controller.gameframe.storyPanel= new PanelStory();
-		Controller.gameframe.setContentPane(Controller.gameframe.storyPanel);
+		Controller.changeTo(FrameGame.STORYPANEL);
 		isIn=false;
 		}
 	}

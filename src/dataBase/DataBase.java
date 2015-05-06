@@ -25,7 +25,7 @@ public class DataBase {
 	public static final int PATH_AGLX_STG1 = 2;//设置第一关路径的斜率
 	public static final int PATH_AGLY_STG1 = -1;
 	
-	public static final int CASTLE_HP_ENM_STG1 = 2;//敌方城堡的生命值
+	public static final int CASTLE_HP_ENM_STG1 = 2000;//敌方城堡的生命值
 	public static final int START_LOC_X_ENM_STG1 = 950;//设置第一关敌人的出发位置
 	public static final int START_LOC_Y_ENM_STG1 = 50;
 	public static final int PATH_AGLX_ENM = -2;//设置第一关敌人路径的斜率

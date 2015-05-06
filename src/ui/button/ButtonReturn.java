@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import dataBase.DataBase;
+import ui.FrameGame;
 import ui.PanelStart;
 
 public class ButtonReturn extends JLabel implements MouseListener{
@@ -51,12 +52,9 @@ public class ButtonReturn extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		Controller.gameframe.getContentPane().setVisible(false);
-		Controller.gameframe.startPanel = new PanelStart();
-		Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+		Controller.changeTo(FrameGame.STARTPANEL);
 		DataBase.isPause = false;
 		ButtonGameSet.isLocked = false;
-		Controller.gameframe.repaint();
 		
 	}
 

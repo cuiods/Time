@@ -65,9 +65,7 @@ public class ButtonPass1 extends JLabel implements MouseListener{
 		// TODO Auto-generated method stub
 		DataBase.pass=1;
 		PanelStory.picNum=1;
-		Controller.gameframe.zero.setVisible(false);
-		Controller.gameframe.storyPanel= new PanelStory();
-		Controller.gameframe.setContentPane(Controller.gameframe.storyPanel);
+		Controller.changeTo(FrameGame.STORYPANEL);
 		isIn=false;
 		
 	}

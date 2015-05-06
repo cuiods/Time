@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import tools.MusicPlayer;
+import ui.FrameGame;
 import ui.PanelStart;
 import dataBase.DataBase;
 
@@ -86,10 +87,7 @@ public class ButtonExit extends JLabel implements MouseListener{
 		}else if(type == 3){
 			isIn1 = false;
 			isIn2 = false;
-			Controller.gameframe.getContentPane().setVisible(false);
-			Controller.gameframe.startPanel = new PanelStart();
-			Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
-			Controller.gameframe.repaint();
+			Controller.changeTo(FrameGame.STARTPANEL);
 		}
 	}
 

@@ -1,5 +1,7 @@
 package ui;
 
+import gamecontrol.Controller;
+
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -22,14 +24,21 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     public PanelLoading loadingPanel = null;
     public PanelLoad loadPanel = null;
     
-    int tempX;  
-    int tempY;  
-    int winX;  
-    int winY;  
-    int oldX;  
-    int oldY;
-    int x;
-    int y;
+    public static final int STARTPANEL = 0;
+    public static final int FIGHTPANEL = 1;
+    public static final int STORYPANEL = 2;
+    public static final int STORYZERO = 3;
+    public static final int LOADPANEL = 4;
+    public static final int LOADING = 5;
+    
+    private int tempX;  
+    private int tempY;  
+    private int winX;  
+    private int winY;  
+    private int oldX;  
+    private int oldY;
+    private int x;
+    private int y;
 	
 	public FrameGame(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,6 +121,43 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	/*
+	 * change panels
+	 * @param panelNum
+	 */
+	public void changeTo(int panelNum){
+		getContentPane().setVisible(false);
+		switch(panelNum){
+		case 0:
+			startPanel = new PanelStart();
+			setContentPane(startPanel);
+			break;
+		case 1:
+			fightPanel = new PanelFight();
+			setContentPane(fightPanel);
+			Thread fp = new Thread(fightPanel);
+			fp.start();
+			break;
+		case 2:
+			storyPanel= new PanelStory();
+			setContentPane(storyPanel);
+			break;
+		case 3:
+			zero = new PanelStory0();
+			setContentPane(zero);
+			break;
+		case 4:
+		    loadPanel = new PanelLoad();
+			setContentPane(loadPanel);
+			break;
+		case 5:
+			loadingPanel = new PanelLoading();
+			setContentPane(loadingPanel);
+			break;
+		}
+		repaint();
 	}
 }
 

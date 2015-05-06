@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 
 import tools.MusicPlayer;
 import tools.Save;
+import ui.FrameGame;
 import ui.PanelFight;
 import ui.PanelLoad;
 
@@ -59,22 +60,8 @@ public class ButtonLoad extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		Controller.gameframe.getContentPane().setVisible(false);
-		Controller.gameframe.loadPanel = new PanelLoad();
-		Controller.gameframe.setContentPane(Controller.gameframe.loadPanel);
-		Controller.gameframe.repaint();
+		Controller.changeTo(FrameGame.LOADPANEL);
 		isIn = false;
-//		Save sv = new Save();
-//		try {
-//			sv.Recover();
-//		} catch (ClassNotFoundException | IOException e1) {
-//			e1.printStackTrace();
-//		}
-//		Controller.gameframe.getContentPane().setVisible(false);
-//		Controller.gameframe.fightPanel = new PanelFight();
-//		Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-//		Thread fp = new Thread(Controller.gameframe.fightPanel);
-//		fp.start();
 		
 	}
 	@Override
@@ -94,7 +81,6 @@ public class ButtonLoad extends JLabel implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		isIn = false;
 		this.repaint();
-		
 	}
 
 }

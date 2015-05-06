@@ -26,7 +26,10 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 	boolean isWin = false;
 	boolean isIn1 = false;
 	boolean isIn2 = false;
-	
+	/**
+	 * if win, the param is true,otherwise, false
+	 * @param iswin
+	 */
 	public PanelGameOver(boolean iswin){
 		this.isWin = iswin;
 		this.setBounds(320, 140, 400, 300);
@@ -92,27 +95,20 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			DataBase.recover();
 			
 			//restart
-			Controller.gameframe.getContentPane().setVisible(false);
-			Controller.gameframe.startPanel = new PanelStart();
-			Controller.gameframe.setContentPane(Controller.gameframe.startPanel);
+			Controller.changeTo(FrameGame.STARTPANEL);
 			ButtonGameSet.isLocked = false;
-			Controller.gameframe.repaint();
 						
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){
 			
 			//restart the game
 			if(!isWin){
 				DataBase.recover();
-				Controller.gameframe.getContentPane().setVisible(false);
-				Controller.gameframe.setContentPane(new PanelLoading());
+				Controller.changeTo(FrameGame.LOADING);
 			}else{
 				if(DataBase.pass==DataBase.passAlready){
 					DataBase.passAlready++;
 				}
-			
-				Controller.gameframe.getContentPane().setVisible(false);
-				Controller.gameframe.zero=new PanelStory0();
-				Controller.gameframe.setContentPane(Controller.gameframe.zero);
+			Controller.changeTo(FrameGame.STORYZERO);
 			}		
 		}
 		DataBase.isPause = false;

@@ -38,37 +38,43 @@ import ai.simpleAI_STG2;
 import dataBase.DataBase;
 
 
-
+/**
+ * 2015-5-6 22:59:21
+ * to show main game panel
+ */
 public class PanelFight extends JPanel implements Runnable{
 
+	//background image
 	private Image fightBackGround = null;
+	//the small button 'x' to exit
 	private ButtonExit butExit = null;
+	//set button
 	private ButtonGameSet gameSet = null;
+	//pause and continue button
 	private ButtonPause pause = null;
+	//time for pass2
 	private Time time = null;
+	//when game over, the panel appears
 	static PanelGameOver gameOverPanel = null;
-	static boolean panelUnitExist = false;
+	//for special effects, @warning :not equal to database
 	public static boolean isTech_3 = false;
 	public static boolean isTech_6 = false;
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
 	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
-	public static MusicPlayer fightPlayer = new MusicPlayer();
+	//to play music
+	//public static MusicPlayer fightPlayer = new MusicPlayer();
 	static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
 	
 	public PanelFight(){
 		//set music
-		setMusic();
-		
+		setMusic();		
 		//set castles
-		setCastle();
-		
+		setCastle();	
 		//set buttons
-		setButtons();
-		
+		setButtons();	
 		//clear Layout
 		setLayout(null);
-		
 		//set AI
 		setAI();
 		
@@ -84,10 +90,43 @@ public class PanelFight extends JPanel implements Runnable{
 		drawEffects(g);
 	
 	}
-	
+	/**
+	 * set all the buttons on the fight panel
+	 * @see ui.button
+	 */
+	private void setButtons(){
+		//set science buttons
+		setTech();
+		//set unit buttons
+		setUnit();
+		//setting (now including save button and return to start panel button)
+		gameSet = new ButtonGameSet();
+		gameSet.addMouseListener(gameSet);
+		//pause and continue
+		pause = new ButtonPause();
+		pause.addMouseListener(pause);
+		//'x' button to exit game
+		butExit = new ButtonExit();
+		butExit.type = 1;
+		butExit.setBounds(960, 10, 30, 30);
+		butExit.addMouseListener(butExit);
+		//add to fight panel
+		this.add(butExit);
+		this.add(gameSet);
+		this.add(pause);
+		
+	}
 	
 	/**
-	 * set technology according to pass
+	 * @function set technology according to pass
+	 * each pass has different science buttons
+	 * use begin and end to restrict the number of buttons and the kind of
+	 * the science
+	 * @see ButtonScience
+	 * @TODO
+	 * you need to add science info,one solution is draw string at the bottom of 
+	 * the panel, or you can write something else such as when your mouse move into
+	 * the button,it appears a small panel that shows the info
 	 */
 	private void setTech(){
 		ButtonScience tech = null;
@@ -96,55 +135,20 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:break;	
 		case 2:begin = 4; end = 9; break;
 		}
+		//use 'for' to create science button
 		for(int i = begin; i < end; i++){
 			tech = new ButtonScience(i);
 			tech.addMouseListener(tech);
 			this.add(tech);
 		}
 	}
-	
 	/**
-	 * set ai according to pass
+	 * set unit according to pass
+	 * yes,"for" again, but this "for" is different to the "for" used in science
+	 * button.All of them start from 0.Care for this change,they have no difference.
+	 * @see ButtonUnit
 	 */
-	private void setAI(){
-		//create and start AI
-		switch(DataBase.pass){
-		case 1:
-			simpleAI_STG1 ai1 = new simpleAI_STG1();
-			Thread th1 = new Thread(ai1);
-			th1.start();	
-			break;
-		case 2:
-			time = new Time();
-			simpleAI_STG2 ai2 = new simpleAI_STG2();
-			Thread th2 = new Thread(ai2);
-			th2.start();
-			break;
-		}
-		
-		//set money
-		Money mon = new Money();
-		Thread monTh = new Thread(mon);
-		monTh.start();
-	}
-	
-	/**
-	 * set all the buttons in the fight panel
-	 */
-	private void setButtons(){
-		//set science panel
-		setTech();
-		
-		gameSet = new ButtonGameSet();
-		gameSet.addMouseListener(gameSet);
-		pause = new ButtonPause();
-		pause.addMouseListener(pause);
-		
-		butExit = new ButtonExit();
-		butExit.type = 1;
-		butExit.setBounds(960, 10, 30, 30);
-		butExit.addMouseListener(butExit);
-		
+	private void setUnit(){
 		ButtonUnit butUnit = null;
 		switch(DataBase.pass){
 		case 1:
@@ -157,6 +161,7 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 2:
 			for(int i = 0; i < 4;i++){
+				//here is i+3,each pass should add a different number
 				butUnit = new ButtonUnit(i+3);
 				butUnit.setBounds(30+i*70, 80, 65, 60);
 				butUnit.addMouseListener(butUnit);
@@ -164,15 +169,37 @@ public class PanelFight extends JPanel implements Runnable{
 			}
 			break;
 		}
+	}
+	
+	/**
+	 * set ai according to pass
+	 * @author niansong
+	 */
+	private void setAI(){
+		//create and start AI
+		switch(DataBase.pass){
+		case 1:
+			simpleAI_STG1 ai1 = new simpleAI_STG1();
+			Thread th1 = new Thread(ai1);
+			th1.start();	
+			break;
+		case 2:
+			simpleAI_STG2 ai2 = new simpleAI_STG2();
+			Thread th2 = new Thread(ai2);
+			th2.start();
+			time = new Time();
+			break;
+		}
 		
-		this.add(butExit);
-		this.add(gameSet);
-		this.add(pause);
-		
+		//set money
+		Money mon = new Money();
+		Thread monTh = new Thread(mon);
+		monTh.start();
 	}
 	
 	/**
 	 * set music
+	 * don't care about this
 	 */
 	private void setMusic(){
 		//close other music
@@ -188,7 +215,12 @@ public class PanelFight extends JPanel implements Runnable{
 	
 	
 	/**
-	 * draw solders, and so on 
+	 * draw solders, and so on
+	 * It's a very important part of the panel
+	 * draw units according to it's kind and type,you don't need to care about pass
+	 * @see ButtonUnit
+	 * if want to set two or more paths,change the location of the unit before
+	 * add it to player list,it happens in button unit  
 	 */
 	private void drawUnits(Graphics g){
 		/*
@@ -260,10 +292,14 @@ public class PanelFight extends JPanel implements Runnable{
 	 */
 	private void drawSwordman(Graphics g,SwordMan o){
 		switch(o.getKind()){
+		//this is player
 		case 1:
+			//define a picture
 			Image swordman1 = null;	
+			//if it's moving
 			if(o.moving){
 				if(!DataBase.isPause){
+					//if it's pause,just use a picture,else,use a gif
 					swordman1 = new ImageIcon("graphics/soldiers/s/s1walk.gif").getImage();
 				}else{
 					swordman1 = new ImageIcon("graphics/soldiers/s/s1.png").getImage();
@@ -277,6 +313,7 @@ public class PanelFight extends JPanel implements Runnable{
 			}
 			g.drawImage(swordman1,o.getX(), o.getY()+o.ran, 40, 62, this);
 			break;
+		//this is enemy
 		case 0:
 			Image swordman0 = new ImageIcon("graphics/soldiers/en/en1.png").getImage();
 			if(o.moving){
@@ -295,7 +332,7 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(swordman0,o.getX(), o.getY()+o.ran, 40, 62, this);
 			break;
 		}
-		//draw life
+		//draw life,show the life of the unit
 		int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SWORDMAN_HP));
 		g.setColor(Color.GREEN);
 		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
@@ -663,7 +700,8 @@ public class PanelFight extends JPanel implements Runnable{
 	}
 	
 	/**
-	 * draw background
+	 * draw background including background image, show money, show life of your 
+	 * castle,or other info
 	 */
 	private void drawBackground(Graphics g){
 		//load background image
@@ -675,7 +713,10 @@ public class PanelFight extends JPanel implements Runnable{
 			fightBackGround = new ImageIcon("graphics/background/fightbackground2.png").getImage();
 			break;
 		}
+		//money image
 		Image money = new ImageIcon("graphics/info/money1.png").getImage();
+		//technology image ,it's ugly,use another
+		//@TODO
 		Image tech = new ImageIcon("graphics/info/tech.png").getImage();
 		
 		//show background image
@@ -687,6 +728,7 @@ public class PanelFight extends JPanel implements Runnable{
 		//show money
 		g.drawImage(money, 355, 0,260, 80, this);
 		g.setColor(Color.YELLOW);
+		//e..you can change this font
 		Font myFont = new Font("»ªÎÄÁ¥Êé",Font.BOLD,24);
 		g.setFont(myFont);
 		g.drawString(DataBase.Money+"", 450, 65);
@@ -696,6 +738,7 @@ public class PanelFight extends JPanel implements Runnable{
 	 * draw special effects
 	 * @param graphics g
 	 * @see PicturePlayer
+	 * try it!
 	 */
 	private void drawEffects(Graphics g){
 		/*
@@ -795,11 +838,15 @@ public class PanelFight extends JPanel implements Runnable{
 	private void setCastle(){
 		switch(DataBase.pass){
 		case 1:
+			//All of them have to be done when you add a unit
+			//create a unit
 			Castle mycastle = new Castle();
+			//if a unit is player's,you must setkind(1)
 			mycastle.setKind(1);
-			
+			//start thread
 			Thread cp11 = new Thread(mycastle);
 			cp11.start();
+			//add to list
 			DataBase.playerList.add(mycastle);
 			
 			Castle enemycastle = new Castle();
@@ -811,6 +858,7 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.enemyList.add(enemycastle);
 			break;
 		case 2:
+			//pass 2 doesn't need an enemy castle
 			Castle mycastle2 = new Castle();
 			mycastle2.setKind(1);
 			
@@ -823,19 +871,24 @@ public class PanelFight extends JPanel implements Runnable{
 
 	/**
 	 * keep refreshing the panel
+	 * so you don't need to repaint 
 	 */
 	@Override
 	public void run() {
 		while(true){
+			//if lose
 			if(win()<0){
 				DataBase.isPause = true;
+				//if lose, the param is false, then you should add game over panel
 				gameOverPanel = new PanelGameOver(false);
 				gameOverPanel.addMouseListener(gameOverPanel);
 				this.add(gameOverPanel);
 				this.repaint();
+				/*
+				 * end loop,then next time the thread will die, and will not affect
+				 * next game
+				 */
 				break;
-//				Thread gf = new Thread(gameOverPanel);
-//				gf.start();
 			}
 			if(win()>0){
 				DataBase.isPause = true;
@@ -850,7 +903,7 @@ public class PanelFight extends JPanel implements Runnable{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+			//keep refreshing every 50ms
 			this.repaint();
 		}
 		
@@ -861,6 +914,8 @@ public class PanelFight extends JPanel implements Runnable{
 	 * @return 1 if win; -1 if lose ; 0 neither
 	 */
 	private int win(){
+		//remember:castle will be added first, so it's index must be 0
+		//however,if there are two paths, you may need two castles share one life
 		switch(DataBase.pass){
 		case 1:
 			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){

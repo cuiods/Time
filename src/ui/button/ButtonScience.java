@@ -22,6 +22,11 @@ public class ButtonScience extends JPanel implements MouseListener{
 	
 	private int kind;
 	private boolean isIn = false;
+	/**
+	 * different kind represents different science
+	 * the kind and the pass determine its location
+	 * @param kind
+	 */
 	public ButtonScience(int kind) {
 		this.kind = kind;
 		switch(DataBase.pass){
@@ -31,7 +36,8 @@ public class ButtonScience extends JPanel implements MouseListener{
 	}
 	
 	@Override
-	public void paintComponent(Graphics g){		
+	public void paintComponent(Graphics g){
+		//when you name a picture,care for the name, or it can't be shown
 		if(!isIn){
 			g.drawImage(new ImageIcon("graphics/info/tech"+kind+".png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
 		}else{
@@ -65,24 +71,32 @@ public class ButtonScience extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		/*
+		 * here you set what will happen when user clicked the button
+		 * different tech will have different effect
+		 */
 		switch(kind){
 		case 1:
-			if((!DataBase.Tech_CannonEnable)&&(DataBase.Money-DataBase.Tech_CannonEnable_P>=0)){
+			if((!DataBase.Tech_CannonEnable)//this means the tech can only be used once
+					&&(DataBase.Money-DataBase.Tech_CannonEnable_P>=0)){//this means money is enough
 				new Tech_CannonEnable_STG1();
+				//remenber money
 				DataBase.Money -= DataBase.Tech_CannonEnable_P;
 			}
 			break;
 		case 2:
-			if((!DataBase.Tech_MoneyBoom)&&(e.getX()>40)&&(DataBase.Money-DataBase.Tech_MoneyBoom_P>=0)){
+			if((!DataBase.Tech_MoneyBoom)&&(DataBase.Money-DataBase.Tech_MoneyBoom_P>=0)){
 				new Tech_MoneyBoom_STG1();
 				DataBase.Money -= DataBase.Tech_MoneyBoom_P;
 			}
 			break;
 		case 3:
 			if((DataBase.Money-DataBase.Tech_Destroy_P>=0)){
+				//you can ignore something like this, it only used for effects
 				PanelFight.enemy.addAll(DataBase.enemyList);
 				PanelFight.enemy.remove(0);
 				PanelFight.isTech_3 = true;
+				
 				new Tech_Destroy_STG1();
 				DataBase.Money -= DataBase.Tech_Destroy_P;
 			}

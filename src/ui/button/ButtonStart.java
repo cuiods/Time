@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import tools.MusicPlayer;
+import ui.FrameGame;
 import ui.PanelFight;
 import ui.PanelStory0;
 
@@ -76,10 +77,7 @@ public class ButtonStart extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		
-		Controller.gameframe.getContentPane().setVisible(false);
-		Controller.gameframe.zero=new PanelStory0();
-		Controller.gameframe.setContentPane(Controller.gameframe.zero);
-
+		Controller.changeTo(FrameGame.STORYZERO);
 		isIn = false;
 		
 		try {

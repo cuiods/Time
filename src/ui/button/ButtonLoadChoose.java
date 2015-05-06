@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import tools.Save;
+import ui.FrameGame;
 import ui.PanelFight;
 
 public class ButtonLoadChoose extends JLabel implements MouseListener{
@@ -70,11 +71,7 @@ public class ButtonLoadChoose extends JLabel implements MouseListener{
 			} catch (ClassNotFoundException | IOException e1) {
 				e1.printStackTrace();
 			}
-			Controller.gameframe.getContentPane().setVisible(false);
-			Controller.gameframe.fightPanel = new PanelFight();
-			Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-			Thread fp = new Thread(Controller.gameframe.fightPanel);
-			fp.start();
+			Controller.changeTo(FrameGame.FIGHTPANEL);
 			break;
 		}
 		

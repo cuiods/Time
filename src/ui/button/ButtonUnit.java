@@ -27,6 +27,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	private boolean isIn = false;
 	public ButtonUnit(int kind){
 		this.kind = kind;
+		//it's not important, location will be reset
 		this.setBounds(30, 250, 65, 60);
 	}
 	
@@ -51,6 +52,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		//don't need to care about pass
 		switch(kind){
 		case 0:
 			if(DataBase.Money-DataBase.SWORDMAN_P>=0){
@@ -88,19 +90,27 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			}
 			break;
 		}
+		/**
+		 * attention:what's this mean?
+		 * what will never happen? a soldiers foot will never cover another's head
+		 * @see Unit
+		 */
 		Collections.sort(DataBase.playerList);
 	}
 
 	private void addCannon() {
+		//new a unit
 		Cannon cannon = new Cannon();
+		//set kind, enemy don't need to do this
 		cannon.setKind(1);
+		//add  to list 
 		DataBase.playerList.add(cannon);
 		//start thread
 		Thread st = new Thread(cannon);
 		st.start();
-		//deduct money
+		//remember this:deduct money
 		DataBase.Money-=DataBase.CANNON_P;
-		
+		//not necessary
 		Controller.gameframe.repaint();
 		
 	}
@@ -141,7 +151,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	private void addMedicTeam(){
 		if(MedicTeam.MedicTeam_Num<=3){
 			MedicTeam.MedicTeam_Num++;
-		//create sniper
+		//create medic team
 		MedicTeam medic = new MedicTeam();
 		// set player
 		medic.setKind(1);

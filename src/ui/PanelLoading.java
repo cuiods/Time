@@ -38,11 +38,7 @@ public class PanelLoading extends JPanel{
 			 * to be changed  @Warning!
 			 */
 			DataBase.recover();
-			Controller.gameframe.getContentPane().setVisible(false);
-			Controller.gameframe.fightPanel= new PanelFight();
-			Controller.gameframe.setContentPane(Controller.gameframe.fightPanel);
-			Thread fp = new Thread(Controller.gameframe.fightPanel);
-			fp.start();
+			Controller.changeTo(FrameGame.FIGHTPANEL);
 		}
 		time-=2;
 		this.repaint();
