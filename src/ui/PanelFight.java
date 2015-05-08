@@ -723,13 +723,13 @@ public class PanelFight extends JPanel implements Runnable{
 		g.drawImage(fightBackGround, 0, 0,this.getWidth(),this.getHeight(), this);
 		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 120, 15, 240, 45, this);
 		g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 605, 15, 240, 45, this);
-		g.drawImage(tech, 330, 95, 60, 30, this);
+		g.drawImage(tech, 304, 58, 130, 110, this);
 
 		//show money
 		g.drawImage(money, 355, 0,260, 80, this);
 		g.setColor(Color.YELLOW);
 		//e..you can change this font
-		Font myFont = new Font("»ªÎÄÁ¥Êé",Font.BOLD,24);
+		Font myFont = new Font("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",Font.BOLD,24);
 		g.setFont(myFont);
 		g.drawString(DataBase.Money+"", 450, 65);
 	}
@@ -765,7 +765,7 @@ public class PanelFight extends JPanel implements Runnable{
 			int min = time.getRemainTime()/60;
 			int second = time.getRemainTime()%60;
 			g.setColor(Color.red);
-			Font myFont = new Font("»ªÎÄÁ¥Êé",Font.BOLD,28);
+			Font myFont = new Font("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",Font.BOLD,28);
 			g.setFont(myFont);
 			g.drawString(min+"", 680, 80);
 			g.drawString(":", 700, 80);
