@@ -1,7 +1,6 @@
 package ui;
 
-import gamecontrol.Controller;
-
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -12,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class FrameGame extends JFrame implements MouseListener,MouseMotionListener{
@@ -23,6 +23,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     public PanelStory0 zero=null;
     public PanelLoading loadingPanel = null;
     public PanelLoad loadPanel = null;
+    public PanelFade fadePanel = null;
     
     public static final int STARTPANEL = 0;
     public static final int FIGHTPANEL = 1;
@@ -41,6 +42,9 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     private int y;
 	
 	public FrameGame(){
+		//set background
+		setBackground(Color.BLACK);
+				
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000, 600);
 		
@@ -60,11 +64,16 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 		//able to drag
 		addMouseMotionListener(this);
 		addMouseListener(this);
+
 	}
 	
 	public void showFirstPanel(){
-		startPanel = new PanelStart();
-		this.setContentPane(startPanel);
+		fadePanel = new PanelFade();
+		fadePanel.addImage(new ImageIcon("graphics/background/0I5161P1-0.png").getImage());
+		this.setContentPane(fadePanel);
+		fadePanel.showImage();
+//		startPanel = new PanelStart();
+//		this.setContentPane(startPanel);
 	}
 
 	@Override
