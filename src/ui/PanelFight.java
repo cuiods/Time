@@ -761,7 +761,7 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * show time left
 		 */
-		if(time!=null){
+		if(time!=null&&time.getRemainTime()>0){
 			int min = time.getRemainTime()/60;
 			int second = time.getRemainTime()%60;
 			g.setColor(Color.red);

@@ -40,9 +40,9 @@ public class Truck extends Soldier{
 			r.setX(this.getX());
 			r.setY(this.getY());
 			if(this.getKind()==0){
-				db.enemyList.add(r);
+				DataBase.enemyList.add(r);
 				}else{
-					db.playerList.add(r);
+					DataBase.playerList.add(r);
 				}
 			Thread th = new Thread(r);
 			th.start();
