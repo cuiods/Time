@@ -3,8 +3,8 @@ package Tech;
 import dataBase.DataBase;
 import units.Unit;
 
-public class Tech_Heal_STG2 {
-	public Tech_Heal_STG2(){
+public class Tech_STG2_Heal {
+	public Tech_STG2_Heal(){
 		DataBase.Tech_Heal = true;
 		execute();
 	}

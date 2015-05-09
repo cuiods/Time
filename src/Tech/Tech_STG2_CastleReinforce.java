@@ -3,8 +3,8 @@ package Tech;
 import dataBase.DataBase;
 import units.Unit;
 
-public class Tech_CastleReinforce_STG2 {
-	public Tech_CastleReinforce_STG2(){
+public class Tech_STG2_CastleReinforce {
+	public Tech_STG2_CastleReinforce(){
 		DataBase.Tech_CastleReinforce = true;
 		execute();
 	}

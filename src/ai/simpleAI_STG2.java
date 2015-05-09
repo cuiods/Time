@@ -60,7 +60,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 
 	public void execute(int Threat) {
 		AutoAtkRate-=0.001;
-		if(Threat<0&&Math.random()>AutoAtkRate){
+		if(Threat<=0&&Math.random()>AutoAtkRate){
 			AIC.addRifle();
 			try {
 				Thread.sleep(500);

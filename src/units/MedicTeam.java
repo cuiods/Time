@@ -9,6 +9,9 @@ public class MedicTeam extends Soldier implements Runnable{
 		x = DataBase.START_LOC_X_STG2;
 		y = DataBase.START_LOC_Y_STG2;
 	    hp=DataBase.MEDICTEAM_HP;
+	    attack = DataBase.MEDICTEAM_ATK;
+		attackRange = DataBase.MEDICTEAM_AR;
+		speed = DataBase.MEDICTEAM_SPD;
 	    setType(3);
 	}
 	public void heal(){

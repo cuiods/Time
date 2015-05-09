@@ -3,9 +3,9 @@ package Tech;
 import units.Unit;
 import dataBase.DataBase;
 
-public class Tech_Destroy_STG1 {
+public class Tech_STG1_Destroy {
 	
-	public Tech_Destroy_STG1(){
+	public Tech_STG1_Destroy(){
 		
 		DataBase.Tech_Destroy = true;
 		execute();

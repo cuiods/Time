@@ -8,14 +8,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import ui.PanelFight;
-import Tech.Tech_CannonEnable_STG1;
-import Tech.Tech_CastleReinforce_STG2;
-import Tech.Tech_Destroy_STG1;
-import Tech.Tech_Heal_STG2;
-import Tech.Tech_LessTime_STG2;
-import Tech.Tech_MedicEnable_STG2;
-import Tech.Tech_MoneyBoom_STG1;
-import Tech.Tech_TruckReinforce_STG2;
+import Tech.Tech_STG1_CannonEnable;
+import Tech.Tech_STG2_CastleReinforce;
+import Tech.Tech_STG1_Destroy;
+import Tech.Tech_STG2_Heal;
+import Tech.Tech_STG2_LessTime;
+import Tech.Tech_STG2_MedicEnable;
+import Tech.Tech_STG1_MoneyBoom;
+import Tech.Tech_STG2_TruckReinforce;
 import dataBase.DataBase;
 
 public class ButtonScience extends JPanel implements MouseListener{
@@ -79,14 +79,14 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 1:
 			if((!DataBase.Tech_CannonEnable)//this means the tech can only be used once
 					&&(DataBase.Money-DataBase.Tech_CannonEnable_P>=0)){//this means money is enough
-				new Tech_CannonEnable_STG1();
+				new Tech_STG1_CannonEnable();
 				//remenber money
 				DataBase.Money -= DataBase.Tech_CannonEnable_P;
 			}
 			break;
 		case 2:
 			if((!DataBase.Tech_MoneyBoom)&&(DataBase.Money-DataBase.Tech_MoneyBoom_P>=0)){
-				new Tech_MoneyBoom_STG1();
+				new Tech_STG1_MoneyBoom();
 				DataBase.Money -= DataBase.Tech_MoneyBoom_P;
 			}
 			break;
@@ -97,39 +97,39 @@ public class ButtonScience extends JPanel implements MouseListener{
 				PanelFight.enemy.remove(0);
 				PanelFight.isTech_3 = true;
 				
-				new Tech_Destroy_STG1();
+				new Tech_STG1_Destroy();
 				DataBase.Money -= DataBase.Tech_Destroy_P;
 			}
 			break;
 		case 4:
 			if(!DataBase.Tech_MedicEnable&&(DataBase.Money-DataBase.Tech_MedicEnable_p>=0)){
-				new Tech_MedicEnable_STG2();
+				new Tech_STG2_MedicEnable();
 				DataBase.Money -= DataBase.Tech_MedicEnable_p;
 			}
 			break;
 		case 5:
 			if(!DataBase.Tech_TruckReinforce&&(DataBase.Money-DataBase.Tech_TruckReinforce_P>=0)){
-				new Tech_TruckReinforce_STG2();
+				new Tech_STG2_TruckReinforce();
 				DataBase.Money -= DataBase.Tech_TruckReinforce_P;
 			}
 			break;
 		case 6:
 			if(!DataBase.Tech_LessTime&&(DataBase.Money-DataBase.Tech_LessTime_P>=0)){
-				new Tech_LessTime_STG2();
+				new Tech_STG2_LessTime();
 				PanelFight.isTech_6 = true;
 				DataBase.Money -= DataBase.Tech_LessTime_P;
 			}
 			break;
 		case 7:
 			if((DataBase.Money-DataBase.Tech_Heal_P>=0)){
-				new Tech_Heal_STG2();
+				new Tech_STG2_Heal();
 				PanelFight.isTech_7 = true;
 				DataBase.Money -= DataBase.Tech_Heal_P;
 			}
 			break;
 		case 8:
 			if(!DataBase.Tech_CastleReinforce&&(DataBase.Money-DataBase.Tech_CastleReinforce_P>=0)){
-				new Tech_CastleReinforce_STG2();
+				new Tech_STG2_CastleReinforce();
 				PanelFight.isTech_8 = true;
 				DataBase.Money -= DataBase.Tech_CastleReinforce_P;
 			}

@@ -8,6 +8,9 @@ public class Truck extends Soldier{
 		x = DataBase.START_LOC_X_STG2;
 		y = DataBase.START_LOC_Y_STG2;
 	    hp=DataBase.TRUCK_HP;
+	    attack = DataBase.TRUCK_ATK;
+		attackRange = DataBase.TRUCK_AR;
+		speed = DataBase.TRUCK_SPD;
 	    setType(5);
 	}
 	public void attack(){}
