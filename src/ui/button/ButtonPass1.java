@@ -21,7 +21,7 @@ public class ButtonPass1 extends JLabel implements MouseListener{
 
  	public ButtonPass1(){
  		buttonImage = new ImageIcon("graphics/storyteller/sword.png").getImage();
- 		this.setBounds(85, 450, 70, 70);
+ 		this.setBounds(120, 50, 88, 128);
  	}
  	  
 
@@ -30,7 +30,7 @@ public class ButtonPass1 extends JLabel implements MouseListener{
     	 if(!isIn){
     		 buttonImage = new ImageIcon("graphics/storyteller/sword.png").getImage();
     	 }else{
-    		 buttonImage = new ImageIcon("graphics/storyteller/sword2.png").getImage();
+    		 buttonImage = new ImageIcon("graphics/storyteller/sword1.png").getImage();
     	 }
     	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
      }

@@ -21,21 +21,21 @@ public class ButtonPass2 extends JLabel implements MouseListener {
 	Image buttonImage;
       public ButtonPass2(){
     	
-    	  buttonImage = new ImageIcon("graphics/storyteller/teles1.png").getImage();
-   		  this.setBounds(245, 410, 70, 70);
+    	  buttonImage = new ImageIcon("graphics/storyteller/leida.png").getImage();
+   		  this.setBounds(215, 345, 120, 120);
    		
       }
       public void paintComponent(Graphics g){
-    	 if(DataBase.passAlready<1)
+    	 if(DataBase.passAlready<2)
     		 
-    			 buttonImage = new ImageIcon("graphics/storyteller/teles1.png").getImage();
+    			 buttonImage = new ImageIcon("graphics/storyteller/leida2.png").getImage();
     		
     	 else{	 
     	
     		 if(!isIn){
-    			 buttonImage = new ImageIcon("graphics/storyteller/telescope.png").getImage();
+    			 buttonImage = new ImageIcon("graphics/storyteller/leida.png").getImage();
     		 }else{
-    			 buttonImage = new ImageIcon("graphics/storyteller/telescope1.png").getImage(); 
+    			 buttonImage = new ImageIcon("graphics/storyteller/leida1.png").getImage(); 
     	     }
     	 }
     	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
@@ -65,7 +65,7 @@ public class ButtonPass2 extends JLabel implements MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(DataBase.passAlready>=1){
+		if(DataBase.passAlready>=2){
 		DataBase.pass=2;
 		PanelStory.picNum=3;
 		Controller.changeTo(FrameGame.STORYPANEL);

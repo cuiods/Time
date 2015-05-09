@@ -12,6 +12,8 @@ public class PanelStory0 extends JPanel{
       ButtonPass2 two;
       ButtonPass3 three;
       ButtonPass4 four;
+      ButtonPass5 five;
+      ButtonPass6 six;
       
       public ButtonLast last;
     
@@ -27,6 +29,8 @@ public class PanelStory0 extends JPanel{
 		two = new ButtonPass2();
 		three = new ButtonPass3();
 		four= new ButtonPass4();
+		five = new ButtonPass5();
+		six = new ButtonPass6();
 		
 		this.add(one);
 		one.addMouseListener(one);
@@ -36,14 +40,16 @@ public class PanelStory0 extends JPanel{
 		three.addMouseListener(three);
 		this.add(four);
 		four.addMouseListener(four);
+		this.add(five);
+		five.addMouseListener(five);
+		this.add(six);
+		six.addMouseListener(six);
 		
   		 
-  		 path=new ImageIcon("graphics/storyteller/path.png").getImage();
+  		 path=new ImageIcon("graphics/storyteller/universe.gif").getImage();
       }
       public void paintComponent(Graphics g){
   		   g.drawImage(path, 0, 0, this.getWidth(),this.getHeight(),this);
-          
-        		
-          
+           g.drawImage(new ImageIcon("graphics/storyteller/path.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
      }
 }
