@@ -134,6 +134,7 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(DataBase.pass){
 		case 1:break;	
 		case 2:begin = 4; end = 9; break;
+		
 		}
 		//use 'for' to create science button
 		for(int i = begin; i < end; i++){
@@ -168,6 +169,7 @@ public class PanelFight extends JPanel implements Runnable{
 				this.add(butUnit);
 			}
 			break;
+		
 		}
 	}
 	

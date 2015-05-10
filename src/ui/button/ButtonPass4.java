@@ -25,7 +25,7 @@ public class ButtonPass4 extends JLabel implements MouseListener{
    		  this.setBounds(500, 230, 130, 130);
       }
       public void paintComponent(Graphics g){
-     	   if(DataBase.passAlready<3)
+     	   if(DataBase.passAlready<4)
      			 buttonImage = new ImageIcon("graphics/storyteller/ship2.png").getImage();
      		
      		
