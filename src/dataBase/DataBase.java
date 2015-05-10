@@ -50,6 +50,8 @@ public class DataBase {
 	public static final int CASTLE_HP_STG3 = 2000;
 	public static final int START_LOC_X_STG3 = 50;
 	public static final int START_LOC_Y_STG3 = 500;
+	public static final int SECONDCASTLE_LOC_X_STG3 = 150;
+	public static final int SECONDCASTLE_LOC_Y_STG3 = 450;
 
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
 	public static final int START_LOC_X_ENM_STG3 = 950;
@@ -144,6 +146,36 @@ public class DataBase {
 	/*
 	 * Units for stage3
 	 */
+	public static final int SECONDCASTLE_P = 0;
+	public static final int SECONDCASTLE_HP = 1000;
+	public static final int SECONDCASTLE_ATK = 2;
+	public static final int SECONDCASTLE_AR = 50;
+	public static final int SECONDCASTLE_SPD = 0;
+	
+	public static final int HYDROGENBOMB_P = 800;
+	public static final int HYDROGENBOMB_HP = 1000;
+	public static final int HYDROGENBOMB_ATK = 100;
+	public static final int HYDROGENBOMB_AR = 300;
+	public static final int HYDROGENBOMB_SPD = 20;
+	
+	public static final int SPACEMAN_P = 500;
+	public static final int SPACEMAN_HP = 50;
+	public static final int SPACEMAN_ATK = 1;
+	public static final int SPACEMAN_AR = 60;
+	public static final int SPACEMAN_SPD = 4;
+	
+	public static final int SPACECARRIER_P = 3000;
+	public static final int SPACECARRIER_HP = 300;
+	public static final int SPACECARRIER_ATK = 2;
+	public static final int SPACECARRIER_AR = 60;
+	public static final int SPACECARRIER_SPD = 4;
+	
+	public static final int SPACESHIP_P = 1000;
+	public static final int SPACESHIP_HP = 21;
+	public static final int SPACESHIP_ATK = 3;
+	public static final int SPACESHIP_AR = 120;
+	public static final int SPACESHIP_SPD = 3;
+	
 	public static void recover(){
 		enemyList.removeAll(enemyList);
 		playerList.removeAll(playerList);
