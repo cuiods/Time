@@ -36,9 +36,12 @@ public class PanelStory extends PanelFade implements MouseListener {
       
       private void setEnd(){
     	  switch(DataBase.pass){
-    	  case 1:endNum = 2;break;
+    	  case 1:endNum = 3;break;
     	  case 2:endNum = 3;break;
     	  case 3:endNum = 5;break;
+    	  case 4:endNum = 6;break;
+    	  case 5:endNum = 4;break;
+    	  case 6:endNum = 1;break;
     	  }
       }
 
@@ -75,37 +78,6 @@ public class PanelStory extends PanelFade implements MouseListener {
 			Controller.changeTo(FrameGame.LOADING);
 			picNum=1;
 		}
-//		if(DataBase.pass==1){
-//			
-//			if(picNum<2){
-//				picNum+=1;
-//				story=new ImageIcon(path+picNum+".png").getImage();
-//				this.repaint();
-//			}else{
-//				Controller.changeTo(FrameGame.LOADING);
-//				picNum=0;
-//			}
-//		}else if(DataBase.pass==2){
-//			if(picNum<5){
-//				picNum+=1;
-//				story=new ImageIcon(path+picNum+".png").getImage();
-//				this.repaint();
-//			}else{
-//				Controller.changeTo(FrameGame.LOADING);
-//				picNum=0;
-//			}
-//		}else if(DataBase.pass==3){
-//			if(picNum<10){
-//				picNum+=1;
-//				story=new ImageIcon(path+picNum+".png").getImage();
-//				this.repaint();
-//			}else{
-//				Controller.gameframe.loadingPanel = new PanelLoading();
-//				Controller.gameframe.setContentPane(Controller.gameframe.loadingPanel);
-//				picNum=0;
-//			}
-//		}
-		
 	 }
      
 }
