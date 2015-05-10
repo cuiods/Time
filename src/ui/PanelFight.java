@@ -141,6 +141,7 @@ public class PanelFight extends JPanel implements Runnable{
 			tech = new ButtonScience(i);
 			tech.addMouseListener(tech);
 			this.add(tech);
+			
 		}
 	}
 	/**

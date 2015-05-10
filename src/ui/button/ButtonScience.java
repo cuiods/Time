@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -8,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import ui.PanelFight;
+import ui.PanelTechInfor;
 import Tech.Tech_STG1_CannonEnable;
 import Tech.Tech_STG2_CastleReinforce;
 import Tech.Tech_STG1_Destroy;
@@ -21,7 +24,10 @@ import dataBase.DataBase;
 public class ButtonScience extends JPanel implements MouseListener{
 	
 	private int kind;
-	private boolean isIn = false;
+	public boolean isIn = false;
+	public PanelTechInfor techInfor;
+	
+
 	/**
 	 * different kind represents different science
 	 * the kind and the pass determine its location
@@ -41,7 +47,9 @@ public class ButtonScience extends JPanel implements MouseListener{
 		if(!isIn){
 			g.drawImage(new ImageIcon("graphics/info/tech"+kind+".png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
 		}else{
+			
 			g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_1.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
+			
 		}
 	}
 
@@ -54,13 +62,14 @@ public class ButtonScience extends JPanel implements MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		isIn = true;
-		
+		techInfor = new PanelTechInfor(kind);
+		Controller.gameframe.fightPanel.add(techInfor);
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		isIn = false;
-		
+		this.techInfor.setVisible(false);
 	}
 
 	@Override
