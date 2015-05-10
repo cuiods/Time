@@ -46,7 +46,7 @@ public class DataBase {
 
 	//Parameters for stage3
 	public static final int INITIAL_MONEY_STG3 = 100000;
-	public static final int INITIAL_MONEY_INCREMENT_STG3 = 10;
+	public static final int INITIAL_MONEY_INCREMENT_STG3 = 8;
 	public static final int CASTLE_HP_STG3 = 2000;
 	public static final int START_LOC_X_STG3 = 50;
 	public static final int START_LOC_Y_STG3 = 500;
@@ -94,6 +94,10 @@ public class DataBase {
 	public static final int Tech_LessTime_P = 2000;
 	public static final int Tech_Heal_P = 500;
 	public static final int Tech_CastleReinforce_P = 900;
+	public static final int Tech_SecondCastle_P = 4000;
+	public static final int Tech_Harper_P = 2000;
+	public static final int Tech_SuperComputer_P = 2500;
+	public static final int Tech_HydrogenBomb_P = 3000;
 	/*
 	 * Units for stage1
 	 */
