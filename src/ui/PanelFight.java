@@ -512,38 +512,38 @@ public class PanelFight extends JPanel implements Runnable{
 	private void drawSniper(Graphics g,Sniper o){
 		switch(o.getKind()){
 		case 1:
-			Image sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+			Image sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 				}else{
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.gif").getImage();
 				}else{
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 				}
 			}
-			g.drawImage(sniper,o.getX(), o.getY()+o.ran, 50, 50, this);
+			g.drawImage(sniper,o.getX(), o.getY()+o.ran-10, 170, 170, this);
 			break;
 		case 0:
-			Image sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+			Image sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 				}else{
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/ensniper.gif").getImage();
 				}else{
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 				}
 			}
-			g.drawImage(sniper0,o.getX(), o.getY()+o.ran, 50, 50, this);
+			g.drawImage(sniper0,o.getX(), o.getY()+o.ran, 170, 170, this);
 			break;
 			
 		}
@@ -634,18 +634,18 @@ public class PanelFight extends JPanel implements Runnable{
 			g.drawImage(rifle,o.getX(), o.getY()+o.ran, 48, 83, this);
 			break;
 		case 0:
-			Image rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+			Image rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4walk1.gif").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4walk1.gif").getImage();
 				}else{
-					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4walk1.gif").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4walk1.gif").getImage();
 				}else{
-					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4walk1.gif").getImage();
 				}
 			}
 			g.drawImage(rifle0,o.getX(), o.getY()+o.ran, 48, 83, this);
