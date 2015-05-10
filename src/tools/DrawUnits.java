@@ -277,7 +277,7 @@ public class DrawUnits {
 					medic = new ImageIcon("graphics/soldiers/s2/medic.png").getImage();
 				}
 			}
-			g.drawImage(medic,o.getX(), o.getY()+o.ran-200, 50,50, panel);
+			g.drawImage(medic,o.getX()+100, o.getY()+o.ran-200, 100,56, panel);
 			break;
 		case 0:
 			Image medic0 = new ImageIcon("graphics/soldiers/en2/medic0.png").getImage();
@@ -294,29 +294,29 @@ public class DrawUnits {
 					medic0 = new ImageIcon("graphics/soldiers/en2/medic0.png").getImage();
 				}
 			}
-			g.drawImage(medic0,o.getX(), o.getY()+o.ran+200,50, 50, panel);
+			g.drawImage(medic0,o.getX()-30, o.getY()+o.ran+20,75, 42, panel);
 		}
 		
-		//draw life
-		switch(o.getKind()){
-		case 1:
-			int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.MEDICTEAM_HP));
-			g.setColor(Color.GREEN);
-			g.fill3DRect(o.getX(), o.getY()-10-200+o.ran, lifePercentage, 3, false);
-			if(lifePercentage!=40){
-				g.setColor(Color.RED);		
-				g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10-200, 40-lifePercentage, 3, false);		
-			}
-			break;
-		case 0:
-			int lifePercentage0 = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.MEDICTEAM_HP));
-			g.setColor(Color.GREEN);
-			g.fill3DRect(o.getX(), o.getY()-10+o.ran+200, lifePercentage0, 3, false);
-			if(lifePercentage0!=40){
-				g.setColor(Color.RED);		
-				g.fill3DRect(o.getX()+lifePercentage0, o.getY()+o.ran-10+200, 40-lifePercentage0, 3, false);		
-			}
-		}
+//		//draw life
+//		switch(o.getKind()){
+//		case 1:
+//			int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.MEDICTEAM_HP));
+//			g.setColor(Color.GREEN);
+//			g.fill3DRect(o.getX(), o.getY()-10-200+o.ran, lifePercentage, 3, false);
+//			if(lifePercentage!=40){
+//				g.setColor(Color.RED);		
+//				g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10-200, 40-lifePercentage, 3, false);		
+//			}
+//			break;
+//		case 0:
+//			int lifePercentage0 = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.MEDICTEAM_HP));
+//			g.setColor(Color.GREEN);
+//			g.fill3DRect(o.getX(), o.getY()-10+o.ran-50, lifePercentage0, 3, false);
+//			if(lifePercentage0!=40){
+//				g.setColor(Color.RED);		
+//				g.fill3DRect(o.getX()+lifePercentage0, o.getY()+o.ran-10-50, 40-lifePercentage0, 3, false);		
+//			}
+//		}
 	}
 	
 	/**
@@ -325,35 +325,35 @@ public class DrawUnits {
 	private static void drawSniper(Graphics g,Sniper o){
 		switch(o.getKind()){
 		case 1:
-			Image sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+			Image sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 				}else{
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.gif").getImage();
 				}else{
-					sniper = new ImageIcon("graphics/soldiers/s2/sniper.png").getImage();
+					sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
 				}
 			}
 			g.drawImage(sniper,o.getX(), o.getY()+o.ran, 50, 50, panel);
 			break;
 		case 0:
-			Image sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+			Image sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 				}else{
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/ensniper.gif").getImage();
 				}else{
-					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper0.png").getImage();
+					sniper0 = new ImageIcon("graphics/soldiers/en2/sniper1.png").getImage();
 				}
 			}
 			g.drawImage(sniper0,o.getX(), o.getY()+o.ran, 50, 50, panel);
@@ -361,14 +361,14 @@ public class DrawUnits {
 			
 		}
 		
-		//draw life
-		int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SNIPER_HP));
-		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
-		if(lifePercentage!=40){
-			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
-		}
+//		//draw life
+//		int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SNIPER_HP));
+//		g.setColor(Color.GREEN);
+//		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+//		if(lifePercentage!=40){
+//			g.setColor(Color.RED);
+//			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+//		}
 	}
 	
 	/**
@@ -430,38 +430,40 @@ public class DrawUnits {
 	private static void drawRifle(Graphics g,Rifle o){
 		switch(o.getKind()){
 		case 1:
-			Image rifle = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
+			Image rifle = new ImageIcon("graphics/soldiers/s2/s1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
 					rifle = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
 				}else{
-					rifle = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
+					rifle = new ImageIcon("graphics/soldiers/s2/s1.png").getImage();
 				}
+				g.drawImage(rifle,o.getX(), o.getY()+o.ran, 41 , 80, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					rifle = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
+					rifle = new ImageIcon("graphics/soldiers/s2/s1fight.gif").getImage();
 				}else{
-					rifle = new ImageIcon("graphics/soldiers/s2/s4walk1.gif").getImage();
+					rifle = new ImageIcon("graphics/soldiers/s2/s1.png").getImage();
 				}
+				g.drawImage(rifle,o.getX(), o.getY()+o.ran, 60, 80, panel);
 			}
-			g.drawImage(rifle,o.getX(), o.getY()+o.ran, 48, 83, panel);
 			break;
 		case 0:
 			Image rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4walk1.gif").getImage();
 				}else{
 					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
 				}
+				g.drawImage(rifle0,o.getX(), o.getY()+o.ran, 41, 80, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
+					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4fight.png").getImage();
 				}else{
 					rifle0 = new ImageIcon("graphics/soldiers/en2/soldier4.png").getImage();
 				}
+				g.drawImage(rifle0,o.getX(), o.getY()+o.ran, 60, 80, panel);
 			}
-			g.drawImage(rifle0,o.getX(), o.getY()+o.ran, 48, 83, panel);
 			break;
 		}
 		
