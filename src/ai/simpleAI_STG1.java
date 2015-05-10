@@ -10,15 +10,13 @@ public class simpleAI_STG1 extends AI implements Runnable{
 	}
 	@Override
 	public void detect() {
-		while(true){
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO 自动生成的 catch 块
-				e.printStackTrace();
-			}
-		execute(analyze());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
 		}
+		execute(analyze());
 	}
 
 	@Override
@@ -50,7 +48,7 @@ public class simpleAI_STG1 extends AI implements Runnable{
 			int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG1-u.getX())*(db.START_LOC_X_ENM_STG1-u.getX())+
 					(db.START_LOC_Y_ENM_STG1-u.getY())*(db.START_LOC_Y_ENM_STG1-u.getY()));
 			if (dis <=200) Threat +=100;
-			
+
 		}
 		return Threat;
 	}
@@ -93,9 +91,10 @@ public class simpleAI_STG1 extends AI implements Runnable{
 			e.printStackTrace();
 		}
 		AIC.addSwordMan();
-		if(!DataBase.isPause&&DataBase.pass==1)
-		detect();
-		
+		while(!DataBase.isPause&&DataBase.pass==1){
+			detect();
+		}
+
 	}
 
 }
