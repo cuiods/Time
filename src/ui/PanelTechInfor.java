@@ -11,9 +11,9 @@ public class PanelTechInfor extends JPanel {
    public PanelTechInfor(int kind){
 	   this.kind=kind;
 	   switch(DataBase.pass){
-		case 1:this.setBounds(410+(kind-1)*50, 80, 500, 400);break;
+		case 1:this.setBounds(410+(kind-1)*49, 130, 293, 226);break;
 			
-		case 2:this.setBounds(410+(kind-4)*50, 80, 500, 400);break;
+		case 2:this.setBounds(410+(kind-4)*49, 130, 293, 226);break;
 			
 		}
    }
