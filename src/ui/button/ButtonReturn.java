@@ -15,14 +15,26 @@ import ui.PanelStart;
 
 public class ButtonReturn extends JLabel implements MouseListener{
 	private boolean isIn = false;
+	private int type = 0;
 	public ButtonReturn() {
 		this.setBounds(30, 150, 180, 50);
 	}
 	public void paintComponent(Graphics g) {
-		if(!isIn){
-			g.drawImage(new ImageIcon("graphics/button/returntostart.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
-		}else{
-			g.drawImage(new ImageIcon("graphics/button/returntostart1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+		switch(type){
+		case 0:
+			if(!isIn){
+				g.drawImage(new ImageIcon("graphics/button/returntostart.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/button/returntostart1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}
+			break;
+		case 1:
+			if(!isIn){
+				g.drawImage(new ImageIcon("graphics/button/back.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/button/back1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}
+			break;
 		}
 	}
 
@@ -55,7 +67,12 @@ public class ButtonReturn extends JLabel implements MouseListener{
 		Controller.changeTo(FrameGame.STARTPANEL);
 		DataBase.isPause = false;
 		ButtonGameSet.isLocked = false;
-		
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

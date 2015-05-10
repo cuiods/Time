@@ -66,7 +66,6 @@ public class ButtonPass6 extends JLabel implements MouseListener{
 		// TODO Auto-generated method stub
 		if(DataBase.passAlready>=6){
 		DataBase.pass=6;
-		PanelStory.picNum=3;
 		Controller.changeTo(FrameGame.STORYPANEL);
 		isIn=false;
 		}
