@@ -20,25 +20,18 @@ public class ButtonLast extends JLabel implements MouseListener{
 	 Image buttonImage;
 
      static boolean isIn = false;
- 
-   //picture path
-     String path1,path2,path3,path4;
 
- 	public ButtonLast(){
- 		buttonImage = new ImageIcon("graphics/button/last.png").getImage();
- 		this.setBounds(30, 530, 40, 40);
+ 	 public ButtonLast(){
+ 		 buttonImage = new ImageIcon("graphics/button/back2.png").getImage();
+ 		 this.setBounds(30, 500, 80, 80);
  	
- 		 path1="graphics/storyteller/pass1/story";
-    	 path2="graphics/storyteller/pass2/story";
-    	 path3="graphics/storyteller/pass3/story";
-    	 path4="graphics/storyteller/pass4/story";
-    }
+     }
  	
  	 public void paintComponent(Graphics g){
     	 if(!isIn){
-    		 buttonImage = new ImageIcon("graphics/button/last.png").getImage();
+    		 buttonImage = new ImageIcon("graphics/button/back2.png").getImage();
     	 }else{
-    		 buttonImage = new ImageIcon("graphics/button/last1.png").getImage();
+    		 buttonImage = new ImageIcon("graphics/button/back3.png").getImage();
     	 }
     	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
      }
@@ -71,14 +64,12 @@ public class ButtonLast extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		    DataBase.pass=0;
-			if(PanelStory.picNum>0){
-				PanelStory.picNum=0;
-				Controller.changeTo(FrameGame.STORYZERO);
+			if(PanelStory.picNum>1){
+				PanelStory.picNum--;
+				Controller.gameframe.repaint();
 			}else{
-				Controller.changeTo(FrameGame.STARTPANEL);
+				Controller.changeTo(FrameGame.STORYZERO);
 			}
-
 		
 		isIn=false;
 	}

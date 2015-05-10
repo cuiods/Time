@@ -15,7 +15,8 @@ public class PanelFade extends JPanel implements Runnable{
 
 	private ArrayList<Image> images=new ArrayList<Image>();
 	private ArrayList<Integer> imageAlpha=new ArrayList<Integer>();
-	private int flag=0;
+	private int flag = 0;
+	private int type = 0;
 	
 	public PanelFade() {
 		//set transparency
@@ -25,6 +26,10 @@ public class PanelFade extends JPanel implements Runnable{
         //set size
         setSize(1000, 600);
     }
+	
+	public void setType(int type){
+		this.type = type;
+	}
 	
 	/**
 	 * use this method to add an image, because an image and an integer should be
@@ -64,7 +69,7 @@ public class PanelFade extends JPanel implements Runnable{
 	@Override
 	public void run() {
 		  
-        while(true){
+loop:    while(true){
         	/*
         	 * fade in
         	 */
@@ -103,11 +108,18 @@ public class PanelFade extends JPanel implements Runnable{
             /*
              * get next image
              */
-            //flag=(flag+1)%images.size();
-            if(flag<images.size()-1){
-            	flag++;
-            }else{
-            	Controller.changeTo(FrameGame.STARTPANEL);
+            switch(type){
+            case 0:
+            	if(flag<images.size()-1){
+                	flag++;
+                }else{
+                	Controller.changeTo(FrameGame.STARTPANEL);
+                	break loop;
+                }
+            	//not necessary?
+            	break;
+            case 1:
+            	flag=(flag+1)%images.size();
             	break;
             }
         } 
