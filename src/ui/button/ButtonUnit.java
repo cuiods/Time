@@ -117,8 +117,19 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addSecondcastle() {
-		// TODO Auto-generated method stub
+		SecondCastle second = new SecondCastle();
+		second.setKind(1);
 		
+		DataBase.playerList.add(second);
+		
+		
+		Thread st = new Thread(second);
+		st.start();
+				
+				
+		DataBase.Money-=DataBase.SPACESHIP_P;
+				
+		Controller.gameframe.repaint();
 	}
 
 	private void addSpaceship() {

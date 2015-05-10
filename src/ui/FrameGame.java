@@ -69,8 +69,8 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 	
 	public void showFirstPanel(){
 		fadePanel = new PanelFade();
-		fadePanel.addImage(new ImageIcon("graphics/badge/badge2.png").getImage());
-		fadePanel.addImage(new ImageIcon("graphics/background/insert.png").getImage());
+		fadePanel.addImage(new ImageIcon("graphics/badge/badge1.png").getImage());
+//		fadePanel.addImage(new ImageIcon("graphics/background/insert.png").getImage());
 		this.setContentPane(fadePanel);
 		fadePanel.showImage();
 //		startPanel = new PanelStart();
