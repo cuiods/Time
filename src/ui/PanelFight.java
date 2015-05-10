@@ -170,6 +170,7 @@ public class PanelFight extends JPanel implements Runnable{
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
 			}
+			    
 		}
 	}
 	
@@ -240,6 +241,9 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 2:
 			fightBackGround = new ImageIcon("graphics/background/fightbackground2.png").getImage();
+			break;
+		case 3:
+			fightBackGround = new ImageIcon("graphics/background/fightbackground3.png").getImage();
 			break;
 		}
 		//money image
@@ -398,6 +402,24 @@ public class PanelFight extends JPanel implements Runnable{
 			Thread cp12 = new Thread(mycastle2);
 			cp12.start();
 			DataBase.playerList.add(mycastle2);
+			break;
+		case 3:
+			Castle mycastle3 = new Castle();
+			mycastle3.setKind(1);
+			mycastle3.setHp(DataBase.CASTLE_HP_STG3);
+			Thread cp13 = new Thread(mycastle3);
+			cp13.start();
+			DataBase.playerList.add(mycastle3);
+			
+			
+			Castle enemycastle1 = new Castle();
+			enemycastle1.setKind(0);
+			enemycastle1.setX(DataBase.START_LOC_X_ENM_STG3);
+			enemycastle1.setY(DataBase.START_LOC_Y_ENM_STG3);
+			enemycastle1.setHp(DataBase.CASTLE_HP_ENM_STG3);
+			Thread cp23 = new Thread(enemycastle1);
+			cp23.start();
+			DataBase.enemyList.add(enemycastle1);
 			break;
 		}
 	}

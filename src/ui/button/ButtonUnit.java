@@ -11,14 +11,7 @@ import java.util.Comparator;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import units.Cannon;
-import units.Gunner;
-import units.MedicTeam;
-import units.Rifle;
-import units.Sniper;
-import units.SwordMan;
-import units.Truck;
-import units.Unit;
+import units.*;
 import dataBase.DataBase;
 
 public class ButtonUnit extends JLabel implements MouseListener{
@@ -89,6 +82,31 @@ public class ButtonUnit extends JLabel implements MouseListener{
 				addRifle();
 			}
 			break;
+		case 7:break;
+		case 8:
+			if(DataBase.Money-DataBase.HYDROGENBOMB_P>=0){
+				addHydrogenBomb();
+			}
+			break;
+		case 9:
+			if(DataBase.Money-DataBase.SPACECARRIER_P>=0){
+				addSpacecarrier();
+			}
+			break;
+		case 10:
+			if(DataBase.Money-DataBase.SPACEMAN_P>=0){
+				addSpaceman();
+			}
+			break;
+		case 11:
+			if(DataBase.Money-DataBase.SPACESHIP_P>=0){
+				addSpaceship();
+			}
+			break;
+		case 100:
+			if(DataBase.Money-DataBase.SECONDCASTLE_P>=0){
+				addSecondcastle();
+			}
 		}
 		/**
 		 * attention:what's this mean?
@@ -96,6 +114,79 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		 * @see Unit
 		 */
 		Collections.sort(DataBase.playerList);
+	}
+
+	private void addSecondcastle() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addSpaceship() {
+		
+		SpaceShip spaceship = new SpaceShip();
+		spaceship.setKind(1);
+			
+		DataBase.playerList.add(spaceship);
+				
+				
+		Thread st = new Thread(spaceship);
+		st.start();
+				
+				
+		DataBase.Money-=DataBase.SPACESHIP_P;
+				
+		Controller.gameframe.repaint();
+	}
+
+	private void addSpaceman() {
+		SpaceMan spaceman = new SpaceMan();
+		spaceman.setKind(1);
+			
+		DataBase.playerList.add(spaceman);
+				
+				
+		Thread st = new Thread(spaceman);
+		st.start();
+				
+				
+		DataBase.Money-=DataBase.SPACEMAN_P;
+				
+		Controller.gameframe.repaint();
+		
+	}
+
+	private void addSpacecarrier() {
+		SpaceCarrier spacecarrier = new SpaceCarrier();
+		spacecarrier.setKind(1);
+			
+		DataBase.playerList.add(spacecarrier);
+				
+				
+		Thread st = new Thread(spacecarrier);
+		st.start();
+				
+				
+		DataBase.Money-=DataBase.SPACECARRIER_P;
+				
+		Controller.gameframe.repaint();
+		
+	}
+
+	private void addHydrogenBomb() {
+		HydrogenBomb bomb = new HydrogenBomb();
+		bomb.setKind(1);
+			
+		DataBase.playerList.add(bomb);
+				
+				
+		Thread st = new Thread(bomb);
+		st.start();
+				
+				
+		DataBase.Money-=DataBase.HYDROGENBOMB_P;
+				
+		Controller.gameframe.repaint();
+		
 	}
 
 	private void addCannon() {

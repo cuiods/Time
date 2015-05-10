@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class SpaceCarrier extends Soldier{
+public class SpaceCarrier extends Soldier implements Runnable{
 	public boolean NotRelease = true;
 	public SpaceCarrier(){
 		x = DataBase.START_LOC_X_STG3;

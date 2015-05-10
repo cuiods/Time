@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class SecondCastle extends Soldier{
+public class SecondCastle extends Soldier implements Runnable{
 	public SecondCastle(){
 		x = DataBase.SECONDCASTLE_LOC_X_STG3;
 		y = DataBase.SECONDCASTLE_LOC_Y_STG3;

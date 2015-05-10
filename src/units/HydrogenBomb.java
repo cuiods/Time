@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class HydrogenBomb extends Soldier{
+public class HydrogenBomb extends Soldier implements Runnable{
 	public HydrogenBomb(){
 		x = DataBase.START_LOC_X_STG3;
 		y = DataBase.START_LOC_Y_STG3;

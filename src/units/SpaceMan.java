@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class SpaceMan extends Soldier{
+public class SpaceMan extends Soldier implements Runnable{
 	public SpaceMan(){
 		x = DataBase.START_LOC_X_STG3;
 		y = DataBase.START_LOC_Y_STG3;

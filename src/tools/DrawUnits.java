@@ -13,6 +13,7 @@ import units.Gunner;
 import units.HydrogenBomb;
 import units.MedicTeam;
 import units.Rifle;
+import units.SecondCastle;
 import units.Sniper;
 import units.SpaceCarrier;
 import units.SpaceMan;
@@ -65,6 +66,7 @@ public class DrawUnits {
 				case 11:
 					drawSpaceShip(g,(SpaceShip)DataBase.playerList.get(i));
 					break;
+				
 				default:
 					drawCastle(g, (Castle) DataBase.playerList.get(i));
 					break;
@@ -480,13 +482,118 @@ public class DrawUnits {
 		
 	}
     private static void drawSpaceCarrier(Graphics g,SpaceCarrier o){
-		
+    	switch(o.getKind()){
+		case 1:
+			Image carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+				}else{
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+				}else{
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+				}
+			}
+			g.drawImage(carrier,o.getX(), o.getY()+o.ran, 180, 120, panel);
+			break;
+		case 0:
+			Image carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}else{
+					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}else{
+					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}
+			}
+			g.drawImage(carrier0,o.getX(), o.getY()+o.ran, 180, 120, panel);
+			break;
+    	}
 	}
     private static void drawSpaceMan(Graphics g,SpaceMan o){
-		
+    	switch(o.getKind()){
+		case 1:
+			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+				}else{
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+				}else{
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+				}
+			}
+			g.drawImage(spaceman,o.getX(), o.getY()+o.ran, 180, 120, panel);
+			break;
+		case 0:
+			Image spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}else{
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}else{
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}
+			}
+			g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
+			break;
+    	}
 	}
     private static void drawSpaceShip(Graphics g,SpaceShip o){
-		
+    	switch(o.getKind()){
+		case 1:
+			Image spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.gif").getImage();
+				}else{
+					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.gif").getImage();
+				}else{
+					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.gif").getImage();
+				}
+			}
+			g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 1020, 709, panel);
+			break;
+		case 0:
+			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}else{
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}else{
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				}
+			}
+			g.drawImage(spaceship0,o.getX(), o.getY()+o.ran, 1020, 709, panel);
+			break;
+    	}
 	}
     /**
 	 * draw castle
@@ -495,15 +602,29 @@ public class DrawUnits {
 		
 		//show life
 		if(o.getKind() == 0){
-			Image ecastle = new ImageIcon("graphics/soldiers/ecastle.png").getImage();
-			g.drawImage(ecastle,o.getX()-50, o.getY()-50, 200, 200, panel);
-			int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG1));
-			g.setColor(Color.GREEN);
-			g.fill3DRect(625, 32, lifePercent, 10, false);
-			if(lifePercent!=200){
-				g.setColor(Color.RED);
-				g.fill3DRect(625+lifePercent, 32, 200-lifePercent, 10, false);			
-				
+			switch(DataBase.pass){
+			case 1: 
+				Image ecastle = new ImageIcon("graphics/soldiers/ecastle.png").getImage();
+				g.drawImage(ecastle,o.getX()-50, o.getY()-50, 200, 200, panel);
+				int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG1));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent, 10, false);
+				if(lifePercent!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent, 32, 200-lifePercent, 10, false);			
+				}	
+			      break;
+			case 3:
+				Image drop = new ImageIcon("graphics/soldiers/drop.png").getImage();
+				g.drawImage(drop,o.getX()-150,o.getY(),180,270,panel);
+				int lifePercent3 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG3));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent3, 10, false);
+				if(lifePercent3!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent3, 32, 200-lifePercent3, 10, false);			
+				}
+				break;
 			}
 		}else if(o.getKind() == 1){
 			int lifePercent = 0;
@@ -516,6 +637,10 @@ public class DrawUnits {
 			case 2:
 				g.drawImage(new ImageIcon("graphics/soldiers/castle2.png").getImage(), 10,250 , 106, 147, panel);
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG2));
+				break;
+			case 3:
+				g.drawImage(new ImageIcon("graphics/soldiers/spacestation.png").getImage(),o.getX(), o.getY()+300, 300, 200, panel);
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG3));
 				break;
 			}
 			
@@ -530,6 +655,10 @@ public class DrawUnits {
 		}
 	}	
 	
-		
+	private static void drawSecondCastle(Graphics g, SecondCastle o){
+		if(DataBase.pass==3){
+			g.drawImage(new ImageIcon("graphics/soldiers/spacestaion.png").getImage(), o.getX(), o.getY(), 150,15,panel);
+		}
+	}
   
 }
