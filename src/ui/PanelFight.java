@@ -26,6 +26,7 @@ import ui.button.ButtonPause;
 import ui.button.ButtonScience;
 import ui.button.ButtonUnit;
 import units.*;
+import ai.cleverAI_STG1;
 import ai.simpleAI_STG1;
 import ai.simpleAI_STG2;
 import dataBase.DataBase;

@@ -71,7 +71,11 @@ public class AIcommander {
 		
 	}
 	public void setLoc(Unit u){
-		u.setX(db.START_LOC_X_ENM_STG1);
-		u.setY(db.START_LOC_Y_ENM_STG1);
+		switch(DataBase.pass){
+		case 1 :u.setX(db.START_LOC_X_ENM_STG1);
+		u.setY(db.START_LOC_Y_ENM_STG1); break;
+		case 2: u.setX(db.START_LOC_X_ENM_STG2);
+		u.setY(db.START_LOC_Y_ENM_STG2); break;
+		}
 	}
 }
