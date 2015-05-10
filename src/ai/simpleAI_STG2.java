@@ -5,8 +5,6 @@ import dataBase.DataBase;
 
 public class simpleAI_STG2 extends AI implements Runnable{
 	double AutoAtkRate = 0.7;
-	int Medic_Num = 0;
-	int Sniper_Num = 0;
 	AIcommander AIC = new AIcommander();
 	public simpleAI_STG2(){
 	}
@@ -30,7 +28,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			switch(u.getType()){
 			case 3: atk=0;Threat+= 30; break;
 			case 4: atk=db.SNIPER_ATK; break;
-			case 5: atk=0;Threat+=50; break;
+			case 5: atk=0;Threat+=150; break;
 			case 6: atk=db.RIFLE_ATK;
 			case 100:atk=0;
 			}
@@ -39,9 +37,9 @@ public class simpleAI_STG2 extends AI implements Runnable{
 		for(int i=0;i<DataBase.enemyList.size();i++){
 			Unit u = DataBase.enemyList.get(i); 
 			switch(u.getType()){
-			case 3: atk=0;Threat-= 30; break;
+			case 3: atk=0;Threat+= 30; break;
 			case 4: atk=db.SNIPER_ATK; break;
-			case 5: atk=0;Threat-=150; break;
+			case 5: atk=0;Threat+=150; break;
 			case 6: atk=db.RIFLE_ATK;
 			case 100:atk=0;
 			}
@@ -81,35 +79,19 @@ public class simpleAI_STG2 extends AI implements Runnable{
 				e.printStackTrace();
 			}
 			AIC.addTruck();
-			if(Sniper_Num<=2){
 			AIC.addSniper();
-			Sniper_Num++;
-			}
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4){
-			if(Sniper_Num<=2){
 			AIC.addSniper();
-			Sniper_Num++;
-			}
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			if(Medic_Num<=1){
 			AIC.addMedicTeam();
-			Medic_Num++;
-			}
 		}else if(Threat>=450){
-			if(Medic_Num<=1){
-				AIC.addMedicTeam();
-				Medic_Num++;
-				}
-			if(Sniper_Num<=2){
-				AIC.addSniper();
-				Sniper_Num++;
-				}
-
+			AIC.addMedicTeam();
+			AIC.addSniper();
 			AIC.addTruck();
 		}
 	}
