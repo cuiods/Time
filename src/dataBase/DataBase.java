@@ -56,6 +56,20 @@ public class DataBase {
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
 	public static final int START_LOC_X_ENM_STG3 = 950;
 	public static final int START_LOC_Y_ENM_STG3 = 50;
+	
+	//Parameters for stage4
+	public static final int INITIAL_MONEY_STG4 = 100000;
+	public static final int INITIAL_MONEY_INCREMENT_STG4 = 8;
+	public static final int CASTLE_HP_STG4 = 2000;
+	public static final int START_LOC_X_STG4 = 50;
+	public static final int START_LOC_Y_STG4 = 500;
+	public static final int BLACKHOLE_LOC_X_STG4 = 150;
+	public static final int BLACKHOLE_LOC_Y_STG4 = 450;
+	public static final int BLACKHOLE_TIMELIMIT = 20;
+
+	public static final int CASTLE_HP_ENM_STG4 = 1000;
+	public static final int START_LOC_X_ENM_STG4 = 950;
+	public static final int START_LOC_Y_ENM_STG4 = 50;
 	//General parameters for the game
 	public static int Money = 200000; //记录玩家当前的金钱数
 	public static int Money_Increment = 2;
@@ -158,7 +172,7 @@ public class DataBase {
 	
 	public static final int HYDROGENBOMB_P = 800;
 	public static final int HYDROGENBOMB_HP = 1000;
-	public static final int HYDROGENBOMB_ATK = 100;
+	public static final int HYDROGENBOMB_ATK = 200;
 	public static final int HYDROGENBOMB_AR = 300;
 	public static final int HYDROGENBOMB_SPD = 20;
 	

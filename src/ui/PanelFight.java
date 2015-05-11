@@ -191,7 +191,7 @@ public class PanelFight extends JPanel implements Runnable{
 			simpleAI_STG2 ai2 = new simpleAI_STG2();
 			Thread th2 = new Thread(ai2);
 			th2.start();
-			time = new Time();
+			time = new Time(DataBase.TIMELIMIT_STG2);
 			break;
 		}
 		

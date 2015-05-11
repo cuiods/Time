@@ -12,8 +12,9 @@ public class Time {
 	 */
 	long now;
 	long timeleft;
-	long timeLimit = DataBase.TIMELIMIT_STG2;
-	public Time(){
+	long timeLimit;
+	public Time(long tl){
+		timeLimit = tl;
 		DataBase.StartTime = System.currentTimeMillis();
 	}
 	public int getRemainTime(){

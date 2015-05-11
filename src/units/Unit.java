@@ -8,6 +8,9 @@ public abstract class Unit implements Serializable, Runnable,Comparable<Unit>{
 	protected DataBase db;  //用于引用数据
 	protected int x = 0;
 	protected int y = 0;
+	public int attack = 0;
+	public int attackRange = 0;
+	public int speed = 0;
 	//士兵的种类（步兵0，火枪手1，火炮2,城堡100）
 	private int type;
 	//电脑的士兵代号为0 玩家的为1
