@@ -17,7 +17,7 @@ public class ButtonReturn extends JLabel implements MouseListener{
 	private boolean isIn = false;
 	private int type = 0;
 	public ButtonReturn() {
-		this.setBounds(30, 150, 180, 50);
+		this.setBounds(60, 50, 250, 75);
 	}
 	public void paintComponent(Graphics g) {
 		switch(type){
@@ -40,7 +40,6 @@ public class ButtonReturn extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 

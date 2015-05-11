@@ -14,7 +14,7 @@ public class ButtonSave extends JLabel implements MouseListener{
 
 	private boolean isIn = false;
 	public ButtonSave() {
-		this.setBounds(30, 80, 180, 50);
+		this.setBounds(60, 140, 250, 75);
 	}
 	
 	@Override

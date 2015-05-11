@@ -18,7 +18,7 @@ public class PanelGameSet extends JPanel implements MouseListener{
 		//set exit button
 		butExit = new ButtonExit();
 		butExit.type = 2;
-		butExit.setBounds(210, 20, 30, 30);
+		butExit.setBounds(60, 230, 250, 75);
 		butExit.addMouseListener(butExit);
 		this.add(butExit);
 		//set save button
@@ -29,13 +29,13 @@ public class PanelGameSet extends JPanel implements MouseListener{
 		this.add(returnButton);
 		this.add(saveButton);
 		//set size
-		this.setBounds(350, 130, 250, 380);
+		this.setBounds(290, 160, 360, 386);
 	}
 	
 	
 	@Override
 	public void paintComponent(Graphics g){
-		g.drawImage(new ImageIcon("graphics/info/gameSetPanel.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+		g.drawImage(new ImageIcon("graphics/info/setpanel.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 	}
 	
 	@Override
