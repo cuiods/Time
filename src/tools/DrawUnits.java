@@ -24,6 +24,7 @@ import dataBase.DataBase;
 
 public class DrawUnits {
 	static JPanel panel;
+	public static boolean starting=false;
 	static String[] pictures = new String[10];
 	public static void draw(Graphics g, JPanel p){
 		     panel = p;
@@ -483,25 +484,24 @@ public class DrawUnits {
 		switch(o.getKind()){
 		case 1:
 			Image hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
-			if(o.moving){
-				if(!DataBase.isPause){
-					hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
-				}else{
-					hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
+			hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
+			if(starting){
+				
+				for(int i=1;i<11;i++){
+					pictures[i-1]="graphics/stunt/tech3_"+i+".png";
 				}
-			}else if(o.attacking){
-				if(!DataBase.isPause){
-					for(int i=1;i<11;i++){
-						pictures[i-1]="graphics/stunt/tech3_"+i+".png";
-					}
-					PicturePlayer player = new PicturePlayer(pictures,false,500);
-					player.panelPlay(o.getX()+20, o.getY()+10, g, panel, 0);
-					DataBase.playerList.remove(o);
-				}else{
-					hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
-				}
+				
+                PicturePlayer player = new PicturePlayer(pictures,false,10);
+                player.panelPlay(o.getX(), o.getY(), g, panel, 0);
+                if(player.time0<20){
+                	starting=false;
+                	PicturePlayer.time0=1000;
+                	DataBase.playerList.remove(o);
+                }
 			}
-			g.drawImage(hbomb,o.getX(), o.getY()+o.ran, 137, 62, panel);
+			
+					
+				
 			break;
 		case 0:
 			Image hbomb0 = new ImageIcon("graphics/soldiers/en3/HydrogenBomb.png").getImage();
