@@ -21,12 +21,12 @@ public class PanelGameSet extends JPanel implements MouseListener{
 		butExit.setBounds(730, 520, 250, 75);
 		butExit.addMouseListener(butExit);
 		this.add(butExit);
-//		//set save button
-//		for(int i = 1; i <= 3; i++){
-//			ButtonSave saveButton = new ButtonSave(i);
-//			saveButton.addMouseListener(saveButton);
-//			this.add(saveButton);
-//		}
+		//set save button
+		for(int i = 1; i <= 3; i++){
+			ButtonSave saveButton = new ButtonSave(i);
+			saveButton.addMouseListener(saveButton);
+			this.add(saveButton);
+		}
 		//set return button
 		ButtonReturn returnButton = new ButtonReturn();
 		returnButton.setType(0);

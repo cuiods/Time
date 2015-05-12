@@ -19,6 +19,7 @@ import tools.Money;
 import tools.MusicPlayer;
 import tools.MusicThread;
 import tools.PicturePlayer;
+import tools.Save;
 import tools.Time;
 import ui.button.ButtonExit;
 import ui.button.ButtonGameSet;
@@ -71,7 +72,8 @@ public class PanelFight extends JPanel implements Runnable{
 		setLayout(null);
 		//set AI
 		setAI();
-		
+		//auto save
+		save();
 	}
 	
 	@Override
@@ -215,6 +217,18 @@ public class PanelFight extends JPanel implements Runnable{
 		//new music
 		musicPlay  = new MusicThread("music/background/pass"+DataBase.pass+".wav", true);
 		musicPlay.start();
+	}
+	
+	/**
+	 * auto save
+	 */
+	private void save(){
+		Save sv = new Save(0);
+		try {
+			sv.Save();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

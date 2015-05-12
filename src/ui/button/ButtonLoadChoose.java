@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import dataBase.DataBase;
 import tools.Save;
 import ui.FrameGame;
 import ui.PanelFight;
@@ -63,18 +64,14 @@ public class ButtonLoadChoose extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		switch(kind){
-		case 0:
-			Save sv = new Save();
-			try {
-				sv.Recover();
-			} catch (ClassNotFoundException | IOException e1) {
-				e1.printStackTrace();
-			}
-			Controller.changeTo(FrameGame.FIGHTPANEL);
-			break;
+		DataBase.pass = 1;
+		Save sv = new Save(kind);
+		try {
+			sv.Recover();
+		} catch (ClassNotFoundException | IOException e1) {
+			e1.printStackTrace();
 		}
-		
+		Controller.changeTo(FrameGame.FIGHTPANEL);
 	}
 
 }

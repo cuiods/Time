@@ -13,18 +13,18 @@ import tools.Save;
 public class ButtonSave extends JLabel implements MouseListener{
 
 	private boolean isIn = false;
-	private int num = 1;
+	private int type = 1;
 	public ButtonSave(int i) {
-		this.setBounds(0, 500, 700, 100);
-		this.num = i;
+		this.setBounds(310, 80+100*i, 500, 80);
+		this.type = i;
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
 		if(!isIn){
-			g.drawImage(new ImageIcon("graphics/info/save"+num+".png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			g.drawImage(new ImageIcon("graphics/button/save"+type+".png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 		}else{
-			g.drawImage(new ImageIcon("graphics/info/save"+num+"m.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			g.drawImage(new ImageIcon("graphics/button/save"+type+"m.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 		}
 	}
 	
@@ -37,11 +37,13 @@ public class ButtonSave extends JLabel implements MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		isIn = true;
+		repaint();
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		isIn = false;
+		repaint();
 	}
 
 	@Override
@@ -51,7 +53,7 @@ public class ButtonSave extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		Save sv = new Save();
+		Save sv = new Save(type);
 		try {
 			sv.Save();
 		} catch (IOException e) {
