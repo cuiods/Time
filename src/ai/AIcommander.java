@@ -1,17 +1,20 @@
 package ai;
 
+import Tech.Tech_ENM_STG4_GeneMissile;
+import Tech.Tech_ENM_STG4_KillerVirus;
+import Tech.Tech_ENM_STG3_LockScience;
+import Tech.Tech_ENM_STG5_PhotonStrike;
 import units.*;
 import dataBase.DataBase;
 
 public class AIcommander {
-	DataBase db = new DataBase();
 	public void addSwordMan(){
 		SwordMan s = new SwordMan();
 		s.setKind(0);
 	    setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
-		db.enemyList.add(s);
+		DataBase.enemyList.add(s);
 	}
 	public void addGunner(){
 		Gunner g = new Gunner();
@@ -19,7 +22,7 @@ public class AIcommander {
 		setLoc(g);
 		Thread th = new Thread(g);
 		th.start();
-		db.enemyList.add(g);
+		DataBase.enemyList.add(g);
 	}
 	public void addCannon(){
 		Cannon c = new Cannon();
@@ -27,7 +30,7 @@ public class AIcommander {
 		setLoc(c);
 		Thread th = new Thread(c);
 		th.start();
-		db.enemyList.add(c);
+		DataBase.enemyList.add(c);
 	}
 	public void addMedicTeam(){
 		MedicTeam m = new MedicTeam();
@@ -35,7 +38,7 @@ public class AIcommander {
 		setLoc(m);
 		Thread th = new Thread(m);
 		th.start();
-		db.enemyList.add(m);
+		DataBase.enemyList.add(m);
 	}
 	public void addSniper(){
 		Sniper s = new Sniper();
@@ -43,7 +46,7 @@ public class AIcommander {
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
-		db.enemyList.add(s);
+		DataBase.enemyList.add(s);
 	}
 	public void addTruck(){
 		Truck t = new Truck();
@@ -51,7 +54,7 @@ public class AIcommander {
 		setLoc(t);
 		Thread th = new Thread(t);
 		th.start();
-		db.enemyList.add(t);
+		DataBase.enemyList.add(t);
 	}
 	public void addRifle(){
 		Rifle r = new Rifle();
@@ -59,23 +62,60 @@ public class AIcommander {
 		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
-		db.enemyList.add(r);
+		DataBase.enemyList.add(r);
 	}
-	public void addSquad1(){
-		
+	public void addSpaceShip(){
+		SpaceShip_ENM s = new SpaceShip_ENM();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
 	}
-	public void addSquad2(){
-		
+	public void addSpaceMan(){
+		SpaceMan_ENM s = new SpaceMan_ENM();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
 	}
-	public void addSquad3(){
-		
+	public void addSpaceCarrier(){
+		SpaceCarrier_ENM s = new SpaceCarrier_ENM();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
+	public void GeneMissile(){
+		Tech_ENM_STG4_GeneMissile tech = new Tech_ENM_STG4_GeneMissile();
+		tech.execute();
+	}
+	public void KillerVirus(){
+		Tech_ENM_STG4_KillerVirus tech = new Tech_ENM_STG4_KillerVirus();
+		tech.execute();
+	}
+	public void LockScience(){
+		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
+		tech.execute();
+	}
+	public void PhotonStrike(){
+		Tech_ENM_STG5_PhotonStrike tech = new Tech_ENM_STG5_PhotonStrike();
+		tech.execute();
 	}
 	public void setLoc(Unit u){
 		switch(DataBase.pass){
-		case 1 :u.setX(db.START_LOC_X_ENM_STG1);
-		u.setY(db.START_LOC_Y_ENM_STG1); break;
-		case 2: u.setX(db.START_LOC_X_ENM_STG2);
-		u.setY(db.START_LOC_Y_ENM_STG2); break;
+		case 1 :u.setX(DataBase.START_LOC_X_ENM_STG1);
+		u.setY(DataBase.START_LOC_Y_ENM_STG1); break;
+		case 2: u.setX(DataBase.START_LOC_X_ENM_STG2);
+		u.setY(DataBase.START_LOC_Y_ENM_STG2); break;
+		case 3: u.setX(DataBase.START_LOC_X_ENM_STG3);
+		u.setY(DataBase.START_LOC_Y_ENM_STG3); break;
+		case 4:u.setX(DataBase.START_LOC_X_ENM_STG4);
+		u.setY(DataBase.START_LOC_Y_ENM_STG4); break;
+		case 5:u.setX(DataBase.START_LOC_X_ENM_STG5);
+		u.setY(DataBase.START_LOC_Y_ENM_STG5); break;
 		}
 	}
 }

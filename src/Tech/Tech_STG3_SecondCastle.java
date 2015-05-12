@@ -5,7 +5,7 @@ import dataBase.DataBase;
 
 public class Tech_STG3_SecondCastle {
 	public Tech_STG3_SecondCastle(){
-		if(DataBase.Tech_SuperComputer = true){
+		if(DataBase.Tech_SuperComputer = true&&!DataBase.LockScience){
 			DataBase.Tech_SecondCastle = true;
 			SecondCastle secastle = new SecondCastle();
 			Thread ct = new Thread(secastle);
