@@ -489,6 +489,14 @@ public class PanelFight extends JPanel implements Runnable{
 				return 1;
 			}
 			break;
+		case 3:
+			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+				return -1;
+			}
+			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
+				return 1;
+			}
+			break;
 		}
 		return 0;
 	}

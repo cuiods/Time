@@ -84,7 +84,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			break;
 		case 7:break;
 		case 8:
-			if(DataBase.Money-DataBase.HYDROGENBOMB_P>=0){
+			if(DataBase.Tech_HydrogenBomb&&DataBase.Money-DataBase.HYDROGENBOMB_P>=0){
 				addHydrogenBomb();
 			}
 			break;
@@ -104,7 +104,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 			}
 			break;
 		case 100:
-			if(DataBase.Money-DataBase.SECONDCASTLE_P>=0){
+			if(DataBase.Tech_SecondCastle&&DataBase.Money-DataBase.SECONDCASTLE_P>=0){
 				addSecondcastle();
 			}
 		}
