@@ -22,7 +22,7 @@ public class PanelLoad extends JPanel{
     	
     	buttonExit=new ButtonExit();
     	buttonExit.type=3;
-    	buttonExit.setBounds(10, 10, 30, 30);
+    	buttonExit.setBounds(10, 500, 80, 80);
     	buttonExit.addMouseListener(buttonExit);
     	
 //		this.setBounds(320, 130, 320, 380);
@@ -38,8 +38,7 @@ public class PanelLoad extends JPanel{
 	
     @Override
     public void paintComponent(Graphics g){
-    	g.drawImage(new ImageIcon("graphics/background/background.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
-		g.drawImage(image, 330, 130,300,380, this);
+    	g.drawImage(new ImageIcon("graphics/background/loading.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
 	}
 //    
 //	@Override

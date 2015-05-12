@@ -55,9 +55,9 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 				filepath = "graphics/button/exitset1.png";
 			}
 			if(!isIn2&&type == 3){
-				filepath = "graphics/button/close.png";
+				filepath = "graphics/button/back.png";
 			}else if(isIn2&&type == 3){
-				filepath = "graphics/button/close1.png";
+				filepath = "graphics/button/back1.png";
 			}
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}

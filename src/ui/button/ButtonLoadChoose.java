@@ -23,7 +23,7 @@ public class ButtonLoadChoose extends JLabel implements MouseListener{
 	private boolean isIn = false;
 	public ButtonLoadChoose(int kind) {
 		this.kind = kind;
-		this.setBounds(380, 195+kind*70, 200, 50);
+		this.setBounds(210, 60+kind*120, 700, 100);
 		image = new ImageIcon("graphics/info/save/save"+kind+".png").getImage();
 		imagem = new ImageIcon("graphics/info/save/save"+kind+"m.png").getImage();
 	}
