@@ -56,7 +56,7 @@ public class DataBase {
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
 	public static final int START_LOC_X_ENM_STG3 = 950;
 	public static final int START_LOC_Y_ENM_STG3 = 50;
-	
+
 	//Parameters for stage4
 	public static final int INITIAL_MONEY_STG4 = 100000;
 	public static final int INITIAL_MONEY_INCREMENT_STG4 = 8;
@@ -70,6 +70,19 @@ public class DataBase {
 	public static final int CASTLE_HP_ENM_STG4 = 1000;
 	public static final int START_LOC_X_ENM_STG4 = 950;
 	public static final int START_LOC_Y_ENM_STG4 = 50;
+
+	//Parameters for stage5
+	public static final int INITIAL_MONEY_STG5 = 100000;
+	public static final int INITIAL_MONEY_INCREMENT_STG5 = 8;
+	public static final int CASTLE_HP_STG5 = 2000;
+	public static final int START_LOC_X_STG5 = 50;
+	public static final int START_LOC_Y_STG5 = 500;
+	public static final int BLACKHOLE_LOC_X_STG5 = 150;
+	public static final int BLACKHOLE_LOC_Y_STG5 = 450;
+
+	public static final int CASTLE_HP_ENM_STG5 = 1000;
+	public static final int START_LOC_X_ENM_STG5 = 950;
+	public static final int START_LOC_Y_ENM_STG5 = 50;
 	//General parameters for the game
 	public static int Money = 200000; //记录玩家当前的金钱数
 	public static int Money_Increment = 2;
@@ -99,7 +112,7 @@ public class DataBase {
 	public static boolean Tech_HaltScience = false;
 	public static boolean Tech_Escape = false;
 
-    //Price of Technologies
+	//Price of Technologies
 	public static final int Tech_CannonEnable_P = 1000;//效果：能造cannon了
 	public static final int Tech_MoneyBoom_P = 2500;//效果：让金钱增长速度变成1.5倍
 	public static final int Tech_Destroy_P = 500;//效果：随机摧毁敌人80%的单位
@@ -169,31 +182,31 @@ public class DataBase {
 	public static final int SECONDCASTLE_ATK = 2;
 	public static final int SECONDCASTLE_AR = 50;
 	public static final int SECONDCASTLE_SPD = 0;
-	
+
 	public static final int HYDROGENBOMB_P = 800;
 	public static final int HYDROGENBOMB_HP = 1000;
 	public static final int HYDROGENBOMB_ATK = 200;
 	public static final int HYDROGENBOMB_AR = 300;
 	public static final int HYDROGENBOMB_SPD = 20;
-	
+
 	public static final int SPACEMAN_P = 500;
 	public static final int SPACEMAN_HP = 50;
 	public static final int SPACEMAN_ATK = 1;
 	public static final int SPACEMAN_AR = 60;
 	public static final int SPACEMAN_SPD = 4;
-	
+
 	public static final int SPACECARRIER_P = 3000;
 	public static final int SPACECARRIER_HP = 300;
 	public static final int SPACECARRIER_ATK = 2;
 	public static final int SPACECARRIER_AR = 60;
 	public static final int SPACECARRIER_SPD = 4;
-	
+
 	public static final int SPACESHIP_P = 1000;
 	public static final int SPACESHIP_HP = 21;
 	public static final int SPACESHIP_ATK = 3;
 	public static final int SPACESHIP_AR = 120;
 	public static final int SPACESHIP_SPD = 3;
-	
+
 	public static void recover(){
 		enemyList.removeAll(enemyList);
 		playerList.removeAll(playerList);
