@@ -549,18 +549,18 @@ public class DrawUnits {
 			g.drawImage(carrier,o.getX(), o.getY()+o.ran, 180, 120, panel);
 			break;
 		case 0:
-			Image carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+			Image carrier0 = new ImageIcon("graphics/soldiers/en3/carrier.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					carrier0 = new ImageIcon("graphics/soldiers/en3/carrier.png").getImage();
 				}else{
-					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					carrier0 = new ImageIcon("graphics/soldiers/en3/carrier.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					carrier0 = new ImageIcon("graphics/soldiers/en3/carrier.png").getImage();
 				}else{
-					carrier0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					carrier0 = new ImageIcon("graphics/soldiers/en3/carrier.png").getImage();
 				}
 			}
 			g.drawImage(carrier0,o.getX(), o.getY()+o.ran, 180, 120, panel);
@@ -580,9 +580,9 @@ public class DrawUnits {
 			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 				}else{
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
@@ -639,18 +639,16 @@ public class DrawUnits {
 			g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 1020, 709, panel);
 			break;
 		case 0:
-			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
 			if(o.moving){
-				if(!DataBase.isPause){
+				
 					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
-				}else{
-					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
-				}
+				
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo_attack.png").getImage();
 				}else{
-					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
 				}
 			}
 			g.drawImage(spaceship0,o.getX(), o.getY()+o.ran, 1020, 709, panel);
