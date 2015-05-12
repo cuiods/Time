@@ -54,8 +54,8 @@ public class DataBase {
 	public static final int SECONDCASTLE_LOC_Y_STG3 = 450;
 
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
-	public static final int START_LOC_X_ENM_STG3 = 950;
-	public static final int START_LOC_Y_ENM_STG3 = 50;
+	public static final int START_LOC_X_ENM_STG3 = 750;
+	public static final int START_LOC_Y_ENM_STG3 = 100;
 	public static boolean LockScience = false;
 	public static final int LOCKSCIENCE_TIMELIMIT = 30;
 

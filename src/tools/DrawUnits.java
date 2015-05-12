@@ -686,7 +686,7 @@ public class DrawUnits {
 			      break;
 			case 3:
 				Image drop = new ImageIcon("graphics/soldiers/drop.png").getImage();
-				g.drawImage(drop,o.getX()-150,o.getY(),180,270,panel);
+				g.drawImage(drop,o.getX()+100,o.getY(),180,270,panel);
 				int lifePercent3 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG3));
 				g.setColor(Color.GREEN);
 				g.fill3DRect(625, 32, lifePercent3, 10, false);
