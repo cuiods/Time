@@ -63,6 +63,7 @@ public class Castle extends Unit implements Runnable, Serializable{
 		switch(DataBase.pass){
 		case 1:if(hp+addSpeed<=DataBase.CASTLE_HP_STG1){return true;}break;
 		case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_STG2){return true;}break;
+		
 		}
 		return false;
 	}

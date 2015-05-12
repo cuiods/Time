@@ -580,15 +580,21 @@ public class DrawUnits {
 			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
+
 					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 				}else{
 					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
+
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
+				}else{
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
+
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
 				}else{
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
 				}
 			}
 			g.drawImage(spaceman,o.getX(), o.getY()+o.ran, 180, 120, panel);
@@ -597,15 +603,15 @@ public class DrawUnits {
 			Image spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
 				}else{
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
 				}else{
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
 				}
 			}
 			g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
@@ -684,7 +690,7 @@ public class DrawUnits {
 			      break;
 			case 3:
 				Image drop = new ImageIcon("graphics/soldiers/drop.png").getImage();
-				g.drawImage(drop,o.getX()-150,o.getY(),180,270,panel);
+				g.drawImage(drop,o.getX()+100,o.getY(),180,270,panel);
 				int lifePercent3 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG3));
 				g.setColor(Color.GREEN);
 				g.fill3DRect(625, 32, lifePercent3, 10, false);
