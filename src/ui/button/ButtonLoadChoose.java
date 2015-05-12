@@ -71,7 +71,7 @@ public class ButtonLoadChoose extends JLabel implements MouseListener{
 		} catch (ClassNotFoundException | IOException e1) {
 			e1.printStackTrace();
 		}
-		Controller.changeTo(FrameGame.FIGHTPANEL);
+		Controller.changeTo(FrameGame.LOADING);
 	}
 
 }
