@@ -19,6 +19,9 @@ import Tech.Tech_STG2_LessTime;
 import Tech.Tech_STG2_MedicEnable;
 import Tech.Tech_STG1_MoneyBoom;
 import Tech.Tech_STG2_TruckReinforce;
+import Tech.Tech_STG3_HydrogenBomb;
+import Tech.Tech_STG3_SecondCastle;
+import Tech.Tech_STG3_SuperComputer;
 import dataBase.DataBase;
 
 public class ButtonScience extends JPanel implements MouseListener{
@@ -38,6 +41,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 		switch(DataBase.pass){
 		case 1:this.setBounds(410+(kind-1)*70, 80, 60, 60);break;
 		case 2:this.setBounds(410+(kind-4)*70, 80, 60, 60);break;
+		case 3:this.setBounds(410+(kind-9)*70, 80, 60, 60);break;
 		}
 	}
 	
@@ -142,7 +146,22 @@ public class ButtonScience extends JPanel implements MouseListener{
 				PanelFight.isTech_8 = true;
 				DataBase.Money -= DataBase.Tech_CastleReinforce_P;
 			}
-		
+		case 10:
+			if(!DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_SuperComputer_P>=0)){
+				new Tech_STG3_SuperComputer();
+				DataBase.Money -= DataBase.Tech_SuperComputer_P;
+			}
+		case 11:
+			if(!DataBase.Tech_SecondCastle&&(DataBase.Money-DataBase.Tech_SecondCastle_P>=0)){
+				new Tech_STG3_SecondCastle();
+				DataBase.Money -= DataBase.Tech_SecondCastle_P;
+			}
+		case 12:
+			if(!DataBase.Tech_HydrogenBomb&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG3_HydrogenBomb();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+	
 			break;	
 		}
 	}
