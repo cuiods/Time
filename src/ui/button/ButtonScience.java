@@ -146,16 +146,19 @@ public class ButtonScience extends JPanel implements MouseListener{
 				PanelFight.isTech_8 = true;
 				DataBase.Money -= DataBase.Tech_CastleReinforce_P;
 			}
+			break;
 		case 10:
 			if(!DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_SuperComputer_P>=0)){
 				new Tech_STG3_SuperComputer();
 				DataBase.Money -= DataBase.Tech_SuperComputer_P;
 			}
+			break;
 		case 11:
 			if(!DataBase.Tech_SecondCastle&&(DataBase.Money-DataBase.Tech_SecondCastle_P>=0)){
 				new Tech_STG3_SecondCastle();
 				DataBase.Money -= DataBase.Tech_SecondCastle_P;
 			}
+			break;
 		case 12:
 			if(!DataBase.Tech_HydrogenBomb&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
 				new Tech_STG3_HydrogenBomb();

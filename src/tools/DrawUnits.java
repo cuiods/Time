@@ -68,7 +68,10 @@ public class DrawUnits {
 				case 11:
 					drawSpaceShip(g,(SpaceShip)DataBase.playerList.get(i));
 					break;
-				
+				case 12:
+					
+					drawSecondCastle(g, (SecondCastle) DataBase.playerList.get(i));
+					break;
 				default:
 					drawCastle(g, (Castle) DataBase.playerList.get(i));
 					break;
@@ -483,8 +486,10 @@ public class DrawUnits {
 	private static void drawHydrogenBomb(Graphics g,HydrogenBomb o){
 		switch(o.getKind()){
 		case 1:
+			
 			Image hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
-			hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
+			g.drawImage(hbomb, o.getX(), o.getY()+o.ran,220,100,panel);
+			
 			if(starting){
 				
 				for(int i=1;i<11;i++){
@@ -708,7 +713,6 @@ public class DrawUnits {
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG2));
 				break;
 			case 3:
-				g.drawImage(new ImageIcon("graphics/soldiers/spacestation.png").getImage(),o.getX(), o.getY()+300, 300, 200, panel);
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG3));
 				break;
 			}
@@ -723,7 +727,27 @@ public class DrawUnits {
 			}
 		}
 	}	
-	
-	
+	private static void drawSecondCastle(Graphics g,SecondCastle o){
+		if(o.getKind() == 1){
+			int lifePercent = 0;
+			switch(DataBase.pass){
+			case 3:
+				if(DataBase.Tech_SecondCastle){
+					g.drawImage(new ImageIcon("graphics/soldiers/s3/spacestation.png").getImage(),o.getX(), o.getY(), 300, 200, panel);
+					lifePercent = (int)(200*(o.getHp()*1.0/DataBase.SECONDCASTLE_HP));
+					g.setColor(Color.GREEN);
+					g.fill3DRect(o.getX(), o.getY(), lifePercent, 3, false);
+					if(lifePercent!=200){
+						g.setColor(Color.RED);
+						g.fill3DRect(o.getX()+lifePercent, o.getY(), 40-lifePercent, 3, false);
+				    }
+				}
+				break;
+			   
+			
+		
+		}
+	}	
+	}	
   
 }

@@ -103,10 +103,6 @@ public class ButtonUnit extends JLabel implements MouseListener{
 				addSpaceship();
 			}
 			break;
-		case 100:
-			if(DataBase.Tech_SecondCastle&&DataBase.Money-DataBase.SECONDCASTLE_P>=0){
-				addSecondcastle();
-			}
 		}
 		/**
 		 * attention:what's this mean?
@@ -116,21 +112,6 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Collections.sort(DataBase.playerList);
 	}
 
-	private void addSecondcastle() {
-		SecondCastle second = new SecondCastle();
-		second.setKind(1);
-		
-		DataBase.playerList.add(second);
-		
-		
-		Thread st = new Thread(second);
-		st.start();
-				
-				
-		DataBase.Money-=DataBase.SPACESHIP_P;
-				
-		Controller.gameframe.repaint();
-	}
 
 	private void addSpaceship() {
 		

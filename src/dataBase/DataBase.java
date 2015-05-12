@@ -5,30 +5,30 @@ import java.util.ArrayList;
 import units.Unit;
 
 public class DataBase {
-	//��¼�ѵ��ؿ����͵�ǰ��Ϸ�ؿ���
+	//锟斤拷录锟窖碉拷锟截匡拷锟斤拷锟酵碉拷前锟斤拷戏锟截匡拷锟斤拷
 	public static int pass = 0;
 	public static int passAlready = 6;
 
-	//��¼�Ƿ���ͣ
+	//锟斤拷录锟角凤拷锟斤拷停
 	public static boolean isPause = false;
 
-	//��¼���е�λ��Ϣ
+	//锟斤拷录锟斤拷锟叫碉拷位锟斤拷息
 	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
 
 	//Parameters for stage1
 	public static final int INITIAL_MONEY_STG1 = 200000;
 	public static final int INITIAL_MONEY_INCREMENT_STG1 = 2;
-	public static final int CASTLE_HP_STG1 = 3000;//�ҷ��Ǳ�������ֵ
-	public static final int START_LOC_X_STG1 = 50;//���õ�һ�صĳ���λ��
+	public static final int CASTLE_HP_STG1 = 3000;//锟揭凤拷锟角憋拷锟斤拷锟斤拷锟斤拷值
+	public static final int START_LOC_X_STG1 = 50;//锟斤拷锟矫碉拷一锟截的筹拷锟斤拷位锟斤拷
 	public static final int START_LOC_Y_STG1 = 500;
-	public static final int PATH_AGLX_STG1 = 2;//���õ�һ��·����б��
+	public static final int PATH_AGLX_STG1 = 2;//锟斤拷锟矫碉拷一锟斤拷路锟斤拷锟斤拷斜锟斤拷
 	public static final int PATH_AGLY_STG1 = -1;
 
-	public static final int CASTLE_HP_ENM_STG1 = 2000;//�з��Ǳ�������ֵ
-	public static final int START_LOC_X_ENM_STG1 = 950;//���õ�һ�ص��˵ĳ���λ��
+	public static final int CASTLE_HP_ENM_STG1 = 2000;//锟叫凤拷锟角憋拷锟斤拷锟斤拷锟斤拷值
+	public static final int START_LOC_X_ENM_STG1 = 950;//锟斤拷锟矫碉拷一锟截碉拷锟剿的筹拷锟斤拷位锟斤拷
 	public static final int START_LOC_Y_ENM_STG1 = 50;
-	public static final int PATH_AGLX_ENM = -2;//���õ�һ�ص���·����б��
+	public static final int PATH_AGLX_ENM = -2;//锟斤拷锟矫碉拷一锟截碉拷锟斤拷路锟斤拷锟斤拷斜锟斤拷
 	public static final int PATH_AGLY_ENM = 1;
 
 	//Parameters for stage2
@@ -36,11 +36,11 @@ public class DataBase {
 	public static final int INITIAL_MONEY_STG2 = 100000;
 	public static final int INITIAL_MONEY_INCREMENT_STG2 = 5;
 	public static final int CASTLE_HP_STG2 = 500;
-	public static final int START_LOC_X_STG2 = 0;//���õڶ��صĳ���λ��
+	public static final int START_LOC_X_STG2 = 0;//锟斤拷锟矫第讹拷锟截的筹拷锟斤拷位锟斤拷
 	public static final int START_LOC_Y_STG2 = 400;
 
 	public static final int CASTLE_HP_ENM_STG2 = 1000;
-	public static final int START_LOC_X_ENM_STG2 = 990;//���õڶ��ص��˵ĳ���λ��
+	public static final int START_LOC_X_ENM_STG2 = 990;//锟斤拷锟矫第讹拷锟截碉拷锟剿的筹拷锟斤拷位锟斤拷
 	public static final int START_LOC_Y_ENM_STG2 = 180;
 	public static final int TIMELIMIT_STG2 = 1000*60*10;
 
@@ -51,7 +51,7 @@ public class DataBase {
 	public static final int START_LOC_X_STG3 = 50;
 	public static final int START_LOC_Y_STG3 = 500;
 	public static final int SECONDCASTLE_LOC_X_STG3 = 150;
-	public static final int SECONDCASTLE_LOC_Y_STG3 = 450;
+	public static final int SECONDCASTLE_LOC_Y_STG3 = 200;
 
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
 	public static final int START_LOC_X_ENM_STG3 = 750;
@@ -86,12 +86,12 @@ public class DataBase {
 	public static final int START_LOC_X_ENM_STG5 = 950;
 	public static final int START_LOC_Y_ENM_STG5 = 50;
 	//General parameters for the game
-	public static int Money = 200000; //��¼��ҵ�ǰ�Ľ�Ǯ��
+	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
 	public static int Money_Increment = 2;
-	public static int Castle_HP_ply; //��¼��ҵ�ǰ�Ǳ�������ֵ��Ҫ���ݹصĲ�ͬ��ʼ����ͬ��ֵ
+	public static int Castle_HP_ply; //锟斤拷录锟斤拷业锟角帮拷潜锟斤拷锟斤拷锟斤拷锟街碉拷锟揭拷锟斤拷莨氐牟锟酵拷锟绞硷拷锟斤拷锟酵拷锟街�
 	public static int Castle_HP_enm;
 	//Tech for stage1
-	public static boolean Tech_CannonEnable = false;//�������ܳ��ֵĿƼ�������12345���
+	public static boolean Tech_CannonEnable = false;//锟斤拷锟斤拷锟斤拷锟杰筹拷锟街的科硷拷锟斤拷锟斤拷锟斤拷12345锟斤拷锟�
 	public static boolean Tech_MoneyBoom = false;
 	public static boolean Tech_Destroy = false;
 	//Tech for stage2
@@ -116,9 +116,9 @@ public class DataBase {
 
 
 	//Price of Technologies
-	public static final int Tech_CannonEnable_P = 1000;//Ч��������cannon��
-	public static final int Tech_MoneyBoom_P = 2500;//Ч�����ý�Ǯ�����ٶȱ��1.5��
-	public static final int Tech_Destroy_P = 500;//Ч��������ݻٵ���80%�ĵ�λ
+	public static final int Tech_CannonEnable_P = 1000;//效锟斤拷锟斤拷锟斤拷锟斤拷cannon锟斤拷
+	public static final int Tech_MoneyBoom_P = 2500;//效锟斤拷锟斤拷锟矫斤拷钱锟斤拷锟斤拷锟劫度憋拷锟�1.5锟斤拷
+	public static final int Tech_Destroy_P = 500;//效锟斤拷锟斤拷锟斤拷锟斤拷莼俚锟斤拷锟�80%锟侥碉拷位
 
 	public static final int Tech_MedicEnable_p = 1000;
 	public static final int Tech_TruckReinforce_P = 1200;
@@ -135,7 +135,7 @@ public class DataBase {
 	public static final int SWORDMAN_P = 100;//the price of swordman
 	public static final int SWORDMAN_HP = 50;//The health point of swordman
 	public static final int SWORDMAN_ATK = 1;//the attacking point of swordman
-	public static final int SWORDMAN_AR = 60;//������Χ attacking range
+	public static final int SWORDMAN_AR = 60;//锟斤拷锟斤拷锟斤拷围 attacking range
 	public static final int SWORDMAN_SPD = 4;//speed
 
 	public static final int GUNNER_P = 300;
