@@ -577,14 +577,9 @@ public class DrawUnits {
     private static void drawSpaceMan(Graphics g,SpaceMan o){
     	switch(o.getKind()){
 		case 1:
-			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
+			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
-				}else{
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
-
 					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
 				}else{
 					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();

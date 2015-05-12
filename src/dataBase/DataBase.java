@@ -114,17 +114,12 @@ public class DataBase {
 	public static boolean Tech_HaltScience = false;
 	public static boolean Tech_Escape = false;
 
-<<<<<<< Updated upstream
+
 	//Price of Technologies
-	public static final int Tech_CannonEnable_P = 1000;//Ð§¹û£ºÄÜÔìcannonÁË
-	public static final int Tech_MoneyBoom_P = 2500;//Ð§¹û£ºÈÃ½ðÇ®Ôö³¤ËÙ¶È±ä³É1.5±¶
-	public static final int Tech_Destroy_P = 500;//Ð§¹û£ºËæ»ú´Ý»ÙµÐÈË80%µÄµ¥Î»
-=======
-    //Price of Technologies
 	public static final int Tech_CannonEnable_P = 1000;//Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cannonï¿½ï¿½
 	public static final int Tech_MoneyBoom_P = 2500;//Ð§ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È±ï¿½ï¿½1.5ï¿½ï¿½
 	public static final int Tech_Destroy_P = 500;//Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý»Ùµï¿½ï¿½ï¿½80%ï¿½Äµï¿½Î»
->>>>>>> Stashed changes
+
 	public static final int Tech_MedicEnable_p = 1000;
 	public static final int Tech_TruckReinforce_P = 1200;
 	public static final int Tech_LessTime_P = 2000;
