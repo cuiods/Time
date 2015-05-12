@@ -10,13 +10,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import dataBase.DataBase;
+import ui.FrameGame;
 import ui.PanelGameSet;
 
 public class ButtonGameSet extends JPanel implements MouseListener {
 	
 	static PanelGameSet gameSetPanel = null;
 	private boolean isIn = false;
-	public static boolean isLocked = false;
 	public ButtonGameSet() {
 		this.setBounds(920,520, 60, 70);
 	}
@@ -54,20 +54,8 @@ public class ButtonGameSet extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		//show set panel
-		/*
-		 * is locked?
-		 * I'm afraid the button will be clicked twice
-		 * then there will be two set panels or more
-		 * it's awful, so use islocked to restrict that the panel will only appears once
-		 */
-		if(!isLocked){
-			gameSetPanel = new PanelGameSet();
-			gameSetPanel.addMouseListener(gameSetPanel);
-			Controller.gameframe.fightPanel.add(gameSetPanel);
-			Controller.gameframe.fightPanel.repaint();
-			isLocked = true;
+		
+			Controller.changeTo(FrameGame.SETPANEL);
 			DataBase.isPause = true;
-		}	
 	}
 }

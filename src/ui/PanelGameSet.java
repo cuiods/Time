@@ -13,23 +13,25 @@ import ui.button.ButtonSave;
 
 public class PanelGameSet extends JPanel implements MouseListener{
 
-	ButtonExit butExit = null;
 	public PanelGameSet() {
+		this.setLayout(null);
 		//set exit button
-		butExit = new ButtonExit();
+		ButtonExit butExit = new ButtonExit();
 		butExit.type = 2;
-		butExit.setBounds(60, 230, 250, 75);
+		butExit.setBounds(730, 520, 250, 75);
 		butExit.addMouseListener(butExit);
 		this.add(butExit);
-		//set save button
-		ButtonSave saveButton = new ButtonSave();
-		saveButton.addMouseListener(saveButton);
+//		//set save button
+//		for(int i = 1; i <= 3; i++){
+//			ButtonSave saveButton = new ButtonSave(i);
+//			saveButton.addMouseListener(saveButton);
+//			this.add(saveButton);
+//		}
+		//set return button
 		ButtonReturn returnButton = new ButtonReturn();
+		returnButton.setType(0);
 		returnButton.addMouseListener(returnButton);
 		this.add(returnButton);
-		this.add(saveButton);
-		//set size
-		this.setBounds(290, 160, 360, 386);
 	}
 	
 	

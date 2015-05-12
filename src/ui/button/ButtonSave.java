@@ -13,16 +13,18 @@ import tools.Save;
 public class ButtonSave extends JLabel implements MouseListener{
 
 	private boolean isIn = false;
-	public ButtonSave() {
-		this.setBounds(60, 140, 250, 75);
+	private int num = 1;
+	public ButtonSave(int i) {
+		this.setBounds(0, 500, 700, 100);
+		this.num = i;
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
 		if(!isIn){
-			g.drawImage(new ImageIcon("graphics/button/savegame.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			g.drawImage(new ImageIcon("graphics/info/save"+num+".png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 		}else{
-			g.drawImage(new ImageIcon("graphics/button/savegame1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			g.drawImage(new ImageIcon("graphics/info/save"+num+"m.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 		}
 	}
 	

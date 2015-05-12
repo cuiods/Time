@@ -82,8 +82,7 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 		if(type == 0 || type == 1){
 			Controller.exitGame();
 		}else if(type == 2){
-			Controller.gameframe.fightPanel.remove(ButtonGameSet.gameSetPanel);
-			ButtonGameSet.isLocked = false;
+			Controller.changeTo(FrameGame.FIGHTPANEL);
 			isIn1 = false;
 			isIn2 = false;
 			DataBase.isPause = false;

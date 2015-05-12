@@ -96,7 +96,6 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			
 			//restart
 			Controller.changeTo(FrameGame.STARTPANEL);
-			ButtonGameSet.isLocked = false;
 						
 		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){
 			

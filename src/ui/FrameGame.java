@@ -24,6 +24,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     public PanelLoading loadingPanel = null;
     public PanelLoad loadPanel = null;
     public PanelFade fadePanel = null;
+    public PanelGameSet setPanel = null;
     
     public static final int STARTPANEL = 0;
     public static final int FIGHTPANEL = 1;
@@ -31,6 +32,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     public static final int STORYZERO = 3;
     public static final int LOADPANEL = 4;
     public static final int LOADING = 5;
+    public static final int SETPANEL = 6;
     
     private int tempX;  
     private int tempY;  
@@ -165,6 +167,10 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 		case 5:
 			loadingPanel = new PanelLoading();
 			setContentPane(loadingPanel);
+			break;
+		case 6:
+			setPanel = new PanelGameSet();
+			setContentPane(setPanel);
 			break;
 		}
 		repaint();
