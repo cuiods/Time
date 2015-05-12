@@ -18,17 +18,20 @@ import ui.FrameGame;
 import ui.PanelStart;
 import dataBase.DataBase;
 
-public class ButtonExit extends JLabel implements MouseListener{
+public class ButtonExit extends JLabel implements MouseListener,Runnable{
 
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn1 = false;
 	static boolean isIn2 = false;
 	public int type = 0;
+	public int x = 900;
+	public int y = 400;
+	
 	public ButtonExit(){
 		filepath = "graphics/button/exitbutton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(660, 400, 140, 140);
+		this.setBounds(x, y, 140, 140);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -120,6 +123,19 @@ public class ButtonExit extends JLabel implements MouseListener{
 			isIn1 = false;
 			isIn2 = false;
 		this.repaint();
+		
+	}
+
+	@Override
+	public void run() {
+		while(x>=660){
+			x-=16;
+			try {
+				Thread.sleep(50);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 }

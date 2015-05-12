@@ -21,16 +21,18 @@ import ui.PanelLoad;
 
 
 
-public class ButtonLoad extends JLabel implements MouseListener{
+public class ButtonLoad extends JLabel implements MouseListener,Runnable{
 	Image load=null;
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
+	public int x = 0;
+	public int y = 400;
 	
 	public ButtonLoad(){
 		filepath = "graphics/button/loadbutton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(180, 400, 140, 140);
+		this.setBounds(x, y, 140, 140);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -81,6 +83,19 @@ public class ButtonLoad extends JLabel implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		isIn = false;
 		this.repaint();
+	}
+
+	@Override
+	public void run() {
+		while(x<=180){
+			try {
+				Thread.sleep(50);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			x+=15;
+		}
+		
 	}
 
 }

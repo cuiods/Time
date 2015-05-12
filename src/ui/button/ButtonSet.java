@@ -13,14 +13,16 @@ import javax.swing.JLabel;
 
 import tools.MusicPlayer;
 
-public class ButtonSet extends JLabel implements MouseListener{
+public class ButtonSet extends JLabel implements MouseListener,Runnable{
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
+	public int x = 300;
+	public int y = 0;
 	public ButtonSet(){
 		filepath = "graphics/button/setButton.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(300, 250, 140, 140);
+		this.setBounds(x, y, 140, 140);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -73,6 +75,19 @@ public class ButtonSet extends JLabel implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		isIn = false;
 		this.repaint();
+		
+	}
+
+	@Override
+	public void run() {
+		while(y<=250){
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			y+=20;
+		}
 		
 	}
 

@@ -3,8 +3,6 @@ package ui.button;
 import gamecontrol.Controller;
 
 import java.awt.Graphics;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -17,22 +15,22 @@ import javax.swing.JLabel;
 
 import tools.MusicPlayer;
 import ui.FrameGame;
-import ui.PanelFight;
-import ui.PanelStory0;
 
 
 
-public class ButtonStart extends JLabel implements MouseListener{
+public class ButtonStart extends JLabel implements MouseListener,Runnable{
 
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
+	public int x = 400;
+	public int y = 600;
 	
 	public ButtonStart(){
 
 		filepath = "graphics/button/startButton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(400,400,170,170);
+		this.setBounds(x,y,170,170);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -110,5 +108,17 @@ public class ButtonStart extends JLabel implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		isIn = false;
 		this.repaint();
+	}
+
+	@Override
+	public void run() {
+		while(y >= 400){
+			try {
+				Thread.sleep(50);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			y -= 15;
+		}
 	}
 }

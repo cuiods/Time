@@ -24,7 +24,7 @@ import ui.button.ButtonStart;
  * @author Cui
  *
  */
-public class PanelStart extends JPanel{
+public class PanelStart extends JPanel implements Runnable{
 	
 	//define components
 	Image startBackGround = null;
@@ -50,7 +50,6 @@ public class PanelStart extends JPanel{
 		loadButton = new ButtonLoad();
 		classicButton = new ButtonClassic();
 		
-		
 		//clear layout
 		this.setLayout(null);
 		
@@ -67,6 +66,20 @@ public class PanelStart extends JPanel{
 		this.add(classicButton);
 		this.add(loadButton);
 		this.add(setButton);
+		
+		//start thread
+		Thread panel = new Thread(this);
+		panel.start();
+		Thread start = new Thread(startButton);
+		start.start();
+		Thread load = new Thread(loadButton);
+		load.start();
+		Thread exit = new Thread(exitButton);
+		exit.start();
+		Thread set = new Thread(setButton);
+		set.start();
+		Thread classic = new Thread(classicButton);
+		classic.start();
 		
 		setMusic();
 	}
@@ -86,6 +99,23 @@ public class PanelStart extends JPanel{
 			musicPlay = new MusicThread("music/background/main.wav", true);
 			musicPlay.start();
 			isplay = true;
+		}
+	}
+
+	@Override
+	public void run() {
+		while(true){
+			startButton.setLocation(startButton.x, startButton.y);
+			loadButton.setLocation(loadButton.x,loadButton.y);
+			exitButton.setLocation(exitButton.x, exitButton.y);
+			setButton.setLocation(setButton.x, setButton.y);
+			classicButton.setLocation(classicButton.x, classicButton.y);
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			this.repaint();
 		}
 	}
 }
