@@ -1,5 +1,6 @@
 package units;
 
+import tools.DrawUnits;
 import dataBase.DataBase;
 
 public class HydrogenBomb extends Soldier implements Runnable{
@@ -15,6 +16,7 @@ public class HydrogenBomb extends Soldier implements Runnable{
 	}
 	@Override
 	public void run(){
+		
 		while(notAttacked){
 			if(this.hp<=0){
 				}
@@ -22,6 +24,8 @@ public class HydrogenBomb extends Soldier implements Runnable{
 					synchronized(this){
 					this.moving = false;
 					this.attacking = true;
+					DrawUnits.starting=true;
+
 					}
 					attack();
 					this.notAttacked = false;

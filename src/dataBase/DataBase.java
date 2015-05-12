@@ -5,30 +5,30 @@ import java.util.ArrayList;
 import units.Unit;
 
 public class DataBase {
-	//¼ÇÂ¼ÒÑµ½¹Ø¿¨ÊýºÍµ±Ç°ÓÎÏ·¹Ø¿¨Êý
+	//ï¿½ï¿½Â¼ï¿½Ñµï¿½ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½Íµï¿½Ç°ï¿½ï¿½Ï·ï¿½Ø¿ï¿½ï¿½ï¿½
 	public static int pass = 0;
 	public static int passAlready = 6;
 
-	//¼ÇÂ¼ÊÇ·ñÔÝÍ£
+	//ï¿½ï¿½Â¼ï¿½Ç·ï¿½ï¿½ï¿½Í£
 	public static boolean isPause = false;
 
-	//¼ÇÂ¼ËùÓÐµ¥Î»ÐÅÏ¢
+	//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ðµï¿½Î»ï¿½ï¿½Ï¢
 	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
 	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
 
 	//Parameters for stage1
 	public static final int INITIAL_MONEY_STG1 = 200000;
 	public static final int INITIAL_MONEY_INCREMENT_STG1 = 2;
-	public static final int CASTLE_HP_STG1 = 3000;//ÎÒ·½³Ç±¤µÄÉúÃüÖµ
-	public static final int START_LOC_X_STG1 = 50;//ÉèÖÃµÚÒ»¹ØµÄ³ö·¢Î»ÖÃ
+	public static final int CASTLE_HP_STG1 = 3000;//ï¿½Ò·ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	public static final int START_LOC_X_STG1 = 50;//ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ØµÄ³ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	public static final int START_LOC_Y_STG1 = 500;
-	public static final int PATH_AGLX_STG1 = 2;//ÉèÖÃµÚÒ»¹ØÂ·¾¶µÄÐ±ÂÊ
+	public static final int PATH_AGLX_STG1 = 2;//ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½
 	public static final int PATH_AGLY_STG1 = -1;
 
-	public static final int CASTLE_HP_ENM_STG1 = 2000;//µÐ·½³Ç±¤µÄÉúÃüÖµ
-	public static final int START_LOC_X_ENM_STG1 = 950;//ÉèÖÃµÚÒ»¹ØµÐÈËµÄ³ö·¢Î»ÖÃ
+	public static final int CASTLE_HP_ENM_STG1 = 2000;//ï¿½Ð·ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	public static final int START_LOC_X_ENM_STG1 = 950;//ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½Øµï¿½ï¿½ËµÄ³ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	public static final int START_LOC_Y_ENM_STG1 = 50;
-	public static final int PATH_AGLX_ENM = -2;//ÉèÖÃµÚÒ»¹ØµÐÈËÂ·¾¶µÄÐ±ÂÊ
+	public static final int PATH_AGLX_ENM = -2;//ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½Øµï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½
 	public static final int PATH_AGLY_ENM = 1;
 
 	//Parameters for stage2
@@ -36,11 +36,11 @@ public class DataBase {
 	public static final int INITIAL_MONEY_STG2 = 100000;
 	public static final int INITIAL_MONEY_INCREMENT_STG2 = 5;
 	public static final int CASTLE_HP_STG2 = 500;
-	public static final int START_LOC_X_STG2 = 0;//ÉèÖÃµÚ¶þ¹ØµÄ³ö·¢Î»ÖÃ
+	public static final int START_LOC_X_STG2 = 0;//ï¿½ï¿½ï¿½ÃµÚ¶ï¿½ï¿½ØµÄ³ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	public static final int START_LOC_Y_STG2 = 400;
 
 	public static final int CASTLE_HP_ENM_STG2 = 1000;
-	public static final int START_LOC_X_ENM_STG2 = 990;//ÉèÖÃµÚ¶þ¹ØµÐÈËµÄ³ö·¢Î»ÖÃ
+	public static final int START_LOC_X_ENM_STG2 = 990;//ï¿½ï¿½ï¿½ÃµÚ¶ï¿½ï¿½Øµï¿½ï¿½ËµÄ³ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	public static final int START_LOC_Y_ENM_STG2 = 180;
 	public static final int TIMELIMIT_STG2 = 1000*60*10;
 
@@ -54,8 +54,8 @@ public class DataBase {
 	public static final int SECONDCASTLE_LOC_Y_STG3 = 450;
 
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
-	public static final int START_LOC_X_ENM_STG3 = 950;
-	public static final int START_LOC_Y_ENM_STG3 = 50;
+	public static final int START_LOC_X_ENM_STG3 = 750;
+	public static final int START_LOC_Y_ENM_STG3 = 100;
 	public static boolean LockScience = false;
 	public static final int LOCKSCIENCE_TIMELIMIT = 30;
 
@@ -86,12 +86,12 @@ public class DataBase {
 	public static final int START_LOC_X_ENM_STG5 = 950;
 	public static final int START_LOC_Y_ENM_STG5 = 50;
 	//General parameters for the game
-	public static int Money = 200000; //¼ÇÂ¼Íæ¼Òµ±Ç°µÄ½ðÇ®Êý
+	public static int Money = 200000; //ï¿½ï¿½Â¼ï¿½ï¿½Òµï¿½Ç°ï¿½Ä½ï¿½Ç®ï¿½ï¿½
 	public static int Money_Increment = 2;
-	public static int Castle_HP_ply; //¼ÇÂ¼Íæ¼Òµ±Ç°³Ç±¤µÄÉúÃüÖµ£¬Òª¸ù¾Ý¹ØµÄ²»Í¬³õÊ¼»¯²»Í¬µÄÖµ
+	public static int Castle_HP_ply; //ï¿½ï¿½Â¼ï¿½ï¿½Òµï¿½Ç°ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Òªï¿½ï¿½ï¿½Ý¹ØµÄ²ï¿½Í¬ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½Öµ
 	public static int Castle_HP_enm;
 	//Tech for stage1
-	public static boolean Tech_CannonEnable = false;//¸÷¸ö¿ÉÄÜ³öÏÖµÄ¿Æ¼¼£¬ÏÈÓÃ12345Ìæ´ú
+	public static boolean Tech_CannonEnable = false;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ÖµÄ¿Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12345ï¿½ï¿½ï¿½
 	public static boolean Tech_MoneyBoom = false;
 	public static boolean Tech_Destroy = false;
 	//Tech for stage2
@@ -114,10 +114,12 @@ public class DataBase {
 	public static boolean Tech_HaltScience = false;
 	public static boolean Tech_Escape = false;
 
+
 	//Price of Technologies
-	public static final int Tech_CannonEnable_P = 1000;//Ð§¹û£ºÄÜÔìcannonÁË
-	public static final int Tech_MoneyBoom_P = 2500;//Ð§¹û£ºÈÃ½ðÇ®Ôö³¤ËÙ¶È±ä³É1.5±¶
-	public static final int Tech_Destroy_P = 500;//Ð§¹û£ºËæ»ú´Ý»ÙµÐÈË80%µÄµ¥Î»
+	public static final int Tech_CannonEnable_P = 1000;//Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cannonï¿½ï¿½
+	public static final int Tech_MoneyBoom_P = 2500;//Ð§ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È±ï¿½ï¿½1.5ï¿½ï¿½
+	public static final int Tech_Destroy_P = 500;//Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý»Ùµï¿½ï¿½ï¿½80%ï¿½Äµï¿½Î»
+
 	public static final int Tech_MedicEnable_p = 1000;
 	public static final int Tech_TruckReinforce_P = 1200;
 	public static final int Tech_LessTime_P = 2000;
@@ -133,7 +135,7 @@ public class DataBase {
 	public static final int SWORDMAN_P = 100;//the price of swordman
 	public static final int SWORDMAN_HP = 50;//The health point of swordman
 	public static final int SWORDMAN_ATK = 1;//the attacking point of swordman
-	public static final int SWORDMAN_AR = 60;//¹¥»÷·¶Î§ attacking range
+	public static final int SWORDMAN_AR = 60;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ attacking range
 	public static final int SWORDMAN_SPD = 4;//speed
 
 	public static final int GUNNER_P = 300;
@@ -217,7 +219,8 @@ public class DataBase {
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG1;break;
 		case 2:Money = INITIAL_MONEY_STG2;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG2;break;
-		case 3:break;
+		case 3:Money = INITIAL_MONEY_STG3;
+		Money_Increment = INITIAL_MONEY_INCREMENT_STG3;break;
 		case 4:break;
 		}
 
@@ -229,5 +232,8 @@ public class DataBase {
 		Tech_LessTime = false;
 		Tech_Heal = false;
 		Tech_CastleReinforce = false;
+		Tech_HydrogenBomb = false;
+		Tech_SecondCastle = false;
+		Tech_SuperComputer = false;
 	}
 }

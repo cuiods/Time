@@ -25,7 +25,7 @@ public class PicturePlayer {
 	//define image size
 	private int imageSize = 10;
 	//set time
-	public static int time0= 3000;
+	public static int time0= 1000;
 	public static int time1 = 1000;
 	public static int time2 = 1000;
 	public static int time3 = 1000;
