@@ -22,7 +22,6 @@ public class ButtonPass5 extends JLabel implements MouseListener{
     	
     	  buttonImage = new ImageIcon("graphics/storyteller/head.png").getImage();
    		  this.setBounds(600, 60, 130, 130);
-   		
       }
       public void paintComponent(Graphics g){
     	 if(DataBase.passAlready<5)
