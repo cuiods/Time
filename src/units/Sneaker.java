@@ -3,7 +3,7 @@ package units;
 import tools.Time;
 import dataBase.DataBase;
 
-public class Sneaker extends Soldier{
+public class Sneaker extends Soldier implements Runnable{
 	Time tm;
 	public boolean invisible = false;
 	public Sneaker(){

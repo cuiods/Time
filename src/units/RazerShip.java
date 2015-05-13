@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class RazerShip extends Soldier{
+public class RazerShip extends Soldier implements Runnable{
 	public RazerShip(){
 		x = DataBase.START_LOC_X_STG4;
 		y = DataBase.START_LOC_Y_STG4;

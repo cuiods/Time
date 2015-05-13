@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class Drone extends Soldier{
+public class Drone extends Soldier implements Runnable{
 	public Drone(){
 		x = DataBase.START_LOC_X_STG4;
 		y = DataBase.START_LOC_Y_STG4;

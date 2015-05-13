@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public class RobotWarrior extends Soldier{
+public class RobotWarrior extends Soldier implements Runnable{
 	public RobotWarrior(){
 		x = DataBase.START_LOC_X_STG4;
 		y = DataBase.START_LOC_Y_STG4;

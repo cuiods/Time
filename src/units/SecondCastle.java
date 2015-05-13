@@ -10,6 +10,6 @@ public class SecondCastle extends Soldier implements Runnable{
 	    attack = DataBase.SECONDCASTLE_ATK;
 		attackRange = DataBase.SECONDCASTLE_AR;
 		speed = DataBase.SECONDCASTLE_SPD;
-	    setType(12);
+	    setType(101);
 	}
 }

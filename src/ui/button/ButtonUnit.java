@@ -103,6 +103,27 @@ public class ButtonUnit extends JLabel implements MouseListener{
 				addSpaceship();
 			}
 			break;
+		case 12:
+			if(DataBase.Money-DataBase.DRONE_P>=0){
+				addDrone();
+			}
+			break;
+		case 13:
+			if(DataBase.Money-DataBase.RAZERSHIP_P>=0){
+				addRazership();
+			}
+			break;
+		case 14:
+			if(DataBase.Money-DataBase.ROBOTWARRIOR_P>=0){
+				addRobotWarrior();
+			}
+			break;
+		case 15:
+			if(DataBase.Money-DataBase.SNEAKER_P>=0){
+				addSneaker();
+			}
+			break;
+			
 		}
 		/**
 		 * attention:what's this mean?
@@ -112,6 +133,66 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Collections.sort(DataBase.playerList);
 	}
 
+
+	private void addSneaker() {
+		Sneaker sneaker = new Sneaker();
+		sneaker.setKind(1);
+		
+		DataBase.playerList.add(sneaker);
+		
+		Thread t = new Thread(sneaker);
+		t.start();
+		
+		DataBase.Money-=DataBase.SNEAKER_P;
+		
+		Controller.gameframe.repaint();
+		
+	}
+
+	private void addRobotWarrior() {
+		RobotWarrior robot = new RobotWarrior();
+		robot.setKind(1);
+		
+		DataBase.playerList.add(robot);
+		
+		Thread t = new Thread(robot);
+		t.start();
+		
+		DataBase.Money-=DataBase.ROBOTWARRIOR_P;
+		
+		Controller.gameframe.repaint();
+		
+	}
+
+	private void addRazership() {
+		RazerShip ship = new RazerShip();
+		ship.setKind(1);
+		
+		DataBase.playerList.add(ship);
+		
+		Thread t = new Thread(ship);
+		t.start();
+		
+		DataBase.Money-=DataBase.RAZERSHIP_P;
+		
+		Controller.gameframe.repaint();
+		
+	}
+
+	private void addDrone() {
+		Drone drone = new Drone();
+		drone.setKind(1);
+		
+		DataBase.playerList.add(drone);
+		
+		Thread t = new Thread(drone);
+		t.start();
+		
+		DataBase.Money-=DataBase.DRONE_P;
+		
+		Controller.gameframe.repaint();
+		
+	}
 
 	private void addSpaceship() {
 		

@@ -174,7 +174,15 @@ public class PanelFight extends JPanel implements Runnable{
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
 			}
-			    
+			break;
+		case 4:
+			for(int i =0; i<4;i++){
+				butUnit = new ButtonUnit(i+12);
+				butUnit.setBounds(30+i*70, 80, 65, 60);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
+			break;
 		}
 	}
 	
@@ -256,17 +264,8 @@ public class PanelFight extends JPanel implements Runnable{
 	 */
 	private void drawBackground(Graphics g){
 		//load background image
-		switch(DataBase.pass){
-		case 1:
-			fightBackGround = new ImageIcon("graphics/background/fightbackground1.png").getImage();
-			break;
-		case 2:
-			fightBackGround = new ImageIcon("graphics/background/fightbackground2.png").getImage();
-			break;
-		case 3:
-			fightBackGround = new ImageIcon("graphics/background/fightbackground3.png").getImage();
-			break;
-		}
+		fightBackGround = new ImageIcon("graphics/background/fightbackground"+DataBase.pass+".png").getImage();
+
 		//money image
 		Image money = new ImageIcon("graphics/info/money1.png").getImage();
 		//technology image ,it's ugly,use another
@@ -441,6 +440,24 @@ public class PanelFight extends JPanel implements Runnable{
 			Thread cp23 = new Thread(enemycastle1);
 			cp23.start();
 			DataBase.enemyList.add(enemycastle1);
+			break;
+		case 4:
+			Castle mycastle4 = new Castle();
+			mycastle4.setKind(1);
+			mycastle4.setHp(DataBase.CASTLE_HP_STG4);
+			Thread cp14 = new Thread(mycastle4);
+			cp14.start();
+			DataBase.playerList.add(mycastle4);
+			
+			
+			Castle enemycastle2 = new Castle();
+			enemycastle2.setKind(0);
+			enemycastle2.setX(DataBase.START_LOC_X_ENM_STG4);
+			enemycastle2.setY(DataBase.START_LOC_Y_ENM_STG4);
+			enemycastle2.setHp(DataBase.CASTLE_HP_ENM_STG4);
+			Thread cp24 = new Thread(enemycastle2);
+			cp24.start();
+			DataBase.enemyList.add(enemycastle2);
 			break;
 		}
 	}
