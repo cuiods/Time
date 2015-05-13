@@ -102,6 +102,15 @@ public class DrawUnits {
 				case 6:
 					drawRifle(g, (Rifle)DataBase.enemyList.get(i));
 					break;
+				case 9:
+					drawSpaceCarrier(g,(SpaceCarrier)DataBase.enemyList.get(i));
+					break;
+				case 10:
+					drawSpaceMan(g,(SpaceMan)DataBase.enemyList.get(i));
+					break;
+				case 11:
+					drawSpaceShip(g,(SpaceShip)DataBase.enemyList.get(i));
+					break;
 				case 100:
 					drawCastle(g, (Castle) DataBase.enemyList.get(i));
 					break;
