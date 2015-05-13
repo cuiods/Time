@@ -79,8 +79,7 @@ public class DataBase {
 	public static final int CASTLE_HP_STG5 = 2000;
 	public static final int START_LOC_X_STG5 = 50;
 	public static final int START_LOC_Y_STG5 = 500;
-	public static final int BLACKHOLE_LOC_X_STG5 = 150;
-	public static final int BLACKHOLE_LOC_Y_STG5 = 450;
+	public static final int SNEAKER_TIMELIMIT = 10;
 
 	public static final int CASTLE_HP_ENM_STG5 = 1000;
 	public static final int START_LOC_X_ENM_STG5 = 950;
@@ -210,7 +209,34 @@ public class DataBase {
 	public static final int SPACESHIP_ATK = 3;
 	public static final int SPACESHIP_AR = 120;
 	public static final int SPACESHIP_SPD = 3;
-
+	
+	/*
+	 * Unit for stage4
+	 */
+	public static final int DRONE_P = 1000;
+	public static final int DRONE_HP = 50;
+	public static final int DRONE_ATK = 1;
+	public static final int DRONE_AR = 80;
+	public static final int DRONE_SPD = 6;
+	
+	public static final int RAZERSHIP_P = 3000;
+	public static final int RAZERSHIP_HP = 25;
+	public static final int RAZERSHIP_ATK = 5;
+	public static final int RAZERSHIP_AR = 140;
+	public static final int RAZERSHIP_SPD = 3;
+	
+	public static final int ROBOTWARRIOR_P = 1500;
+	public static final int ROBOTWARRIOR_HP = 100;
+	public static final int ROBOTWARRIOR_ATK = 1;
+	public static final int ROBOTWARRIOR_AR = 60;
+	public static final int ROBOTWARRIOR_SPD = 5;
+	
+	public static final int SNEAKER_P = 2000;
+	public static final int SNEAKER_HP = 80;
+	public static final int SNEAKER_ATK = 3;
+	public static final int SNEAKER_AR = 30;
+	public static final int SNEAKER_SPD = 8;
+	
 	public static void recover(){
 		enemyList.removeAll(enemyList);
 		playerList.removeAll(playerList);
