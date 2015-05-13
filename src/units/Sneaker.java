@@ -4,7 +4,10 @@ import tools.Time;
 import dataBase.DataBase;
 
 public class Sneaker extends Soldier{
+	Time tm;
+	public boolean invisible = false;
 	public Sneaker(){
+		tm = new Time(DataBase.SNEAKER_TIMELIMIT);
 		x = DataBase.START_LOC_X_STG4;
 		y = DataBase.START_LOC_Y_STG4;
 	    hp=DataBase.SNEAKER_HP;
@@ -15,12 +18,35 @@ public class Sneaker extends Soldier{
 	}
 	@Override
 	public boolean canAttack(){
-		Time tm = new Time(DataBase.SNEAKER_TIMELIMIT);
 		if(tm.getRemainTime()>=0){
+			this.invisible = true;
 			return false;
 		}
 		else{
+			this.invisible = false;
 			return super.canAttack();
+		}
+	}
+	@Override
+	public void run() {
+		while(true){
+			if(this.hp<=0){
+				//	this.die();
+				}
+				if(canAttack()){
+					synchronized(this){
+					this.moving = false;
+					this.attacking = true;
+					}
+					attack();
+					
+				}else{
+					synchronized(this){
+					this.attacking = false;
+					this.moving = true;
+					}
+					move();
+				}
 		}
 	}
 

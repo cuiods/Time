@@ -65,7 +65,7 @@ public class AIcommander {
 		DataBase.enemyList.add(r);
 	}
 	public void addSpaceShip(){
-		SpaceShip_ENM s = new SpaceShip_ENM();
+		SpaceShip s = new SpaceShip();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);
@@ -73,7 +73,7 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void addSpaceMan(){
-		SpaceMan_ENM s = new SpaceMan_ENM();
+		SpaceMan s = new SpaceMan();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);
@@ -81,7 +81,7 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void addSpaceCarrier(){
-		SpaceCarrier_ENM s = new SpaceCarrier_ENM();
+		SpaceCarrier s = new SpaceCarrier();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);

@@ -84,21 +84,21 @@ public class simpleAI_STG3 extends AI implements Runnable{
 	}
 	@Override
 	public void run() {
-		AIC.addRifle();
+		AIC.addSpaceMan();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addRifle();
+		AIC.addSpaceMan();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addRifle();
+		AIC.addSpaceMan();
 		while(!DataBase.isPause&&DataBase.pass==2){
 			detect();
 		}
