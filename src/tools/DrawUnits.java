@@ -24,7 +24,6 @@ import dataBase.DataBase;
 
 public class DrawUnits {
 	static JPanel panel;
-	public static boolean starting=false;
 	static String[] pictures = new String[10];
 	public static void draw(Graphics g, JPanel p){
 		     panel = p;
@@ -483,28 +482,46 @@ public class DrawUnits {
 			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 		}
 	}
-	private static void drawHydrogenBomb(Graphics g,HydrogenBomb o){
+	private static  void drawHydrogenBomb(Graphics g,HydrogenBomb o){
 		switch(o.getKind()){
 		case 1:
 			
 			Image hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
-			g.drawImage(hbomb, o.getX(), o.getY()+o.ran,220,100,panel);
+			g.drawImage(hbomb, o.getX(), o.getY()+o.ran,176,80,panel);
 			
-			if(starting){
+			if(o.starting){
 				
 				for(int i=1;i<11;i++){
 					pictures[i-1]="graphics/stunt/tech3_"+i+".png";
 				}
-				
-                PicturePlayer player = new PicturePlayer(pictures,false,10);
-                player.panelPlay(o.getX(), o.getY(), g, panel, 0);
-                if(player.time0<20){
-                	starting=false;
-                	PicturePlayer.time0=1000;
-                	DataBase.playerList.remove(o);
-                }
+				if(o.time > 900){
+					g.drawImage(new ImageIcon(pictures[0]).getImage(), o.getX(), o.getY(), panel);
+					
+				}else if(o.time > 800){
+					g.drawImage(new ImageIcon(pictures[1]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 700){
+					g.drawImage(new ImageIcon(pictures[2]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 600){
+					g.drawImage(new ImageIcon(pictures[3]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 500){
+					g.drawImage(new ImageIcon(pictures[4]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 400){
+					g.drawImage(new ImageIcon(pictures[5]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 300){
+					g.drawImage(new ImageIcon(pictures[6]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 200){
+					g.drawImage(new ImageIcon(pictures[7]).getImage(), o.getX(), o.getY(), panel);
+				}else if(o.time > 100){
+					g.drawImage(new ImageIcon(pictures[8]).getImage(), o.getX(), o.getY(), panel);
+				}else{
+					g.drawImage(new ImageIcon(pictures[9]).getImage(), o.getX(), o.getY(), panel);
+					o.starting=false;
+					DataBase.playerList.remove(o);
+			    }
+				if(o.time-100>=0){
+					o.time-=100;
+				}
 			}
-			
 					
 				
 			break;
@@ -540,15 +557,15 @@ public class DrawUnits {
 			Image carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
 				}else{
-					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
 				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
 				}else{
-					carrier = new ImageIcon("graphics/soldiers/s3/carrier.gif").getImage();
+					carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
 				}
 			}
 			g.drawImage(carrier,o.getX(), o.getY()+o.ran, 180, 120, panel);
@@ -597,7 +614,7 @@ public class DrawUnits {
 					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
 				}
 			}
-			g.drawImage(spaceman,o.getX(), o.getY()+o.ran, 180, 120, panel);
+			g.drawImage(spaceman,o.getX(), o.getY()+o.ran, 65,95, panel);
 			break;
 		case 0:
 			Image spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
@@ -733,13 +750,13 @@ public class DrawUnits {
 			switch(DataBase.pass){
 			case 3:
 				if(DataBase.Tech_SecondCastle){
-					g.drawImage(new ImageIcon("graphics/soldiers/s3/spacestation.png").getImage(),o.getX(), o.getY(), 300, 200, panel);
+					g.drawImage(new ImageIcon("graphics/soldiers/s3/spacestation.png").getImage(),o.getX()-150, o.getY()+200, 300, 200, panel);
 					lifePercent = (int)(200*(o.getHp()*1.0/DataBase.SECONDCASTLE_HP));
 					g.setColor(Color.GREEN);
-					g.fill3DRect(o.getX(), o.getY(), lifePercent, 3, false);
+					g.fill3DRect(o.getX()-150, o.getY()+180, lifePercent, 3, false);
 					if(lifePercent!=200){
 						g.setColor(Color.RED);
-						g.fill3DRect(o.getX()+lifePercent, o.getY(), 40-lifePercent, 3, false);
+						g.fill3DRect(o.getX()+lifePercent-150, o.getY()+180, 40-lifePercent, 3, false);
 				    }
 				}
 				break;
