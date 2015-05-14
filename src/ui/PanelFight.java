@@ -57,6 +57,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_6 = false;
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
+	public static boolean isTech_9 = false;
 	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
@@ -318,24 +319,31 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * show time left
 		 */
-		if(time!=null&&time.getRemainTime()>0){
-			int min = time.getRemainTime()/60;
-			int second = time.getRemainTime()%60;
-			g.setColor(Color.red);
-			Font myFont = new Font("��������",Font.BOLD,28);
-			g.setFont(myFont);
-			g.drawString(min+":"+second, 700, 55);
+		if(DataBase.pass==2){
+			if((time!=null)&&(time.getRemainTime()>0)&&(DataBase.isPause==false)){
+				int min = time.getRemainTime()/60;
+				int second = time.getRemainTime()%60;
+				g.setColor(Color.red);
+				Font myFont = new Font("��������",Font.BOLD,28);
+				g.setFont(myFont);
+				g.drawString(min+":"+second, 700, 55);
 			//g.drawString(":", 700, 80);
 			//g.drawString(second+"", 720, 80);			
+			}
 		}
 		
 		/*
 		 * draw pass2 castle animation
 		 */
-		if(DataBase.pass == 2){
+		if((DataBase.pass == 2)&&(DataBase.isPause==false)){
 			String[] pictures2 = {"graphics/stunt/castle2_1.png","graphics/stunt/castle2_2.png","graphics/stunt/castle2_3.png","graphics/stunt/castle2_4.png","graphics/stunt/castle2_5.png","graphics/stunt/castle2_6.png","graphics/stunt/castle2_7.png","graphics/stunt/castle2_8.png","graphics/stunt/castle2_9.png","graphics/stunt/castle2_10.png"};
 			PicturePlayer pic2 = new PicturePlayer(pictures2, true, 40);
 			pic2.panelPlay(2, 215, g, this, 0);
+		}
+		if((DataBase.pass == 3)&&(DataBase.isPause==false)&&(isTech_9)){
+			String[] pictures3 = {"graphics/stunt/secastle1.png","graphics/stunt/secastle2.png","graphics/stunt/secastle3.png","graphics/stunt/secastle4.png","graphics/stunt/secastle5.png","graphics/stunt/secastle6.png","graphics/stunt/secastle7.png","graphics/stunt/secastle8.png","graphics/stunt/secastle9.png","graphics/stunt/secastle9.png"};
+			PicturePlayer pic3 = new PicturePlayer(pictures3, true, 40);
+			pic3.panelPlay(0, 150, g, this, 0);
 		}
 		
 		/*
@@ -385,6 +393,7 @@ public class PanelFight extends JPanel implements Runnable{
 				PicturePlayer.time3 = 1000;
 			}
 		}
+		
 		
 	}
 

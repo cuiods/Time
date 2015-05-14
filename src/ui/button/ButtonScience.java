@@ -11,17 +11,7 @@ import javax.swing.JPanel;
 
 import ui.PanelFight;
 import ui.PanelTechInfor;
-import Tech.Tech_STG1_CannonEnable;
-import Tech.Tech_STG2_CastleReinforce;
-import Tech.Tech_STG1_Destroy;
-import Tech.Tech_STG2_Heal;
-import Tech.Tech_STG2_LessTime;
-import Tech.Tech_STG2_MedicEnable;
-import Tech.Tech_STG1_MoneyBoom;
-import Tech.Tech_STG2_TruckReinforce;
-import Tech.Tech_STG3_HydrogenBomb;
-import Tech.Tech_STG3_SecondCastle;
-import Tech.Tech_STG3_SuperComputer;
+import Tech.*;
 import dataBase.DataBase;
 
 public class ButtonScience extends JPanel implements MouseListener{
@@ -145,6 +135,13 @@ public class ButtonScience extends JPanel implements MouseListener{
 				new Tech_STG2_CastleReinforce();
 				PanelFight.isTech_8 = true;
 				DataBase.Money -= DataBase.Tech_CastleReinforce_P;
+			}
+			break;
+		case 9:
+			if(DataBase.Money-DataBase.Tech_Harper_P>=0){
+				new Tech_STG3_Hubble();
+				DataBase.Money-=DataBase.Tech_Harper_P;
+				
 			}
 			break;
 		case 10:

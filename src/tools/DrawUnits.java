@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import ui.PanelFight;
 import units.Cannon;
 import units.Castle;
 import units.Drone;
@@ -29,6 +30,7 @@ import dataBase.DataBase;
 public class DrawUnits {
 	static JPanel panel;
 	static String[] pictures = new String[10];
+	static String pictures6[]={"graphics/stunt/carrier1.png","graphics/stunt/carrier2.png","graphics/stunt/carrier3.png","graphics/stunt/carrier4.png","graphics/stunt/carrier5.png","graphics/stunt/carrier6.png","graphics/stunt/carrier7.png","graphics/stunt/carrier8.png","graphics/stunt/carrier9.png","graphics/stunt/carrier10.png"};
 	public static void draw(Graphics g, JPanel p){
 		     panel = p;
 			/*
@@ -604,6 +606,7 @@ public class DrawUnits {
 					carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
 				}
 			}
+			
 			g.drawImage(carrier,o.getX(), o.getY()+o.ran, 180, 120, panel);
 			break;
 		case 0:
@@ -626,31 +629,33 @@ public class DrawUnits {
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACECARRIER_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+50, o.getY()+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+50, o.getY()+o.ran, 40-lifePercentage, 3, false);
 	    }
    }
     private static void drawSpaceMan(Graphics g,SpaceMan o){
     	switch(o.getKind()){
 		case 1:
-			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
+			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 				}else{
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
 
 				}
+				g.drawImage(spaceman,o.getX(), o.getY()+o.ran,72,112, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
+					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.gif").getImage();
 				}else{
 					spaceman = new ImageIcon("graphics/soldiers/s3/spaceman1.png").getImage();
 				}
+				g.drawImage(spaceman,o.getX()-50, o.getY()+o.ran,160,120, panel);
 			}
-			g.drawImage(spaceman,o.getX(), o.getY()+o.ran, 65,95, panel);
+			
 			break;
 		case 0:
 			Image spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
@@ -695,7 +700,7 @@ public class DrawUnits {
 					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
 				}
 			}
-			g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 1020, 709, panel);
+			g.drawImage(spaceship,o.getX(), o.getY()+o.ran-100, 144,85, panel);
 			break;
 		case 0:
 			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
@@ -710,15 +715,15 @@ public class DrawUnits {
 					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
 				}
 			}
-			g.drawImage(spaceship0,o.getX(), o.getY()+o.ran, 1020, 709, panel);
+			g.drawImage(spaceship0,o.getX(), o.getY()+o.ran,144, 72, panel);
 			break;
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACESHIP_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+80, o.getY()-110+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+80, o.getY()+o.ran-110, 40-lifePercentage, 3, false);
 	    }
     	
 	}
@@ -991,6 +996,12 @@ public class DrawUnits {
 						g.setColor(Color.RED);
 						g.fill3DRect(o.getX()+lifePercent-150, o.getY()+180, 40-lifePercent, 3, false);
 				    }
+					//if secondcastle die,its effects will not draw
+					if(o.attacking){
+						PanelFight.isTech_9=true;
+					}else{
+						PanelFight.isTech_9=false;
+					}
 				}
 				break;
 			   
