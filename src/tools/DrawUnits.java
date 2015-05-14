@@ -587,10 +587,10 @@ public class DrawUnits {
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.HYDROGENBOMB_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+50, o.getY()-10+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+50, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 	    }
 	}
     private static void drawSpaceCarrier(Graphics g,SpaceCarrier o){
@@ -681,10 +681,10 @@ public class DrawUnits {
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACEMAN_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+10+(1-o.getKind())*70, o.getY()-10+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+10+(1-o.getKind())*70, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 	    }
 	}
     private static void drawSpaceShip(Graphics g,SpaceShip o){
@@ -709,8 +709,11 @@ public class DrawUnits {
 		case 0:
 			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
 			if(o.moving){
-				
-					spaceship0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+				if(!DataBase.isPause){
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
+				}else{
+					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
+				}
 				
 			}else if(o.attacking){
 				if(!DataBase.isPause){

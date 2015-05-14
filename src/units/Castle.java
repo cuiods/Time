@@ -82,11 +82,23 @@ public class Castle extends Unit implements Runnable, Serializable{
 	}
 	
 	private boolean needAdd(){
-		switch(DataBase.pass){
-		case 1:if(hp+addSpeed<=DataBase.CASTLE_HP_STG1){return true;}break;
-		case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_STG2){return true;}break;
-		case 3:if(hp+addSpeed<=DataBase.CASTLE_HP_STG3){return true;}break;
-		case 4:if(hp+addSpeed<=DataBase.CASTLE_HP_STG4){return true;}break;
+		switch(getKind()){
+		case 1:
+			switch(DataBase.pass){
+			case 1:if(hp+addSpeed<=DataBase.CASTLE_HP_STG1){return true;}break;
+			case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_STG2){return true;}break;
+			case 3:if(hp+addSpeed<=DataBase.CASTLE_HP_STG3){return true;}break;
+			case 4:if(hp+addSpeed<=DataBase.CASTLE_HP_STG4){return true;}break;
+			}
+			break;
+		case 0:
+			switch(DataBase.pass){
+			case 1:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG1){return true;}break;
+			case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG2){return true;}break;
+			case 3:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG3){return true;}break;
+			case 4:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG4){return true;}break;
+			}
+			break;
 		}
 		return false;
 	}
