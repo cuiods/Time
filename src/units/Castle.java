@@ -1,12 +1,13 @@
 package units;
 
+import gamecontrol.Controller;
+
 import java.io.Serializable;
 
 import dataBase.DataBase;
 
 public class Castle extends Unit implements Runnable, Serializable{
 	public int addSpeed = 1;
-	
 	public Castle(){
 		switch(DataBase.pass){
 		case 1:x = DataBase.START_LOC_X_STG1 ;
@@ -15,6 +16,12 @@ public class Castle extends Unit implements Runnable, Serializable{
 		case 2:x = DataBase.START_LOC_X_STG2 ;
 		y = DataBase.START_LOC_Y_STG2 ;
 		hp = DataBase.CASTLE_HP_STG2;break;
+		case 3:x = DataBase.START_LOC_X_STG3;
+		y = DataBase.START_LOC_Y_STG3;
+		hp = DataBase.CASTLE_HP_STG3;break;
+		case 4:x = DataBase.START_LOC_X_STG4;
+		y = DataBase.START_LOC_Y_STG4;
+		hp = DataBase.CASTLE_HP_STG4;break;
 		}
 		setType(100);
 	}
@@ -49,7 +56,22 @@ public class Castle extends Unit implements Runnable, Serializable{
 			if(needAdd()){
 				hp+=addSpeed;
 			}
-			
+			switch(DataBase.pass){
+			case 4:
+				if(Controller.gameframe.fightPanel!=null&&Controller.gameframe.fightPanel.win()==0){
+				    if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
+				    	DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp;
+				    }else{
+				    	DataBase.playerList.get(1).hp = DataBase.playerList.get(0).hp;
+				    }
+				    if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
+				    	DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp;
+				    }else{
+				    	DataBase.enemyList.get(1).hp = DataBase.enemyList.get(0).hp;
+				    }
+				}
+				break;
+			}
 			try {
 				Thread.sleep(500);
 			} catch (Exception e) {
@@ -63,7 +85,8 @@ public class Castle extends Unit implements Runnable, Serializable{
 		switch(DataBase.pass){
 		case 1:if(hp+addSpeed<=DataBase.CASTLE_HP_STG1){return true;}break;
 		case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_STG2){return true;}break;
-		
+		case 3:if(hp+addSpeed<=DataBase.CASTLE_HP_STG3){return true;}break;
+		case 4:if(hp+addSpeed<=DataBase.CASTLE_HP_STG4){return true;}break;
 		}
 		return false;
 	}
