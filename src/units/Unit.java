@@ -6,8 +6,9 @@ import dataBase.DataBase;
 
 public abstract class Unit implements Serializable, Runnable,Comparable<Unit>{
 	protected DataBase db;  //用于引用数据
-	protected int x = 0;
-	protected int y = 0;
+	public int x = 0;
+	public int y = 0;
+	public int path = 0;
 	public int attack = 0;
 	public int attackRange = 0;
 	public int speed = 0;

@@ -133,6 +133,7 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:break;	
 		case 2:begin = 4; end = 9; break;
 		case 3:begin = 9; end = 13;break;
+		case 4:begin = 13; end = 16;break;
 		}
 		//use 'for' to create science button
 		for(int i = begin; i < end; i++){
@@ -153,7 +154,7 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(DataBase.pass){
 		case 1:
 			for(int i = 0; i < 3;i++){
-				butUnit = new ButtonUnit(i);
+				butUnit = new ButtonUnit(i,0);
 				butUnit.setBounds(30+i*70, 80, 65, 60);
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
@@ -162,7 +163,7 @@ public class PanelFight extends JPanel implements Runnable{
 		case 2:
 			for(int i = 0; i < 4;i++){
 				//here is i+3,each pass should add a different number
-				butUnit = new ButtonUnit(i+3);
+				butUnit = new ButtonUnit(i+3,0);
 				butUnit.setBounds(30+i*70, 80, 65, 60);
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
@@ -170,7 +171,7 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 3:
 			for(int i =0; i<4;i++){
-				butUnit = new ButtonUnit(i+8);
+				butUnit = new ButtonUnit(i+8,0);
 				butUnit.setBounds(30+i*70, 80, 65, 60);
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
@@ -178,8 +179,14 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 4:
 			for(int i =0; i<4;i++){
-				butUnit = new ButtonUnit(i+12);
+				butUnit = new ButtonUnit(i+12,0);
 				butUnit.setBounds(30+i*70, 80, 65, 60);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
+			for(int i =0; i<4;i++){
+				butUnit = new ButtonUnit(i+12,1);
+				butUnit.setBounds(30+i*70, 280, 65, 60);
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
 			}
@@ -451,22 +458,33 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.enemyList.add(enemycastle1);
 			break;
 		case 4:
-			Castle mycastle4 = new Castle();
-			mycastle4.setKind(1);
-			mycastle4.setHp(DataBase.CASTLE_HP_STG4);
-			Thread cp14 = new Thread(mycastle4);
+			Castle mycastle4_1 = new Castle();
+			mycastle4_1.setKind(1);
+			mycastle4_1.setHp(DataBase.CASTLE_HP_STG4);
+			Thread cp14 = new Thread(mycastle4_1);
 			cp14.start();
-			DataBase.playerList.add(mycastle4);
+			DataBase.playerList.add(mycastle4_1);
+			Castle mycastle4_2 = new Castle();
+			mycastle4_2.setKind(1);
+			mycastle4_2.setY(DataBase.START_LOC_Y_STG4+200);
+			mycastle4_2.setHp(DataBase.CASTLE_HP_STG4);
+			DataBase.playerList.add(mycastle4_1);
 			
 			
-			Castle enemycastle2 = new Castle();
-			enemycastle2.setKind(0);
-			enemycastle2.setX(DataBase.START_LOC_X_ENM_STG4);
-			enemycastle2.setY(DataBase.START_LOC_Y_ENM_STG4);
-			enemycastle2.setHp(DataBase.CASTLE_HP_ENM_STG4);
-			Thread cp24 = new Thread(enemycastle2);
-			cp24.start();
-			DataBase.enemyList.add(enemycastle2);
+			Castle enemycastle4_1 = new Castle();
+			enemycastle4_1.setKind(0);
+			enemycastle4_1.setX(DataBase.START_LOC_X_ENM_STG4);
+			enemycastle4_1.setY(DataBase.START_LOC_Y_ENM_STG4);
+			enemycastle4_1.setHp(DataBase.CASTLE_HP_ENM_STG4);
+			Castle enemycastle4_2 = new Castle();
+			enemycastle4_2.setKind(0);
+			enemycastle4_2.setX(DataBase.START_LOC_X_ENM_STG4);
+			enemycastle4_2.setY(DataBase.START_LOC_Y_ENM_STG4+200);
+			enemycastle4_2.setHp(DataBase.CASTLE_HP_ENM_STG4);
+			Thread cp44 = new Thread(enemycastle4_1);
+			cp44.start();
+			DataBase.enemyList.add(enemycastle4_1);
+			DataBase.enemyList.add(enemycastle4_2);
 			break;
 		}
 	}
@@ -515,7 +533,7 @@ public class PanelFight extends JPanel implements Runnable{
 	 * whether win or lose
 	 * @return 1 if win; -1 if lose ; 0 neither
 	 */
-	private int win(){
+	public int win(){
 		//remember:castle will be added first, so it's index must be 0
 		//however,if there are two paths, you may need two castles share one life
 		switch(DataBase.pass){

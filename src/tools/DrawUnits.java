@@ -25,6 +25,7 @@ import units.SpaceMan;
 import units.SpaceShip;
 import units.SwordMan;
 import units.Truck;
+import Tech.Object_BlackHole;
 import dataBase.DataBase;
 
 public class DrawUnits {
@@ -87,6 +88,9 @@ public class DrawUnits {
 					break;
 				case 15:
 					drawSneaker(g, (Sneaker) DataBase.playerList.get(i));
+					break;
+				case 102:
+					drawBlackHole(g, (Object_BlackHole) DataBase.playerList.get(i));
 					break;
 				default:
 					drawCastle(g, (Castle) DataBase.playerList.get(i));
@@ -911,6 +915,26 @@ public class DrawUnits {
 			g.setColor(Color.RED);
 			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 	    }
+    }
+    /**
+     * draw black hole
+     */
+    private static void drawBlackHole(Graphics g,Object_BlackHole o){
+    	Image hole = new ImageIcon("graphics/soldiers/s4/blackhole.png").getImage();
+		if(o.moving){
+			if(!DataBase.isPause){
+				hole = new ImageIcon("graphics/soldiers/s4/blackhole.png").getImage();
+			}else{
+				hole = new ImageIcon("graphics/soldiers/s4/blackhole.png").getImage();
+			}
+		}else if(o.attacking){
+			if(!DataBase.isPause){
+				hole = new ImageIcon("graphics/soldiers/s4/blackhole.png").getImage();
+			}else{
+				hole = new ImageIcon("graphics/soldiers/s4/blackhole.png").getImage();
+			}
+		}
+		g.drawImage(hole,o.getX(), o.getY()+o.ran, 200, 200, panel);
     }
     /**
 	 * draw castle

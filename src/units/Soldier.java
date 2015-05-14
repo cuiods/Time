@@ -133,12 +133,10 @@ public abstract class Soldier extends Unit{
 	    			break;
 	    		case 4:
 	    			if(this.getKind()==1){
-			    		x+=DataBase.PATH_AGLX_STG1*spd;
-			    		y+=DataBase.PATH_AGLY_STG1*spd;
+			    		x+=spd;
 			    		}
 			    		else{
-			    			x+=DataBase.PATH_AGLX_ENM*spd;
-			    			y+=DataBase.PATH_AGLY_ENM*spd;
+			    			x+=spd;
 			    		}
 	    			break;
 	    		}
