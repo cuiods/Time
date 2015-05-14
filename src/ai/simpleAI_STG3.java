@@ -98,8 +98,8 @@ public class simpleAI_STG3 extends AI implements Runnable{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addSpaceMan();
-		while(!DataBase.isPause&&DataBase.pass==2){
+		AIC.addSpaceShip();
+		while(!DataBase.isPause&&DataBase.pass==3){
 			detect();
 		}
 
