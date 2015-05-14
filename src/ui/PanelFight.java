@@ -132,6 +132,7 @@ public class PanelFight extends JPanel implements Runnable{
 		case 1:break;	
 		case 2:begin = 4; end = 9; break;
 		case 3:begin = 9; end = 13;break;
+		case 4:begin = 13; end = 16;break;
 		}
 		//use 'for' to create science button
 		for(int i = begin; i < end; i++){

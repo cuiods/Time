@@ -22,6 +22,9 @@ import Tech.Tech_STG2_TruckReinforce;
 import Tech.Tech_STG3_HydrogenBomb;
 import Tech.Tech_STG3_SecondCastle;
 import Tech.Tech_STG3_SuperComputer;
+import Tech.Tech_STG4_BlackHoleProject;
+import Tech.Tech_STG4_Faith;
+import Tech.Tech_STG4_FourthTechRevolution;
 import dataBase.DataBase;
 
 public class ButtonScience extends JPanel implements MouseListener{
@@ -42,6 +45,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 1:this.setBounds(410+(kind-1)*70, 80, 60, 60);break;
 		case 2:this.setBounds(410+(kind-4)*70, 80, 60, 60);break;
 		case 3:this.setBounds(410+(kind-9)*70, 80, 60, 60);break;
+		case 4:this.setBounds(410+(kind-13)*70, 80, 60, 60);break;
 		}
 	}
 	
@@ -165,7 +169,29 @@ public class ButtonScience extends JPanel implements MouseListener{
 				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
 			}
 	
-			break;	
+			break;
+			/**
+			 * WARNING :I don't know the price!!
+			 */
+		case 15:
+			if(!DataBase.Tech_BlackHoleProject&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG4_BlackHoleProject();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+			break;
+		case 13:
+			if(!DataBase.Tech_Faith&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG4_Faith();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+			break;
+		case 14:
+			if(!DataBase.Tech_FourthTechRevolution&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG4_FourthTechRevolution();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+			break;
+			
 		}
 	}
 

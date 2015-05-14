@@ -12,7 +12,7 @@ public class Object_BlackHole extends Soldier{
 		hp = 100000000;
 		attack = 10000000;
 		attackRange = 300;
-		this.setType(101);
+		this.setType(102);
 	}
 	@Override
 	public void run() {
