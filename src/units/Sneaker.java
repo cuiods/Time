@@ -4,8 +4,8 @@ import tools.Time;
 import dataBase.DataBase;
 
 public class Sneaker extends Soldier implements Runnable{
-	Time tm;
-	public boolean invisible = false;
+	private Time tm;
+	private boolean invisible = false;
 	public Sneaker(){
 		tm = new Time(DataBase.SNEAKER_TIMELIMIT);
 		x = DataBase.START_LOC_X_STG4;
@@ -18,7 +18,7 @@ public class Sneaker extends Soldier implements Runnable{
 	}
 	@Override
 	public boolean canAttack(){
-		if(tm.getRemainTime()>=0){
+		if(this.tm.getRemainTime()>=0){
 			this.invisible = true;
 			return false;
 		}
@@ -30,6 +30,7 @@ public class Sneaker extends Soldier implements Runnable{
 	@Override
 	public void run() {
 		while(true){
+			System.out.println(invisible);
 			if(this.hp<=0){
 				//	this.die();
 				}
