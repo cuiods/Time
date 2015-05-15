@@ -25,6 +25,7 @@ import units.SpaceMan;
 import units.SpaceShip;
 import units.SwordMan;
 import units.Truck;
+import units.Unit;
 import Tech.Object_BlackHole;
 import dataBase.DataBase;
 
@@ -804,14 +805,22 @@ public class DrawUnits {
 				}else{
 					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
 				}
+				g.drawImage(ship,o.getX(), o.getY()+o.ran, 200, 94, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+					g.setColor(Color.red);
+					Unit e = DataBase.enemyList.get(o.detect());
+					g.drawLine(o.x+64, o.y+o.ran+31, e.x+25, e.y+30);
+					g.drawImage(ship,o.getX(), o.getY()+o.ran, 200, 94, panel);
+					g.drawLine(o.x+65, o.y+o.ran+32, e.x+25, e.y+30);
+					g.drawLine(o.x+66, o.y+o.ran+33, e.x+25, e.y+30);
+					g.drawImage(new ImageIcon("graphics/soldiers/s4/razerattac.gif").getImage(),o.getX()+50, o.getY()+o.ran+16, 30, 30, panel);
 				}else{
 					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+					g.drawImage(ship,o.getX(), o.getY()+o.ran, 200, 94, panel);
 				}
 			}
-			g.drawImage(ship,o.getX(), o.getY()+o.ran, 200, 94, panel);
 			break;
 		case 0:
 			Image ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();
@@ -829,12 +838,12 @@ public class DrawUnits {
 			g.drawImage(ship1,o.getX(), o.getY()+o.ran, 200, 94, panel);
 			break;
     	}
-    	int lifePercentage = (int)(200 * 1.0*(o.getHp()*1.00/DataBase.RAZERSHIP_HP));
+    	int lifePercentage = (int)(160 * 1.0*(o.getHp()*1.00/DataBase.RAZERSHIP_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX(), o.getY()-10+o.ran, lifePercentage, 3, false);
-		if(lifePercentage!=200){
+		g.fill3DRect(o.getX()+20, o.getY()+o.ran+5, lifePercentage, 2, false);
+		if(lifePercentage!=160){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 200-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+20, o.getY()+o.ran+5, 160-lifePercentage, 2, false);
 	    }
     }
     /**

@@ -64,14 +64,14 @@ public class DataBase {
 	public static final int INITIAL_MONEY_INCREMENT_STG4 = 8;
 	public static final int CASTLE_HP_STG4 = 2000;
 	public static final int START_LOC_X_STG4 = 50;
-	public static final int START_LOC_Y_STG4 = 150;
+	public static final int START_LOC_Y_STG4 = 160;
 	public static final int BLACKHOLE_LOC_X_STG4 = 150;
 	public static final int BLACKHOLE_LOC_Y_STG4 = 450;
 	public static final int BLACKHOLE_TIMELIMIT = 20;
 
 	public static final int CASTLE_HP_ENM_STG4 = 1000;
 	public static final int START_LOC_X_ENM_STG4 = 950;
-	public static final int START_LOC_Y_ENM_STG4 = 150;
+	public static final int START_LOC_Y_ENM_STG4 = 160;
 
 	//Parameters for stage5
 	public static final int INITIAL_MONEY_STG5 = 100000;

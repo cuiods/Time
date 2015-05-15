@@ -186,7 +186,7 @@ public class PanelFight extends JPanel implements Runnable{
 			}
 			for(int i =0; i<4;i++){
 				butUnit = new ButtonUnit(i+12,1);
-				butUnit.setBounds(30+i*70, 280, 65, 60);
+				butUnit.setBounds(30+i*70, 320, 65, 60);
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
 			}
@@ -467,7 +467,7 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.playerList.add(mycastle4_1);
 			Castle mycastle4_2 = new Castle();
 			mycastle4_2.setKind(1);
-			mycastle4_2.setY(DataBase.START_LOC_Y_STG4+200);
+			mycastle4_2.setY(DataBase.START_LOC_Y_STG4+240);
 			mycastle4_2.setHp(DataBase.CASTLE_HP_STG4);
 			DataBase.playerList.add(mycastle4_1);
 			
@@ -480,7 +480,7 @@ public class PanelFight extends JPanel implements Runnable{
 			Castle enemycastle4_2 = new Castle();
 			enemycastle4_2.setKind(0);
 			enemycastle4_2.setX(DataBase.START_LOC_X_ENM_STG4);
-			enemycastle4_2.setY(DataBase.START_LOC_Y_ENM_STG4+200);
+			enemycastle4_2.setY(DataBase.START_LOC_Y_ENM_STG4+240);
 			enemycastle4_2.setHp(DataBase.CASTLE_HP_ENM_STG4);
 			Thread cp44 = new Thread(enemycastle4_1);
 			cp44.start();

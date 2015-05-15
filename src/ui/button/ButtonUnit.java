@@ -140,7 +140,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Sneaker sneaker = new Sneaker();
 		sneaker.setKind(1);
 		sneaker.path = path;
-		sneaker.y += 200*path;
+		sneaker.y += 240*path;
 		
 		DataBase.playerList.add(sneaker);
 		
@@ -157,7 +157,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		RobotWarrior robot = new RobotWarrior();
 		robot.setKind(1);
 		robot.path = path;
-		robot.y += 200*path;
+		robot.y += 240*path;
 		
 		DataBase.playerList.add(robot);
 		
@@ -174,7 +174,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		RazerShip ship = new RazerShip();
 		ship.setKind(1);
 		ship.path = path;
-		ship.y += 200*path;
+		ship.y += 240*path;
 		
 		DataBase.playerList.add(ship);
 		
@@ -191,7 +191,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Drone drone = new Drone();
 		drone.setKind(1);
 		drone.path = path;
-		drone.y += 200*path;
+		drone.y += 240*path;
 		
 		DataBase.playerList.add(drone);
 		
@@ -209,7 +209,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		SpaceShip spaceship = new SpaceShip();
 		spaceship.setKind(1);
 		spaceship.path = path;
-		spaceship.y += 200*path;
+		spaceship.y += 240*path;
 			
 		DataBase.playerList.add(spaceship);
 				
@@ -227,7 +227,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		SpaceMan spaceman = new SpaceMan();
 		spaceman.setKind(1);
 		spaceman.path = path;
-		spaceman.y += 200*path;
+		spaceman.y += 240*path;
 			
 		DataBase.playerList.add(spaceman);
 				
@@ -246,7 +246,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		SpaceCarrier spacecarrier = new SpaceCarrier();
 		spacecarrier.setKind(1);
 		spacecarrier.path = path;
-		spacecarrier.y += 200*path;
+		spacecarrier.y += 240*path;
 			
 		DataBase.playerList.add(spacecarrier);
 				
@@ -265,7 +265,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		HydrogenBomb bomb = new HydrogenBomb();
 		bomb.setKind(1);
 		bomb.path = path;
-		bomb.y += 200*path;
+		bomb.y += 240*path;
 			
 		DataBase.playerList.add(bomb);
 				
@@ -286,7 +286,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		//set kind, enemy don't need to do this
 		cannon.setKind(1);
 		cannon.path = path;
-		cannon.y += 200*path;
+		cannon.y += 240*path;
 		//add  to list 
 		DataBase.playerList.add(cannon);
 		//start thread
@@ -303,7 +303,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Gunner gunner = new Gunner();
 		gunner.setKind(1);
 		gunner.path = path;
-		gunner.y += 200*path;
+		gunner.y += 240*path;
 		DataBase.playerList.add(gunner);
 		//start thread
 		Thread st = new Thread(gunner);
@@ -321,7 +321,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		// set player
 		swordman.setKind(1);
 		swordman.path = path;
-		swordman.y += 200*path;
+		swordman.y += 240*path;
 		// add to player list
 		DataBase.playerList.add(swordman);
 		
@@ -344,7 +344,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		// set player
 		medic.setKind(1);
 		medic.path = path;
-		medic.y += 200*path;
+		medic.y += 240*path;
 		// add to player list
 		DataBase.playerList.add(medic);
 						
@@ -366,7 +366,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		// set player
 		sniper.setKind(1);
 		sniper.path = path;
-		sniper.y += 200*path;
+		sniper.y += 240*path;
 		// add to player list
 		DataBase.playerList.add(sniper);
 				
@@ -386,7 +386,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		// set player
 		truck.setKind(1);
 		truck.path= path;
-		truck.y += 200*path;
+		truck.y += 240*path;
 		// add to player list
 		DataBase.playerList.add(truck);
 		if(DataBase.Tech_TruckReinforce){
@@ -408,7 +408,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		// set player
 		rifle.setKind(1);
 		rifle.path = path;
-		rifle.y += 200*path;
+		rifle.y += 240*path;
 		// add to player list
 		DataBase.playerList.add(rifle);
 						

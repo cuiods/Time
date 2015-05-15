@@ -5,7 +5,7 @@ import dataBase.DataBase;
 
 public class Sneaker extends Soldier implements Runnable{
 	private Time tm;
-	private boolean invisible = false;
+	public boolean invisible = false;
 	public Sneaker(){
 		tm = new Time(DataBase.SNEAKER_TIMELIMIT);
 		x = DataBase.START_LOC_X_STG4;

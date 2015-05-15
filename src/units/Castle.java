@@ -58,17 +58,19 @@ public class Castle extends Unit implements Runnable, Serializable{
 			}
 			switch(DataBase.pass){
 			case 4:
-				if(Controller.gameframe.fightPanel!=null&&Controller.gameframe.fightPanel.win()==0){
-				    if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
-				    	DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp;
-				    }else{
-				    	DataBase.playerList.get(1).hp = DataBase.playerList.get(0).hp;
-				    }
-				    if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
-				    	DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp;
-				    }else{
-				    	DataBase.enemyList.get(1).hp = DataBase.enemyList.get(0).hp;
-				    }
+				synchronized (this) {
+					if(Controller.gameframe.fightPanel!=null&&Controller.gameframe.fightPanel.win()==0){
+					    if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
+					    	DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp;
+					    }else{
+					    	DataBase.playerList.get(1).hp = DataBase.playerList.get(0).hp;
+					    }
+					    if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
+					    	DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp;
+					    }else{
+					    	DataBase.enemyList.get(1).hp = DataBase.enemyList.get(0).hp;
+					    }
+					}
 				}
 				break;
 			}
