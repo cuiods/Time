@@ -36,7 +36,6 @@ public class Sneaker extends Soldier implements Runnable{
 	@Override
 	public void run() {
 		while(true){
-			System.out.println(invisible);
 			if(this.hp<=0){
 				//	this.die();
 				}

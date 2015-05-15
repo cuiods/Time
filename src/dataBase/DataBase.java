@@ -51,7 +51,7 @@ public class DataBase {
 	public static final int START_LOC_X_STG3 = 50;
 	public static final int START_LOC_Y_STG3 = 500;
 	public static final int SECONDCASTLE_LOC_X_STG3 = 150;
-	public static final int SECONDCASTLE_LOC_Y_STG3 = 200;
+	public static final int SECONDCASTLE_LOC_Y_STG3 = 400;
 
 	public static final int CASTLE_HP_ENM_STG3 = 1000;
 	public static final int START_LOC_X_ENM_STG3 = 750;
@@ -191,6 +191,7 @@ public class DataBase {
 	public static final int HYDROGENBOMB_HP = 1000;
 	public static final int HYDROGENBOMB_ATK = 200;
 	public static final int HYDROGENBOMB_AR = 300;
+	public static final int HYDROGENBOMB_DR = 100;
 	public static final int HYDROGENBOMB_SPD = 20;
 
 	public static final int SPACEMAN_P = 500;
@@ -200,10 +201,10 @@ public class DataBase {
 	public static final int SPACEMAN_SPD = 4;
 
 	public static final int SPACECARRIER_P = 3000;
-	public static final int SPACECARRIER_HP = 300;
+	public static final int SPACECARRIER_HP = 100;
 	public static final int SPACECARRIER_ATK = 2;
 	public static final int SPACECARRIER_AR = 60;
-	public static final int SPACECARRIER_SPD = 4;
+	public static final int SPACECARRIER_SPD = 2;
 
 	public static final int SPACESHIP_P = 1000;
 	public static final int SPACESHIP_HP = 21;

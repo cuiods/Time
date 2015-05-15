@@ -5,7 +5,7 @@ import dataBase.DataBase;
 
 public class simpleAI_STG3 extends AI implements Runnable{
 
-	double AutoAtkRate = 0.6;
+	double AutoAtkRate = 0.9;
 	AIcommander AIC = new AIcommander();
 	public simpleAI_STG3(){
 	}
@@ -49,7 +49,6 @@ public class simpleAI_STG3 extends AI implements Runnable{
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
-				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
 			AIC.addSpaceShip();
@@ -68,6 +67,7 @@ public class simpleAI_STG3 extends AI implements Runnable{
 			AIC.addSpaceShip();
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4){
 			AIC.LockScience();
+			System.out.println("LockScience");
 			AIC.addSpaceShip();
 			try {
 				Thread.sleep(500);

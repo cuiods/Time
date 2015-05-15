@@ -1047,13 +1047,13 @@ public class DrawUnits {
 			switch(DataBase.pass){
 			case 3:
 				if(DataBase.Tech_SecondCastle){
-					g.drawImage(new ImageIcon("graphics/soldiers/s3/spacestation.png").getImage(),o.getX()-150, o.getY()+200, 300, 200, panel);
+					g.drawImage(new ImageIcon("graphics/soldiers/s3/spacestation.png").getImage(),o.getX()-150, o.getY()-100, 300, 200, panel);
 					lifePercent = (int)(200*(o.getHp()*1.0/DataBase.SECONDCASTLE_HP));
 					g.setColor(Color.GREEN);
-					g.fill3DRect(o.getX()-150, o.getY()+180, lifePercent, 3, false);
+					g.fill3DRect(o.getX()-150, o.getY()-120, lifePercent, 3, false);
 					if(lifePercent!=200){
 						g.setColor(Color.RED);
-						g.fill3DRect(o.getX()+lifePercent-150, o.getY()+180, 40-lifePercent, 3, false);
+						g.fill3DRect(o.getX()+lifePercent-150, o.getY()-120, 40-lifePercent, 3, false);
 				    }
 	
 					if(o.attacking)
