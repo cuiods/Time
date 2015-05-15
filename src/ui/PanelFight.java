@@ -104,12 +104,12 @@ public class PanelFight extends JPanel implements Runnable{
 		pause = new ButtonPause();
 		pause.addMouseListener(pause);
 		//'x' button to exit game
-		butExit = new ButtonExit();
-		butExit.type = 1;
-		butExit.setBounds(960, 10, 30, 30);
-		butExit.addMouseListener(butExit);
+//		butExit = new ButtonExit();
+//		butExit.type = 1;
+//		butExit.setBounds(960, 10, 30, 30);
+//		butExit.addMouseListener(butExit);
 		//add to fight panel
-		this.add(butExit);
+//		this.add(butExit);
 		this.add(gameSet);
 		this.add(pause);
 		
@@ -191,6 +191,25 @@ public class PanelFight extends JPanel implements Runnable{
 				this.add(butUnit);
 			}
 			break;
+		case 5:
+			for(int i =0; i<4;i++){
+				butUnit = new ButtonUnit(i+12,0);
+				butUnit.setBounds(30+i*60, 80, 55, 52);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
+			for(int i =0; i<4;i++){
+				butUnit = new ButtonUnit(i+12,1);
+				butUnit.setBounds(30+i*60, 245, 55, 52);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
+			for(int i =0; i<4;i++){
+				butUnit = new ButtonUnit(i+12,2);
+				butUnit.setBounds(30+i*60, 410, 55, 52);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
 		}
 	}
 	

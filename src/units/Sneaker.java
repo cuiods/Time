@@ -8,8 +8,14 @@ public class Sneaker extends Soldier implements Runnable{
 	public boolean invisible = false;
 	public Sneaker(){
 		tm = new Time(DataBase.SNEAKER_TIMELIMIT);
-		x = DataBase.START_LOC_X_STG4;
-		y = DataBase.START_LOC_Y_STG4;
+		switch(DataBase.pass){
+		case 4:
+			x = DataBase.START_LOC_X_STG4;
+			y = DataBase.START_LOC_Y_STG4;break;
+		case 5:
+			x = DataBase.START_LOC_X_STG5;
+			y = DataBase.START_LOC_Y_STG5;break;
+		}
 	    hp=DataBase.SNEAKER_HP;
 	    attack = DataBase.SNEAKER_ATK;
 		attackRange = DataBase.SNEAKER_AR;

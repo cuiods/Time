@@ -78,12 +78,12 @@ public class DataBase {
 	public static final int INITIAL_MONEY_INCREMENT_STG5 = 8;
 	public static final int CASTLE_HP_STG5 = 2000;
 	public static final int START_LOC_X_STG5 = 50;
-	public static final int START_LOC_Y_STG5 = 500;
+	public static final int START_LOC_Y_STG5 = 145;
 	public static final int SNEAKER_TIMELIMIT = 10;
 
 	public static final int CASTLE_HP_ENM_STG5 = 1000;
 	public static final int START_LOC_X_ENM_STG5 = 950;
-	public static final int START_LOC_Y_ENM_STG5 = 50;
+	public static final int START_LOC_Y_ENM_STG5 = 145;
 	//General parameters for the game
 	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
 	public static int Money_Increment = 2;

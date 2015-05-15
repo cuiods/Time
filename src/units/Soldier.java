@@ -144,6 +144,7 @@ public abstract class Soldier extends Unit{
 			    	}
 	    			break;
 	    		case 4:
+	    		case 5:
 	    			if(this.getKind()==1){
 			    		x+=spd;
 			    		}

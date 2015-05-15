@@ -18,7 +18,7 @@ public class ButtonGameSet extends JPanel implements MouseListener {
 	static PanelGameSet gameSetPanel = null;
 	private boolean isIn = false;
 	public ButtonGameSet() {
-		this.setBounds(920,520, 60, 70);
+		this.setBounds(920,5, 60, 70);
 	}
 	
 	@Override
