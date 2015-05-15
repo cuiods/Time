@@ -102,6 +102,7 @@ public class DataBase {
 	//Tech for stage3
 	public static boolean Tech_SecondCastle = false;
 	public static boolean Tech_Harper = false;
+	public static int Tech_Harper_TIME=0;
 	public static boolean Tech_SuperComputer = false;
 	public static boolean Tech_HydrogenBomb = false;
 	//Tech for stage4

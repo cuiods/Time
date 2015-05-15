@@ -138,10 +138,10 @@ public class ButtonScience extends JPanel implements MouseListener{
 			}
 			break;
 		case 9:
-			if(DataBase.Money-DataBase.Tech_Harper_P>=0){
+			if((DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)){
 				new Tech_STG3_Hubble();
 				DataBase.Money-=DataBase.Tech_Harper_P;
-				
+				DataBase.Tech_Harper_TIME++;
 			}
 			break;
 		case 10:

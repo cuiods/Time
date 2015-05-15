@@ -37,6 +37,8 @@ public class DrawUnits {
 			/*
 			 * draw player units
 			 */
+
+			
 			for(int i = 0;i < DataBase.playerList.size();i++){
 				switch(DataBase.playerList.get(i).getType()){
 				case 0:
@@ -149,6 +151,13 @@ public class DrawUnits {
 					break;
 				}
 			}
+			//draw shadow  410 230
+			if(DataBase.pass==3){
+				if(DataBase.Tech_Harper_TIME==0){
+				   g.drawImage(new ImageIcon("graphics/background/shadow1.png").getImage(),0, 0,1000, 600, null);
+				}else if(DataBase.Tech_Harper_TIME==1)	
+				   g.drawImage(new ImageIcon("graphics/background/shadow2.png").getImage(),0, 0,1000, 600, null);
+				}
 		}
 
 	/**

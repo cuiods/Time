@@ -123,13 +123,25 @@ public abstract class Soldier extends Unit{
 		    		break;
 	    		case 3:
 	    			if(this.getKind()==1){
-			    		x+=DataBase.PATH_AGLX_STG1*spd;
-			    		y+=DataBase.PATH_AGLY_STG1*spd;
-			    		}
-			    		else{
-			    			x+=DataBase.PATH_AGLX_ENM*spd;
-			        		y+=DataBase.PATH_AGLY_ENM*spd;
-			    		}
+	    				if(DataBase.Tech_Harper_TIME==0){
+	    					// 410 230
+		    				if(x<=450){
+		    					x+=DataBase.PATH_AGLX_STG1*spd;
+					    		y+=DataBase.PATH_AGLY_STG1*spd;
+					    	}
+		    			}else if(DataBase.Tech_Harper_TIME==1){
+		    				if(x<=620){
+		    					x+=DataBase.PATH_AGLX_STG1*spd;
+					    		y+=DataBase.PATH_AGLY_STG1*spd;
+		    				}
+		    			}else{
+		    				x+=DataBase.PATH_AGLX_STG1*spd;
+				    		y+=DataBase.PATH_AGLY_STG1*spd;
+		    			}
+	    			}else{
+			    		x+=DataBase.PATH_AGLX_ENM*spd;
+			        	y+=DataBase.PATH_AGLY_ENM*spd;
+			    	}
 	    			break;
 	    		case 4:
 	    			if(this.getKind()==1){

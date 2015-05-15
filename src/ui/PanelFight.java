@@ -299,6 +299,7 @@ public class PanelFight extends JPanel implements Runnable{
 		g.drawString(DataBase.Money+"", 450, 65);
 	}
 	
+	
 	/**
 	 * draw special effects
 	 * @param graphics g
