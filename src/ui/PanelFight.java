@@ -367,11 +367,7 @@ public class PanelFight extends JPanel implements Runnable{
 			PicturePlayer pic2 = new PicturePlayer(pictures2, true, 40);
 			pic2.panelPlay(2, 215, g, this, 0);
 		}
-		if((DataBase.pass == 3)&&(DataBase.isPause==false)&&(isTech_9)){
-			String[] pictures3 = {"graphics/stunt/secastle1.png","graphics/stunt/secastle2.png","graphics/stunt/secastle3.png","graphics/stunt/secastle4.png","graphics/stunt/secastle5.png","graphics/stunt/secastle6.png","graphics/stunt/secastle7.png","graphics/stunt/secastle8.png","graphics/stunt/secastle9.png","graphics/stunt/secastle9.png"};
-			PicturePlayer pic3 = new PicturePlayer(pictures3, true, 40);
-			pic3.panelPlay(0, 150, g, this, 0);
-		}
+	
 		
 		/*
 		 * draw pass2 tech6 effects
@@ -575,9 +571,11 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 3:
 			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+				DataBase.Tech_Harper_TIME=0;
 				return -1;
 			}
 			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
+				DataBase.Tech_Harper_TIME=0;
 				return 1;
 			}
 			break;

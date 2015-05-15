@@ -1055,12 +1055,10 @@ public class DrawUnits {
 						g.setColor(Color.RED);
 						g.fill3DRect(o.getX()+lifePercent-150, o.getY()+180, 40-lifePercent, 3, false);
 				    }
-					//if secondcastle die,its effects will not draw
-					if(o.attacking){
-						PanelFight.isTech_9=true;
-					}else{
-						PanelFight.isTech_9=false;
-					}
+	
+					if(o.attacking)
+						g.drawImage(new ImageIcon("graphics/stunt/secastle.gif").getImage(), -50, 130, panel);
+					
 				}
 				break;
 			   
