@@ -1010,6 +1010,15 @@ public class DrawUnits {
 					g.fill3DRect(625+lifePercent4, 32, 200-lifePercent4, 10, false);			
 				}
 				break;
+			case 5:
+				int lifePercent5 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG5));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent5, 10, false);
+				if(lifePercent5!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent5, 32, 200-lifePercent5, 10, false);			
+				}
+				break;
 			}
 		}else if(o.getKind() == 1){
 			int lifePercent = 0;
@@ -1028,6 +1037,9 @@ public class DrawUnits {
 				break;
 			case 4:
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG4));
+				break;
+			case 5:
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG5));
 				break;
 			}
 			

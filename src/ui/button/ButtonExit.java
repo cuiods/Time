@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import tools.MusicPlayer;
+import tools.MusicThread;
 import ui.FrameGame;
 import ui.PanelStart;
 import dataBase.DataBase;
@@ -72,13 +73,7 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		try {
-			new MusicPlayer().play("music/effects/clicked.wav", false);
-		} catch (UnsupportedAudioFileException | IOException
-				| LineUnavailableException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		new MusicThread("music/effects/clicked.wav", false).start();
 		if(type == 0 || type == 1){
 			Controller.exitGame();
 		}else if(type == 2){
@@ -107,13 +102,7 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 		}
 		this.repaint();
 		
-		try {
-			new MusicPlayer().play("music/effects/moveIn.wav", false);
-		} catch (UnsupportedAudioFileException | IOException
-				| LineUnavailableException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		new MusicThread("music/effects/moveIn.wav", false).start();
 		
 	}
 
