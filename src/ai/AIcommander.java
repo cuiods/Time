@@ -98,7 +98,6 @@ public class AIcommander {
 	}
 	public void LockScience(){
 		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
-		System.out.println("LockScience");
 		tech.execute();
 	}
 	public void PhotonStrike(){

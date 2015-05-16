@@ -12,7 +12,7 @@ public class simpleAI_STG3 extends AI implements Runnable{
 	@Override
 	public void detect() {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
@@ -24,12 +24,16 @@ public class simpleAI_STG3 extends AI implements Runnable{
 	public int analyze() {
 		Threat = 0;
 		for(int i=0;i<DataBase.playerList.size();i++){
-			Unit u = DataBase.playerList.get(i); 
+			Unit u = DataBase.playerList.get(i);
+			if(u.getType()!=100&&u.getType()!=101){
 			Threat+=u.getHp()*u.attack;
+			}
 		}
 		for(int i=0;i<DataBase.enemyList.size();i++){
 			Unit u = DataBase.enemyList.get(i); 
-			Threat-=u.getHp()*u.attack;
+			if(u.getType()!=100&&u.getType()!=101){
+				Threat-=u.getHp()*u.attack*1.5;
+				}
 		} 
 		for(int i=0;i<DataBase.playerList.size();i++){
 			Unit u = DataBase.playerList.get(i); 
@@ -99,6 +103,7 @@ public class simpleAI_STG3 extends AI implements Runnable{
 			e.printStackTrace();
 		}
 		AIC.addSpaceShip();
+		AIC.LockScience();
 		while(!DataBase.isPause&&DataBase.pass==3){
 			detect();
 		}
