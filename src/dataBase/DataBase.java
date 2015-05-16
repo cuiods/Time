@@ -57,7 +57,7 @@ public class DataBase {
 	public static final int START_LOC_X_ENM_STG3 = 750;
 	public static final int START_LOC_Y_ENM_STG3 = 100;
 	public static boolean LockScience = false;
-	public static final int LOCKSCIENCE_TIMELIMIT = 30;
+	public static final int LOCKSCIENCE_TIMELIMIT = 30*1000;
 
 	//Parameters for stage4
 	public static final int INITIAL_MONEY_STG4 = 100000;
