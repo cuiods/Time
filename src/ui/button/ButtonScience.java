@@ -39,11 +39,17 @@ public class ButtonScience extends JPanel implements MouseListener{
 	public void paintComponent(Graphics g){
 		//when you name a picture,care for the name, or it can't be shown
 		if(!isIn){
-			g.drawImage(new ImageIcon("graphics/info/tech"+kind+".png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
+			if(DataBase.LockScience){
+				g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_2.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/info/tech"+kind+".png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
+			}
 		}else{
-			
-			g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_1.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
-			
+			if(DataBase.LockScience){
+				g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_2.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_1.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
+			}
 		}
 	}
 
