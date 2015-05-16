@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 import dataBase.DataBase;
 
-public class Castle extends Unit implements Runnable, Serializable{
+public class S_Castle extends S_Unit implements Runnable, Serializable{
 	public int addSpeed = 1;
-	public Castle(){
+	public S_Castle(){
 		switch(DataBase.pass){
 		case 1:x = DataBase.START_LOC_X_STG1 ;
 		y = DataBase.START_LOC_Y_STG1 ;

@@ -2,9 +2,9 @@ package units;
 
 import dataBase.DataBase;
 
-public class SpaceCarrier extends Soldier implements Runnable{
+public class STG3_SpaceCarrier extends S_Soldier implements Runnable{
 	public boolean NotRelease = true;
-	public SpaceCarrier(){
+	public STG3_SpaceCarrier(){
 		x = DataBase.START_LOC_X_STG3;
 		y = DataBase.START_LOC_Y_STG3;
 		hp=DataBase.SPACECARRIER_HP;
@@ -38,7 +38,7 @@ public class SpaceCarrier extends Soldier implements Runnable{
 	}
 	public void Release(){
 		for(int i=0;i<=1;i++){
-			SpaceMan s = new SpaceMan();
+			STG3_SpaceMan s = new STG3_SpaceMan();
 			s.setKind(this.getKind());
 			s.setX(this.getX());
 			s.setY(this.getY());

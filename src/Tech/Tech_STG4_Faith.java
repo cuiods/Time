@@ -1,6 +1,6 @@
 package Tech;
 
-import units.Unit;
+import units.S_Unit;
 import dataBase.DataBase;
 
 public class Tech_STG4_Faith {
@@ -11,7 +11,7 @@ public class Tech_STG4_Faith {
 		}
 	}
 	public void execute(){
-		for(Unit u: DataBase.playerList){
+		for(S_Unit u: DataBase.playerList){
 			u.attack+=1;
 		}
 	}

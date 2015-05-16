@@ -2,8 +2,8 @@ package units;
 
 import dataBase.DataBase;
 
-public class Drone extends Soldier implements Runnable{
-	public Drone(){
+public class STG4_Drone extends S_Soldier implements Runnable{
+	public STG4_Drone(){
 		switch(DataBase.pass){
 		case 4:
 			x = DataBase.START_LOC_X_STG4;

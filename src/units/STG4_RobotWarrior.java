@@ -2,8 +2,8 @@ package units;
 
 import dataBase.DataBase;
 
-public class RobotWarrior extends Soldier implements Runnable{
-	public RobotWarrior(){
+public class STG4_RobotWarrior extends S_Soldier implements Runnable{
+	public STG4_RobotWarrior(){
 		switch(DataBase.pass){
 		case 4:
 			x = DataBase.START_LOC_X_STG4;

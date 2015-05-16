@@ -1,7 +1,7 @@
 package Tech;
 
 import dataBase.DataBase;
-import units.Unit;
+import units.S_Unit;
 
 public class Tech_STG2_Heal {
 	public Tech_STG2_Heal(){
@@ -9,12 +9,12 @@ public class Tech_STG2_Heal {
 		execute();
 	}
 	public void execute(){
-	for(Unit u:DataBase.playerList){
+	for(S_Unit u:DataBase.playerList){
 		if(u.getType()!=100)
 		u.setHp(getFullHP(u));
 	}
 	}
-	public int getFullHP(Unit u){
+	public int getFullHP(S_Unit u){
 		switch(u.getType()){
 		case 0:return DataBase.SWORDMAN_HP;
 		case 1:return DataBase.GUNNER_HP;

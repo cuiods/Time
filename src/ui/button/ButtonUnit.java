@@ -137,7 +137,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 
 
 	private void addSneaker() {
-		Sneaker sneaker = new Sneaker();
+		STG4_Sneaker sneaker = new STG4_Sneaker();
 		sneaker.setKind(1);
 		sneaker.path = path;
 		switch(DataBase.pass){
@@ -157,7 +157,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addRobotWarrior() {
-		RobotWarrior robot = new RobotWarrior();
+		STG4_RobotWarrior robot = new STG4_RobotWarrior();
 		robot.setKind(1);
 		robot.path = path;
 		switch(DataBase.pass){
@@ -177,7 +177,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addRazership() {
-		RazerShip ship = new RazerShip();
+		STG4_RazerShip ship = new STG4_RazerShip();
 		ship.setKind(1);
 		ship.path = path;
 		switch(DataBase.pass){
@@ -197,7 +197,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addDrone() {
-		Drone drone = new Drone();
+		STG4_Drone drone = new STG4_Drone();
 		drone.setKind(1);
 		drone.path = path;
 		switch(DataBase.pass){
@@ -218,7 +218,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 
 	private void addSpaceship() {
 		
-		SpaceShip spaceship = new SpaceShip();
+		STG3_SpaceShip spaceship = new STG3_SpaceShip();
 		spaceship.setKind(1);
 		spaceship.path = path;
 		switch(DataBase.pass){
@@ -239,7 +239,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addSpaceman() {
-		SpaceMan spaceman = new SpaceMan();
+		STG3_SpaceMan spaceman = new STG3_SpaceMan();
 		spaceman.setKind(1);
 		spaceman.path = path;
 		switch(DataBase.pass){
@@ -261,7 +261,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addSpacecarrier() {
-		SpaceCarrier spacecarrier = new SpaceCarrier();
+		STG3_SpaceCarrier spacecarrier = new STG3_SpaceCarrier();
 		spacecarrier.setKind(1);
 		spacecarrier.path = path;
 		switch(DataBase.pass){
@@ -283,7 +283,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addHydrogenBomb() {
-		HydrogenBomb bomb = new HydrogenBomb();
+		STG3_HydrogenBomb bomb = new STG3_HydrogenBomb();
 		bomb.setKind(1);
 		bomb.path = path;
 		switch(DataBase.pass){
@@ -306,7 +306,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 
 	private void addCannon() {
 		//new a unit
-		Cannon cannon = new Cannon();
+		STG1_Cannon cannon = new STG1_Cannon();
 		//set kind, enemy don't need to do this
 		cannon.setKind(1);
 		cannon.path = path;
@@ -327,7 +327,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 	private void addGunner() {
-		Gunner gunner = new Gunner();
+		STG1_Gunner gunner = new STG1_Gunner();
 		gunner.setKind(1);
 		gunner.path = path;
 		switch(DataBase.pass){
@@ -347,7 +347,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 
 	private void addSwordman() {
 		//create sword man
-		SwordMan swordman = new SwordMan();
+		STG1_SwordMan swordman = new STG1_SwordMan();
 		// set player
 		swordman.setKind(1);
 		swordman.path = path;
@@ -370,10 +370,10 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 	
 	private void addMedicTeam(){
-		if(MedicTeam.MedicTeam_Num<=3){
-			MedicTeam.MedicTeam_Num++;
+		if(STG2_MedicTeam.MedicTeam_Num<=3){
+			STG2_MedicTeam.MedicTeam_Num++;
 		//create medic team
-		MedicTeam medic = new MedicTeam();
+		STG2_MedicTeam medic = new STG2_MedicTeam();
 		// set player
 		medic.setKind(1);
 		medic.path = path;
@@ -395,10 +395,10 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 	
 	private void addSniper(){
-		if(Sniper.Sniper_Num<=4){
-			Sniper.Sniper_Num++;
+		if(STG2_Sniper.Sniper_Num<=4){
+			STG2_Sniper.Sniper_Num++;
 		//create sniper
-		Sniper sniper = new Sniper();
+		STG2_Sniper sniper = new STG2_Sniper();
 		// set player
 		sniper.setKind(1);
 		sniper.path = path;
@@ -421,7 +421,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	
 	private void addTruck(){
 		//create truck
-		Truck truck = new Truck();
+		STG2_Truck truck = new STG2_Truck();
 		// set player
 		truck.setKind(1);
 		truck.path= path;
@@ -446,7 +446,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	
 	private void addRifle(){
 		//create rifle
-		Rifle rifle = new Rifle();
+		STG2_Rifle rifle = new STG2_Rifle();
 		// set player
 		rifle.setKind(1);
 		rifle.path = path;

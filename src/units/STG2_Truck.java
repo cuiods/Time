@@ -2,9 +2,9 @@ package units;
 
 import dataBase.DataBase;
 
-public class Truck extends Soldier{
+public class STG2_Truck extends S_Soldier{
 	public boolean NotRelease = true;
-	public Truck(){
+	public STG2_Truck(){
 		x = DataBase.START_LOC_X_STG2;
 		y = DataBase.START_LOC_Y_STG2;
 	    hp=DataBase.TRUCK_HP;
@@ -38,7 +38,7 @@ public class Truck extends Soldier{
 	}
 	public void Release(){
 		for(int i=0;i<=1;i++){
-			Rifle r = new Rifle();
+			STG2_Rifle r = new STG2_Rifle();
 			r.setKind(this.getKind());
 			r.setX(this.getX());
 			r.setY(this.getY());

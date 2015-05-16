@@ -3,12 +3,12 @@ package units;
 import tools.DrawUnits;
 import dataBase.DataBase;
 
-public class HydrogenBomb extends Soldier implements Runnable{
+public class STG3_HydrogenBomb extends S_Soldier implements Runnable{
 	public boolean notAttacked = true;
 	//to bomb when attack
 	public int time=1000;
 	public int detectRange;
-	public HydrogenBomb(){
+	public STG3_HydrogenBomb(){
 		x = DataBase.START_LOC_X_STG3;
 		y = DataBase.START_LOC_Y_STG3;
 		hp=DataBase.HYDROGENBOMB_HP;
@@ -28,7 +28,7 @@ public class HydrogenBomb extends Soldier implements Runnable{
 					this.y,DataBase.enemyList.get(0).getY());
 			for(int i=0;i<DataBase.enemyList.size();i++){
 				synchronized (this) {
-					Unit enemy=DataBase.enemyList.get(i);
+					S_Unit enemy=DataBase.enemyList.get(i);
 					int distance= caldistance(this.x,enemy.getX(),this.y,enemy.getY());
 					//判断是否是当前最小距离
 					if(distance<minidistance){
@@ -103,7 +103,7 @@ public class HydrogenBomb extends Soldier implements Runnable{
 		int dr=0;
 		dr = this.detectRange;
 		//取出距离自己最近的那个敌人
-		Unit ce;
+		S_Unit ce;
 		if(detect()!=-1){
 			ce= DataBase.enemyList.get(detect());			
 			int distance = caldistance(this.x,ce.getX(),this.y,ce.getY());
@@ -123,7 +123,7 @@ public class HydrogenBomb extends Soldier implements Runnable{
 			atk = this.attack;
 		}
 		for(int i=0;i<DataBase.enemyList.size();i++){
-			Unit ce = DataBase.enemyList.get(i);
+			S_Unit ce = DataBase.enemyList.get(i);
 			if(ce.hp>0&&this.hp>0&&caldistance(this.x,this.y,ce.x,ce.y)<=this.attackRange){
 				if(ce.getType()!=100){
 					ce.setHp(0);

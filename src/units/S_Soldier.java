@@ -2,7 +2,7 @@ package units;
 
 import dataBase.DataBase;
 
-public abstract class Soldier extends Unit{
+public abstract class S_Soldier extends S_Unit{
 	public boolean attacking = false;
 	public boolean moving = false;
 	 
@@ -34,7 +34,7 @@ public abstract class Soldier extends Unit{
 					
 						for(int i=0;i<DataBase.enemyList.size();i++){
 							synchronized (this) {
-								Unit enemy=DataBase.enemyList.get(i);
+								S_Unit enemy=DataBase.enemyList.get(i);
 								int distance= caldistance(this.x,enemy.getX(),this.y,enemy.getY());
 								//判断是否是当前最小距离
 								if(distance<minidistance){
@@ -52,7 +52,7 @@ public abstract class Soldier extends Unit{
 					if(DataBase.playerList.size()!=0){
 						int minidistance= caldistance(this.x,DataBase.playerList.get(0).getX(),this.y,DataBase.playerList.get(0).getY());
 						for(int i=0;i<DataBase.playerList.size();i++){
-							Unit player=DataBase.playerList.get(i);
+							S_Unit player=DataBase.playerList.get(i);
 							int distance= caldistance(this.x,player.getX(),this.y,player.getY());
 							//判断是否是当前最小距离
 							if(distance<minidistance){
@@ -166,7 +166,7 @@ public abstract class Soldier extends Unit{
 			int ar=0;
 			ar = this.attackRange;
 			//取出距离自己最近的那个敌人
-			Unit ce;
+			S_Unit ce;
 			if(detect()!=-1){
 				if(this.getKind()==1){
 					 ce= DataBase.enemyList.get(detect());
@@ -192,7 +192,7 @@ public abstract class Soldier extends Unit{
 				atk = this.attack;
 			}
 			//取出可以攻打的对象
-			Unit ce;
+			S_Unit ce;
 			if(this.getKind()==1){
 				ce = DataBase.enemyList.get(detect());
 				if(ce.hp>0&&this.hp>0){

@@ -1,7 +1,7 @@
 package Tech;
 
 import dataBase.DataBase;
-import units.Unit;
+import units.S_Unit;
 
 public class Tech_STG2_CastleReinforce {
 	public Tech_STG2_CastleReinforce(){
@@ -9,7 +9,7 @@ public class Tech_STG2_CastleReinforce {
 		execute();
 	}
 	public void execute(){
-	for(Unit u: DataBase.playerList){
+	for(S_Unit u: DataBase.playerList){
 		if(u.getType()==100){
 			u.setHp(DataBase.CASTLE_HP_STG2);
 		}

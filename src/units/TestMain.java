@@ -5,7 +5,7 @@ import dataBase.DataBase;
 public class TestMain {
 
 	public static void main(String[] args) {
-		SwordMan sm= new SwordMan();
+		STG1_SwordMan sm= new STG1_SwordMan();
         Thread t = new Thread(sm);
         t.start();
 	}

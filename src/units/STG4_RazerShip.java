@@ -2,8 +2,8 @@ package units;
 
 import dataBase.DataBase;
 
-public class RazerShip extends Soldier implements Runnable{
-	public RazerShip(){
+public class STG4_RazerShip extends S_Soldier implements Runnable{
+	public STG4_RazerShip(){
 		switch(DataBase.pass){
 		case 4:
 			x = DataBase.START_LOC_X_STG4;

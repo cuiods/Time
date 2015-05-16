@@ -3,10 +3,10 @@ package units;
 import tools.Time;
 import dataBase.DataBase;
 
-public class Sneaker extends Soldier implements Runnable{
+public class STG4_Sneaker extends S_Soldier implements Runnable{
 	private Time tm;
 	public boolean invisible = false;
-	public Sneaker(){
+	public STG4_Sneaker(){
 		tm = new Time(DataBase.SNEAKER_TIMELIMIT);
 		switch(DataBase.pass){
 		case 4:

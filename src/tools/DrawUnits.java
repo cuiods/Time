@@ -8,24 +8,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import ui.PanelFight;
-import units.Cannon;
-import units.Castle;
-import units.Drone;
-import units.Gunner;
-import units.HydrogenBomb;
-import units.MedicTeam;
-import units.RazerShip;
-import units.Rifle;
-import units.RobotWarrior;
-import units.SecondCastle;
-import units.Sneaker;
-import units.Sniper;
-import units.SpaceCarrier;
-import units.SpaceMan;
-import units.SpaceShip;
-import units.SwordMan;
-import units.Truck;
-import units.Unit;
+import units.STG1_Cannon;
+import units.S_Castle;
+import units.STG4_Drone;
+import units.STG1_Gunner;
+import units.STG3_HydrogenBomb;
+import units.STG2_MedicTeam;
+import units.STG4_RazerShip;
+import units.STG2_Rifle;
+import units.STG4_RobotWarrior;
+import units.STG3_SecondCastle;
+import units.STG4_Sneaker;
+import units.STG2_Sniper;
+import units.STG3_SpaceCarrier;
+import units.STG3_SpaceMan;
+import units.STG3_SpaceShip;
+import units.STG1_SwordMan;
+import units.STG2_Truck;
+import units.S_Unit;
 import Tech.Object_BlackHole;
 import dataBase.DataBase;
 
@@ -43,60 +43,60 @@ public class DrawUnits {
 			for(int i = 0;i < DataBase.playerList.size();i++){
 				switch(DataBase.playerList.get(i).getType()){
 				case 0:
-					drawSwordman(g,(SwordMan)DataBase.playerList.get(i));
+					drawSwordman(g,(STG1_SwordMan)DataBase.playerList.get(i));
 					break;
 				case 1:
-					drawGunner(g,(Gunner)DataBase.playerList.get(i));
+					drawGunner(g,(STG1_Gunner)DataBase.playerList.get(i));
 					break;
 				case 2:
-					drawCannon(g,(Cannon)DataBase.playerList.get(i));
+					drawCannon(g,(STG1_Cannon)DataBase.playerList.get(i));
 					break;
 				case 3:
-					drawMedicTeam(g, (MedicTeam)DataBase.playerList.get(i));
+					drawMedicTeam(g, (STG2_MedicTeam)DataBase.playerList.get(i));
 					break;
 				case 4:
-					drawSniper(g,(Sniper)DataBase.playerList.get(i));
+					drawSniper(g,(STG2_Sniper)DataBase.playerList.get(i));
 					break;
 				case 5:
-					drawTruck(g, (Truck)DataBase.playerList.get(i));
+					drawTruck(g, (STG2_Truck)DataBase.playerList.get(i));
 					break;
 				case 6:
-					drawRifle(g, (Rifle)DataBase.playerList.get(i));
+					drawRifle(g, (STG2_Rifle)DataBase.playerList.get(i));
 					break;
 				case 7:
 					break;
 				case 8:
-					drawHydrogenBomb(g,(HydrogenBomb)DataBase.playerList.get(i));
+					drawHydrogenBomb(g,(STG3_HydrogenBomb)DataBase.playerList.get(i));
 					break;
 				case 9:
-					drawSpaceCarrier(g,(SpaceCarrier)DataBase.playerList.get(i));
+					drawSpaceCarrier(g,(STG3_SpaceCarrier)DataBase.playerList.get(i));
 					break;
 				case 10:
-					drawSpaceMan(g,(SpaceMan)DataBase.playerList.get(i));
+					drawSpaceMan(g,(STG3_SpaceMan)DataBase.playerList.get(i));
 					break;
 				case 11:
-					drawSpaceShip(g,(SpaceShip)DataBase.playerList.get(i));
+					drawSpaceShip(g,(STG3_SpaceShip)DataBase.playerList.get(i));
 					break;
 				case 101:
-					drawSecondCastle(g, (SecondCastle) DataBase.playerList.get(i));
+					drawSecondCastle(g, (STG3_SecondCastle) DataBase.playerList.get(i));
 					break;
 				case 12:
-					drawDrone(g, (Drone) DataBase.playerList.get(i));
+					drawDrone(g, (STG4_Drone) DataBase.playerList.get(i));
 					break;
 				case 13:
-					drawRazerShip(g, (RazerShip) DataBase.playerList.get(i));
+					drawRazerShip(g, (STG4_RazerShip) DataBase.playerList.get(i));
 					break;
 				case 14:
-					drawRobot(g, (RobotWarrior) DataBase.playerList.get(i));
+					drawRobot(g, (STG4_RobotWarrior) DataBase.playerList.get(i));
 					break;
 				case 15:
-					drawSneaker(g, (Sneaker) DataBase.playerList.get(i));
+					drawSneaker(g, (STG4_Sneaker) DataBase.playerList.get(i));
 					break;
 				case 102:
 					drawBlackHole(g, (Object_BlackHole) DataBase.playerList.get(i));
 					break;
 				default:
-					drawCastle(g, (Castle) DataBase.playerList.get(i));
+					drawCastle(g, (S_Castle) DataBase.playerList.get(i));
 					break;
 				}
 			}
@@ -106,49 +106,49 @@ public class DrawUnits {
 			for(int i = 0;i < DataBase.enemyList.size();i++){
 				switch(DataBase.enemyList.get(i).getType()){
 				case 0:
-					drawSwordman(g,(SwordMan)DataBase.enemyList.get(i));
+					drawSwordman(g,(STG1_SwordMan)DataBase.enemyList.get(i));
 					break;
 				case 1:
-					drawGunner(g,(Gunner)DataBase.enemyList.get(i));
+					drawGunner(g,(STG1_Gunner)DataBase.enemyList.get(i));
 					break;
 				case 2:
-					drawCannon(g,(Cannon)DataBase.enemyList.get(i));
+					drawCannon(g,(STG1_Cannon)DataBase.enemyList.get(i));
 					break;
 				case 3:
-					drawMedicTeam(g, (MedicTeam)DataBase.enemyList.get(i));
+					drawMedicTeam(g, (STG2_MedicTeam)DataBase.enemyList.get(i));
 					break;
 				case 4:
-					drawSniper(g,(Sniper)DataBase.enemyList.get(i));
+					drawSniper(g,(STG2_Sniper)DataBase.enemyList.get(i));
 					break;
 				case 5:
-					drawTruck(g, (Truck)DataBase.enemyList.get(i));
+					drawTruck(g, (STG2_Truck)DataBase.enemyList.get(i));
 					break;
 				case 6:
-					drawRifle(g, (Rifle)DataBase.enemyList.get(i));
+					drawRifle(g, (STG2_Rifle)DataBase.enemyList.get(i));
 					break;
 				case 9:
-					drawSpaceCarrier(g,(SpaceCarrier)DataBase.enemyList.get(i));
+					drawSpaceCarrier(g,(STG3_SpaceCarrier)DataBase.enemyList.get(i));
 					break;
 				case 10:
-					drawSpaceMan(g,(SpaceMan)DataBase.enemyList.get(i));
+					drawSpaceMan(g,(STG3_SpaceMan)DataBase.enemyList.get(i));
 					break;
 				case 11:
-					drawSpaceShip(g,(SpaceShip)DataBase.enemyList.get(i));
+					drawSpaceShip(g,(STG3_SpaceShip)DataBase.enemyList.get(i));
 					break;
 				case 12:
-					drawDrone(g, (Drone) DataBase.enemyList.get(i));
+					drawDrone(g, (STG4_Drone) DataBase.enemyList.get(i));
 					break;
 				case 13:
-					drawRazerShip(g, (RazerShip) DataBase.enemyList.get(i));
+					drawRazerShip(g, (STG4_RazerShip) DataBase.enemyList.get(i));
 					break;
 				case 14:
-					drawRobot(g, (RobotWarrior) DataBase.enemyList.get(i));
+					drawRobot(g, (STG4_RobotWarrior) DataBase.enemyList.get(i));
 					break;
 				case 15:
-					drawSneaker(g, (Sneaker) DataBase.enemyList.get(i));
+					drawSneaker(g, (STG4_Sneaker) DataBase.enemyList.get(i));
 					break;
 				case 100:
-					drawCastle(g, (Castle) DataBase.enemyList.get(i));
+					drawCastle(g, (S_Castle) DataBase.enemyList.get(i));
 					break;
 				}
 			}
@@ -164,7 +164,7 @@ public class DrawUnits {
 	/**
 	 * draw sword man
 	 */
-	private static void drawSwordman(Graphics g,SwordMan o){
+	private static void drawSwordman(Graphics g,STG1_SwordMan o){
 		switch(o.getKind()){
 		//this is player
 		case 1:
@@ -220,7 +220,7 @@ public class DrawUnits {
 	/**
 	 * draw gunner
 	 */
-	private static void drawGunner(Graphics g,Gunner o){
+	private static void drawGunner(Graphics g,STG1_Gunner o){
 		switch(o.getKind()){
 		case 1:
 			Image gunner1 = new ImageIcon("graphics/soldiers/s/s3.png").getImage();
@@ -269,7 +269,7 @@ public class DrawUnits {
 	/**
 	 * draw cannon
 	 */
-	private static void drawCannon(Graphics g,Cannon o){  	
+	private static void drawCannon(Graphics g,STG1_Cannon o){  	
 		switch(o.getKind()){
 		case 1:
 			Image cannon1 = new ImageIcon("graphics/soldiers/s/s2.png").getImage();
@@ -318,7 +318,7 @@ public class DrawUnits {
 	/**
 	 * draw medic team
 	 */
-	private static void drawMedicTeam(Graphics g,MedicTeam o){
+	private static void drawMedicTeam(Graphics g,STG2_MedicTeam o){
 		switch(o.getKind()){
 		case 1:
 			Image medic = new ImageIcon("graphics/soldiers/s2/medic.png").getImage();
@@ -380,7 +380,7 @@ public class DrawUnits {
 	/**
 	 * draw snooper
 	 */
-	private static void drawSniper(Graphics g,Sniper o){
+	private static void drawSniper(Graphics g,STG2_Sniper o){
 		switch(o.getKind()){
 		case 1:
 			Image sniper = new ImageIcon("graphics/soldiers/s2/sniper1.png").getImage();
@@ -432,7 +432,7 @@ public class DrawUnits {
 	/**
 	 * draw truck
 	 */
-	private static void drawTruck(Graphics g, Truck o){
+	private static void drawTruck(Graphics g, STG2_Truck o){
 		switch(o.getKind()){
 		case 1:
 			Image truck = new ImageIcon("graphics/soldiers/s2/truck.png").getImage();
@@ -485,7 +485,7 @@ public class DrawUnits {
 	/**
 	 * draw rifle soldier
 	 */
-	private static void drawRifle(Graphics g,Rifle o){
+	private static void drawRifle(Graphics g,STG2_Rifle o){
 		switch(o.getKind()){
 		case 1:
 			Image rifle = new ImageIcon("graphics/soldiers/s2/s1.png").getImage();
@@ -534,7 +534,7 @@ public class DrawUnits {
 			g.fill3DRect(o.getX()+lifePercentage, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 		}
 	}
-	private static  void drawHydrogenBomb(Graphics g,HydrogenBomb o){
+	private static  void drawHydrogenBomb(Graphics g,STG3_HydrogenBomb o){
 		switch(o.getKind()){
 		case 1:
 			
@@ -603,7 +603,7 @@ public class DrawUnits {
 			g.fill3DRect(o.getX()+lifePercentage+50, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 	    }
 	}
-    private static void drawSpaceCarrier(Graphics g,SpaceCarrier o){
+    private static void drawSpaceCarrier(Graphics g,STG3_SpaceCarrier o){
     	switch(o.getKind()){
 		case 1:
 			Image carrier = new ImageIcon("graphics/soldiers/s3/carrier.png").getImage();
@@ -650,7 +650,7 @@ public class DrawUnits {
 	    }
          
    }
-    private static void drawSpaceMan(Graphics g,SpaceMan o){
+    private static void drawSpaceMan(Graphics g,STG3_SpaceMan o){
     	switch(o.getKind()){
 		case 1:
 			Image spaceman = new ImageIcon("graphics/soldiers/s3/spaceman.png").getImage();
@@ -699,7 +699,7 @@ public class DrawUnits {
 			g.fill3DRect(o.getX()+lifePercentage+10+(1-o.getKind())*70, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 	    }
 	}
-    private static void drawSpaceShip(Graphics g,SpaceShip o){
+    private static void drawSpaceShip(Graphics g,STG3_SpaceShip o){
     	switch(o.getKind()){
 		case 1:
 			Image spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
@@ -749,7 +749,7 @@ public class DrawUnits {
     /**
      * draw drone
      */
-    private static void drawDrone(Graphics g,Drone o){
+    private static void drawDrone(Graphics g,STG4_Drone o){
     	switch(o.getKind()){
 		case 1:
 			Image drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
@@ -797,7 +797,7 @@ public class DrawUnits {
     /**
      * draw razer ship
      */
-    private static void drawRazerShip(Graphics g,RazerShip o){
+    private static void drawRazerShip(Graphics g,STG4_RazerShip o){
     	switch(o.getKind()){
 		case 1:
 			Image ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
@@ -812,7 +812,7 @@ public class DrawUnits {
 				if(!DataBase.isPause){
 					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
 					g.setColor(Color.red);
-					Unit e = DataBase.enemyList.get(o.detect());
+					S_Unit e = DataBase.enemyList.get(o.detect());
 					g.drawLine(o.x+64, o.y+o.ran+31-40, e.x+25, e.y+30);
 					g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
 					g.drawLine(o.x+65, o.y+o.ran+32-40, e.x+25, e.y+30);
@@ -851,7 +851,7 @@ public class DrawUnits {
     /**
      * draw robot
      */
-    private static void drawRobot(Graphics g,RobotWarrior o){
+    private static void drawRobot(Graphics g,STG4_RobotWarrior o){
     	switch(o.getKind()){
 		case 1:
 			Image robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
@@ -900,7 +900,7 @@ public class DrawUnits {
     /**
      * draw sneaker
      */
-    private static void drawSneaker(Graphics g,Sneaker o){
+    private static void drawSneaker(Graphics g,STG4_Sneaker o){
     	switch(o.getKind()){
 		case 1:
 			Image sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
@@ -976,7 +976,7 @@ public class DrawUnits {
     /**
 	 * draw castle
 	 */
-	private static void drawCastle(Graphics g,Castle o){
+	private static void drawCastle(Graphics g,S_Castle o){
 		
 		//show life
 		if(o.getKind() == 0){
@@ -1055,7 +1055,7 @@ public class DrawUnits {
 			}
 		}
 	}	
-	private static void drawSecondCastle(Graphics g,SecondCastle o){
+	private static void drawSecondCastle(Graphics g,STG3_SecondCastle o){
 		if(o.getKind() == 1){
 			int lifePercent = 0;
 			switch(DataBase.pass){

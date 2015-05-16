@@ -2,7 +2,7 @@ package dataBase;
 
 import java.util.ArrayList;
 
-import units.Unit;
+import units.S_Unit;
 
 public class DataBase {
 	//锟斤拷录锟窖碉拷锟截匡拷锟斤拷锟酵碉拷前锟斤拷戏锟截匡拷锟斤拷
@@ -13,8 +13,8 @@ public class DataBase {
 	public static boolean isPause = false;
 
 	//锟斤拷录锟斤拷锟叫碉拷位锟斤拷息
-	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
-	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
+	public static ArrayList<S_Unit> enemyList = new ArrayList<S_Unit>();
+	public static ArrayList<S_Unit> playerList = new ArrayList<S_Unit>();
 
 	//Parameters for stage1
 	public static final int INITIAL_MONEY_STG1 = 200000;
@@ -46,7 +46,7 @@ public class DataBase {
 
 	//Parameters for stage3
 	public static final int INITIAL_MONEY_STG3 = 100000;
-	public static final int INITIAL_MONEY_INCREMENT_STG3 = 8;
+	public static final int INITIAL_MONEY_INCREMENT_STG3 = 20;
 	public static final int CASTLE_HP_STG3 = 2000;
 	public static final int START_LOC_X_STG3 = 50;
 	public static final int START_LOC_Y_STG3 = 500;

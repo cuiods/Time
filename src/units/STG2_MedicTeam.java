@@ -2,9 +2,9 @@ package units;
 
 import dataBase.DataBase;
 
-public class MedicTeam extends Soldier implements Runnable{
+public class STG2_MedicTeam extends S_Soldier implements Runnable{
 	public static int MedicTeam_Num = 0;
-	public MedicTeam(){
+	public STG2_MedicTeam(){
 		MedicTeam_Num++;
 		x = DataBase.START_LOC_X_STG2;
 		y = DataBase.START_LOC_Y_STG2;
@@ -17,7 +17,7 @@ public class MedicTeam extends Soldier implements Runnable{
 	public void heal(){
 		if(this.getKind()==0){
 		for(int i=0;i<DataBase.enemyList.size();i++){
-			Unit u = DataBase.enemyList.get(i);
+			S_Unit u = DataBase.enemyList.get(i);
 			if(u.getType()!=100&&u.getHp()<getFullHP(u)){
 			u.setHp((int) (u.getHp()+getFullHP(u)*DataBase.MEDICTEAM_HEAL*0.01));
 			if(u.getHp()>getFullHP(u)){
@@ -27,7 +27,7 @@ public class MedicTeam extends Soldier implements Runnable{
 		}
 		}else{
 			for(int i=0;i<DataBase.playerList.size();i++){
-				Unit u = DataBase.playerList.get(i);
+				S_Unit u = DataBase.playerList.get(i);
 				if(u.getType()!=100&&u.getHp()<getFullHP(u)){
 				u.setHp((int) (u.getHp()+getFullHP(u)*DataBase.MEDICTEAM_HEAL*0.01));
 				if(u.getHp()>getFullHP(u)){
@@ -37,7 +37,7 @@ public class MedicTeam extends Soldier implements Runnable{
 			}
 		}
 	}
-	public int getFullHP(Unit u){
+	public int getFullHP(S_Unit u){
 		switch(u.getType()){
 		case 0:return DataBase.SWORDMAN_HP;
 		case 1:return DataBase.GUNNER_HP;
