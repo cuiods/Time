@@ -484,7 +484,7 @@ public class PanelFight extends JPanel implements Runnable{
 			mycastle4_2.setKind(1);
 			mycastle4_2.setY(DataBase.START_LOC_Y_STG4+240);
 			mycastle4_2.setHp(DataBase.CASTLE_HP_STG4);
-			DataBase.playerList.add(mycastle4_1);
+			DataBase.playerList.add(mycastle4_2);
 			
 			
 			Castle enemycastle4_1 = new Castle();
@@ -501,6 +501,46 @@ public class PanelFight extends JPanel implements Runnable{
 			cp44.start();
 			DataBase.enemyList.add(enemycastle4_1);
 			DataBase.enemyList.add(enemycastle4_2);
+			break;
+		case 5:
+			Castle mycastle5_1 = new Castle();
+			mycastle5_1.setKind(1);
+			mycastle5_1.setHp(DataBase.CASTLE_HP_STG5);
+			Thread cp15 = new Thread(mycastle5_1);
+			cp15.start();
+			DataBase.playerList.add(mycastle5_1);
+			Castle mycastle5_2 = new Castle();
+			mycastle5_2.setKind(1);
+			mycastle5_2.setY(DataBase.START_LOC_Y_STG5+165);
+			mycastle5_2.setHp(DataBase.CASTLE_HP_STG5);
+			DataBase.playerList.add(mycastle5_2);
+			Castle mycastle5_3 = new Castle();
+			mycastle5_3.setKind(1);
+			mycastle5_3.setY(DataBase.START_LOC_Y_STG5+330);
+			mycastle5_3.setHp(DataBase.CASTLE_HP_STG5);
+			DataBase.playerList.add(mycastle5_3);
+			
+			
+			Castle enemycastle5_1 = new Castle();
+			enemycastle5_1.setKind(0);
+			enemycastle5_1.setX(DataBase.START_LOC_X_ENM_STG5);
+			enemycastle5_1.setY(DataBase.START_LOC_Y_ENM_STG5);
+			enemycastle5_1.setHp(DataBase.CASTLE_HP_ENM_STG5);
+			Castle enemycastle5_2 = new Castle();
+			enemycastle5_2.setKind(0);
+			enemycastle5_2.setX(DataBase.START_LOC_X_ENM_STG5);
+			enemycastle5_2.setY(DataBase.START_LOC_Y_ENM_STG5+165);
+			enemycastle5_2.setHp(DataBase.CASTLE_HP_ENM_STG5);
+			Castle enemycastle5_3 = new Castle();
+			enemycastle5_3.setKind(0);
+			enemycastle5_3.setX(DataBase.START_LOC_X_ENM_STG5);
+			enemycastle5_3.setY(DataBase.START_LOC_Y_ENM_STG5+330);
+			enemycastle5_3.setHp(DataBase.CASTLE_HP_ENM_STG5);
+			Thread cp25 = new Thread(enemycastle5_1);
+			cp25.start();
+			DataBase.enemyList.add(enemycastle5_1);
+			DataBase.enemyList.add(enemycastle5_2);
+			DataBase.enemyList.add(enemycastle5_3);
 			break;
 		}
 	}
@@ -579,6 +619,23 @@ public class PanelFight extends JPanel implements Runnable{
 				return 1;
 			}
 			break;
+		case 4:
+			if(DataBase.playerList.size() < 2||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(1).getType()!=100))){
+				return -1;
+			}
+			if(DataBase.enemyList.size() < 2||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(1).getType()!=100))){
+				return 1;
+			}
+			break;
+		case 5:
+			if(DataBase.playerList.size() < 3||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(1).getType()!=100))||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(2).getType()!=100))){
+				return -1;
+			}
+			if(DataBase.enemyList.size() < 3||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(1).getType()!=100))||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(2).getType()!=100))){
+				return 1;
+			}
+			break;
+			
 		}
 		return 0;
 	}

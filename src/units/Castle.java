@@ -58,20 +58,55 @@ public class Castle extends Unit implements Runnable, Serializable{
 			}
 			switch(DataBase.pass){
 			case 4:
-				synchronized (this) {
+//				synchronized (this) {
 					if(Controller.gameframe.fightPanel!=null&&Controller.gameframe.fightPanel.win()==0){
-					    if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
-					    	DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp;
-					    }else{
-					    	DataBase.playerList.get(1).hp = DataBase.playerList.get(0).hp;
-					    }
-					    if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
-					    	DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp;
-					    }else{
-					    	DataBase.enemyList.get(1).hp = DataBase.enemyList.get(0).hp;
-					    }
+						if(DataBase.playerList.size()>=2&&DataBase.playerList.get(0).getType() == 100&&DataBase.playerList.get(1).getType() == 100){
+							 if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
+							    DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp;
+							  }else{
+							    DataBase.playerList.get(1).hp = DataBase.playerList.get(0).hp;
+							  }
+						}
+						if(DataBase.enemyList.size()>=2&&DataBase.enemyList.get(0).getType() == 100&&DataBase.enemyList.get(1).getType() == 100){
+							if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
+						    	DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp;
+						    }else{
+						    	DataBase.enemyList.get(1).hp = DataBase.enemyList.get(0).hp;
+						    }
+						}
 					}
-				}
+//				}
+				break;
+			case 5:
+//				synchronized (this) {
+					if(Controller.gameframe.fightPanel!=null&&Controller.gameframe.fightPanel.win()==0){
+						int small1 = 1000000;
+						int small2 = 1000000;
+						if(DataBase.playerList.size()>=3&&DataBase.playerList.get(0).getType() == 100&&DataBase.playerList.get(1).getType() == 100&&DataBase.playerList.get(2).getType() == 100){
+							if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
+						    	small1 = DataBase.playerList.get(1).hp;
+						    }else{
+						    	small1 = DataBase.playerList.get(0).hp;
+						    }
+						    if(small1>DataBase.playerList.get(2).hp){
+					    		small1 = DataBase.playerList.get(2).hp;
+					    	}
+						    DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp = DataBase.playerList.get(2).hp = small1;
+						}
+						if(DataBase.enemyList.size()>=3&&DataBase.enemyList.get(0).getType() == 100&&DataBase.enemyList.get(1).getType() == 100&&DataBase.enemyList.get(2).getType() == 100){
+							if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
+						    	small2 = DataBase.enemyList.get(1).hp;
+						    }else{
+						    	small2 = DataBase.enemyList.get(0).hp;
+						    }
+						    if(small1>DataBase.enemyList.get(2).hp){
+					    		small2 = DataBase.enemyList.get(2).hp;
+					    	}
+						    DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp = DataBase.enemyList.get(2).hp = small2;
+						}
+				
+					}
+//				}
 				break;
 			}
 			try {
