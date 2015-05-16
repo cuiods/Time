@@ -2,11 +2,11 @@ package units;
 
 import dataBase.DataBase;
 
-public class SpaceCarrier_ENM extends Soldier{
+public class STG3_SpaceCarrier extends S_Soldier implements Runnable{
 	public boolean NotRelease = true;
-	public SpaceCarrier_ENM(){
-		x = DataBase.START_LOC_X_ENM_STG3;
-		y = DataBase.START_LOC_Y_ENM_STG3;
+	public STG3_SpaceCarrier(){
+		x = DataBase.START_LOC_X_STG3;
+		y = DataBase.START_LOC_Y_STG3;
 		hp=DataBase.SPACECARRIER_HP;
 		attack = DataBase.SPACECARRIER_ATK;
 		attackRange = DataBase.SPACECARRIER_AR;
@@ -38,7 +38,7 @@ public class SpaceCarrier_ENM extends Soldier{
 	}
 	public void Release(){
 		for(int i=0;i<=1;i++){
-			SpaceMan_ENM s = new SpaceMan_ENM();
+			STG3_SpaceMan s = new STG3_SpaceMan();
 			s.setKind(this.getKind());
 			s.setX(this.getX());
 			s.setY(this.getY());

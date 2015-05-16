@@ -1,6 +1,6 @@
 package ai;
 
-import units.Unit;
+import units.S_Unit;
 import dataBase.DataBase;
 
 public class simpleAI_STG3 extends AI implements Runnable{
@@ -24,19 +24,19 @@ public class simpleAI_STG3 extends AI implements Runnable{
 	public int analyze() {
 		Threat = 0;
 		for(int i=0;i<DataBase.playerList.size();i++){
-			Unit u = DataBase.playerList.get(i);
+			S_Unit u = DataBase.playerList.get(i);
 			if(u.getType()!=100&&u.getType()!=101){
 			Threat+=u.getHp()*u.attack;
 			}
 		}
 		for(int i=0;i<DataBase.enemyList.size();i++){
-			Unit u = DataBase.enemyList.get(i); 
+			S_Unit u = DataBase.enemyList.get(i); 
 			if(u.getType()!=100&&u.getType()!=101&&u.getType()!=8){
 				Threat-=u.getHp()*u.attack*1.5;
 				}
 		} 
 		for(int i=0;i<DataBase.playerList.size();i++){
-			Unit u = DataBase.playerList.get(i); 
+			S_Unit u = DataBase.playerList.get(i); 
 			int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG3-u.getX())*(db.START_LOC_X_ENM_STG3-u.getX())+
 					(db.START_LOC_Y_ENM_STG3-u.getY())*(db.START_LOC_Y_ENM_STG3-u.getY()));
 			if (dis <=200) Threat +=100;

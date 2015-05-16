@@ -2,7 +2,7 @@ package dataBase;
 
 import java.util.ArrayList;
 
-import units.Unit;
+import units.S_Unit;
 
 public class DataBase {
 	//锟斤拷录锟窖碉拷锟截匡拷锟斤拷锟酵碉拷前锟斤拷戏锟截匡拷锟斤拷
@@ -13,8 +13,8 @@ public class DataBase {
 	public static boolean isPause = false;
 
 	//锟斤拷录锟斤拷锟叫碉拷位锟斤拷息
-	public static ArrayList<Unit> enemyList = new ArrayList<Unit>();
-	public static ArrayList<Unit> playerList = new ArrayList<Unit>();
+	public static ArrayList<S_Unit> enemyList = new ArrayList<S_Unit>();
+	public static ArrayList<S_Unit> playerList = new ArrayList<S_Unit>();
 
 	//Parameters for stage1
 	public static final int INITIAL_MONEY_STG1 = 200000;
@@ -46,7 +46,7 @@ public class DataBase {
 
 	//Parameters for stage3
 	public static final int INITIAL_MONEY_STG3 = 100000;
-	public static final int INITIAL_MONEY_INCREMENT_STG3 = 8;
+	public static final int INITIAL_MONEY_INCREMENT_STG3 = 20;
 	public static final int CASTLE_HP_STG3 = 2000;
 	public static final int START_LOC_X_STG3 = 50;
 	public static final int START_LOC_Y_STG3 = 500;
@@ -68,6 +68,7 @@ public class DataBase {
 	public static final int BLACKHOLE_LOC_X_STG4 = 150;
 	public static final int BLACKHOLE_LOC_Y_STG4 = 450;
 	public static final int BLACKHOLE_TIMELIMIT = 20;
+	public static final int SNEAKER_TIMELIMIT = 10*10;
 
 	public static final int CASTLE_HP_ENM_STG4 = 1000;
 	public static final int START_LOC_X_ENM_STG4 = 950;
@@ -79,7 +80,6 @@ public class DataBase {
 	public static final int CASTLE_HP_STG5 = 2000;
 	public static final int START_LOC_X_STG5 = 50;
 	public static final int START_LOC_Y_STG5 = 145;
-	public static final int SNEAKER_TIMELIMIT = 10;
 	public static final int HALTSCIENCE_TIMELIMIT = 10*1000;
 	public static final int ESCAPE_TIMELIMIT = 30*1000;
 

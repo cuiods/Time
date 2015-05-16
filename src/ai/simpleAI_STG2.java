@@ -1,6 +1,6 @@
 package ai;
 
-import units.Unit;
+import units.S_Unit;
 import dataBase.DataBase;
 
 public class simpleAI_STG2 extends AI implements Runnable{
@@ -26,7 +26,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 		Threat = 0;
 		int atk=0;
 		for(int i=0;i<DataBase.playerList.size();i++){
-			Unit u = DataBase.playerList.get(i); 
+			S_Unit u = DataBase.playerList.get(i); 
 			switch(u.getType()){
 			case 3: atk=0;Threat+= 30; break;
 			case 4: atk=db.SNIPER_ATK; break;
@@ -37,7 +37,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			Threat+=u.getHp()*atk;
 		}
 		for(int i=0;i<DataBase.enemyList.size();i++){
-			Unit u = DataBase.enemyList.get(i); 
+			S_Unit u = DataBase.enemyList.get(i); 
 			switch(u.getType()){
 			case 3: atk=0;Threat-= 30; break;
 			case 4: atk=db.SNIPER_ATK; break;
@@ -48,7 +48,7 @@ public class simpleAI_STG2 extends AI implements Runnable{
 			Threat-=u.getHp()*atk*1.2;
 		} 
 		for(int i=0;i<DataBase.playerList.size();i++){
-			Unit u = DataBase.playerList.get(i); 
+			S_Unit u = DataBase.playerList.get(i); 
 			int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG2-u.getX())*(db.START_LOC_X_ENM_STG2-u.getX())+
 					(db.START_LOC_Y_ENM_STG2-u.getY())*(db.START_LOC_Y_ENM_STG2-u.getY()));
 			if (dis <=200) Threat +=100;

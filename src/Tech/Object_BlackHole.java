@@ -2,10 +2,10 @@ package Tech;
 
 import dataBase.DataBase;
 import tools.Time;
-import units.Soldier;
-import units.Unit;
+import units.S_Soldier;
+import units.S_Unit;
 
-public class Object_BlackHole extends Soldier{
+public class Object_BlackHole extends S_Soldier{
 	public Object_BlackHole(){
 		x = DataBase.BLACKHOLE_LOC_X_STG4;
 		y = DataBase.BLACKHOLE_LOC_Y_STG4;

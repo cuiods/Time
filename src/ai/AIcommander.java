@@ -9,15 +9,15 @@ import dataBase.DataBase;
 
 public class AIcommander {
 	public void addSwordMan(){
-		SwordMan s = new SwordMan();
+		STG1_SwordMan s = new STG1_SwordMan();
 		s.setKind(0);
-	    setLoc(s);
+		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
 	}
 	public void addGunner(){
-		Gunner g = new Gunner();
+		STG1_Gunner g = new STG1_Gunner();
 		g.setKind(0);
 		setLoc(g);
 		Thread th = new Thread(g);
@@ -25,7 +25,7 @@ public class AIcommander {
 		DataBase.enemyList.add(g);
 	}
 	public void addCannon(){
-		Cannon c = new Cannon();
+		STG1_Cannon c = new STG1_Cannon();
 		c.setKind(0);
 		setLoc(c);
 		Thread th = new Thread(c);
@@ -33,7 +33,7 @@ public class AIcommander {
 		DataBase.enemyList.add(c);
 	}
 	public void addMedicTeam(){
-		MedicTeam m = new MedicTeam();
+		STG2_MedicTeam m = new STG2_MedicTeam();
 		m.setKind(0);
 		setLoc(m);
 		Thread th = new Thread(m);
@@ -41,7 +41,7 @@ public class AIcommander {
 		DataBase.enemyList.add(m);
 	}
 	public void addSniper(){
-		Sniper s = new Sniper();
+		STG2_Sniper s = new STG2_Sniper();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);
@@ -49,7 +49,7 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void addTruck(){
-		Truck t = new Truck();
+		STG2_Truck t = new STG2_Truck();
 		t.setKind(0);
 		setLoc(t);
 		Thread th = new Thread(t);
@@ -57,7 +57,7 @@ public class AIcommander {
 		DataBase.enemyList.add(t);
 	}
 	public void addRifle(){
-		Rifle r = new Rifle();
+		STG2_Rifle r = new STG2_Rifle();
 		r.setKind(0);
 		setLoc(r);
 		Thread th = new Thread(r);
@@ -65,7 +65,7 @@ public class AIcommander {
 		DataBase.enemyList.add(r);
 	}
 	public void addSpaceShip(){
-		SpaceShip s = new SpaceShip();
+		STG3_SpaceShip s = new STG3_SpaceShip();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);
@@ -73,7 +73,7 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void addSpaceMan(){
-		SpaceMan s = new SpaceMan();
+		STG3_SpaceMan s = new STG3_SpaceMan();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);
@@ -81,12 +81,53 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void addSpaceCarrier(){
-		SpaceCarrier s = new SpaceCarrier();
+		STG3_SpaceCarrier s = new STG3_SpaceCarrier();
 		s.setKind(0);
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
+	}
+	public void addDrone(int path_num){
+		STG4_Drone d = new STG4_Drone();
+		d.setKind(0);
+		d.path = path_num;
+		setLoc(d);
+		Thread th = new Thread(d);
+		th.start();
+		DataBase.enemyList.add(d);
+	}
+	public void addRazerShip(int path_num){
+		STG4_RazerShip r = new STG4_RazerShip();
+		r.setKind(0);
+		r.path = path_num;
+		setLoc(r);
+		Thread th = new Thread(r);
+		th.start();
+		DataBase.enemyList.add(r);
+	}
+	public void addRobotWarrior(int path_num){
+		STG4_RobotWarrior r = new STG4_RobotWarrior();
+		r.setKind(0);
+		r.path = path_num;
+		setLoc(r);
+		Thread th = new Thread(r);
+		th.start();
+		DataBase.enemyList.add(r);
+	}
+	public void addSneaker(int path_num){
+		STG4_Sneaker s = new STG4_Sneaker();
+		s.setKind(0);
+		s.path = path_num;
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
+	public void LockScience(){
+		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
+		Thread th = new Thread(tech);
+		th.start();
 	}
 	public void GeneMissile(){
 		Tech_ENM_STG4_GeneMissile tech = new Tech_ENM_STG4_GeneMissile();
@@ -96,16 +137,11 @@ public class AIcommander {
 		Tech_ENM_STG4_KillerVirus tech = new Tech_ENM_STG4_KillerVirus();
 		tech.execute();
 	}
-	public void LockScience(){
-		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
-		Thread th = new Thread(tech);
-		th.start();
-	}
 	public void PhotonStrike(){
 		Tech_ENM_STG5_PhotonStrike tech = new Tech_ENM_STG5_PhotonStrike();
 		tech.execute();
 	}
-	public void setLoc(Unit u){
+	public void setLoc(S_Unit u){
 		switch(DataBase.pass){
 		case 1 :u.setX(DataBase.START_LOC_X_ENM_STG1);
 		u.setY(DataBase.START_LOC_Y_ENM_STG1); break;
@@ -113,8 +149,15 @@ public class AIcommander {
 		u.setY(DataBase.START_LOC_Y_ENM_STG2); break;
 		case 3: u.setX(DataBase.START_LOC_X_ENM_STG3);
 		u.setY(DataBase.START_LOC_Y_ENM_STG3); break;
-		case 4:u.setX(DataBase.START_LOC_X_ENM_STG4);
-		u.setY(DataBase.START_LOC_Y_ENM_STG4); break;
+		case 4:if(u.path==0){
+			u.setX(DataBase.START_LOC_X_ENM_STG4);
+			u.setY(DataBase.START_LOC_Y_ENM_STG4);
+		}
+		if(u.path==1){
+			u.setX(DataBase.START_LOC_X_ENM_STG4);
+			u.setY(DataBase.START_LOC_Y_ENM_STG4+300);
+		}break;
+
 		case 5:u.setX(DataBase.START_LOC_X_ENM_STG5);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5); break;
 		}

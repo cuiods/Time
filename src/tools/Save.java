@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import units.Unit;
+import units.S_Unit;
 import dataBase.DataBase;
 
 public class Save {
@@ -77,7 +77,7 @@ public class Save {
 			}
 //			System.out.println("remove complete!");
 			for(int i=0;i<enemyNum;i++){
-				Unit temp = (Unit) ois.readObject();			
+				S_Unit temp = (S_Unit) ois.readObject();			
 				DataBase.enemyList.add(temp);
 				Thread th= new Thread(temp);
 				th.start();
@@ -85,7 +85,7 @@ public class Save {
 			}
 			System.out.println("run enemy complete!");
 			for(int i=0;i<playerNum;i++){
-				Unit temp = (Unit) ois.readObject();			
+				S_Unit temp = (S_Unit) ois.readObject();			
 				DataBase.playerList.add(temp);
 				Thread th= new Thread(temp);
 				th.start();
