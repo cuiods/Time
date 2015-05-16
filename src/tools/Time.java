@@ -2,7 +2,7 @@ package tools;
 
 import dataBase.DataBase;
 
-public class Time {
+public class Time implements Runnable{
 	/*
 	 * by @niansong
 	 */
@@ -16,10 +16,17 @@ public class Time {
 	public Time(long tl){
 		timeLimit = tl;
 		DataBase.StartTime = System.currentTimeMillis();
+		Thread th = new Thread(this);
+		th.start();
 	}
 	public int getRemainTime(){
 		now = System.currentTimeMillis();
 		timeleft = timeLimit-(now - DataBase.StartTime);
 		return (int) (timeleft/1000);
+	}
+	@Override
+	public void run() {
+		// TODO 自动生成的方法存根
+		
 	}
 }

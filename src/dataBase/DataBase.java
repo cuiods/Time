@@ -68,7 +68,7 @@ public class DataBase {
 	public static final int BLACKHOLE_LOC_X_STG4 = 150;
 	public static final int BLACKHOLE_LOC_Y_STG4 = 450;
 	public static final int BLACKHOLE_TIMELIMIT = 20;
-	public static final int SNEAKER_TIMELIMIT = 10*10;
+	public static final int SNEAKER_TIMELIMIT = 7*1000;
 
 	public static final int CASTLE_HP_ENM_STG4 = 1000;
 	public static final int START_LOC_X_ENM_STG4 = 950;
@@ -173,6 +173,7 @@ public class DataBase {
 	public static final int TRUCK_ATK = 0;
 	public static final int TRUCK_AR = 0;
 	public static final int TRUCK_SPD = 4;
+	public static final int TRUCK_RR = 300;
 
 	public static final int RIFLE_P = 100;
 	public static final int RIFLE_HP = 50;
@@ -186,7 +187,7 @@ public class DataBase {
 	public static final int SECONDCASTLE_P = 0;
 	public static final int SECONDCASTLE_HP = 1000;
 	public static final int SECONDCASTLE_ATK = 2;
-	public static final int SECONDCASTLE_AR = 50;
+	public static final int SECONDCASTLE_AR = 100;
 	public static final int SECONDCASTLE_SPD = 0;
 
 	public static final int HYDROGENBOMB_P = 800;
@@ -207,6 +208,7 @@ public class DataBase {
 	public static final int SPACECARRIER_ATK = 2;
 	public static final int SPACECARRIER_AR = 60;
 	public static final int SPACECARRIER_SPD = 2;
+	public static final int SPACECARRIER_RR = 400;
 
 	public static final int SPACESHIP_P = 1000;
 	public static final int SPACESHIP_HP = 21;

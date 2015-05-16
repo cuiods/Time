@@ -17,12 +17,16 @@ public class STG2_Truck extends S_Soldier{
 	public void run(){
 		while(true){
 			if(this.getKind()==0){
-				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_STG2, DataBase.START_LOC_Y_STG2)<=100){
+				if(NotRelease&&this.caldistance
+						(x, y, DataBase.START_LOC_X_STG2, DataBase.START_LOC_Y_STG2)
+						<=DataBase.TRUCK_RR){
 					this.Release();
 				}
 			}
 			else{
-				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_ENM_STG2, DataBase.START_LOC_Y_ENM_STG2)<=100){
+				if(NotRelease&&this.caldistance
+						(x, y, DataBase.START_LOC_X_ENM_STG2, DataBase.START_LOC_Y_ENM_STG2)
+						<=DataBase.TRUCK_RR){
 					this.Release();
 				}
 			}
