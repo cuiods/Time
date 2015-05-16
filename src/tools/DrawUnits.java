@@ -541,7 +541,7 @@ public class DrawUnits {
 			Image hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
 			g.drawImage(hbomb, o.getX(), o.getY()+o.ran,176,80,panel);
 			
-			if(o.starting){
+			if(o.attacking){
 				
 				for(int i=1;i<11;i++){
 					pictures[i-1]="graphics/stunt/tech3_"+i+".png";
@@ -567,7 +567,7 @@ public class DrawUnits {
 					g.drawImage(new ImageIcon(pictures[8]).getImage(), o.getX(), o.getY(), panel);
 				}else{
 					g.drawImage(new ImageIcon(pictures[9]).getImage(), o.getX(), o.getY(), panel);
-					o.starting=false;
+					o.attacking=false;
 					DataBase.playerList.remove(o);
 			    }
 				if(o.time-100>=0){
@@ -642,12 +642,13 @@ public class DrawUnits {
 			break;
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACECARRIER_HP));
-		g.setColor(Color.GREEN);
+    	g.setColor(Color.GREEN);
 		g.fill3DRect(o.getX()+50, o.getY()+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
 			g.fill3DRect(o.getX()+lifePercentage+50, o.getY()+o.ran, 40-lifePercentage, 3, false);
 	    }
+         
    }
     private static void drawSpaceMan(Graphics g,SpaceMan o){
     	switch(o.getKind()){
@@ -675,18 +676,19 @@ public class DrawUnits {
 			Image spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
 			if(o.moving){
 				if(!DataBase.isPause){
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
 				}else{
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
 				}
+				g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 90, 120, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
 				}else{
-					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
+					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
 				}
+				g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
 			}
-			g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
 			break;
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACEMAN_HP));
@@ -714,7 +716,7 @@ public class DrawUnits {
 					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
 				}
 			}
-			g.drawImage(spaceship,o.getX(), o.getY()+o.ran-100, 144,85, panel);
+			g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 144,85, panel);
 			break;
 		case 0:
 			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
@@ -737,10 +739,10 @@ public class DrawUnits {
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACESHIP_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX()+80, o.getY()-110+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+20, o.getY()+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage+80, o.getY()+o.ran-110, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+20, o.getY()+o.ran, 40-lifePercentage, 3, false);
 	    }
     	
 	}
@@ -1062,16 +1064,16 @@ public class DrawUnits {
 					g.drawImage(new ImageIcon("graphics/soldiers/s3/spacestation.png").getImage(),o.getX()-150, o.getY()-100, 300, 200, panel);
 					lifePercent = (int)(200*(o.getHp()*1.0/DataBase.SECONDCASTLE_HP));
 					g.setColor(Color.GREEN);
-					g.fill3DRect(o.getX()-150, o.getY()-120, lifePercent, 3, false);
+					g.fill3DRect(o.getX()-100, o.getY()-120, lifePercent, 3, false);
 					if(lifePercent!=200){
 						g.setColor(Color.RED);
-						g.fill3DRect(o.getX()+lifePercent-150, o.getY()-120, 40-lifePercent, 3, false);
+						g.fill3DRect(o.getX()+lifePercent-100, o.getY()-120,200-lifePercent, 3, false);
 				    }
 	
 					if(o.attacking)
 						g.drawImage(new ImageIcon("graphics/stunt/secastle.gif").getImage(), -50, 130, panel);
 					
-				}
+			}
 				break;
 			   
 			

@@ -27,6 +27,7 @@ import ui.button.ButtonPause;
 import ui.button.ButtonScience;
 import ui.button.ButtonUnit;
 import units.*;
+import Tech.Tech_ENM_STG3_LockScience;
 import ai.cleverAI_STG1;
 import ai.simpleAI_STG1;
 import ai.simpleAI_STG2;
@@ -86,8 +87,21 @@ public class PanelFight extends JPanel implements Runnable{
 		DrawUnits.draw(g,this);
 		
 		drawEffects(g);
+		
+		drawInformation(g);
 	
 	}
+	private void drawInformation(Graphics g) {
+		switch(DataBase.pass){
+			case 3:
+				if(DataBase.LockScience){
+					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(), 300, 500,400,100,this);
+					
+				  
+				}
+		}
+}
+
 	/**
 	 * set all the buttons on the fight panel
 	 * @see ui.button
@@ -417,7 +431,19 @@ public class PanelFight extends JPanel implements Runnable{
 			}
 		}
 		
-		
+		if(isTech_9){
+			 String pictures9[] = new String[10];
+			 for(int i=0;i<10;i++){
+				 pictures9[i]="graphics/stunt/tech9_"+i+".png";
+			 }
+			 PicturePlayer pic = new PicturePlayer(pictures9, false,30);
+			 pic.panelPlay(450, 160, g, this, 3);
+			 if(PicturePlayer.time3 < 31){
+				    isTech_9=false;
+					PicturePlayer.time3 = 1000;
+				}
+		}
+	   
 	}
 
 	/**
