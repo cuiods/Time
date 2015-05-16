@@ -131,7 +131,7 @@ public class HydrogenBomb extends Soldier implements Runnable{
 				}
 				else{
 					if(DataBase.enemyList.size()==1)
-					ce.setHp(ce.getHp()-200);
+						ce.setHp(ce.getHp()-200);
 				}
 			}
 		}
