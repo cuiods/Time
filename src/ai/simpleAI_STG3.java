@@ -65,7 +65,7 @@ public class simpleAI_STG3 extends AI implements Runnable{
 			}
 			AIC.addSpaceCarrier();
 			AIC.addSpaceShip();
-		}else if(Threat>=340&&Threat<450&&Math.random()>0.4){
+		}else if(Threat>=340&&Threat<450&&Math.random()>0.4&&(DataBase.LockScience==false)){
 			AIC.LockScience();
 			System.out.println("LockScience");
 			AIC.addSpaceShip();

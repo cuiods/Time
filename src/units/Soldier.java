@@ -124,13 +124,12 @@ public abstract class Soldier extends Unit{
 	    		case 3:
 	    			if(this.getKind()==1){
 	    				if(DataBase.Tech_Harper_TIME==0){
-	    					// 410 230
-		    				if(x<=450){
+		    				if(x<=270){
 		    					x+=DataBase.PATH_AGLX_STG1*spd;
 					    		y+=DataBase.PATH_AGLY_STG1*spd;
 					    	}
 		    			}else if(DataBase.Tech_Harper_TIME==1){
-		    				if(x<=620){
+		    				if(x<=600){
 		    					x+=DataBase.PATH_AGLX_STG1*spd;
 					    		y+=DataBase.PATH_AGLY_STG1*spd;
 		    				}

@@ -19,7 +19,6 @@ public class ButtonScience extends JPanel implements MouseListener{
 	private int kind;
 	public boolean isIn = false;
 	public PanelTechInfor techInfor;
-	
 
 	/**
 	 * different kind represents different science
@@ -141,26 +140,23 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 9:
 			if((DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)){
 				new Tech_STG3_Hubble();
-				DataBase.Money-=DataBase.Tech_Harper_P;
-				DataBase.Tech_Harper_TIME++;
+				//considering the lock science,we shouldn't cut the money while player
+				//can't use the tech,so i move the act to tech classes
 			}
 			break;
 		case 10:
 			if(!DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_SuperComputer_P>=0)){
 				new Tech_STG3_SuperComputer();
-				DataBase.Money -= DataBase.Tech_SuperComputer_P;
 			}
 			break;
 		case 11:
 			if(!DataBase.Tech_SecondCastle&&(DataBase.Money-DataBase.Tech_SecondCastle_P>=0)){
 				new Tech_STG3_SecondCastle();
-				DataBase.Money -= DataBase.Tech_SecondCastle_P;
 			}
 			break;
 		case 12:
 			if(!DataBase.Tech_HydrogenBomb&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
 				new Tech_STG3_HydrogenBomb();
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
 			}
 	
 			break;

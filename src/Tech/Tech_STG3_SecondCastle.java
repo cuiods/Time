@@ -7,7 +7,7 @@ import dataBase.DataBase;
 public class Tech_STG3_SecondCastle {
 	public Tech_STG3_SecondCastle(){
 		if(DataBase.Tech_SuperComputer == true&&!DataBase.LockScience){
-			System.out.print("hhh");
+			DataBase.Money -= DataBase.Tech_SecondCastle_P;
 			DataBase.Tech_SecondCastle = true;
 			SecondCastle secastle = new SecondCastle();
 			DataBase.playerList.add(secastle);

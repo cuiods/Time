@@ -7,7 +7,6 @@ public class HydrogenBomb extends Soldier implements Runnable{
 	public boolean notAttacked = true;
 	//to bomb when attack
 	public int time=1000;
-	public boolean starting=false;
 	public int detectRange;
 	public HydrogenBomb(){
 		x = DataBase.START_LOC_X_STG3;
@@ -158,7 +157,6 @@ public class HydrogenBomb extends Soldier implements Runnable{
 				synchronized(this){
 					this.moving = false;
 					this.attacking = true;
-					starting=true;
 					attack();
 					this.notAttacked = false;
 				}
