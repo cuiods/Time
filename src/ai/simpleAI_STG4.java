@@ -3,7 +3,7 @@ package ai;
 import units.S_Unit;
 import dataBase.DataBase;
 
-public class simpleAI_STG4 extends AI{
+public class simpleAI_STG4 extends AI implements Runnable{
 	double AutoAtkRate = 0.9;
 	AIcommander AIC = new AIcommander();
 	public simpleAI_STG4(){
@@ -16,9 +16,8 @@ public class simpleAI_STG4 extends AI{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		execute(analyze(0));
-		execute(analyze(1));
-		execute(analyze(2));
+		execute(analyze(0),0);
+		execute(analyze(1),1);
 		
 	}
 	public int analyze(int path_num) {
@@ -46,63 +45,78 @@ public class simpleAI_STG4 extends AI{
 		return Threat;
 	}
 
-	public void execute(int Threat) {
+	public void execute(int Threat,int path_num) {
 		AutoAtkRate-=0.001;
 		if(Threat<=0&&Math.random()>AutoAtkRate){
-			AIC.addSpaceMan();
+			AIC.addDrone(path_num);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			AIC.addSpaceShip();
+			AIC.addRazerShip(path_num);
 		}else if(Threat>0&&Threat<200&&Math.random()>0.4){
-			AIC.addSpaceMan();
-			AIC.addSpaceShip();
+			AIC.addDrone(path_num);
+			AIC.addRazerShip(path_num);
 		}else if(Threat>=200&&Threat<340&&Math.random()>0.3){
-			AIC.addSpaceMan();
+			AIC.addDrone(path_num);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addSpaceCarrier();
-			AIC.addSpaceShip();
+			AIC.addRobotWarrior(path_num);
+			AIC.addRazerShip(path_num);
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4&&(DataBase.LockScience==false)){
 			AIC.LockScience();
 			System.out.println("LockScience");
-			AIC.addSpaceShip();
+			AIC.addRazerShip(path_num);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addSpaceShip();
+			AIC.addRazerShip(path_num);
 		}else if(Threat>=450){
 			AIC.LockScience();
-			AIC.addSpaceShip();
-			AIC.addSpaceCarrier();
+			AIC.addRazerShip(path_num);
+			AIC.addRobotWarrior(path_num);
 		}
 	}
 	public void run() {
-		AIC.addSpaceMan();
+		AIC.LockScience();
+		AIC.addDrone(this.getRadomPath());
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addSpaceMan();
+		AIC.addDrone(this.getRadomPath());
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addSpaceShip();
-		while(!DataBase.isPause&&DataBase.pass==3){
+		AIC.addRazerShip(this.getRadomPath());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addDrone(this.getRadomPath());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		AIC.addRazerShip(this.getRadomPath());
+		while(!DataBase.isPause&&DataBase.pass==4){
 			detect();
 		}
 
@@ -111,5 +125,13 @@ public class simpleAI_STG4 extends AI{
 	public int analyze() {
 		// TODO 自动生成的方法存根
 		return 0;
+	}
+	@Override
+	public void execute(int Threat) {
+		// TODO 自动生成的方法存根
+		
+	}
+	public int getRadomPath(){
+		return (int) (Math.random()*3);
 	}
 }

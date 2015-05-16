@@ -32,6 +32,7 @@ import ai.cleverAI_STG1;
 import ai.simpleAI_STG1;
 import ai.simpleAI_STG2;
 import ai.simpleAI_STG3;
+import ai.simpleAI_STG4;
 import dataBase.DataBase;
 
 
@@ -249,6 +250,11 @@ public class PanelFight extends JPanel implements Runnable{
 			simpleAI_STG3 ai3 = new simpleAI_STG3();
 			Thread th3 = new Thread(ai3);
 			th3.start();
+			break;
+		case 4:
+			simpleAI_STG4 ai4 = new simpleAI_STG4();
+			Thread th4 = new Thread(ai4);
+			th4.start();
 			break;
 		}
 		

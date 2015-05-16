@@ -11,7 +11,7 @@ public class AIcommander {
 	public void addSwordMan(){
 		STG1_SwordMan s = new STG1_SwordMan();
 		s.setKind(0);
-	    setLoc(s);
+		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
@@ -88,6 +88,47 @@ public class AIcommander {
 		th.start();
 		DataBase.enemyList.add(s);
 	}
+	public void addDrone(int path_num){
+		STG4_Drone d = new STG4_Drone();
+		d.setKind(0);
+		d.path = path_num;
+		setLoc(d);
+		Thread th = new Thread(d);
+		th.start();
+		DataBase.enemyList.add(d);
+	}
+	public void addRazerShip(int path_num){
+		STG4_RazerShip r = new STG4_RazerShip();
+		r.setKind(0);
+		r.path = path_num;
+		setLoc(r);
+		Thread th = new Thread(r);
+		th.start();
+		DataBase.enemyList.add(r);
+	}
+	public void addRobotWarrior(int path_num){
+		STG4_RobotWarrior r = new STG4_RobotWarrior();
+		r.setKind(0);
+		r.path = path_num;
+		setLoc(r);
+		Thread th = new Thread(r);
+		th.start();
+		DataBase.enemyList.add(r);
+	}
+	public void addSneaker(int path_num){
+		STG4_Sneaker s = new STG4_Sneaker();
+		s.setKind(0);
+		s.path = path_num;
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
+	public void LockScience(){
+		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
+		Thread th = new Thread(tech);
+		th.start();
+	}
 	public void GeneMissile(){
 		Tech_ENM_STG4_GeneMissile tech = new Tech_ENM_STG4_GeneMissile();
 		tech.execute();
@@ -95,11 +136,6 @@ public class AIcommander {
 	public void KillerVirus(){
 		Tech_ENM_STG4_KillerVirus tech = new Tech_ENM_STG4_KillerVirus();
 		tech.execute();
-	}
-	public void LockScience(){
-		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
-		Thread th = new Thread(tech);
-		th.start();
 	}
 	public void PhotonStrike(){
 		Tech_ENM_STG5_PhotonStrike tech = new Tech_ENM_STG5_PhotonStrike();
@@ -113,8 +149,15 @@ public class AIcommander {
 		u.setY(DataBase.START_LOC_Y_ENM_STG2); break;
 		case 3: u.setX(DataBase.START_LOC_X_ENM_STG3);
 		u.setY(DataBase.START_LOC_Y_ENM_STG3); break;
-		case 4:u.setX(DataBase.START_LOC_X_ENM_STG4);
-		u.setY(DataBase.START_LOC_Y_ENM_STG4); break;
+		case 4:if(u.path==0){
+			u.setX(DataBase.START_LOC_X_ENM_STG4);
+			u.setY(DataBase.START_LOC_Y_ENM_STG4);
+		}
+		if(u.path==1){
+			u.setX(DataBase.START_LOC_X_ENM_STG4);
+			u.setY(DataBase.START_LOC_Y_ENM_STG4+300);
+		}break;
+
 		case 5:u.setX(DataBase.START_LOC_X_ENM_STG5);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5); break;
 		}

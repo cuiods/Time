@@ -155,7 +155,7 @@ public abstract class S_Soldier extends S_Unit{
 			    		x+=spd;
 			    		}
 			    		else{
-			    			x+=spd;
+			    			x-=spd;
 			    		}
 	    			break;
 	    		}
