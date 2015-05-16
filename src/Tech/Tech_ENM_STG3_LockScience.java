@@ -8,8 +8,14 @@ public class Tech_ENM_STG3_LockScience implements Runnable {
 		t = new Time(DataBase.LOCKSCIENCE_TIMELIMIT);
 	}
 	public void execute(){
+		DataBase.LockScience = true;
 		while(t.getRemainTime()>=0){
-			DataBase.LockScience = true;
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
 	    }
 		DataBase.LockScience = false;
 }

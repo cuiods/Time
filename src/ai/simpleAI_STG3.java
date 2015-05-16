@@ -31,7 +31,7 @@ public class simpleAI_STG3 extends AI implements Runnable{
 		}
 		for(int i=0;i<DataBase.enemyList.size();i++){
 			Unit u = DataBase.enemyList.get(i); 
-			if(u.getType()!=100&&u.getType()!=101){
+			if(u.getType()!=100&&u.getType()!=101&&u.getType()!=8){
 				Threat-=u.getHp()*u.attack*1.5;
 				}
 		} 
