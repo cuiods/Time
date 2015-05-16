@@ -190,7 +190,7 @@ public class DataBase {
 	public static final int HYDROGENBOMB_P = 800;
 	public static final int HYDROGENBOMB_HP = 1000;
 	public static final int HYDROGENBOMB_ATK = 200;
-	public static final int HYDROGENBOMB_AR = 300;
+	public static final int HYDROGENBOMB_AR = 900;
 	public static final int HYDROGENBOMB_DR = 100;
 	public static final int HYDROGENBOMB_SPD = 20;
 

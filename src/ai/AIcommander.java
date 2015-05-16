@@ -98,7 +98,8 @@ public class AIcommander {
 	}
 	public void LockScience(){
 		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
-		tech.execute();
+		Thread th = new Thread(tech);
+		th.start();
 	}
 	public void PhotonStrike(){
 		Tech_ENM_STG5_PhotonStrike tech = new Tech_ENM_STG5_PhotonStrike();

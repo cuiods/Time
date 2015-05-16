@@ -103,7 +103,6 @@ public class simpleAI_STG3 extends AI implements Runnable{
 			e.printStackTrace();
 		}
 		AIC.addSpaceShip();
-		AIC.LockScience();
 		while(!DataBase.isPause&&DataBase.pass==3){
 			detect();
 		}

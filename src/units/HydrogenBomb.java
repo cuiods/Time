@@ -27,7 +27,6 @@ public class HydrogenBomb extends Soldier implements Runnable{
 			//初始值为距离列表中第一个敌人的距离
 			int minidistance= caldistance(this.x,DataBase.enemyList.get(0).getX(),
 					this.y,DataBase.enemyList.get(0).getY());
-
 			for(int i=0;i<DataBase.enemyList.size();i++){
 				synchronized (this) {
 					Unit enemy=DataBase.enemyList.get(i);
@@ -124,10 +123,17 @@ public class HydrogenBomb extends Soldier implements Runnable{
 		if(!DataBase.isPause){
 			atk = this.attack;
 		}
-		for(Unit ce :DataBase.enemyList){
+		for(int i=0;i<DataBase.enemyList.size();i++){
+			Unit ce = DataBase.enemyList.get(i);
 			if(ce.hp>0&&this.hp>0&&caldistance(this.x,this.y,ce.x,ce.y)<=this.attackRange){
-				ce.setHp(0);
-				DataBase.enemyList.remove(ce);
+				if(ce.getType()!=100){
+					ce.setHp(0);
+					DataBase.enemyList.remove(ce);
+				}
+				else{
+					if(DataBase.enemyList.size()==1)
+					ce.setHp(ce.getHp()-200);
+				}
 			}
 		}
 	}
@@ -169,7 +175,7 @@ public class HydrogenBomb extends Soldier implements Runnable{
 				}
 				move();
 			}
-//			System.out.println(notAttacked);
+			//			System.out.println(notAttacked);
 		}
 		DataBase.enemyList.remove(this);
 	}
