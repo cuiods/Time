@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -13,6 +15,7 @@ import javax.swing.JLabel;
 
 import tools.MusicPlayer;
 import tools.MusicThread;
+import ui.FrameGame;
 
 public class ButtonSet extends JLabel implements MouseListener,Runnable{
 	Image ButtonImage = null;
@@ -28,10 +31,10 @@ public class ButtonSet extends JLabel implements MouseListener,Runnable{
 	
 	public void paintComponent(Graphics g){
 		if(!isIn){
-			filepath = "graphics/button/setbutton1.png";
+			filepath = "graphics/button/helpbutton1.png";
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}else{
-			filepath = "graphics/button/setButtonMoveIn.png";
+			filepath = "graphics/button/helpButtonMoveIn.png";
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}
 		g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
@@ -44,13 +47,13 @@ public class ButtonSet extends JLabel implements MouseListener,Runnable{
 	}
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		new MusicThread("music/effects/clicked.wav", false).start();
 		
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		new MusicThread("music/effects/clicked.wav", false).start();
-		
+		Controller.changeTo(FrameGame.HELPPANEL);
+		isIn = false;
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
