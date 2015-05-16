@@ -9,7 +9,6 @@ public class Tech_STG3_Hubble {
 			DataBase.Tech_Harper = true;
 			DataBase.Tech_Harper_TIME++;
 			DataBase.Money-=DataBase.Tech_Harper_P;
-			PanelFight.isTech_9=true;
 		}
 	}
 }

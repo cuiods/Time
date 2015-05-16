@@ -32,6 +32,8 @@ import dataBase.DataBase;
 public class DrawUnits {
 	static JPanel panel;
 	static String[] pictures = new String[10];
+	static Image shadow; 
+	static int shadow_x=0;
 	static String pictures6[]={"graphics/stunt/carrier1.png","graphics/stunt/carrier2.png","graphics/stunt/carrier3.png","graphics/stunt/carrier4.png","graphics/stunt/carrier5.png","graphics/stunt/carrier6.png","graphics/stunt/carrier7.png","graphics/stunt/carrier8.png","graphics/stunt/carrier9.png","graphics/stunt/carrier10.png"};
 	public static void draw(Graphics g, JPanel p){
 		     panel = p;
@@ -154,11 +156,17 @@ public class DrawUnits {
 			}
 			//draw shadow  410 230
 			if(DataBase.pass==3){
+				shadow = new ImageIcon("graphics/background/shadow1.png").getImage();
 				if(DataBase.Tech_Harper_TIME==0){
-				   g.drawImage(new ImageIcon("graphics/background/shadow1.png").getImage(),0, 0,1000, 600, null);
-				}else if(DataBase.Tech_Harper_TIME==1)	
-				   g.drawImage(new ImageIcon("graphics/background/shadow2.png").getImage(),0, 0,1000, 600, null);
+				   g.drawImage(shadow,0, 0,1000, 600, null);
+				}else if(DataBase.Tech_Harper)	{
+					ChangeShadow cs = new ChangeShadow();
+					Thread t = new Thread(cs);
+					t.start();
+					g.drawImage(shadow, shadow_x, 0, null);
 				}
+				  
+			}
 		}
 
 	/**
@@ -684,19 +692,20 @@ public class DrawUnits {
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
+					g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
 				}else{
 					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
+					g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 90, 120, panel);
 				}
-				g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
 			}
 			break;
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.SPACEMAN_HP));
 		g.setColor(Color.GREEN);
-		g.fill3DRect(o.getX()+10+(1-o.getKind())*70, o.getY()-10+o.ran, lifePercentage, 3, false);
+		g.fill3DRect(o.getX()+30, o.getY()-10+o.ran, lifePercentage, 3, false);
 		if(lifePercentage!=40){
 			g.setColor(Color.RED);
-			g.fill3DRect(o.getX()+lifePercentage+10+(1-o.getKind())*70, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
+			g.fill3DRect(o.getX()+lifePercentage+30, o.getY()+o.ran-10, 40-lifePercentage, 3, false);
 	    }
 	}
     private static void drawSpaceShip(Graphics g,SpaceShip o){
@@ -1070,9 +1079,10 @@ public class DrawUnits {
 						g.fill3DRect(o.getX()+lifePercent-100, o.getY()-120,200-lifePercent, 3, false);
 				    }
 	
-					if(o.attacking)
+					if(o.attacking){
+						System.out.println("secondcastele attacking");
 						g.drawImage(new ImageIcon("graphics/stunt/secastle.gif").getImage(), -50, 130, panel);
-					
+					}
 			}
 				break;
 			   
@@ -1080,6 +1090,7 @@ public class DrawUnits {
 		
 		}
 	}	
-	}	
+	}
+
   
 }

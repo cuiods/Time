@@ -58,7 +58,6 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_6 = false;
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
-	public static boolean isTech_9 = false;
 	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
@@ -429,19 +428,6 @@ public class PanelFight extends JPanel implements Runnable{
 				isTech_8 = false;
 				PicturePlayer.time3 = 1000;
 			}
-		}
-		
-		if(isTech_9){
-			 String pictures9[] = new String[10];
-			 for(int i=0;i<10;i++){
-				 pictures9[i]="graphics/stunt/tech9_"+i+".png";
-			 }
-			 PicturePlayer pic = new PicturePlayer(pictures9, false,30);
-			 pic.panelPlay(450, 160, g, this, 3);
-			 if(PicturePlayer.time3 < 31){
-				    isTech_9=false;
-					PicturePlayer.time3 = 1000;
-				}
 		}
 	   
 	}
