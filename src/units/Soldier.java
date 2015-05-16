@@ -5,6 +5,7 @@ import dataBase.DataBase;
 public abstract class Soldier extends Unit{
 	public boolean attacking = false;
 	public boolean moving = false;
+	 
 	/*
 	 必须在继承soldier的类中新建构造函数
 	 且构造函数必须包含以下内容：
@@ -68,8 +69,14 @@ public abstract class Soldier extends Unit{
 		@Override
 		public void run() {
 			while(true){
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
 				if(this.hp<=0){
-					//	this.die();
+					break;
 					}
 					if(canAttack()){
 						synchronized(this){
