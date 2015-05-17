@@ -32,6 +32,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 2:this.setBounds(410+(kind-4)*70, 80, 60, 60);break;
 		case 3:this.setBounds(410+(kind-9)*70, 80, 60, 60);break;
 		case 4:this.setBounds(410+(kind-13)*70, 80, 60, 60);break;
+		case 5:this.setBounds(410+(kind-16)*70, 80, 60, 60);break;
 		}
 	}
 	
@@ -186,7 +187,25 @@ public class ButtonScience extends JPanel implements MouseListener{
 				new Tech_STG4_FourthTechRevolution();
 				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
 			}
-			break;	
+			break;
+		case 16:
+			if(!DataBase.Tech_CoverProject&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG5_CoverProject();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+			break;
+		case 17:
+			if(!DataBase.Tech_Escape&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG5_Escape();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+			break;
+		case 18:
+			if((DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+				new Tech_STG5_HaltScience();
+				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+			}
+			break;
 		}
 	}
 

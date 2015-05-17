@@ -761,22 +761,26 @@ public class DrawUnits {
     private static void drawDrone(Graphics g,STG4_Drone o){
     	switch(o.getKind()){
 		case 1:
-			Image drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
-			if(o.moving){
-				if(!DataBase.isPause){
-					drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
-				}else{
-					drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
-				}
-				g.drawImage(drone,o.getX(), o.getY()+o.ran, 59, 36, panel);
-			}else if(o.attacking){
-				if(!DataBase.isPause){
-					drone = new ImageIcon("graphics/soldiers/s4/droneattack.gif").getImage();
-					g.drawImage(drone,o.getX(), o.getY()+o.ran, 142, 36, panel);
-				}else{
-					drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
+			Image drone = new ImageIcon("graphics/soldiers/s4/droneInvisible.png").getImage();
+			if(!DataBase.Tech_HaltScience){
+				if(o.moving){
+					if(!DataBase.isPause){
+						drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
+					}else{
+						drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
+					}
 					g.drawImage(drone,o.getX(), o.getY()+o.ran, 59, 36, panel);
+				}else if(o.attacking){
+					if(!DataBase.isPause){
+						drone = new ImageIcon("graphics/soldiers/s4/droneattack.gif").getImage();
+						g.drawImage(drone,o.getX(), o.getY()+o.ran, 142, 36, panel);
+					}else{
+						drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
+						g.drawImage(drone,o.getX(), o.getY()+o.ran, 59, 36, panel);
+					}
 				}
+			}else{
+				g.drawImage(drone,o.getX(), o.getY()+o.ran, 59, 36, panel);
 			}
 			break;
 		case 0:
@@ -809,28 +813,32 @@ public class DrawUnits {
     private static void drawRazerShip(Graphics g,STG4_RazerShip o){
     	switch(o.getKind()){
 		case 1:
-			Image ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
-			if(o.moving){
-				if(!DataBase.isPause){
-					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
-				}else{
-					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+			Image ship = new ImageIcon("graphics/soldiers/s4/razershipInvisible.png").getImage();
+			if(!DataBase.Tech_HaltScience){
+				if(o.moving){
+					if(!DataBase.isPause){
+						ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+					}else{
+						ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+					}
+					g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
+				}else if(o.attacking){
+					if(!DataBase.isPause){
+						ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+						g.setColor(Color.red);
+						S_Unit e = DataBase.enemyList.get(o.detect());
+						g.drawLine(o.x+64, o.y+o.ran+31-40, e.x+25, e.y+30);
+						g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
+						g.drawLine(o.x+65, o.y+o.ran+32-40, e.x+25, e.y+30);
+						g.drawLine(o.x+66, o.y+o.ran+33-40, e.x+25, e.y+30);
+						g.drawImage(new ImageIcon("graphics/soldiers/s4/razerattac.gif").getImage(),o.getX()+50, o.getY()+o.ran-24, 30, 30, panel);
+					}else{
+						ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
+						g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
+					}
 				}
+			}else{
 				g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
-			}else if(o.attacking){
-				if(!DataBase.isPause){
-					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
-					g.setColor(Color.red);
-					S_Unit e = DataBase.enemyList.get(o.detect());
-					g.drawLine(o.x+64, o.y+o.ran+31-40, e.x+25, e.y+30);
-					g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
-					g.drawLine(o.x+65, o.y+o.ran+32-40, e.x+25, e.y+30);
-					g.drawLine(o.x+66, o.y+o.ran+33-40, e.x+25, e.y+30);
-					g.drawImage(new ImageIcon("graphics/soldiers/s4/razerattac.gif").getImage(),o.getX()+50, o.getY()+o.ran-24, 30, 30, panel);
-				}else{
-					ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
-					g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
-				}
 			}
 			break;
 		case 0:
@@ -870,22 +878,26 @@ public class DrawUnits {
     private static void drawRobot(Graphics g,STG4_RobotWarrior o){
     	switch(o.getKind()){
 		case 1:
-			Image robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
-			if(o.moving){
-				if(!DataBase.isPause){
-					robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
-				}else{
-					robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
-				}
-				g.drawImage(robot,o.getX(), o.getY()+o.ran, 31, 50, panel);
-			}else if(o.attacking){
-				if(!DataBase.isPause){
-					robot = new ImageIcon("graphics/soldiers/s4/robotattack.gif").getImage();
-					g.drawImage(robot,o.getX(), o.getY()+o.ran, 95, 50, panel);
-				}else{
-					robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
+			Image robot = new ImageIcon("graphics/soldiers/s4/robotInvisible.png").getImage();
+			if(!DataBase.Tech_HaltScience){
+				if(o.moving){
+					if(!DataBase.isPause){
+						robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
+					}else{
+						robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
+					}
 					g.drawImage(robot,o.getX(), o.getY()+o.ran, 31, 50, panel);
+				}else if(o.attacking){
+					if(!DataBase.isPause){
+						robot = new ImageIcon("graphics/soldiers/s4/robotattack.gif").getImage();
+						g.drawImage(robot,o.getX(), o.getY()+o.ran, 95, 50, panel);
+					}else{
+						robot = new ImageIcon("graphics/soldiers/s4/robot.png").getImage();
+						g.drawImage(robot,o.getX(), o.getY()+o.ran, 31, 50, panel);
+					}
 				}
+			}else{
+				g.drawImage(robot,o.getX(), o.getY()+o.ran, 31, 50, panel);
 			}
 			break;
 		case 0:
@@ -919,28 +931,32 @@ public class DrawUnits {
     private static void drawSneaker(Graphics g,STG4_Sneaker o){
     	switch(o.getKind()){
 		case 1:
-			Image sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
-			if(o.moving){
-				if(!DataBase.isPause){
-					if(o.invisible){
-						sneaker = new ImageIcon("graphics/soldiers/s4/sneakerInvisible.png").getImage();
+			Image sneaker = new ImageIcon("graphics/soldiers/s4/sneakerInvisible.png").getImage();
+			if(!DataBase.Tech_HaltScience){
+				if(o.moving){
+					if(!DataBase.isPause){
+						if(o.invisible){
+							sneaker = new ImageIcon("graphics/soldiers/s4/sneakerInvisible.png").getImage();
+						}else{
+							sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
+						}
 					}else{
 						sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
 					}
-				}else{
-					sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
+					g.drawImage(sneaker,o.getX(), o.getY()+o.ran, 100, 54, panel);
+				}else if(o.attacking){
+					if(!DataBase.isPause){
+						sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
+						g.drawImage(sneaker,o.getX(), o.getY()+o.ran, 100, 54, panel);
+						g.drawImage(new ImageIcon("graphics/soldiers/s4/sneakerattack.gif").getImage(),o.getX()+55, o.getY()+5+o.ran, 48, 42, panel);
+					}else{
+						sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
+						g.drawImage(sneaker,o.getX(), o.getY()+o.ran, 100, 54, panel);
+						
+					}
 				}
+			}else{
 				g.drawImage(sneaker,o.getX(), o.getY()+o.ran, 100, 54, panel);
-			}else if(o.attacking){
-				if(!DataBase.isPause){
-					sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
-					g.drawImage(sneaker,o.getX(), o.getY()+o.ran, 100, 54, panel);
-					g.drawImage(new ImageIcon("graphics/soldiers/s4/sneakerattack.gif").getImage(),o.getX()+55, o.getY()+5+o.ran, 48, 42, panel);
-				}else{
-					sneaker = new ImageIcon("graphics/soldiers/s4/sneaker.png").getImage();
-					g.drawImage(sneaker,o.getX(), o.getY()+o.ran, 100, 54, panel);
-					
-				}
 			}
 			break;
 		case 0:
