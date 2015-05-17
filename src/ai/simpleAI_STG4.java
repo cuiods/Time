@@ -5,7 +5,7 @@ import dataBase.DataBase;
 
 public class simpleAI_STG4 extends AI implements Runnable{
 	double AutoAtkRate = 0.9;
-	AIcommander AIC = new AIcommander();
+	public AIcommander AIC = new AIcommander();
 	public simpleAI_STG4(){
 	}
 	@Override

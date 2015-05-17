@@ -192,6 +192,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 16:
 			if(!DataBase.Tech_CoverProject&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
 				new Tech_STG5_CoverProject();
+				PanelFight.isTech_9 = true;
 				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
 			}
 			break;
