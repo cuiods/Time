@@ -17,12 +17,12 @@ public class STG3_SpaceCarrier extends S_Soldier implements Runnable{
 	public void run(){
 		while(true){
 			if(this.getKind()==0){
-				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_STG3, DataBase.START_LOC_Y_STG3)<=100){
+				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_STG3, DataBase.START_LOC_Y_STG3)<=DataBase.SPACECARRIER_RR){
 					this.Release();
 				}
 			}
 			else{
-				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_ENM_STG3, DataBase.START_LOC_Y_ENM_STG3)<=100){
+				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_ENM_STG3, DataBase.START_LOC_Y_ENM_STG3)<=DataBase.SPACECARRIER_RR){
 					this.Release();
 				}
 			}

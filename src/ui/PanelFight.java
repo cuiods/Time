@@ -58,7 +58,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_6 = false;
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
-	public static ArrayList<Unit> enemy = new ArrayList<Unit>();
+	public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
 	static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
@@ -434,14 +434,14 @@ public class PanelFight extends JPanel implements Runnable{
 
 	/**
 	 * add unit castle and set location and start thread
-	 * @see Castle
+	 * @see S_Castle
 	 */
 	private void setCastle(){
 		switch(DataBase.pass){
 		case 1:
 			//All of them have to be done when you add a unit
 			//create a unit
-			Castle mycastle = new Castle();
+			S_Castle mycastle = new S_Castle();
 			//if a unit is player's,you must setkind(1)
 			mycastle.setKind(1);
 			//start thread
@@ -450,7 +450,7 @@ public class PanelFight extends JPanel implements Runnable{
 			//add to list
 			DataBase.playerList.add(mycastle);
 			
-			Castle enemycastle = new Castle();
+			S_Castle enemycastle = new S_Castle();
 			enemycastle.setHp(DataBase.CASTLE_HP_ENM_STG1);
 			Thread cp21 = new Thread(enemycastle);
 			cp21.start();
@@ -460,7 +460,7 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 2:
 			//pass 2 doesn't need an enemy castle
-			Castle mycastle2 = new Castle();
+			S_Castle mycastle2 = new S_Castle();
 			mycastle2.setKind(1);
 			
 			Thread cp12 = new Thread(mycastle2);
@@ -468,7 +468,7 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.playerList.add(mycastle2);
 			break;
 		case 3:
-			Castle mycastle3 = new Castle();
+			S_Castle mycastle3 = new S_Castle();
 			mycastle3.setKind(1);
 			mycastle3.setHp(DataBase.CASTLE_HP_STG3);
 			Thread cp13 = new Thread(mycastle3);
@@ -476,7 +476,7 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.playerList.add(mycastle3);
 			
 			
-			Castle enemycastle1 = new Castle();
+			S_Castle enemycastle1 = new S_Castle();
 			enemycastle1.setKind(0);
 			enemycastle1.setX(DataBase.START_LOC_X_ENM_STG3);
 			enemycastle1.setY(DataBase.START_LOC_Y_ENM_STG3);
@@ -486,25 +486,25 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.enemyList.add(enemycastle1);
 			break;
 		case 4:
-			Castle mycastle4_1 = new Castle();
+			S_Castle mycastle4_1 = new S_Castle();
 			mycastle4_1.setKind(1);
 			mycastle4_1.setHp(DataBase.CASTLE_HP_STG4);
 			Thread cp14 = new Thread(mycastle4_1);
 			cp14.start();
 			DataBase.playerList.add(mycastle4_1);
-			Castle mycastle4_2 = new Castle();
+			S_Castle mycastle4_2 = new S_Castle();
 			mycastle4_2.setKind(1);
 			mycastle4_2.setY(DataBase.START_LOC_Y_STG4+240);
 			mycastle4_2.setHp(DataBase.CASTLE_HP_STG4);
 			DataBase.playerList.add(mycastle4_2);
 			
 			
-			Castle enemycastle4_1 = new Castle();
+			S_Castle enemycastle4_1 = new S_Castle();
 			enemycastle4_1.setKind(0);
 			enemycastle4_1.setX(DataBase.START_LOC_X_ENM_STG4);
 			enemycastle4_1.setY(DataBase.START_LOC_Y_ENM_STG4);
 			enemycastle4_1.setHp(DataBase.CASTLE_HP_ENM_STG4);
-			Castle enemycastle4_2 = new Castle();
+			S_Castle enemycastle4_2 = new S_Castle();
 			enemycastle4_2.setKind(0);
 			enemycastle4_2.setX(DataBase.START_LOC_X_ENM_STG4);
 			enemycastle4_2.setY(DataBase.START_LOC_Y_ENM_STG4+240);
@@ -515,35 +515,35 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.enemyList.add(enemycastle4_2);
 			break;
 		case 5:
-			Castle mycastle5_1 = new Castle();
+			S_Castle mycastle5_1 = new S_Castle();
 			mycastle5_1.setKind(1);
 			mycastle5_1.setHp(DataBase.CASTLE_HP_STG5);
 			Thread cp15 = new Thread(mycastle5_1);
 			cp15.start();
 			DataBase.playerList.add(mycastle5_1);
-			Castle mycastle5_2 = new Castle();
+			S_Castle mycastle5_2 = new S_Castle();
 			mycastle5_2.setKind(1);
 			mycastle5_2.setY(DataBase.START_LOC_Y_STG5+165);
 			mycastle5_2.setHp(DataBase.CASTLE_HP_STG5);
 			DataBase.playerList.add(mycastle5_2);
-			Castle mycastle5_3 = new Castle();
+			S_Castle mycastle5_3 = new S_Castle();
 			mycastle5_3.setKind(1);
 			mycastle5_3.setY(DataBase.START_LOC_Y_STG5+330);
 			mycastle5_3.setHp(DataBase.CASTLE_HP_STG5);
 			DataBase.playerList.add(mycastle5_3);
 			
 			
-			Castle enemycastle5_1 = new Castle();
+			S_Castle enemycastle5_1 = new S_Castle();
 			enemycastle5_1.setKind(0);
 			enemycastle5_1.setX(DataBase.START_LOC_X_ENM_STG5);
 			enemycastle5_1.setY(DataBase.START_LOC_Y_ENM_STG5);
 			enemycastle5_1.setHp(DataBase.CASTLE_HP_ENM_STG5);
-			Castle enemycastle5_2 = new Castle();
+			S_Castle enemycastle5_2 = new S_Castle();
 			enemycastle5_2.setKind(0);
 			enemycastle5_2.setX(DataBase.START_LOC_X_ENM_STG5);
 			enemycastle5_2.setY(DataBase.START_LOC_Y_ENM_STG5+165);
 			enemycastle5_2.setHp(DataBase.CASTLE_HP_ENM_STG5);
-			Castle enemycastle5_3 = new Castle();
+			S_Castle enemycastle5_3 = new S_Castle();
 			enemycastle5_3.setKind(0);
 			enemycastle5_3.setX(DataBase.START_LOC_X_ENM_STG5);
 			enemycastle5_3.setY(DataBase.START_LOC_Y_ENM_STG5+330);
