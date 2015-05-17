@@ -92,8 +92,8 @@ public class AIcommander {
 	public void addDrone(int path_num){
 		STG4_Drone d = new STG4_Drone();
 		d.setKind(0);
-		setLoc(d);
 		d.path = path_num;
+		setLoc(d);
 		Thread th = new Thread(d);
 		th.start();
 		DataBase.enemyList.add(d);
@@ -101,8 +101,8 @@ public class AIcommander {
 	public void addRazerShip(int path_num){
 		STG4_RazerShip r = new STG4_RazerShip();
 		r.setKind(0);
-		setLoc(r);
 		r.path = path_num;
+		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
 		DataBase.enemyList.add(r);
@@ -110,8 +110,8 @@ public class AIcommander {
 	public void addRobotWarrior(int path_num){
 		STG4_RobotWarrior r = new STG4_RobotWarrior();
 		r.setKind(0);
-		setLoc(r);
 		r.path = path_num;
+		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
 		DataBase.enemyList.add(r);
@@ -119,8 +119,8 @@ public class AIcommander {
 	public void addSneaker(int path_num){
 		STG4_Sneaker s = new STG4_Sneaker();
 		s.setKind(0);
-		setLoc(s);
 		s.path = path_num;
+		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
