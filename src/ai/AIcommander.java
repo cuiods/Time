@@ -8,6 +8,7 @@ import units.*;
 import dataBase.DataBase;
 
 public class AIcommander {
+	public Tech_ENM_STG3_LockScience tech=null;
 	public void addSwordMan(){
 		STG1_SwordMan s = new STG1_SwordMan();
 		s.setKind(0);
@@ -125,7 +126,7 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void LockScience(){
-		Tech_ENM_STG3_LockScience tech = new Tech_ENM_STG3_LockScience();
+	    tech = new Tech_ENM_STG3_LockScience();
 		Thread th = new Thread(tech);
 		th.start();
 	}

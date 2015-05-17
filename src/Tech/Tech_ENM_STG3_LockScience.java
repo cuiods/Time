@@ -3,7 +3,7 @@ package Tech;
 import tools.Time;
 import dataBase.DataBase;
 public class Tech_ENM_STG3_LockScience implements Runnable {
-	Time t;
+	public Time t;
 	public Tech_ENM_STG3_LockScience(){
 		t = new Time(DataBase.LOCKSCIENCE_TIMELIMIT);
 	}

@@ -64,7 +64,8 @@ public class PanelFight extends JPanel implements Runnable{
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
 	static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
-	
+	//to draw time left when lockscience
+	simpleAI_STG3 ai3=null;
 	public PanelFight(){
 		//set music
 		setMusic();		
@@ -96,8 +97,14 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(DataBase.pass){
 			case 3:
 				if(DataBase.LockScience){
-					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(), 300, 500,400,100,this);
+					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),0, 500,458,115,this);
 					
+					if((!DataBase.isPause)&&(ai3.AIC.tech.t.getRemainTime()>0)){
+						int second =ai3.AIC.tech.t.getRemainTime()%60;
+						g.setColor(Color.RED);
+						g.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28));
+						g.drawString(second+"", 460, 300);
+					}
 				  
 				}
 		}
@@ -259,7 +266,7 @@ public class PanelFight extends JPanel implements Runnable{
 			time = new Time(DataBase.TIMELIMIT_STG2);
 			break;
 		case 3:
-			simpleAI_STG3 ai3 = new simpleAI_STG3();
+		    ai3 = new simpleAI_STG3();
 			Thread th3 = new Thread(ai3);
 			th3.start();
 			break;

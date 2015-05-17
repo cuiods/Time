@@ -1150,7 +1150,6 @@ public class DrawUnits {
 				    }
 	
 					if(o.attacking){
-						System.out.println("secondcastele attacking");
 						g.drawImage(new ImageIcon("graphics/stunt/secastle.gif").getImage(), -50, 130, panel);
 					}
 			}

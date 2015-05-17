@@ -6,7 +6,7 @@ import dataBase.DataBase;
 public class simpleAI_STG3 extends AI implements Runnable{
 
 	double AutoAtkRate = 0.9;
-	AIcommander AIC = new AIcommander();
+	public AIcommander AIC = new AIcommander();
 	public simpleAI_STG3(){
 	}
 	@Override
@@ -80,7 +80,7 @@ public class simpleAI_STG3 extends AI implements Runnable{
 				e.printStackTrace();
 			}
 			AIC.addSpaceShip();
-		}else if(Threat>=450){
+		}else if(Threat>=450&&(!DataBase.LockScience)){
 			AIC.LockScience();
 			AIC.addSpaceShip();
 			AIC.addSpaceCarrier();
