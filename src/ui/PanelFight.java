@@ -59,6 +59,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_6 = false;
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
+	public static boolean isTech_9 = false;
 	public static boolean isTech_20 = false;
 	public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
 	//to play music
@@ -66,6 +67,7 @@ public class PanelFight extends JPanel implements Runnable{
 	static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
 	//to draw time left when lockscience
 	simpleAI_STG3 ai3=null;
+	simpleAI_STG4 ai4=null;
 	public PanelFight(){
 		//set music
 		setMusic();		
@@ -98,17 +100,29 @@ public class PanelFight extends JPanel implements Runnable{
 			case 3 :
 				if(DataBase.LockScience){
 					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),0, 500,458,115,this);
-					
 					if((!DataBase.isPause)&&(ai3.AIC.tech.t.getRemainTime()>0)){
 						int second =ai3.AIC.tech.t.getRemainTime()%60;
 						g.setColor(Color.RED);
 						g.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28));
 						g.drawString(second+"", 460, 300);
 					}
-				  
+  
 				}
 				break;
 				
+
+			
+			case 4:
+				if(DataBase.LockScience){
+					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),0, 500,458,115,this);
+					if((!DataBase.isPause)&&(ai4.AIC.tech.t.getRemainTime()>0)){
+						int second =ai4.AIC.tech.t.getRemainTime()%60;
+						g.setColor(Color.RED);
+						g.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28));
+						g.drawString(second+"", 460, 300);
+					}
+				}break;
+
 		}
 }
 
@@ -273,7 +287,7 @@ public class PanelFight extends JPanel implements Runnable{
 			th3.start();
 			break;
 		case 4:
-			simpleAI_STG4 ai4 = new simpleAI_STG4();
+			ai4 = new simpleAI_STG4();
 			Thread th4 = new Thread(ai4);
 			th4.start();
 			break;
@@ -457,6 +471,20 @@ public class PanelFight extends JPanel implements Runnable{
 				PicturePlayer.time3 = 1000;
 			}
 		}
+		
+		if(isTech_9){
+			String pictures[] = new String[10];
+			for(int i=1;i<=pictures.length;i++){
+				   pictures[i-1]="graphics/stunt/cover"+i+".png";
+			  }
+			PicturePlayer pic = new PicturePlayer(pictures, false,30);
+			pic.panelPlay(250, 50, g, this, 0);
+			if(PicturePlayer.time0 < 31){
+				isTech_9 = false;
+				PicturePlayer.time9 = 1000;
+			}
+		}
+		
 	   if(isTech_20){
 		   String pictures6[] = new String[10];
 		   for(int i=0;i<pictures6.length;i++){
