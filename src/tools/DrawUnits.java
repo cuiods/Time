@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 
 import ui.PanelFight;
 import units.STG1_Cannon;
+import units.STG6_Artdesigner;
+import units.STG6_Captain;
+import units.STG6_DataMan;
+import units.STG6_JobHunter;
 import units.S_Castle;
 import units.STG4_Drone;
 import units.STG1_Gunner;
@@ -93,6 +97,18 @@ public class DrawUnits {
 					break;
 				case 15:
 					drawSneaker(g, (STG4_Sneaker) DataBase.playerList.get(i));
+					break;
+				case 16:
+					drawCaptain(g, (STG6_Captain) DataBase.playerList.get(i));
+					break;
+				case 17:
+					drawJobHunter(g, (STG6_JobHunter) DataBase.playerList.get(i));
+					break;
+				case 18:
+					drawArtdesigner(g, (STG6_Artdesigner) DataBase.playerList.get(i));
+					break;
+				case 19:
+					drawDataMan(g, (STG6_DataMan) DataBase.playerList.get(i));
 					break;
 				case 102:
 					drawBlackHole(g, (Object_BlackHole) DataBase.playerList.get(i));
@@ -1116,6 +1132,60 @@ public class DrawUnits {
 		}
 	}	
 	}
-
-  
+  private static void drawCaptain(Graphics g,STG6_Captain o){
+	  switch(o.getKind()){
+		case 1:
+			Image cui = new ImageIcon("graphics/soldiers/s6/cui.gif").getImage();
+//			if(o.moving){
+//				if(!DataBase.isPause){
+//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+//				}else{
+//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+//				}
+//			}else if(o.attacking){
+//				if(!DataBase.isPause){
+//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+//				}else{
+//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+//				}
+//			}
+			g.drawImage(cui,o.getX(), o.getY()+o.ran, 120,100, panel);
+			break;
+//		case 0:
+//			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
+//			if(o.moving){
+//				if(!DataBase.isPause){
+//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
+//				}else{
+//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
+//				}
+//				
+//			}else if(o.attacking){
+//				if(!DataBase.isPause){
+//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo_attack.png").getImage();
+//				}else{
+//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
+//				}
+//			}
+//			g.drawImage(spaceship0,o.getX(), o.getY()+o.ran,144, 72, panel);
+//			break;
+ 	}
+  	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.CAPTAIN_HP));
+		g.setColor(Color.GREEN);
+		g.fill3DRect(o.getX()+20, o.getY()+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage+20, o.getY()+o.ran, 40-lifePercentage, 3, false);
+	    }
+  	
+  }
+  private static void drawJobHunter(Graphics g, STG6_JobHunter o){
+	  
+  }
+ private static void drawArtdesigner(Graphics g, STG6_Artdesigner o){
+	  
+  }
+ private static void drawDataMan(Graphics g, STG6_DataMan o){
+	  
+ }
 }

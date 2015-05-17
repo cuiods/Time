@@ -125,7 +125,26 @@ public class ButtonUnit extends JLabel implements MouseListener{
 				addSneaker();
 			}
 			break;
-			
+		case 16:
+			if(DataBase.Money-DataBase.CAPTAIN_P>=0){
+				addCaptain();
+			}
+			break;
+		case 17:
+			if(DataBase.Money-DataBase.JOBHUNTER_P>=0){
+				addJobHunter();
+			}
+			break;
+		case 18:
+			if(DataBase.Money-DataBase.ARTDESIGNER_P>=0){
+				addArtDesigner();
+			}
+			break;
+		case 19:
+			if(DataBase.Money-DataBase.DATAMAN_P>=0){
+				addDataMan();
+			}
+			break;
 		}
 		/**
 		 * attention:what's this mean?
@@ -464,6 +483,54 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		//deduct money
 		DataBase.Money-=DataBase.RIFLE_P;
 						
+		Controller.gameframe.repaint();
+	}
+	private void addCaptain(){
+		STG6_Captain cui = new STG6_Captain();
+		cui.setKind(1);
+		cui.path = path;
+	
+		DataBase.playerList.add(cui);
+		Thread st = new Thread(cui);
+		st.start();
+		DataBase.Money-=DataBase.CAPTAIN_P;
+		
+		Controller.gameframe.repaint();
+	}
+	private void addJobHunter(){
+		STG6_JobHunter du = new STG6_JobHunter();
+		du.setKind(1);
+		du.path = path;
+	
+		DataBase.playerList.add(du);
+		Thread st = new Thread(du);
+		st.start();
+		DataBase.Money-=DataBase.JOBHUNTER_P;
+		
+		Controller.gameframe.repaint();
+	}
+	private void addArtDesigner(){
+		STG6_Artdesigner gao = new STG6_Artdesigner();
+		gao.setKind(1);
+		gao.path = path;
+	
+		DataBase.playerList.add(gao);
+		Thread st = new Thread(gao);
+		st.start();
+		DataBase.Money-=DataBase.ARTDESIGNER_P;
+		
+		Controller.gameframe.repaint();
+	}
+	private void addDataMan(){
+		STG6_DataMan nian = new STG6_DataMan();
+		nian.setKind(1);
+		nian.path = path;
+	
+		DataBase.playerList.add(nian);
+		Thread st = new Thread(nian);
+		st.start();
+		DataBase.Money-=DataBase.DATAMAN_P;
+		
 		Controller.gameframe.repaint();
 	}
 

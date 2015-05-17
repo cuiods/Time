@@ -224,6 +224,16 @@ public class PanelFight extends JPanel implements Runnable{
 				butUnit.addMouseListener(butUnit);
 				this.add(butUnit);
 			}
+			break;
+		case 6:
+			for(int i=0;i<4;i++){
+				butUnit = new ButtonUnit(i+16,0);
+				butUnit.setBounds(30+i*70, 80, 65, 60);
+				butUnit.addMouseListener(butUnit);
+				this.add(butUnit);
+			}
+			break;
+			
 		}
 	}
 	

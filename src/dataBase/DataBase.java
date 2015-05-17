@@ -86,6 +86,16 @@ public class DataBase {
 	public static final int CASTLE_HP_ENM_STG5 = 1000;
 	public static final int START_LOC_X_ENM_STG5 = 950;
 	public static final int START_LOC_Y_ENM_STG5 = 145;
+	
+	//Parameters for stage6
+	public static final int INITIAL_MONEY_STG6 = 100000;
+	public static final int INITIAL_MONEY_INCREMENT_STG6 = 8;
+	public static final int START_LOC_X_STG6 = 50;
+	public static final int START_LOC_Y_STG6 = 145;
+
+	public static final int START_LOC_X_ENM_STG6 = 950;
+	public static final int START_LOC_Y_ENM_STG6 = 145;
+	
 	//General parameters for the game
 	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
 	public static int Money_Increment = 2;
@@ -243,6 +253,31 @@ public class DataBase {
 	public static final int SNEAKER_AR = 30;
 	public static final int SNEAKER_SPD = 8;
 	
+	//Units for stage6
+	public static final int CAPTAIN_P = 500;
+	public static final int CAPTAIN_HP = 100;
+	public static final int CAPTAIN_ATK = 50;
+	public static final int CAPTAIN_AR = 10;
+	public static final int CAPTAIN_SPD = 5;
+	
+
+	public static final int DATAMAN_P = 500;
+	public static final int DATAMAN_HP = 80;
+	public static final int DATAMAN_ATK = 20;
+	public static final int DATAMAN_AR = 10;
+	public static final int DATAMAN_SPD = 5;
+
+	public static final int ARTDESIGNER_P = 400;
+	public static final int ARTDESIGNER_HP = 70;
+	public static final int ARTDESIGNER_ATK = 3;
+	public static final int ARTDESIGNER_AR = 4;
+	public static final int ARTDESIGNER_SPD = 4;
+
+	public static final int JOBHUNTER_P = 100;
+	public static final int JOBHUNTER_HP = 50;
+	public static final int JOBHUNTER_ATK = 1;
+	public static final int JOBHUNTER_AR = 10;
+	public static final int JOBHUNTER_SPD = 4;
 	public static void recover(){
 		enemyList.removeAll(enemyList);
 		playerList.removeAll(playerList);
