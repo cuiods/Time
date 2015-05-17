@@ -59,6 +59,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_6 = false;
 	public static boolean isTech_7 = false;
 	public static boolean isTech_8 = false;
+	public static boolean isTech_20 = false;
 	public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
@@ -149,6 +150,7 @@ public class PanelFight extends JPanel implements Runnable{
 		case 3:begin = 9; end = 13;break;
 		case 4:begin = 13; end = 16;break;
 		case 5:begin = 16;end = 19;break;
+		case 6:begin = 19;end = 21;break;
 		}
 		//use 'for' to create science button
 		for(int i = begin; i < end; i++){
@@ -446,7 +448,18 @@ public class PanelFight extends JPanel implements Runnable{
 				PicturePlayer.time3 = 1000;
 			}
 		}
-	   
+	   if(isTech_20){
+		   String pictures6[] = new String[10];
+		   for(int i=0;i<pictures6.length;i++){
+			   pictures6[i]="graphics/stunt/TechRen"+i+".png";
+		   }
+		   PicturePlayer pic = new PicturePlayer(pictures6,false,45);
+		   pic.panelPlay(360, 180, g, this, 4);
+		   if(PicturePlayer.time4<30){
+			   isTech_20=false;
+			   PicturePlayer.time4=1000;
+		   }
+	   }
 	}
 
 	/**
@@ -571,6 +584,26 @@ public class PanelFight extends JPanel implements Runnable{
 			DataBase.enemyList.add(enemycastle5_2);
 			DataBase.enemyList.add(enemycastle5_3);
 			break;
+		case 6:
+			S_Castle mycastle6 = new S_Castle();
+			mycastle6.setKind(1);
+			mycastle6.setHp(DataBase.CASTLE_HP_STG6);
+			mycastle6.setX(DataBase.START_LOC_X_STG6);
+			mycastle6.setY(DataBase.START_LOC_Y_STG6);
+			Thread cp16 = new Thread(mycastle6);
+			cp16.start();
+			DataBase.playerList.add(mycastle6);
+			
+			
+			S_Castle enemycastle6 = new S_Castle();
+			enemycastle6.setKind(0);
+			enemycastle6.setX(DataBase.START_LOC_X_ENM_STG6);
+			enemycastle6.setY(DataBase.START_LOC_Y_ENM_STG6);
+			enemycastle6.setHp(DataBase.CASTLE_HP_ENM_STG6);
+			Thread cp26 = new Thread(enemycastle6);
+			cp26.start();
+			DataBase.enemyList.add(enemycastle6);
+			break;
 		}
 	}
 
@@ -664,8 +697,16 @@ public class PanelFight extends JPanel implements Runnable{
 				return 1;
 			}
 			break;
-			
+		case 6:
+			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+				return -1;
+			}
+			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
+				return 1;
+			}
+			break;
 		}
+			
 		return 0;
 	}
 }

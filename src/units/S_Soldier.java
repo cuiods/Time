@@ -158,6 +158,13 @@ public abstract class S_Soldier extends S_Unit{
 			    			x-=spd;
 			    		}
 	    			break;
+	    		case 6:
+	    			if(this.getKind()==1){
+			    		x+=spd;
+			    		}
+			    		else{
+			    			x-=spd;
+			    		}
 	    		}
 		}
 					

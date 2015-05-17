@@ -165,6 +165,18 @@ public class DrawUnits {
 				case 15:
 					drawSneaker(g, (STG4_Sneaker) DataBase.enemyList.get(i));
 					break;
+				case 16:
+					drawCaptain(g, (STG6_Captain) DataBase.enemyList.get(i));
+					break;
+				case 17:
+					drawJobHunter(g, (STG6_JobHunter) DataBase.enemyList.get(i));
+					break;
+				case 18:
+					drawArtdesigner(g, (STG6_Artdesigner) DataBase.enemyList.get(i));
+					break;
+				case 19:
+					drawDataMan(g, (STG6_DataMan) DataBase.enemyList.get(i));
+					break;
 				case 100:
 					drawCastle(g, (S_Castle) DataBase.enemyList.get(i));
 					break;
@@ -1072,6 +1084,18 @@ public class DrawUnits {
 					g.fill3DRect(625+lifePercent5, 32, 200-lifePercent5, 10, false);			
 				}
 				break;
+			case 6:
+				Image car = new ImageIcon("graphics/soldiers/car.png").getImage();
+				g.drawImage(car,o.getX()-167,o.getY(),167,100,panel);
+				int lifePercent6 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG6));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent6, 10, false);
+				if(lifePercent6!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent6, 32, 200-lifePercent6, 10, false);			
+				}
+				break;
+			
 			}
 		}else if(o.getKind() == 1){
 			int lifePercent = 0;
@@ -1093,6 +1117,10 @@ public class DrawUnits {
 				break;
 			case 5:
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG5));
+				break;
+			case 6:
+				g.drawImage(new ImageIcon("graphics/soldiers/castle6.png").getImage(),o.getX()-50, o.getY(), 175, 215, panel);
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG6));
 				break;
 			}
 			
@@ -1137,39 +1165,39 @@ public class DrawUnits {
 	  switch(o.getKind()){
 		case 1:
 			Image cui = new ImageIcon("graphics/soldiers/s6/cui.gif").getImage();
-//			if(o.moving){
-//				if(!DataBase.isPause){
-//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
-//				}else{
-//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
-//				}
-//			}else if(o.attacking){
-//				if(!DataBase.isPause){
-//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
-//				}else{
-//					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
-//				}
-//			}
+			if(o.moving){
+				if(!DataBase.isPause){
+					cui = new ImageIcon("graphics/soldiers/s6/cui.gif").getImage();
+				}else{
+					cui = new ImageIcon("graphics/soldiers/s6/cui.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					cui = new ImageIcon("graphics/soldiers/s6/cui1.gif").getImage();
+				}else{
+					cui = new ImageIcon("graphics/soldiers/s6/cui1.gif").getImage();
+				}
+			}
 			g.drawImage(cui,o.getX(), o.getY()+o.ran, 120,100, panel);
 			break;
-//		case 0:
-//			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
-//			if(o.moving){
-//				if(!DataBase.isPause){
-//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
-//				}else{
-//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
-//				}
-//				
-//			}else if(o.attacking){
-//				if(!DataBase.isPause){
-//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo_attack.png").getImage();
-//				}else{
-//					spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();
-//				}
-//			}
-//			g.drawImage(spaceship0,o.getX(), o.getY()+o.ran,144, 72, panel);
-//			break;
+		case 0:
+			Image chen = new ImageIcon("graphics/soldiers/en6/chen.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					chen = new ImageIcon("graphics/soldiers/en6/chen.gif").getImage();
+				}else{
+					chen = new ImageIcon("graphics/soldiers/en6/chen.gif").getImage();
+				}
+				
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					chen = new ImageIcon("graphics/soldiers/en6/chen.gif").getImage();
+				}else{
+					chen = new ImageIcon("graphics/soldiers/en3/chen.gif").getImage();
+				}
+			}
+			g.drawImage(chen,o.getX(), o.getY()+o.ran,170, 170, panel);
+			break;
  	}
   	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.CAPTAIN_HP));
 		g.setColor(Color.GREEN);
@@ -1181,12 +1209,141 @@ public class DrawUnits {
   	
   }
   private static void drawJobHunter(Graphics g, STG6_JobHunter o){
-	  
+	  switch(o.getKind()){
+		case 1:
+			Image du = new ImageIcon("graphics/soldiers/s6/du.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					du = new ImageIcon("graphics/soldiers/s6/du.gif").getImage();
+				}else{
+					du = new ImageIcon("graphics/soldiers/s6/du.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					du = new ImageIcon("graphics/soldiers/s6/du.gif").getImage();
+				}else{
+					du = new ImageIcon("graphics/soldiers/s6/du.gif").getImage();
+				}
+			}
+			g.drawImage(du,o.getX(), o.getY()+o.ran, 120,100, panel);
+			break;
+		case 0:
+			Image dou = new ImageIcon("graphics/soldiers/en6/dou.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					dou = new ImageIcon("graphics/soldiers/en6/dou.gif").getImage();
+				}else{
+					dou = new ImageIcon("graphics/soldiers/en6/dou.gif").getImage();
+				}
+				
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					dou = new ImageIcon("graphics/soldiers/en6/dou.gif").getImage();
+				}else{
+					dou = new ImageIcon("graphics/soldiers/en3/dou.gif").getImage();
+				}
+			}
+			g.drawImage(dou,o.getX(), o.getY()+o.ran,145,170, panel);
+			break;
+	}
+	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.JOBHUNTER_HP));
+		g.setColor(Color.GREEN);
+		g.fill3DRect(o.getX()+20, o.getY()+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage+20, o.getY()+o.ran, 40-lifePercentage, 3, false);
+	    }
   }
  private static void drawArtdesigner(Graphics g, STG6_Artdesigner o){
-	  
+	 switch(o.getKind()){
+		case 1:
+			Image gao = new ImageIcon("graphics/soldiers/s6/gao.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					gao = new ImageIcon("graphics/soldiers/s6/gao.gif").getImage();
+				}else{
+					gao = new ImageIcon("graphics/soldiers/s6/gao.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					gao = new ImageIcon("graphics/soldiers/s6/gao.gif").getImage();
+				}else{
+					gao = new ImageIcon("graphics/soldiers/s6/gao.gif").getImage();
+				}
+			}
+			g.drawImage(gao,o.getX(), o.getY()+o.ran, 120,100, panel);
+			break;
+		case 0:
+			Image fan = new ImageIcon("graphics/soldiers/en6/fan.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					fan = new ImageIcon("graphics/soldiers/en6/fan.gif").getImage();
+				}else{
+					fan = new ImageIcon("graphics/soldiers/en6/fan.gif").getImage();
+				}
+				
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					fan = new ImageIcon("graphics/soldiers/en6/fan.gif").getImage();
+				}else{
+					fan = new ImageIcon("graphics/soldiers/en3/fan.gif").getImage();
+				}
+			}
+			g.drawImage(fan,o.getX(), o.getY()+o.ran,200, 200, panel);
+			break;
+	}
+	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.ARTDESIGNER_HP));
+		g.setColor(Color.GREEN);
+		g.fill3DRect(o.getX()+20, o.getY()+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage+20, o.getY()+o.ran, 40-lifePercentage, 3, false);
+	    }
   }
  private static void drawDataMan(Graphics g, STG6_DataMan o){
-	  
+	 switch(o.getKind()){
+		case 1:
+			Image nian = new ImageIcon("graphics/soldiers/s6/nian.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					nian = new ImageIcon("graphics/soldiers/s6/nian.gif").getImage();
+				}else{
+					nian = new ImageIcon("graphics/soldiers/s6/nian.gif").getImage();
+				}
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					nian = new ImageIcon("graphics/soldiers/s6/nian.png").getImage();
+				}else{
+					nian = new ImageIcon("graphics/soldiers/s6/nian.png").getImage();
+				}
+			}
+			g.drawImage(nian,o.getX(), o.getY()+o.ran, 120,100, panel);
+			break;
+		case 0:
+			Image cheng = new ImageIcon("graphics/soldiers/en6/cheng.gif").getImage();
+			if(o.moving){
+				if(!DataBase.isPause){
+					cheng = new ImageIcon("graphics/soldiers/en6/cheng.gif").getImage();
+				}else{
+					cheng = new ImageIcon("graphics/soldiers/en6/cheng.gif").getImage();
+				}
+				
+			}else if(o.attacking){
+				if(!DataBase.isPause){
+					cheng = new ImageIcon("graphics/soldiers/en6/cheng.gif").getImage();
+				}else{
+					cheng= new ImageIcon("graphics/soldiers/en3/cheng.gif").getImage();
+				}
+			}
+			g.drawImage(cheng,o.getX(), o.getY()+o.ran,160, 150, panel);
+			break;
+	}
+	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.DATAMAN_HP));
+		g.setColor(Color.GREEN);
+		g.fill3DRect(o.getX()+20, o.getY()+o.ran, lifePercentage, 3, false);
+		if(lifePercentage!=40){
+			g.setColor(Color.RED);
+			g.fill3DRect(o.getX()+lifePercentage+20, o.getY()+o.ran, 40-lifePercentage, 3, false);
+	    }
  }
 }

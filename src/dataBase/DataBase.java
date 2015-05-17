@@ -90,11 +90,13 @@ public class DataBase {
 	//Parameters for stage6
 	public static final int INITIAL_MONEY_STG6 = 100000;
 	public static final int INITIAL_MONEY_INCREMENT_STG6 = 8;
+	public static final int CASTLE_HP_STG6 = 2000;
 	public static final int START_LOC_X_STG6 = 50;
 	public static final int START_LOC_Y_STG6 = 145;
 
 	public static final int START_LOC_X_ENM_STG6 = 950;
 	public static final int START_LOC_Y_ENM_STG6 = 145;
+	public static final int CASTLE_HP_ENM_STG6 = 1000;
 	
 	//General parameters for the game
 	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
@@ -125,7 +127,9 @@ public class DataBase {
 	public static boolean Tech_CoverProject = false;
 	public static boolean Tech_HaltScience = false;
 	public static boolean Tech_Escape = false;
-
+   //Tech for stage6
+	public static boolean Tech_QINLIU=false;
+	public static boolean Tech_REN=false;
 
 	//Price of Technologies
 	public static final int Tech_CannonEnable_P = 1000;//效锟斤拷锟斤拷锟斤拷锟斤拷cannon锟斤拷
@@ -141,6 +145,8 @@ public class DataBase {
 	public static final int Tech_Harper_P = 2000;
 	public static final int Tech_SuperComputer_P = 2500;
 	public static final int Tech_HydrogenBomb_P = 3000;
+	public static final int Tech_QINLIU_P = 5000;
+	public static final int Tech_REN_P = 3000;
 	/*
 	 * Units for stage1
 	 */
