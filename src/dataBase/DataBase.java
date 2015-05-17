@@ -67,7 +67,7 @@ public class DataBase {
 	public static final int START_LOC_Y_STG4 = 160;
 	public static final int BLACKHOLE_LOC_X_STG4 = 150;
 	public static final int BLACKHOLE_LOC_Y_STG4 = 450;
-	public static final int BLACKHOLE_TIMELIMIT = 20;
+	public static final int BLACKHOLE_TIMELIMIT = 20*1000;
 	public static final int SNEAKER_TIMELIMIT = 7*1000;
 
 	public static final int CASTLE_HP_ENM_STG4 = 1000;

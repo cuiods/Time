@@ -126,19 +126,23 @@ public class AIcommander {
 		DataBase.enemyList.add(s);
 	}
 	public void LockScience(){
+		System.out.println("LockScience");
 	    tech = new Tech_ENM_STG3_LockScience();
 		Thread th = new Thread(tech);
 		th.start();
 	}
 	public void GeneMissile(){
+		System.out.println("GeneMissile");
 		Tech_ENM_STG4_GeneMissile tech = new Tech_ENM_STG4_GeneMissile();
 		tech.execute();
 	}
 	public void KillerVirus(){
+		System.out.println("KillerVirus");
 		Tech_ENM_STG4_KillerVirus tech = new Tech_ENM_STG4_KillerVirus();
 		tech.execute();
 	}
 	public void PhotonStrike(){
+		System.out.println("PhotonStrike");
 		Tech_ENM_STG5_PhotonStrike tech = new Tech_ENM_STG5_PhotonStrike();
 		tech.execute();
 	}

@@ -24,7 +24,17 @@ public class simpleAI_STG4 extends AI implements Runnable{
 		Threat = 0;
 		for(int i=0;i<DataBase.playerList.size()&&DataBase.playerList.get(i).path==path_num;i++){
 			S_Unit u = DataBase.playerList.get(i);
-			if(u.getType()!=100&&u.getType()!=101){
+			if(u.getType()!=100&&u.getType()!=102){
+				if(path_num==0){
+				int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG4-u.getX())*(db.START_LOC_X_ENM_STG4-u.getX())+
+						(db.START_LOC_Y_ENM_STG4-u.getY())*(db.START_LOC_Y_ENM_STG4-u.getY()));
+				if (dis <=200) Threat +=100;
+				}
+				if(path_num==1){
+					int dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG4-u.getX())*(db.START_LOC_X_ENM_STG4-u.getX())+
+							(db.START_LOC_Y_ENM_STG4+240-u.getY())*(db.START_LOC_Y_ENM_STG4+240-u.getY()));
+					if (dis <=200) Threat +=100;
+				}
 			Threat+=u.getHp()*u.attack;
 			}
 		}
@@ -59,18 +69,16 @@ public class simpleAI_STG4 extends AI implements Runnable{
 			AIC.addDrone(path_num);
 			AIC.addRazerShip(path_num);
 		}else if(Threat>=200&&Threat<340&&Math.random()>0.3){
-			AIC.addDrone(path_num);
+			AIC.addRobotWarrior(path_num);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addRobotWarrior(path_num);
-			AIC.addRazerShip(path_num);
+			AIC.GeneMissile();
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4&&(DataBase.LockScience==false)){
 			AIC.LockScience();
-			System.out.println("LockScience");
 			AIC.addRazerShip(path_num);
 			try {
 				Thread.sleep(500);
@@ -78,15 +86,15 @@ public class simpleAI_STG4 extends AI implements Runnable{
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addRazerShip(path_num);
+			AIC.KillerVirus();
 		}else if(Threat>=450){
-			AIC.LockScience();
-			AIC.addRazerShip(path_num);
+			AIC.GeneMissile();
+			AIC.KillerVirus();
 			AIC.addRobotWarrior(path_num);
 		}
 	}
 	public void run() {
-		AIC.LockScience();
+//		AIC.LockScience();
 		AIC.addDrone(this.getRadomPath());
 		try {
 			Thread.sleep(2000);
@@ -132,6 +140,6 @@ public class simpleAI_STG4 extends AI implements Runnable{
 		
 	}
 	public int getRadomPath(){
-		return (int) (Math.random()*3);
+		return (int) (Math.random()*2);
 	}
 }

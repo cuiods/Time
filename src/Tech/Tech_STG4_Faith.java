@@ -11,8 +11,9 @@ public class Tech_STG4_Faith {
 		}
 	}
 	public void execute(){
-		for(S_Unit u: DataBase.playerList){
-			u.attack+=1;
+		for(int i=0;i<DataBase.playerList.size();i++){
+			S_Unit u = DataBase.playerList.get(i);
+			u.attack+=5;
 		}
 	}
 }

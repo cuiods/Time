@@ -14,6 +14,7 @@ public class Tech_ENM_STG4_GeneMissile {
 		}
 	}
 	public int getGene(){
-		return (int) (Math.random()*4)+12;
+		return 12;
+//		return (int) (Math.random()*4)+12;
 	}
 }
