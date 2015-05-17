@@ -91,8 +91,8 @@ public class AIcommander {
 	public void addDrone(int path_num){
 		STG4_Drone d = new STG4_Drone();
 		d.setKind(0);
-		d.path = path_num;
 		setLoc(d);
+		d.path = path_num;
 		Thread th = new Thread(d);
 		th.start();
 		DataBase.enemyList.add(d);
@@ -100,8 +100,8 @@ public class AIcommander {
 	public void addRazerShip(int path_num){
 		STG4_RazerShip r = new STG4_RazerShip();
 		r.setKind(0);
-		r.path = path_num;
 		setLoc(r);
+		r.path = path_num;
 		Thread th = new Thread(r);
 		th.start();
 		DataBase.enemyList.add(r);
@@ -109,8 +109,8 @@ public class AIcommander {
 	public void addRobotWarrior(int path_num){
 		STG4_RobotWarrior r = new STG4_RobotWarrior();
 		r.setKind(0);
-		r.path = path_num;
 		setLoc(r);
+		r.path = path_num;
 		Thread th = new Thread(r);
 		th.start();
 		DataBase.enemyList.add(r);
@@ -118,8 +118,8 @@ public class AIcommander {
 	public void addSneaker(int path_num){
 		STG4_Sneaker s = new STG4_Sneaker();
 		s.setKind(0);
-		s.path = path_num;
 		setLoc(s);
+		s.path = path_num;
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
@@ -155,7 +155,7 @@ public class AIcommander {
 		}
 		if(u.path==1){
 			u.setX(DataBase.START_LOC_X_ENM_STG4);
-			u.setY(DataBase.START_LOC_Y_ENM_STG4+300);
+			u.setY(DataBase.START_LOC_Y_ENM_STG4+240);
 		}break;
 
 		case 5:u.setX(DataBase.START_LOC_X_ENM_STG5);
