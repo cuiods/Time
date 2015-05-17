@@ -16,7 +16,9 @@ public class PanelTechInfor extends JPanel {
 		case 2:this.setBounds(410+(kind-4)*49, 130, 293, 226);break;
 		
 		case 3:this.setBounds(410+(kind-9)*49, 130, 293, 226);break;
-			
+		case 4:break;
+		case 5:break;
+		case 6:this.setBounds(410+(kind-19)*49, 130, 293, 226);break;
 		}
    }
    public void paintComponent(Graphics g){

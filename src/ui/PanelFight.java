@@ -95,7 +95,7 @@ public class PanelFight extends JPanel implements Runnable{
 	}
 	private void drawInformation(Graphics g) {
 		switch(DataBase.pass){
-			case 3:
+			case 3 :
 				if(DataBase.LockScience){
 					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),0, 500,458,115,this);
 					
@@ -107,6 +107,8 @@ public class PanelFight extends JPanel implements Runnable{
 					}
 				  
 				}
+				break;
+				
 		}
 }
 
@@ -625,9 +627,17 @@ public class PanelFight extends JPanel implements Runnable{
 			if(win()<0){
 				DataBase.isPause = true;
 				//if lose, the param is false, then you should add game over panel
-				gameOverPanel = new PanelGameOver(false);
-				gameOverPanel.addMouseListener(gameOverPanel);
-				this.add(gameOverPanel);
+				if(DataBase.pass==6){
+					PanelFade fadePanel2 = new PanelFade();
+					fadePanel2.addImage(new ImageIcon("graphics/badge/badge3.png").getImage());
+					Controller.gameframe.getContentPane().setVisible(true);
+					Controller.gameframe.setContentPane(fadePanel2);
+					fadePanel2.showImage();
+				}else{
+					gameOverPanel = new PanelGameOver(false);
+					gameOverPanel.addMouseListener(gameOverPanel);
+					this.add(gameOverPanel);
+				}
 				this.repaint();
 				/*
 				 * end loop,then next time the thread will die, and will not affect
@@ -637,9 +647,17 @@ public class PanelFight extends JPanel implements Runnable{
 			}
 			if(win()>0){
 				DataBase.isPause = true;
-				gameOverPanel = new PanelGameOver(true);
-				gameOverPanel.addMouseListener(gameOverPanel);
-				this.add(gameOverPanel);
+				if(DataBase.pass==6){
+					PanelFade fadePanel2 = new PanelFade();
+					fadePanel2.addImage(new ImageIcon("graphics/badge/badge3.png").getImage());
+					Controller.gameframe.getContentPane().setVisible(true);
+					Controller.gameframe.setContentPane(fadePanel2);
+					fadePanel2.showImage();
+				}else{
+					gameOverPanel = new PanelGameOver(true);
+					gameOverPanel.addMouseListener(gameOverPanel);
+					this.add(gameOverPanel);
+				}
 				this.repaint();
 				break;
 			}
@@ -680,11 +698,9 @@ public class PanelFight extends JPanel implements Runnable{
 			break;
 		case 3:
 			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
-				DataBase.Tech_Harper_TIME=0;
 				return -1;
 			}
 			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){
-				DataBase.Tech_Harper_TIME=0;
 				return 1;
 			}
 			break;

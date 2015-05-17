@@ -293,7 +293,8 @@ public class DataBase {
 		case 2:Money = INITIAL_MONEY_STG2;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG2;break;
 		case 3:Money = INITIAL_MONEY_STG3;
-		Money_Increment = INITIAL_MONEY_INCREMENT_STG3;break;
+		Money_Increment = INITIAL_MONEY_INCREMENT_STG3;
+		Tech_Harper_TIME=0;break;
 		case 4:break;
 		}
 

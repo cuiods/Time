@@ -67,6 +67,7 @@ public class ButtonPass3 extends JLabel implements MouseListener {
 			DataBase.pass=3;
 			Controller.changeTo(FrameGame.STORYPANEL);
 			isIn=false;
+			DataBase.Tech_Harper_TIME=0;
 			}
 	}
 }

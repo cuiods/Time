@@ -180,6 +180,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			break;
 		}
 		repaint();
+		
 	}
 }
 

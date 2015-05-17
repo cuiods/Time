@@ -195,7 +195,7 @@ public class DrawUnits {
 				}
 				  
 			}
-		}
+	}
 
 	/**
 	 * draw sword man
