@@ -772,7 +772,7 @@ public class DrawUnits {
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					drone = new ImageIcon("graphics/soldiers/s4/droneattack.gif").getImage();
-					g.drawImage(drone,o.getX(), o.getY()+o.ran, 135, 36, panel);
+					g.drawImage(drone,o.getX(), o.getY()+o.ran, 142, 36, panel);
 				}else{
 					drone = new ImageIcon("graphics/soldiers/s4/drone.png").getImage();
 					g.drawImage(drone,o.getX(), o.getY()+o.ran, 59, 36, panel);
@@ -787,9 +787,9 @@ public class DrawUnits {
 				
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					drone1 = new ImageIcon("graphics/soldiers/en4/drone.png").getImage();
+					drone1 = new ImageIcon("graphics/soldiers/en4/droneattack.gif").getImage();
 				}else{
-					drone1 = new ImageIcon("graphics/soldiers/en4/drone.png").getImage();
+					drone1 = new ImageIcon("graphics/soldiers/en4/droneattack.png").getImage();
 				}
 			}
 			g.drawImage(drone1,o.getX(), o.getY()+o.ran, 50, 50, panel);
@@ -842,11 +842,18 @@ public class DrawUnits {
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();
+					g.setColor(Color.YELLOW);
+					S_Unit e = DataBase.playerList.get(o.detect());
+					g.drawLine(o.x+77, o.y+o.ran+64-40, e.x+25, e.y+30);
+					g.drawImage(ship1,o.getX(), o.getY()+o.ran-40, 200, 156, panel);
+					g.drawLine(o.x+76, o.y+o.ran+63-40, e.x+25, e.y+30);
+					g.drawLine(o.x+78, o.y+o.ran+65-40, e.x+25, e.y+30);
+					g.drawLine(o.x+79, o.y+o.ran+66-40, e.x+25, e.y+30);
 				}else{
 					ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();
+					g.drawImage(ship1,o.getX(), o.getY()+o.ran-40, 200, 156, panel);
 				}
 			}
-			g.drawImage(ship1,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
 			break;
     	}
     	int lifePercentage = (int)(160 * 1.0*(o.getHp()*1.00/DataBase.RAZERSHIP_HP));
@@ -889,12 +896,12 @@ public class DrawUnits {
 				
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					robot1 = new ImageIcon("graphics/soldiers/en4/robot.png").getImage();
+					robot1 = new ImageIcon("graphics/soldiers/en4/robotattack.gif").getImage();
 				}else{
 					robot1 = new ImageIcon("graphics/soldiers/en4/robot.png").getImage();
 				}
 			}
-			g.drawImage(robot1,o.getX(), o.getY()+o.ran, 31, 50, panel);
+			g.drawImage(robot1,o.getX(), o.getY()+o.ran, 60, 42, panel);
 			break;
     	}
     	int lifePercentage = (int)(40 * 1.0*(o.getHp()*1.00/DataBase.ROBOTWARRIOR_HP));
@@ -939,17 +946,19 @@ public class DrawUnits {
 		case 0:
 			Image sneaker1 = new ImageIcon("graphics/soldiers/en4/sneaker.png").getImage();
 			if(o.moving){
-				
+				if(o.invisible){
+					sneaker1 = new ImageIcon("graphics/soldiers/en4/sneakerInvisible.png").getImage();
+				}else{
 					sneaker1 = new ImageIcon("graphics/soldiers/en4/sneaker.png").getImage();
-				
+				}
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					sneaker1 = new ImageIcon("graphics/soldiers/en4/sneaker.png").getImage();
+					sneaker1 = new ImageIcon("graphics/soldiers/en4/sneakeratack.png").getImage();
 				}else{
 					sneaker1 = new ImageIcon("graphics/soldiers/en4/sneaker.png").getImage();
 				}
 			}
-			g.drawImage(sneaker1,o.getX(), o.getY()+o.ran, 100, 54, panel);
+			g.drawImage(sneaker1,o.getX(), o.getY()+o.ran, 80, 85, panel);
 			break;
     	}
     	if(!o.invisible){
