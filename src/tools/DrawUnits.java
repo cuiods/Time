@@ -863,6 +863,7 @@ public class DrawUnits {
 				
 					ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();
 				
+					g.drawImage(ship1,o.getX(), o.getY()+o.ran-40, 200, 156, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();

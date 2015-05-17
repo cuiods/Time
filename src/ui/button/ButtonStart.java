@@ -31,7 +31,7 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 
 		filepath = "graphics/button/startButton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(x,y,170,170);
+		this.setBounds(x,y,70+(1000-y)/4,70+(1000-y)/4);
 	}
 	
 	public void paintComponent(Graphics g){

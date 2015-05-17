@@ -126,6 +126,7 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 			case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_STG2){return true;}break;
 			case 3:if(hp+addSpeed<=DataBase.CASTLE_HP_STG3){return true;}break;
 			case 4:if(hp+addSpeed<=DataBase.CASTLE_HP_STG4){return true;}break;
+			case 5:if(hp+addSpeed<=DataBase.CASTLE_HP_STG5){return true;}break;
 			}
 			break;
 		case 0:
@@ -134,6 +135,7 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 			case 2:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG2){return true;}break;
 			case 3:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG3){return true;}break;
 			case 4:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG4){return true;}break;
+			case 5:if(hp+addSpeed<=DataBase.CASTLE_HP_ENM_STG5){return true;}break;
 			}
 			break;
 		}
