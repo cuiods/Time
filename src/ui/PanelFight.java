@@ -34,6 +34,7 @@ import ai.simpleAI_STG1;
 import ai.simpleAI_STG2;
 import ai.simpleAI_STG3;
 import ai.simpleAI_STG4;
+import ai.simpleAI_STG5;
 import dataBase.DataBase;
 
 
@@ -287,15 +288,19 @@ public class PanelFight extends JPanel implements Runnable{
 			time = new Time(DataBase.TIMELIMIT_STG2);
 			break;
 		case 3:
-		    ai3 = new simpleAI_STG3();
+		    simpleAI_STG3 ai3 = new simpleAI_STG3();
 			Thread th3 = new Thread(ai3);
 			th3.start();
 			break;
 		case 4:
-			ai4 = new simpleAI_STG4();
+			simpleAI_STG4 ai4 = new simpleAI_STG4();
 			Thread th4 = new Thread(ai4);
 			th4.start();
 			break;
+		case 5:
+			simpleAI_STG5 ai5 = new simpleAI_STG5();
+			Thread th5 = new Thread(ai5);
+			th5.start();
 		}
 		
 		//set money

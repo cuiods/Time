@@ -69,8 +69,13 @@ public abstract class S_Soldier extends S_Unit{
 		@Override
 		public void run() {
 			while(true){
+				if(DataBase.pass!=this.getStageOfSoldier(this)){
+					if(!(DataBase.pass==5&&this.getStageOfSoldier(this)==4)){
+						break;
+					}
+				}
 				try {
-					Thread.sleep(10);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					// TODO 自动生成的 catch 块
 					e.printStackTrace();
@@ -258,6 +263,28 @@ public abstract class S_Soldier extends S_Unit{
 						
 					}
 				}
+		}
+		public int getStageOfSoldier(S_Unit ce){
+			switch(ce.getType()){
+			case 0: 
+			case 1:
+			case 2: return 1;
+			case 3:
+			case 4:
+			case 5:
+			case 6: return 2;
+			case 7:
+			case 8:
+			case 9:
+			case 10:
+			case 11:return 3;
+			case 12:
+			case 13:
+			case 14:
+			case 15:return 4;
+			default : return -1;
+			
+			}
 		}
 		
 	

@@ -163,8 +163,14 @@ public class AIcommander {
 			u.setY(DataBase.START_LOC_Y_ENM_STG4+240);
 		}break;
 
-		case 5:u.setX(DataBase.START_LOC_X_ENM_STG5);
-		u.setY(DataBase.START_LOC_Y_ENM_STG5); break;
+		case 5:
+			if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		u.setY(DataBase.START_LOC_Y_ENM_STG5);}
+			if(u.path==1){u.setX(DataBase.START_LOC_X_ENM_STG5);
+			u.setY(DataBase.START_LOC_Y_ENM_STG5+165);}
+			if(u.path==2){u.setX(DataBase.START_LOC_X_ENM_STG5);
+			u.setY(DataBase.START_LOC_Y_ENM_STG5+330);}
+			break;
 		}
 	}
 }
