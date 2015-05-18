@@ -1,7 +1,5 @@
 package ui;
 
-import gamecontrol.Controller;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -20,8 +18,7 @@ import ui.button.ButtonClassicScience;
 import ui.button.ButtonClassicUnit;
 import ui.button.ButtonGameSet;
 import ui.button.ButtonPause;
-import ui.button.ButtonScience;
-import ui.button.ButtonUnit;
+import ui.button.ButtonUpdate;
 import units.S_Castle;
 import units.S_Unit;
 import dataBase.DataBase;
@@ -94,8 +91,12 @@ public class PanelClassic extends JPanel implements Runnable{
 			pause = new ButtonPause();
 			pause.addMouseListener(pause);
 			
+			ButtonUpdate update = new ButtonUpdate();
+			update.addMouseListener(update);
+			
 			this.add(gameSet);
 			this.add(pause);
+			this.add(update);
 			
 		}
 		

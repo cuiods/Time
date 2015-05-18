@@ -19,7 +19,7 @@ public class ButtonClassicScience extends ButtonScience implements Runnable{
 	
 	@Override
 	public void mouseEntered(MouseEvent e) {
-//		isIn = true;
+		isIn = true;
 //		techInfor = new PanelTechInfor(kind);
 //		Controller.gameframe.fightPanel.add(techInfor);
 	}

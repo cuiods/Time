@@ -371,7 +371,10 @@ public class DrawUnits {
 					medic = new ImageIcon("graphics/soldiers/s2/medic.png").getImage();
 				}
 			}
-			g.drawImage(medic,o.getX()+100, o.getY()+o.ran-200, 100,56, panel);
+			switch(DataBase.pass){
+			case 2:g.drawImage(medic,o.getX()+100, o.getY()+o.ran-200, 100,56, panel);break;
+			default:g.drawImage(medic,o.getX(), o.getY()+o.ran, 100,56, panel);break;
+			}
 			break;
 		case 0:
 			Image medic0 = new ImageIcon("graphics/soldiers/en2/medic0.png").getImage();
@@ -388,7 +391,10 @@ public class DrawUnits {
 					medic0 = new ImageIcon("graphics/soldiers/en2/medic0.png").getImage();
 				}
 			}
-			g.drawImage(medic0,o.getX()-30, o.getY()+o.ran+20,75, 42, panel);
+			switch(DataBase.pass){
+			case 2:g.drawImage(medic0,o.getX()-60, o.getY()+o.ran+20,75, 42, panel);break;
+			default:g.drawImage(medic0,o.getX()-60, o.getY()+o.ran,75, 42, panel);break;
+			}
 		}
 		
 //		//draw life
@@ -1095,7 +1101,15 @@ public class DrawUnits {
 					g.fill3DRect(625+lifePercent6, 32, 200-lifePercent6, 10, false);			
 				}
 				break;
-			
+			default:
+				int lifePercentd = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG5));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercentd, 10, false);
+				if(lifePercentd!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercentd, 32, 200-lifePercentd, 10, false);			
+				}
+				break;
 			}
 		}else if(o.getKind() == 1){
 			int lifePercent = 0;
@@ -1121,6 +1135,9 @@ public class DrawUnits {
 			case 6:
 				g.drawImage(new ImageIcon("graphics/soldiers/castle6.png").getImage(),o.getX()-50, o.getY(), 175, 215, panel);
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG6));
+				break;
+			default:
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG5));
 				break;
 			}
 			

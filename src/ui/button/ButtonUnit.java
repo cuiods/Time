@@ -159,7 +159,8 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		sneaker.path = path;
 		switch(DataBase.pass){
 		case 4:sneaker.y += 240*path;break;
-		default:sneaker.y += 160*path;sneaker.x = DataBase.START_LOC_X_STG5;break;
+		default:sneaker.y = DataBase.START_LOC_Y_STG5+160*path;
+		sneaker.x = DataBase.START_LOC_X_STG5;
 		}
 		
 		DataBase.playerList.add(sneaker);
@@ -179,7 +180,8 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		robot.path = path;
 		switch(DataBase.pass){
 		case 4:robot.y += 240*path;break;
-		default:robot.y += 160*path;robot.x = DataBase.START_LOC_X_STG5;break;
+		default:robot.y = DataBase.START_LOC_Y_STG5+160*path;
+		robot.x = DataBase.START_LOC_X_STG5;
 		}
 		
 		DataBase.playerList.add(robot);
@@ -199,7 +201,8 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		ship.path = path;
 		switch(DataBase.pass){
 		case 4:ship.y += 240*path;break;
-		default:ship.y += 160*path;ship.x = DataBase.START_LOC_X_STG5;break;
+		default:ship.y = DataBase.START_LOC_Y_STG5+160*path;
+		ship.x = DataBase.START_LOC_X_STG5;
 		}
 		
 		DataBase.playerList.add(ship);
@@ -219,7 +222,8 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		drone.path = path;
 		switch(DataBase.pass){
 		case 4:drone.y += 240*path;break;
-		default:drone.y += 160*path;drone.x = DataBase.START_LOC_X_STG5;break;
+		default:drone.y = DataBase.START_LOC_Y_STG5+160*path;
+		drone.x = DataBase.START_LOC_X_STG5;
 		}
 		
 		DataBase.playerList.add(drone);
