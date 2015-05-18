@@ -30,8 +30,8 @@ public class Time implements Runnable{
 	}
 	@Override
 	public void run() {
-		this.remainTime = updateRemainTime();
 		while(true){
+			this.remainTime = updateRemainTime();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
