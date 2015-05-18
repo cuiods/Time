@@ -8,14 +8,18 @@ public class Checker implements Runnable{
 		for(int i=0;i<DataBase.playerList.size();i++){
 			S_Unit ce = DataBase.playerList.get(i);
 			if(ce.getHp()<=0||outOfBoundCheck(ce)){
+				ce.setHp(0);
 				DataBase.playerList.remove(ce);
+				System.out.println("getone");
 			}
 			
 		}
 		for(int i=0;i<DataBase.enemyList.size();i++){
 			S_Unit ce = DataBase.enemyList.get(i);
 			if(ce.getHp()<=0||outOfBoundCheck(ce)){
+				ce.setHp(0);
 				DataBase.enemyList.remove(ce);
+				System.out.println("getone");
 			}
 		}
 	}
@@ -28,6 +32,7 @@ public class Checker implements Runnable{
 			e.printStackTrace();
 		}
 		this.check();
+		System.out.println("Checking");
 		}
 	}
 	public boolean outOfBoundCheck(S_Unit ce){

@@ -13,6 +13,7 @@ public class Time implements Runnable{
 	long now;
 	long timeleft;
 	long timeLimit;
+	int remainTime;
 	public Time(long tl){
 		timeLimit = tl;
 		DataBase.StartTime = System.currentTimeMillis();
@@ -20,13 +21,23 @@ public class Time implements Runnable{
 		th.start();
 	}
 	public int getRemainTime(){
+		return this.remainTime;
+	}
+	public int updateRemainTime(){
 		now = System.currentTimeMillis();
 		timeleft = timeLimit-(now - DataBase.StartTime);
 		return (int) (timeleft/1000);
 	}
 	@Override
 	public void run() {
-		// TODO 自动生成的方法存根
-		
+		this.remainTime = updateRemainTime();
+		while(true){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}
 	}
 }
