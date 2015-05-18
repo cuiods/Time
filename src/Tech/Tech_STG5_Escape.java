@@ -10,18 +10,12 @@ public class Tech_STG5_Escape implements Runnable{
 		t = new Time(DataBase.ESCAPE_TIMELIMIT);
 		Deposit = DataBase.Money/2;
 		DataBase.Money -= Deposit;
-		this.run();
+		this.execute();
 	}
 	@Override
 	public void run() {
 		while(t.getRemainTime()>=0){
 			System.out.println(t.getRemainTime());
-			try {
-				Thread.sleep(990);
-			} catch (InterruptedException e) {
-				// TODO 自动生成的 catch 块
-				e.printStackTrace();
-			}
 		}
 		DataBase.Money+= 2*Deposit; 
 	}
