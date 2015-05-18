@@ -139,7 +139,6 @@ public class AIcommander {
 	public void KillerVirus(){
 		System.out.println("KillerVirus");
 		Tech_ENM_STG4_KillerVirus tech = new Tech_ENM_STG4_KillerVirus();
-		tech.execute();
 	}
 	public void PhotonStrike(){
 		System.out.println("PhotonStrike");

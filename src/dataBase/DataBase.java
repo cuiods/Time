@@ -62,6 +62,8 @@ public class DataBase {
 	public static final int LOCKSCIENCE_TIMELIMIT = 30000;
 
 	//Parameters for stage4
+	public static boolean GeneMissile=false;
+	public static boolean virus= false;
 	public static final int INITIAL_MONEY_STG4 = 20000;
 	public static final int INITIAL_MONEY_INCREMENT_STG4 = 30;
 	public static final int CASTLE_HP_STG4 = 2000;

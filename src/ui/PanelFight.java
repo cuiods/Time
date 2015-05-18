@@ -105,7 +105,7 @@ public class PanelFight extends JPanel implements Runnable{
 		switch(DataBase.pass){
 			case 3 :
 				if(DataBase.LockScience){
-					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),0, 500,458,115,this);
+					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),450,500,440,57,this);
 					if((!DataBase.isPause)&&(ai3.AIC.tech.t.getRemainTime()>0)){
 						int second =ai3.AIC.tech.t.getRemainTime()%60;
 						g.setColor(Color.RED);
@@ -120,16 +120,29 @@ public class PanelFight extends JPanel implements Runnable{
 			
 			case 4:
 				if(DataBase.LockScience){
-					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),0, 500,458,115,this);
+					g.drawImage(new ImageIcon("graphics/info/lockscience.png").getImage(),450,420,440,57,this);
 					if((!DataBase.isPause)&&(ai4.AIC.tech.t.getRemainTime()>0)){
 						int second =ai4.AIC.tech.t.getRemainTime()%60;
 						g.setColor(Color.RED);
 						g.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28));
 						g.drawString(second+"", 460, 300);
 					}
-				}break;
-
+				}
+//				if(DataBase.GeneMissile){
+//					Time gene = new Time(5000);
+//				    if(gene.getRemainTime()>0)
+//						g.drawImage(new ImageIcon("graphics/info/genemissile.png").getImage(),450,500,440,57,this);
+//					
+//				}
+//				if(DataBase.virus){
+//					Time virus = new Time(5000);
+//					if(virus.getRemainTime()>0)
+//						g.drawImage(new ImageIcon("graphics/info/virus.png").getImage(),450,440,440,57,this);
+//					
+//				}
+          break;
 		}
+		
 }
 
 	/**

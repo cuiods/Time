@@ -172,40 +172,40 @@ public class ButtonScience extends JPanel implements MouseListener{
 			 * WARNING :I don't know the price!!
 			 */
 		case 15:
-			if(!DataBase.Tech_BlackHoleProject&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+			if(!DataBase.Tech_BlackHoleProject&&(DataBase.Money-DataBase.Tech_BlackHoleProject_P>=0)){
 				new Tech_STG4_BlackHoleProject();
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+				DataBase.Money -= DataBase.Tech_BlackHoleProject_P;
 			}
 			break;
 		case 13:
-			if(!DataBase.Tech_Faith&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+			if(!DataBase.Tech_Faith&&(DataBase.Money-DataBase.Tech_Faith_P>=0)){
 				new Tech_STG4_Faith();
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+				DataBase.Money -= DataBase.Tech_Faith_P;
 			}
 			break;
 		case 14:
-			if(!DataBase.Tech_FourthTechRevolution&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+			if(!DataBase.Tech_FourthTechRevolution&&(DataBase.Money-DataBase.Tech_FourthTechRevolution_P>=0)){
 				new Tech_STG4_FourthTechRevolution();
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+				DataBase.Money -= DataBase.Tech_FourthTechRevolution_P;
 			}
 			break;
 		case 16:
-			if(!DataBase.Tech_CoverProject&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+			if(!DataBase.Tech_CoverProject&&(DataBase.Money-DataBase.Tech_CoverProject_P>=0)){
 				new Tech_STG5_CoverProject();
 				PanelFight.isTech_9 = true;
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+				DataBase.Money -= DataBase.Tech_CoverProject_P;
 			}
 			break;
 		case 17:
-			if(!DataBase.Tech_Escape&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+			if(!DataBase.Tech_Escape&&(DataBase.Money-DataBase.Tech_Escape_P>=0)){
 				new Tech_STG5_Escape();
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+				DataBase.Money -= DataBase.Tech_Escape_P;
 			}
 			break;
 		case 18:
-			if((DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)){
+			if((DataBase.Money-DataBase.Tech_HaltScience_P>=0)){
 				new Tech_STG5_HaltScience();
-				DataBase.Money -= DataBase.Tech_HydrogenBomb_P;
+				DataBase.Money -= DataBase.Tech_HaltScience_P;
 			}
 			break;
 		case 19:
