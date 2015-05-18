@@ -17,7 +17,7 @@ public class DataBase {
 	public static ArrayList<S_Unit> playerList = new ArrayList<S_Unit>();
 
 	//Parameters for stage1
-	public static final int INITIAL_MONEY_STG1 = 200000;
+	public static final int INITIAL_MONEY_STG1 = 2000;
 	public static final int INITIAL_MONEY_INCREMENT_STG1 = 2;
 	public static final int CASTLE_HP_STG1 = 3000;//锟揭凤拷锟角憋拷锟斤拷锟斤拷锟斤拷值
 	public static final int START_LOC_X_STG1 = 50;//锟斤拷锟矫碉拷一锟截的筹拷锟斤拷位锟斤拷
@@ -33,7 +33,7 @@ public class DataBase {
 
 	//Parameters for stage2
 	public static long StartTime = 0;
-	public static final int INITIAL_MONEY_STG2 = 100000;
+	public static final int INITIAL_MONEY_STG2 = 4000;
 	public static final int INITIAL_MONEY_INCREMENT_STG2 = 5;
 	public static final int CASTLE_HP_STG2 = 500;
 	public static final int START_LOC_X_STG2 = 0;//锟斤拷锟矫第讹拷锟截的筹拷锟斤拷位锟斤拷
@@ -45,7 +45,7 @@ public class DataBase {
 	public static final int TIMELIMIT_STG2 = 1000*60*10;
 
 	//Parameters for stage3
-	public static final int INITIAL_MONEY_STG3 = 100000;
+	public static final int INITIAL_MONEY_STG3 = 10000;
 	public static final int INITIAL_MONEY_INCREMENT_STG3 = 20;
 	public static final int CASTLE_HP_STG3 = 2000;
 	public static final int START_LOC_X_STG3 = 50;
@@ -60,8 +60,8 @@ public class DataBase {
 	public static final int LOCKSCIENCE_TIMELIMIT = 30000;
 
 	//Parameters for stage4
-	public static final int INITIAL_MONEY_STG4 = 100000;
-	public static final int INITIAL_MONEY_INCREMENT_STG4 = 8;
+	public static final int INITIAL_MONEY_STG4 = 20000;
+	public static final int INITIAL_MONEY_INCREMENT_STG4 = 30;
 	public static final int CASTLE_HP_STG4 = 2000;
 	public static final int START_LOC_X_STG4 = 50;
 	public static final int START_LOC_Y_STG4 = 160;
@@ -86,7 +86,7 @@ public class DataBase {
 	public static final int CASTLE_HP_ENM_STG5 = 1000;
 	public static final int START_LOC_X_ENM_STG5 = 950;
 	public static final int START_LOC_Y_ENM_STG5 = 145;
-	
+
 	//Parameters for stage6
 	public static final int INITIAL_MONEY_STG6 = 100000;
 	public static final int INITIAL_MONEY_INCREMENT_STG6 = 8;
@@ -97,7 +97,7 @@ public class DataBase {
 	public static final int START_LOC_X_ENM_STG6 = 950;
 	public static final int START_LOC_Y_ENM_STG6 = 145;
 	public static final int CASTLE_HP_ENM_STG6 = 1000;
-	
+
 	//General parameters for the game
 	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
 	public static int Money_Increment = 2;
@@ -127,7 +127,7 @@ public class DataBase {
 	public static boolean Tech_CoverProject = false;
 	public static boolean Tech_HaltScience = false;
 	public static boolean Tech_Escape = false;
-   //Tech for stage6
+	//Tech for stage6
 	public static boolean Tech_QINLIU=false;
 	public static boolean Tech_REN=false;
 
@@ -139,12 +139,22 @@ public class DataBase {
 	public static final int Tech_MedicEnable_p = 1000;
 	public static final int Tech_TruckReinforce_P = 1200;
 	public static final int Tech_LessTime_P = 2000;
-	public static final int Tech_Heal_P = 500;
+	public static final int Tech_Heal_P = 500;	
 	public static final int Tech_CastleReinforce_P = 900;
+	
 	public static final int Tech_SecondCastle_P = 4000;
 	public static final int Tech_Harper_P = 2000;
 	public static final int Tech_SuperComputer_P = 2500;
 	public static final int Tech_HydrogenBomb_P = 3000;
+	
+	public static final int Tech_BlackHoleProject_P = 5000;
+	public static final int Tech_Faith_P = 6000;
+	public static final int Tech_FourthTechRevolution_P = 8000;
+	
+	public static final int Tech_CoverProject_P = 5000;
+	public static final int Tech_Escape_P = 0;
+	public static final int Tech_HaltScience_P = 4000;
+	
 	public static final int Tech_QINLIU_P = 5000;
 	public static final int Tech_REN_P = 3000;
 	/*
@@ -231,7 +241,7 @@ public class DataBase {
 	public static final int SPACESHIP_ATK = 3;
 	public static final int SPACESHIP_AR = 120;
 	public static final int SPACESHIP_SPD = 3;
-	
+
 	/*
 	 * Unit for stage4
 	 */
@@ -240,32 +250,32 @@ public class DataBase {
 	public static final int DRONE_ATK = 1;
 	public static final int DRONE_AR = 80;
 	public static final int DRONE_SPD = 6;
-	
+
 	public static final int RAZERSHIP_P = 3000;
 	public static final int RAZERSHIP_HP = 25;
 	public static final int RAZERSHIP_ATK = 5;
 	public static final int RAZERSHIP_AR = 140;
 	public static final int RAZERSHIP_SPD = 3;
-	
+
 	public static final int ROBOTWARRIOR_P = 1500;
 	public static final int ROBOTWARRIOR_HP = 100;
 	public static final int ROBOTWARRIOR_ATK = 1;
 	public static final int ROBOTWARRIOR_AR = 60;
 	public static final int ROBOTWARRIOR_SPD = 5;
-	
+
 	public static final int SNEAKER_P = 2000;
 	public static final int SNEAKER_HP = 80;
 	public static final int SNEAKER_ATK = 3;
 	public static final int SNEAKER_AR = 30;
 	public static final int SNEAKER_SPD = 8;
-	
+
 	//Units for stage6
 	public static final int CAPTAIN_P = 500;
 	public static final int CAPTAIN_HP = 100;
 	public static final int CAPTAIN_ATK = 50;
 	public static final int CAPTAIN_AR = 10;
 	public static final int CAPTAIN_SPD = 5;
-	
+
 
 	public static final int DATAMAN_P = 500;
 	public static final int DATAMAN_HP = 80;
@@ -295,7 +305,9 @@ public class DataBase {
 		case 3:Money = INITIAL_MONEY_STG3;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG3;
 		Tech_Harper_TIME=0;break;
-		case 4:break;
+		case 4:
+			Money = INITIAL_MONEY_STG4;
+			Money_Increment = INITIAL_MONEY_INCREMENT_STG4;break;
 		}
 
 		Tech_CannonEnable = false;

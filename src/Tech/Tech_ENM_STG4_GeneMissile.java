@@ -12,6 +12,20 @@ public class Tech_ENM_STG4_GeneMissile {
 				DataBase.playerList.remove(ce);
 			}
 		}
+		for(int i=0;i<DataBase.playerList.size();i++){
+			S_Unit ce = DataBase.playerList.get(i);
+			if(ce.getType()==getGene()){
+				ce.setHp(0);
+				DataBase.playerList.remove(ce);
+			}
+		}
+		for(int i=0;i<DataBase.playerList.size();i++){
+			S_Unit ce = DataBase.playerList.get(i);
+			if(ce.getType()==getGene()){
+				ce.setHp(0);
+				DataBase.playerList.remove(ce);
+			}
+		}
 	}
 	public int getGene(){
 		return 12;

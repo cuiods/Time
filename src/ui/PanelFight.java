@@ -14,6 +14,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import tools.Checker;
 import tools.DrawUnits;
 import tools.Money;
 import tools.MusicPlayer;
@@ -77,6 +78,10 @@ public class PanelFight extends JPanel implements Runnable{
 		setButtons();	
 		//clear Layout
 		setLayout(null);
+		//set Checker
+		Checker ck =new Checker();
+		Thread th = new Thread(ck);
+		th.start();
 		//set AI
 		setAI();
 		//auto save

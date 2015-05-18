@@ -14,7 +14,7 @@ public class Tech_STG1_Destroy {
 	public void execute(){
 		for(S_Unit u :DataBase.enemyList){
 			if(u.getType()!=100){
-				u.setHp((int) (getFullHP(u)*0.8));//ËðÊ§80%µÄÑª
+				u.setHp((int) (getFullHP(u)*0.2));//ËðÊ§80%µÄÑª
 			}
 		}
 		for(int i = 0; i<DataBase.enemyList.size(); i++){
