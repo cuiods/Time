@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -11,8 +13,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import dataBase.DataBase;
 import tools.MusicPlayer;
 import tools.MusicThread;
+import ui.FrameGame;
 
 public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 	
@@ -47,14 +51,15 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		new MusicThread("music/effects/clicked.wav", false).start();
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		new MusicThread("music/effects/clicked.wav", false).start();
-		
+		DataBase.pass = 11;
+		Controller.changeTo(FrameGame.CLASSICPANEL);
+		isIn = false;
 	}
 
 	@Override

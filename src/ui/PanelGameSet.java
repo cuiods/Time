@@ -17,7 +17,7 @@ public class PanelGameSet extends JPanel implements MouseListener{
 		this.setLayout(null);
 		//set exit button
 		ButtonExit butExit = new ButtonExit();
-		butExit.type = 2;
+		butExit.type = 4;
 		butExit.setBounds(730, 520, 250, 75);
 		butExit.addMouseListener(butExit);
 		this.add(butExit);

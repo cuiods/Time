@@ -16,7 +16,7 @@ import dataBase.DataBase;
 
 public class ButtonScience extends JPanel implements MouseListener{
 	
-	private int kind;
+	protected int kind;
 	public boolean isIn = false;
 	public PanelTechInfor techInfor;
 

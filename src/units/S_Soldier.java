@@ -149,8 +149,14 @@ public abstract class S_Soldier extends S_Unit{
 			        	y+=DataBase.PATH_AGLY_ENM*spd;
 			    	}
 	    			break;
-	    		case 4:
-	    		case 5:
+	    		case 6:
+	    			if(this.getKind()==1){
+			    		x+=spd;
+			    		}
+			    		else{
+			    			x-=spd;
+			    	}break;
+			    default:
 	    			if(this.getKind()==1){
 			    		x+=spd;
 			    		}
@@ -158,13 +164,6 @@ public abstract class S_Soldier extends S_Unit{
 			    			x-=spd;
 			    		}
 	    			break;
-	    		case 6:
-	    			if(this.getKind()==1){
-			    		x+=spd;
-			    		}
-			    		else{
-			    			x-=spd;
-			    		}
 	    		}
 		}
 					

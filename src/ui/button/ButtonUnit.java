@@ -16,14 +16,12 @@ import dataBase.DataBase;
 
 public class ButtonUnit extends JLabel implements MouseListener{
 	
-	private int kind;
-	private boolean isIn = false;
+	protected int kind;
+	protected boolean isIn = false;
 	public int path = 0;
 	public ButtonUnit(int kind,int path){
 		this.kind = kind;
 		this.path = path;
-		//it's not important, location will be reset
-		this.setBounds(30, 250, 65, 60);
 	}
 	
 	@Override
@@ -155,13 +153,13 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	}
 
 
-	private void addSneaker() {
+	protected void addSneaker() {
 		STG4_Sneaker sneaker = new STG4_Sneaker();
 		sneaker.setKind(1);
 		sneaker.path = path;
 		switch(DataBase.pass){
-		case 5:sneaker.y += 160*path;break;
-		default:sneaker.y += 240*path;break;
+		case 4:sneaker.y += 240*path;break;
+		default:sneaker.y += 160*path;sneaker.x = DataBase.START_LOC_X_STG5;break;
 		}
 		
 		DataBase.playerList.add(sneaker);
@@ -175,13 +173,13 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addRobotWarrior() {
+	protected void addRobotWarrior() {
 		STG4_RobotWarrior robot = new STG4_RobotWarrior();
 		robot.setKind(1);
 		robot.path = path;
 		switch(DataBase.pass){
-		case 5:robot.y += 160*path;break;
-		default:robot.y += 240*path;break;
+		case 4:robot.y += 240*path;break;
+		default:robot.y += 160*path;robot.x = DataBase.START_LOC_X_STG5;break;
 		}
 		
 		DataBase.playerList.add(robot);
@@ -195,13 +193,13 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addRazership() {
+	protected void addRazership() {
 		STG4_RazerShip ship = new STG4_RazerShip();
 		ship.setKind(1);
 		ship.path = path;
 		switch(DataBase.pass){
-		case 5:ship.y += 160*path;break;
-		default:ship.y += 240*path;break;
+		case 4:ship.y += 240*path;break;
+		default:ship.y += 160*path;ship.x = DataBase.START_LOC_X_STG5;break;
 		}
 		
 		DataBase.playerList.add(ship);
@@ -215,13 +213,13 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addDrone() {
+	protected void addDrone() {
 		STG4_Drone drone = new STG4_Drone();
 		drone.setKind(1);
 		drone.path = path;
 		switch(DataBase.pass){
-		case 5:drone.y += 160*path;break;
-		default:drone.y += 240*path;break;
+		case 4:drone.y += 240*path;break;
+		default:drone.y += 160*path;drone.x = DataBase.START_LOC_X_STG5;break;
 		}
 		
 		DataBase.playerList.add(drone);
@@ -235,14 +233,15 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addSpaceship() {
+	protected void addSpaceship() {
 		
 		STG3_SpaceShip spaceship = new STG3_SpaceShip();
 		spaceship.setKind(1);
 		spaceship.path = path;
 		switch(DataBase.pass){
-		case 5:spaceship.y += 160*path;break;
-		default:spaceship.y += 240*path;break;
+		case 3:break;
+		default:spaceship.y = DataBase.START_LOC_Y_STG5+160*path;
+		spaceship.x = DataBase.START_LOC_X_STG5;
 		}
 			
 		DataBase.playerList.add(spaceship);
@@ -257,13 +256,14 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Controller.gameframe.repaint();
 	}
 
-	private void addSpaceman() {
+	protected void addSpaceman() {
 		STG3_SpaceMan spaceman = new STG3_SpaceMan();
 		spaceman.setKind(1);
 		spaceman.path = path;
 		switch(DataBase.pass){
-		case 5:spaceman.y += 160*path;break;
-		default:spaceman.y += 240*path;break;
+		case 3:break;
+		default:spaceman.y = DataBase.START_LOC_Y_STG5+160*path;
+		spaceman.x = DataBase.START_LOC_X_STG5;
 		}
 			
 		DataBase.playerList.add(spaceman);
@@ -279,13 +279,14 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addSpacecarrier() {
+	protected void addSpacecarrier() {
 		STG3_SpaceCarrier spacecarrier = new STG3_SpaceCarrier();
 		spacecarrier.setKind(1);
 		spacecarrier.path = path;
 		switch(DataBase.pass){
-		case 5:spacecarrier.y += 160*path;break;
-		default:spacecarrier.y += 240*path;break;
+		case 3:break;
+		default:spacecarrier.y = DataBase.START_LOC_Y_STG5+160*path;
+		spacecarrier.x = DataBase.START_LOC_X_STG5;
 		}
 			
 		DataBase.playerList.add(spacecarrier);
@@ -301,13 +302,14 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addHydrogenBomb() {
+	protected void addHydrogenBomb() {
 		STG3_HydrogenBomb bomb = new STG3_HydrogenBomb();
 		bomb.setKind(1);
 		bomb.path = path;
 		switch(DataBase.pass){
-		case 5:bomb.y += 160*path;break;
-		default:bomb.y += 240*path;break;
+		case 3:break;
+		default:bomb.y = DataBase.START_LOC_Y_STG5+160*path;
+		bomb.x = DataBase.START_LOC_X_STG5;
 		}
 			
 		DataBase.playerList.add(bomb);
@@ -323,15 +325,16 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addCannon() {
+	protected void addCannon() {
 		//new a unit
 		STG1_Cannon cannon = new STG1_Cannon();
 		//set kind, enemy don't need to do this
 		cannon.setKind(1);
 		cannon.path = path;
 		switch(DataBase.pass){
-		case 5:cannon.y += 160*path;break;
-		default:cannon.y += 240*path;break;
+		case 1:break;
+		default:cannon.y = DataBase.START_LOC_Y_STG5+160*path;
+		cannon.x = DataBase.START_LOC_X_STG5;
 		}
 		//add  to list 
 		DataBase.playerList.add(cannon);
@@ -345,13 +348,14 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addGunner() {
+	protected void addGunner() {
 		STG1_Gunner gunner = new STG1_Gunner();
 		gunner.setKind(1);
 		gunner.path = path;
 		switch(DataBase.pass){
-		case 5:gunner.y += 160*path;break;
-		default:gunner.y += 240*path;break;
+		case 1:break;
+		default:gunner.y = DataBase.START_LOC_Y_STG5+160*path;
+		gunner.x = DataBase.START_LOC_X_STG5;
 		}
 		DataBase.playerList.add(gunner);
 		//start thread
@@ -364,15 +368,16 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 
-	private void addSwordman() {
+	protected void addSwordman() {
 		//create sword man
 		STG1_SwordMan swordman = new STG1_SwordMan();
 		// set player
 		swordman.setKind(1);
 		swordman.path = path;
 		switch(DataBase.pass){
-		case 5:swordman.y += 160*path;break;
-		default:swordman.y += 240*path;break;
+		case 1:break;
+		default:swordman.y = DataBase.START_LOC_Y_STG5+160*path;
+		swordman.x = DataBase.START_LOC_X_STG5;
 		}
 		// add to player list
 		DataBase.playerList.add(swordman);
@@ -388,7 +393,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 	}
 	
-	private void addMedicTeam(){
+	protected void addMedicTeam(){
 		if(STG2_MedicTeam.MedicTeam_Num<=3){
 			STG2_MedicTeam.MedicTeam_Num++;
 		//create medic team
@@ -397,8 +402,9 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		medic.setKind(1);
 		medic.path = path;
 		switch(DataBase.pass){
-		case 5:medic.y += 160*path;break;
-		default:medic.y += 240*path;break;
+		case 2:break;
+		default:medic.y = DataBase.START_LOC_Y_STG5+160*path;
+		medic.x = DataBase.START_LOC_X_STG5;
 		}
 		// add to player list
 		DataBase.playerList.add(medic);
@@ -413,7 +419,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Controller.gameframe.repaint();
 	}
 	
-	private void addSniper(){
+	protected void addSniper(){
 		if(STG2_Sniper.Sniper_Num<=4){
 			STG2_Sniper.Sniper_Num++;
 		//create sniper
@@ -422,8 +428,9 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		sniper.setKind(1);
 		sniper.path = path;
 		switch(DataBase.pass){
-		case 5:sniper.y += 160*path;break;
-		default:sniper.y += 240*path;break;
+		case 2:break;
+		default:sniper.y = DataBase.START_LOC_Y_STG5+160*path;
+		sniper.x = DataBase.START_LOC_X_STG5;
 		}
 		// add to player list
 		DataBase.playerList.add(sniper);
@@ -438,15 +445,16 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Controller.gameframe.repaint();
 	}
 	
-	private void addTruck(){
+	protected void addTruck(){
 		//create truck
 		STG2_Truck truck = new STG2_Truck();
 		// set player
 		truck.setKind(1);
 		truck.path= path;
 		switch(DataBase.pass){
-		case 5:truck.y += 160*path;break;
-		default:truck.y += 240*path;break;
+		case 2:break;
+		default:truck.y = DataBase.START_LOC_Y_STG5+160*path;
+		truck.x = DataBase.START_LOC_X_STG5;
 		}
 		// add to player list
 		DataBase.playerList.add(truck);
@@ -463,15 +471,16 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		Controller.gameframe.repaint();
 	}
 	
-	private void addRifle(){
+	protected void addRifle(){
 		//create rifle
 		STG2_Rifle rifle = new STG2_Rifle();
 		// set player
 		rifle.setKind(1);
 		rifle.path = path;
 		switch(DataBase.pass){
-		case 5:rifle.y += 160*path;break;
-		default:rifle.y += 240*path;break;
+		case 2:break;
+		default:rifle.y = DataBase.START_LOC_Y_STG5+160*path-40;
+		rifle.x = DataBase.START_LOC_X_STG5;
 		}
 		// add to player list
 		DataBase.playerList.add(rifle);
@@ -485,7 +494,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 						
 		Controller.gameframe.repaint();
 	}
-	private void addCaptain(){
+	protected void addCaptain(){
 		STG6_Captain cui = new STG6_Captain();
 		cui.setKind(1);
 		cui.path = path;
@@ -497,7 +506,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 		Controller.gameframe.repaint();
 	}
-	private void addJobHunter(){
+	protected void addJobHunter(){
 		STG6_JobHunter du = new STG6_JobHunter();
 		du.setKind(1);
 		du.path = path;
@@ -509,7 +518,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 		Controller.gameframe.repaint();
 	}
-	private void addArtDesigner(){
+	protected void addArtDesigner(){
 		STG6_Artdesigner gao = new STG6_Artdesigner();
 		gao.setKind(1);
 		gao.path = path;
@@ -521,7 +530,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 		Controller.gameframe.repaint();
 	}
-	private void addDataMan(){
+	protected void addDataMan(){
 		STG6_DataMan nian = new STG6_DataMan();
 		nian.setKind(1);
 		nian.path = path;
