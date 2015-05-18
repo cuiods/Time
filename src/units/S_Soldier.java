@@ -68,12 +68,12 @@ public abstract class S_Soldier extends S_Unit{
 		}
 		@Override
 		public void run() {
-			while(true){
-				if(DataBase.pass!=this.getStageOfSoldier(this)){
-					if(!(DataBase.pass==5&&this.getStageOfSoldier(this)==4)){
-						break;
-					}
-				}
+			while(DataBase.threadContinue){
+//				if(DataBase.pass!=this.getStageOfSoldier(this)){
+//					if(!(DataBase.pass==5&&this.getStageOfSoldier(this)==4)){
+//						break;
+//					}
+//				}
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {

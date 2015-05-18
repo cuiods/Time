@@ -288,12 +288,12 @@ public class PanelFight extends JPanel implements Runnable{
 			time = new Time(DataBase.TIMELIMIT_STG2);
 			break;
 		case 3:
-		    simpleAI_STG3 ai3 = new simpleAI_STG3();
+		    ai3 = new simpleAI_STG3();
 			Thread th3 = new Thread(ai3);
 			th3.start();
 			break;
 		case 4:
-			simpleAI_STG4 ai4 = new simpleAI_STG4();
+			ai4 = new simpleAI_STG4();
 			Thread th4 = new Thread(ai4);
 			th4.start();
 			break;
@@ -660,7 +660,7 @@ public class PanelFight extends JPanel implements Runnable{
 	 */
 	@Override
 	public void run() {
-		while(true){
+		while(DataBase.threadContinue){
 			//if lose
 			if(win()<0){
 				DataBase.isPause = true;

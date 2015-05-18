@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import dataBase.DataBase;
 import ui.button.ButtonExit;
 import ui.button.ButtonReturn;
 import ui.button.ButtonSave;
@@ -17,7 +18,11 @@ public class PanelGameSet extends JPanel implements MouseListener{
 		this.setLayout(null);
 		//set exit button
 		ButtonExit butExit = new ButtonExit();
-		butExit.type = 4;
+		if(DataBase.pass<10){
+			butExit.type = 2;
+		}else{
+			butExit.type = 4;
+		}
 		butExit.setBounds(730, 520, 250, 75);
 		butExit.addMouseListener(butExit);
 		this.add(butExit);

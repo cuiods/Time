@@ -14,6 +14,8 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import dataBase.DataBase;
+
 public class FrameGame extends JFrame implements MouseListener,MouseMotionListener{
 
 	
@@ -145,12 +147,24 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 	 */
 	public void changeTo(int panelNum){
 		getContentPane().setVisible(false);
+		startPanel = null;
+		fightPanel = null;
+	    storyPanel=null;
+	    zero=null;
+	    loadingPanel = null;
+	    loadPanel = null;
+	    fadePanel = null;
+	    setPanel = null;
+	    helpPanel = null;
+	    classicPanel = null;
 		switch(panelNum){
 		case 0:
+			DataBase.threadContinue = false;
 			startPanel = new PanelStart();
 			setContentPane(startPanel);
 			break;
 		case 1:
+			DataBase.threadContinue = true;
 			fightPanel = new PanelFight();
 			setContentPane(fightPanel);
 			Thread fp = new Thread(fightPanel);
@@ -161,14 +175,17 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			setContentPane(storyPanel);
 			break;
 		case 3:
+			DataBase.threadContinue = false;
 			zero = new PanelStory0();
 			setContentPane(zero);
 			break;
 		case 4:
+			DataBase.threadContinue = true;
 		    loadPanel = new PanelLoad();
 			setContentPane(loadPanel);
 			break;
 		case 5:
+			DataBase.threadContinue = true;
 			loadingPanel = new PanelLoading();
 			setContentPane(loadingPanel);
 			break;
@@ -181,13 +198,14 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			setContentPane(helpPanel);
 			break;
 		case 8:
+			DataBase.threadContinue = true;
 			classicPanel = new PanelClassic();
 			setContentPane(classicPanel);
 			Thread t = new Thread(classicPanel);
 			t.start();
 		}
+		System.out.println(DataBase.threadContinue);
 		repaint();
-		
 	}
 }
 

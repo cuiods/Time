@@ -24,7 +24,7 @@ public class Checker implements Runnable{
 		}
 	}
 	public void run(){
-		while(!DataBase.isPause){
+		while(!DataBase.isPause&&DataBase.threadContinue){
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

@@ -91,9 +91,9 @@ public class PanelStart extends JPanel implements Runnable{
 	
 	private void setMusic(){
 		//close music
-		if(Controller.gameframe.fightPanel!=null){
-			Controller.gameframe.fightPanel.musicPlay.stopmusic();
-		}
+
+		Controller.gameframe.fightPanel.musicPlay.stopmusic();
+
 		//create thread
 		if(!isplay){
 			musicPlay = new MusicThread("music/background/main.wav", true);

@@ -11,6 +11,8 @@ public class DataBase {
 
 	//锟斤拷录锟角凤拷锟斤拷停
 	public static boolean isPause = false;
+	
+	public static boolean threadContinue = true;
 
 	//锟斤拷录锟斤拷锟叫碉拷位锟斤拷息
 	public static ArrayList<S_Unit> enemyList = new ArrayList<S_Unit>();

@@ -3,7 +3,7 @@ import dataBase.DataBase;
 public class Money implements Runnable{
 	@Override
 	public void run() {
-		while(true){
+		while(DataBase.threadContinue){
 			if(!DataBase.isPause){
 				DataBase.Money+=DataBase.Money_Increment;
 			}
