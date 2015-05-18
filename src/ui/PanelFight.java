@@ -670,6 +670,7 @@ public class PanelFight extends JPanel implements Runnable{
 					gameOverPanel = new PanelGameOver(false);
 					gameOverPanel.addMouseListener(gameOverPanel);
 					this.add(gameOverPanel);
+					
 				}
 				this.repaint();
 				/*

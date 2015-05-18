@@ -36,7 +36,7 @@ public class PanelStory extends PanelFade implements MouseListener {
       
       private void setEnd(){
     	  switch(DataBase.pass){
-    	  case 1:endNum = 3;break;
+    	  case 1:endNum = 2;break;
     	  case 2:endNum = 3;break;
     	  case 3:endNum = 5;break;
     	  case 4:endNum = 6;break;
