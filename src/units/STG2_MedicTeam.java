@@ -50,7 +50,10 @@ public class STG2_MedicTeam extends S_Soldier implements Runnable{
 		}
 	}
 	public void run(){
-		while(true){
+		while(DataBase.threadContinue&&!isStop){
+			if(hp<=0){
+				isStop = true;
+			}
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {

@@ -3,7 +3,7 @@ package units;
 import dataBase.DataBase;
 
 public class STG2_Truck extends S_Soldier{
-	public boolean NotRelease = true;
+	private boolean NotRelease = true;
 	public STG2_Truck(){
 		x = DataBase.START_LOC_X_STG2;
 		y = DataBase.START_LOC_Y_STG2;
@@ -15,25 +15,20 @@ public class STG2_Truck extends S_Soldier{
 	}
 	public void attack(){}
 	public void run(){
-		while(true){
+		while(DataBase.threadContinue&&!isStop){
 			if(this.getKind()==0){
-				if(NotRelease&&this.caldistance
-						(x, y, DataBase.START_LOC_X_STG2, DataBase.START_LOC_Y_STG2)
-						<=DataBase.TRUCK_RR){
+				if(NotRelease&&x<=150){
 					this.Release();
 				}
 			}
 			else{
-				if(NotRelease&&this.caldistance
-						(x, y, DataBase.START_LOC_X_ENM_STG2, DataBase.START_LOC_Y_ENM_STG2)
-						<=DataBase.TRUCK_RR){
+				if(NotRelease&&x>=850){
 					this.Release();
 				}
 			}
-			if(this.hp<=5&&this.hp>=0&&NotRelease){
+			if(this.hp<=5&&NotRelease){
 				this.Release();
-			}else if(this.hp<0&&NotRelease){
-				this.Release();
+				isStop = true;
 			}
 			else{
 				move();
@@ -54,7 +49,7 @@ public class STG2_Truck extends S_Soldier{
 			Thread th = new Thread(r);
 			th.start();
 			try {
-				Thread.sleep(500);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();

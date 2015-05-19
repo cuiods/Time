@@ -5,6 +5,7 @@ import dataBase.DataBase;
 public abstract class S_Soldier extends S_Unit{
 	public boolean attacking = false;
 	public boolean moving = false;
+	public boolean isStop = false;
 	 
 	/*
 	 必须在继承soldier的类中新建构造函数

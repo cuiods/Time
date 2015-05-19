@@ -203,7 +203,7 @@ public class DataBase {
 	public static final int TRUCK_ATK = 0;
 	public static final int TRUCK_AR = 0;
 	public static final int TRUCK_SPD = 4;
-	public static final int TRUCK_RR = 300;
+	public static final int TRUCK_RR = 400;
 
 	public static final int RIFLE_P = 100;
 	public static final int RIFLE_HP = 50;

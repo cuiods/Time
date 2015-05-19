@@ -15,21 +15,23 @@ public class STG3_SpaceCarrier extends S_Soldier implements Runnable{
 	}
 	public void attack(){}
 	public void run(){
-		while(true){
+		while(DataBase.threadContinue&&!isStop){
 			if(this.getKind()==0){
-				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_STG3, DataBase.START_LOC_Y_STG3)<=DataBase.SPACECARRIER_RR){
+				if(NotRelease&&x<=150){
 					this.Release();
 				}
 			}
 			else{
-				if(NotRelease&&this.caldistance(x, y, DataBase.START_LOC_X_ENM_STG3, DataBase.START_LOC_Y_ENM_STG3)<=DataBase.SPACECARRIER_RR){
+				if(NotRelease&&x>=850){
 					this.Release();
 				}
 			}
 			if(this.hp<=5&&this.hp>=0&&NotRelease){
 				this.Release();
+				isStop = true;
 			}else if(this.hp<0&&NotRelease){
 				this.Release();
+				isStop = true;
 			}
 			else{
 				move();

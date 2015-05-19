@@ -155,7 +155,7 @@ public class STG3_HydrogenBomb extends S_Soldier implements Runnable{
 	@Override
 	public void run(){
 
-		while(notAttacked){
+		while(notAttacked&&DataBase.threadContinue){
 			if(this.hp<=0){
 				break;
 			}

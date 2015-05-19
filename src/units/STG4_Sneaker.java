@@ -36,9 +36,10 @@ public class STG4_Sneaker extends S_Soldier implements Runnable{
 	}
 	@Override
 	public void run() {
-		while(true){
+		while(DataBase.threadContinue){
 			if(this.hp<=0){
 				//	this.die();
+				break;
 				}
 				if(canAttack()){
 					synchronized(this){
