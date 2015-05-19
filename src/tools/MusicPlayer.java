@@ -15,6 +15,7 @@ public class MusicPlayer {
 	public boolean stop = false;
 	public void play(String file, boolean loop) throws UnsupportedAudioFileException, IOException, LineUnavailableException{ 
 		do{
+			if(stop)break;
 		// 获取音频输入流
 		AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(file));
 		// 获取音频编码对象

@@ -61,9 +61,9 @@ public class Save {
 			DataBase.passAlready = ois.read();
 		//	DataBase.Castle_HP_ply = ois.read();
 		//	DataBase.Castle_HP_enm = ois.read();
-			System.out.println(DataBase.Money);
+//			System.out.println(DataBase.Money);
 			DataBase.Money_Increment = ois.read();
-			System.out.println(DataBase.Money_Increment);
+//			System.out.println(DataBase.Money_Increment);
 			DataBase.Tech_CannonEnable = ois.readBoolean();
 			DataBase.Tech_MoneyBoom = ois.readBoolean();
 			DataBase.Tech_Destroy = ois.readBoolean();
@@ -113,8 +113,8 @@ public class Save {
 		ops.write(DataBase.passAlready);
 	//	ops.write(DataBase.Castle_HP_ply);
 	//	ops.write(DataBase.Castle_HP_enm);
-		System.out.println(DataBase.Money);
-		System.out.println(DataBase.Money_Increment);
+//		System.out.println(DataBase.Money);
+//		System.out.println(DataBase.Money_Increment);
 		ops.write(DataBase.Money_Increment);
 		ops.writeBoolean(DataBase.Tech_CannonEnable);
 		ops.writeBoolean(DataBase.Tech_MoneyBoom);
