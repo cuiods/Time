@@ -128,18 +128,13 @@ public class PanelFight extends JPanel implements Runnable{
 						g.drawString(second+"", 460, 300);
 					}
 				}
-//				if(DataBase.GeneMissile){
-//					Time gene = new Time(5000);
-//				    if(gene.getRemainTime()>0)
-//						g.drawImage(new ImageIcon("graphics/info/genemissile.png").getImage(),450,500,440,57,this);
-//					
-//				}
-//				if(DataBase.virus){
-//					Time virus = new Time(5000);
-//					if(virus.getRemainTime()>0)
-//						g.drawImage(new ImageIcon("graphics/info/virus.png").getImage(),450,440,440,57,this);
-//					
-//				}
+				if(DataBase.virus){
+						g.drawImage(new ImageIcon("graphics/info/virus.png").getImage(),450,440,440,57,this);
+				}
+				if(DataBase.GeneMissile){
+					g.drawImage(new ImageIcon("graphics/info/genemissile.png").getImage(),450,500,440,57,this);
+				
+			    }
           break;
 		}
 		

@@ -30,7 +30,7 @@ public class Time implements Runnable{
 	}
 	@Override
 	public void run() {
-		while(true){
+		while(DataBase.threadContinue){
 			this.remainTime = updateRemainTime();
 			try {
 				Thread.sleep(1000);

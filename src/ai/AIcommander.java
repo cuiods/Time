@@ -134,11 +134,14 @@ public class AIcommander {
 	public void GeneMissile(){
 		System.out.println("GeneMissile");
 		Tech_ENM_STG4_GeneMissile tech = new Tech_ENM_STG4_GeneMissile();
-		tech.execute();
+		Thread th = new Thread(tech);
+		th.start();
 	}
 	public void KillerVirus(){
 		System.out.println("KillerVirus");
 		Tech_ENM_STG4_KillerVirus tech = new Tech_ENM_STG4_KillerVirus();
+		Thread th = new Thread(tech);
+		th.start();
 	}
 	public void PhotonStrike(){
 		System.out.println("PhotonStrike");

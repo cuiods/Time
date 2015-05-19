@@ -9,7 +9,7 @@ public class Tech_ENM_STG3_LockScience implements Runnable {
 	}
 	public void execute(){
 		DataBase.LockScience = true;
-		while(t.getRemainTime()>=0){
+		while(t.getRemainTime()>=0&&DataBase.threadContinue){
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
