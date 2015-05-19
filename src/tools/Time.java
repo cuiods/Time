@@ -16,7 +16,13 @@ public class Time implements Runnable{
 	int remainTime;
 	public Time(long tl){
 		timeLimit = tl;
-		DataBase.StartTime = System.currentTimeMillis();
+		if(DataBase.pass==2){
+			if(DataBase.StartTime == 0){
+				DataBase.StartTime = System.currentTimeMillis();
+			}
+		}else{
+			DataBase.StartTime = System.currentTimeMillis();
+		}
 		Thread th = new Thread(this);
 		th.start();
 	}
@@ -28,6 +34,7 @@ public class Time implements Runnable{
 		timeleft = timeLimit-(now - DataBase.StartTime);
 		return (int) (timeleft/1000);
 	}
+	
 	@Override
 	public void run() {
 		while(DataBase.threadContinue){

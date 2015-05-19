@@ -335,7 +335,7 @@ public class PanelFight extends JPanel implements Runnable{
 	
 	/**
 	 * auto save
-	 */
+	 */ 
 	private void save(){
 		Save sv = new Save(0);
 		try {

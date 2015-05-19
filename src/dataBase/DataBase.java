@@ -312,6 +312,12 @@ public class DataBase {
 		case 4:
 			Money = INITIAL_MONEY_STG4;
 			Money_Increment = INITIAL_MONEY_INCREMENT_STG4;break;
+		case 5:
+			Money = INITIAL_MONEY_STG5;
+			Money_Increment = INITIAL_MONEY_INCREMENT_STG5;break;
+		case 6:
+			Money = INITIAL_MONEY_STG6;
+			Money_Increment = INITIAL_MONEY_INCREMENT_STG6;break;
 		}
 
 		Tech_CannonEnable = false;
@@ -325,5 +331,13 @@ public class DataBase {
 		Tech_HydrogenBomb = false;
 		Tech_SecondCastle = false;
 		Tech_SuperComputer = false;
+		Tech_Faith = false;
+		Tech_FourthTechRevolution = false;
+		Tech_BlackHoleProject = false;
+		Tech_CoverProject = false;
+		Tech_HaltScience = false;
+		Tech_Escape = false;
+		Tech_QINLIU = false;
+	    Tech_REN = false;
 	}
 }

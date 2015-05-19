@@ -63,10 +63,35 @@ public class Save {
 		//	DataBase.Castle_HP_enm = ois.read();
 //			System.out.println(DataBase.Money);
 			DataBase.Money_Increment = ois.read();
+			DataBase.StartTime = ois.readLong();
 //			System.out.println(DataBase.Money_Increment);
+			
 			DataBase.Tech_CannonEnable = ois.readBoolean();
 			DataBase.Tech_MoneyBoom = ois.readBoolean();
 			DataBase.Tech_Destroy = ois.readBoolean();
+			
+			DataBase.Tech_MedicEnable = ois.readBoolean();
+			DataBase.Tech_TruckReinforce = ois.readBoolean();
+			DataBase.Tech_LessTime = ois.readBoolean();
+			DataBase.Tech_Heal = ois.readBoolean();
+			DataBase.Tech_CastleReinforce = ois.readBoolean();
+			
+			DataBase.Tech_SecondCastle = ois.readBoolean();
+			DataBase.Tech_Harper = ois.readBoolean();
+			DataBase.Tech_SuperComputer = ois.readBoolean();
+			DataBase.Tech_HydrogenBomb = ois.readBoolean();
+			
+			DataBase.Tech_Faith = ois.readBoolean();
+			DataBase.Tech_FourthTechRevolution = ois.readBoolean();
+			DataBase.Tech_BlackHoleProject = ois.readBoolean();
+			
+			DataBase.Tech_CoverProject = ois.readBoolean();
+			DataBase.Tech_HaltScience = ois.readBoolean();
+			DataBase.Tech_Escape = ois.readBoolean();
+			
+			DataBase.Tech_QINLIU = ois.readBoolean();
+			DataBase.Tech_REN = ois.readBoolean();
+			
 			int enemyNum = ois.read();
 			int playerNum = ois.read();
 			while(!DataBase.enemyList.isEmpty()){
@@ -116,9 +141,34 @@ public class Save {
 //		System.out.println(DataBase.Money);
 //		System.out.println(DataBase.Money_Increment);
 		ops.write(DataBase.Money_Increment);
+		ops.writeLong(DataBase.StartTime);
+
 		ops.writeBoolean(DataBase.Tech_CannonEnable);
 		ops.writeBoolean(DataBase.Tech_MoneyBoom);
 		ops.writeBoolean(DataBase.Tech_Destroy);
+
+		ops.writeBoolean(DataBase.Tech_MedicEnable);
+		ops.writeBoolean(DataBase.Tech_TruckReinforce);
+		ops.writeBoolean(DataBase.Tech_LessTime);
+		ops.writeBoolean(DataBase.Tech_Heal);
+		ops.writeBoolean(DataBase.Tech_CastleReinforce);
+
+		ops.writeBoolean(DataBase.Tech_SecondCastle);
+		ops.writeBoolean(DataBase.Tech_Harper);
+		ops.writeBoolean(DataBase.Tech_SuperComputer);
+		ops.writeBoolean(DataBase.Tech_HydrogenBomb);
+
+		ops.writeBoolean(DataBase.Tech_Faith);
+		ops.writeBoolean(DataBase.Tech_FourthTechRevolution);
+		ops.writeBoolean(DataBase.Tech_BlackHoleProject);
+
+		ops.writeBoolean(DataBase.Tech_CoverProject);
+		ops.writeBoolean(DataBase.Tech_HaltScience);
+		ops.writeBoolean(DataBase.Tech_Escape);
+
+		ops.writeBoolean(DataBase.Tech_QINLIU);
+		ops.writeBoolean(DataBase.Tech_REN);
+
 		ops.write(DataBase.enemyList.size());
 		ops.write(DataBase.playerList.size());
 		for(int i=0;i<DataBase.enemyList.size();i++){
