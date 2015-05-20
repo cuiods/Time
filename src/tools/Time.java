@@ -1,5 +1,8 @@
 package tools;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import dataBase.DataBase;
 
 public class Time implements Runnable{
@@ -35,6 +38,11 @@ public class Time implements Runnable{
 		return (int) (timeleft/1000);
 	}
 	
+	public static String getTimeNow(){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
+		return format.format(new Date());
+	}
+	
 	@Override
 	public void run() {
 		while(DataBase.threadContinue){
@@ -42,7 +50,6 @@ public class Time implements Runnable{
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
 		}

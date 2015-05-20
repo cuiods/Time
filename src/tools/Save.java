@@ -15,6 +15,7 @@ import dataBase.DataBase;
 
 public class Save {
 	private int type;
+	public String saveTime;
 	public Save(int type){
 		this.type = type;
 	}
@@ -57,6 +58,7 @@ public class Save {
 		if(findFile.exists()){
 			FileInputStream fileStream = new FileInputStream(findFile);
 			ObjectInputStream ois = new ObjectInputStream(fileStream);
+			
 			DataBase.pass = ois.read();
 			DataBase.passAlready = ois.read();
 		//	DataBase.Castle_HP_ply = ois.read();
@@ -134,6 +136,9 @@ public class Save {
 		}
 		FileOutputStream fileStream = new FileOutputStream(find);
 		ObjectOutputStream ops = new ObjectOutputStream(fileStream);
+		
+//		ops.writeChars(Time.getTimeNow());
+		
 		ops.write(DataBase.pass);
 		ops.write(DataBase.passAlready);
 	//	ops.write(DataBase.Castle_HP_ply);

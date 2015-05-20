@@ -160,6 +160,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 		switch(panelNum){
 		case 0:
 			DataBase.threadContinue = false;
+			DataBase.recover();
 			startPanel = new PanelStart();
 			setContentPane(startPanel);
 			break;
@@ -176,6 +177,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			break;
 		case 3:
 			DataBase.threadContinue = false;
+			DataBase.recover();
 			zero = new PanelStory0();
 			setContentPane(zero);
 			break;

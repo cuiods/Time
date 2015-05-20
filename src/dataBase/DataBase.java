@@ -305,6 +305,7 @@ public class DataBase {
 		case 1: Money = INITIAL_MONEY_STG1;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG1;break;
 		case 2:Money = INITIAL_MONEY_STG2;
+		StartTime = 0;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG2;break;
 		case 3:Money = INITIAL_MONEY_STG3;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG3;
