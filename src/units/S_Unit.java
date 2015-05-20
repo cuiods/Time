@@ -12,6 +12,7 @@ public abstract class S_Unit implements Serializable, Runnable,Comparable<S_Unit
 	public int attack = 0;
 	public int attackRange = 0;
 	public int speed = 0;
+	public boolean invisible = false;
 	//士兵的种类（步兵0，火枪手1，火炮2,城堡100）
 	private int type;
 	//电脑的士兵代号为0 玩家的为1

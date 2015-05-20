@@ -64,6 +64,8 @@ public class DataBase {
 	//Parameters for stage4
 	public static boolean GeneMissile=false;
 	public static boolean virus= false;
+	public static boolean WaveGap = false;
+	public static int Wave = 1;
 	public static final int INITIAL_MONEY_STG4 = 20000;
 	public static final int INITIAL_MONEY_INCREMENT_STG4 = 30;
 	public static final int CASTLE_HP_STG4 = 2000;

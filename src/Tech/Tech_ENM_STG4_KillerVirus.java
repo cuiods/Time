@@ -9,13 +9,11 @@ public class Tech_ENM_STG4_KillerVirus implements Runnable{
 		DataBase.virus=true;
 		for(int i=0;i<DataBase.playerList.size();i++){
 			S_Unit ce = DataBase.playerList.get(i);
-			if(ce.getType()!=100&&ce.getType()!=101){
-				ce.setHp(ce.getHp()-30);
+			if(ce.getType()!=100&&ce.getType()!=101&&(!ce.invisible)){
+				ce.setHp((int) (ce.getHp()*0.6));
 			}
 		}
 		Time t = new Time(2000);
-		
-		
 			while(t.getRemainTime()>=0&&DataBase.threadContinue){
 					try {
 						Thread.sleep(1000);

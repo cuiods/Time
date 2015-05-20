@@ -10,21 +10,14 @@ public class Tech_ENM_STG4_GeneMissile implements Runnable {
 		DataBase.GeneMissile=true;
 		for(int i=0;i<DataBase.playerList.size();i++){
 			S_Unit ce = DataBase.playerList.get(i);
-			if(ce.getType()==getGene()){
+			if(ce.getType()==getGene()&&(!ce.invisible)){
 				ce.setHp(0);
 				DataBase.playerList.remove(ce);
 			}
 		}
 		for(int i=0;i<DataBase.playerList.size();i++){
 			S_Unit ce = DataBase.playerList.get(i);
-			if(ce.getType()==getGene()){
-				ce.setHp(0);
-				DataBase.playerList.remove(ce);
-			}
-		}
-		for(int i=0;i<DataBase.playerList.size();i++){
-			S_Unit ce = DataBase.playerList.get(i);
-			if(ce.getType()==getGene()){
+			if(ce.getType()==getGene()&&(!ce.invisible)){
 				ce.setHp(0);
 				DataBase.playerList.remove(ce);
 			}

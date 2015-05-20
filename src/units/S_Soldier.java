@@ -189,7 +189,8 @@ public abstract class S_Soldier extends S_Unit{
 				if(distance>ar){
 					return false;
 				}else{
-					if((DataBase.playerList.contains(this)||DataBase.enemyList.contains(this))&&ce.getType()!=102){
+					if((DataBase.playerList.contains(this)||DataBase.enemyList.contains(this))&&ce.getType()!=102
+							&&(!ce.invisible)&&(!this.invisible)){
 						return true;}
 						else return false;
 				}

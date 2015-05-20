@@ -3,7 +3,7 @@ package ai;
 import Tech.Tech_ENM_STG4_GeneMissile;
 import Tech.Tech_ENM_STG4_KillerVirus;
 import Tech.Tech_ENM_STG3_LockScience;
-import Tech.Tech_ENM_STG5_PhotonStrike;
+import Tech.Tech_ENM_STG4_PhotonStrike;
 import units.*;
 import dataBase.DataBase;
 
@@ -145,7 +145,7 @@ public class AIcommander {
 	}
 	public void PhotonStrike(){
 		System.out.println("PhotonStrike");
-		Tech_ENM_STG5_PhotonStrike tech = new Tech_ENM_STG5_PhotonStrike();
+		Tech_ENM_STG4_PhotonStrike tech = new Tech_ENM_STG4_PhotonStrike();
 		tech.execute();
 	}
 	public void setLoc(S_Unit u){

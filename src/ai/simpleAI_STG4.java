@@ -6,7 +6,9 @@ import dataBase.DataBase;
 public class simpleAI_STG4 extends AI implements Runnable{
 	double AutoAtkRate = 0.9;
 	public AIcommander AIC = new AIcommander();
+	public int SendSoldierNum = 0;
 	public simpleAI_STG4(){
+		
 	}
 	@Override
 	public void detect() {
@@ -59,17 +61,25 @@ public class simpleAI_STG4 extends AI implements Runnable{
 		AutoAtkRate-=0.001;
 		if(Threat<=0&&Math.random()>AutoAtkRate){
 			AIC.addDrone(path_num);
+			this.SendSoldierNum++;
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			AIC.addRazerShip(path_num);
-		}else if(Threat>0&&Threat<200&&Math.random()>0.4){
+			this.SendSoldierNum++;
+		}else if(Threat>0&&Threat<200&&Math.random()>0.3){
 			AIC.addDrone(path_num);
+			this.SendSoldierNum++;
 			AIC.addRazerShip(path_num);
-		}else if(Threat>=200&&Threat<340&&Math.random()>0.3){
+			this.SendSoldierNum++;
+			AIC.KillerVirus();
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
+		}else if(Threat>=200&&Threat<340&&Math.random()>0.2){
 			AIC.addRobotWarrior(path_num);
+			this.SendSoldierNum++;
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -77,9 +87,14 @@ public class simpleAI_STG4 extends AI implements Runnable{
 				e.printStackTrace();
 			}
 			AIC.GeneMissile();
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4&&(DataBase.LockScience==false)){
 			AIC.LockScience();
+			this.SendSoldierNum++;
 			AIC.addRazerShip(path_num);
+			this.SendSoldierNum++;
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -87,10 +102,18 @@ public class simpleAI_STG4 extends AI implements Runnable{
 				e.printStackTrace();
 			}
 			AIC.KillerVirus();
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
 		}else if(Threat>=450){
 			AIC.GeneMissile();
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
 			AIC.KillerVirus();
+			this.SendSoldierNum++;
+			this.SendSoldierNum++;
 			AIC.addRobotWarrior(path_num);
+			this.SendSoldierNum++;
 		}
 	}
 	public void run() {
@@ -102,7 +125,7 @@ public class simpleAI_STG4 extends AI implements Runnable{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addDrone(this.getRadomPath());
+		AIC.addRobotWarrior(this.getRadomPath());
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -125,6 +148,19 @@ public class simpleAI_STG4 extends AI implements Runnable{
 		}
 		AIC.addRazerShip(this.getRadomPath());
 		while(!DataBase.isPause&&DataBase.pass==4){
+			System.out.println("have send"+this.SendSoldierNum);
+			if(this.SendSoldierNum==30){
+				DataBase.Wave ++;
+				DataBase.WaveGap = true;
+				this.SendSoldierNum = 0;
+				try {
+					Thread.sleep(15*1000);
+				} catch (InterruptedException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
+				DataBase.WaveGap = false;
+			}
 			detect();
 		}
 
