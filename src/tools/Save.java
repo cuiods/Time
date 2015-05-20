@@ -15,7 +15,6 @@ import dataBase.DataBase;
 
 public class Save {
 	private int type;
-	public String saveTime;
 	public Save(int type){
 		this.type = type;
 	}
@@ -26,6 +25,8 @@ public class Save {
 				find.createNewFile();
 			}
 			FileWriter writer = new FileWriter(find);
+			writer.write(Time.getTimeNow());
+			writer.write("\n");
 			writer.write(DataBase.Money+"");
 			writer.close();
 		}catch(IOException ex){
@@ -41,6 +42,7 @@ public class Save {
 			}
 			FileReader reader = new FileReader(find);
 			BufferedReader BReader = new BufferedReader(reader);
+			BReader.readLine();
 			String sentence = BReader.readLine();
 			DataBase.Money = Integer.parseInt(sentence);
 			BReader.close();
@@ -185,5 +187,23 @@ public class Save {
 		ops.close();
 		fileStream.close();
 		SaveMoney();
+	}
+	
+	public static String getSaveTime(int saveNum){
+		String time = "�մ浵";
+		File findFile = new File("save");
+		if(!findFile.exists()){
+			findFile.mkdir();
+		}
+		File find = new File("save/Money"+saveNum+".txt");
+		if(find.exists()){
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(find));
+				time = br.readLine();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+		}
+		return time;
 	}
 }

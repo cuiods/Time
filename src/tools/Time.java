@@ -20,7 +20,7 @@ public class Time {
 	int remainTime;
 	public Time(long tl){
 		timeLimit = tl;
-		if(DataBase.pass==2){
+		if(DataBase.pass==2||DataBase.pass == 3){
 			if(DataBase.StartTime == 0){
 				DataBase.StartTime = System.currentTimeMillis();
 			}

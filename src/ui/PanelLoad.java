@@ -1,22 +1,21 @@
 package ui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import tools.Save;
 import ui.button.ButtonExit;
 import ui.button.ButtonLoadChoose;
 
 public class PanelLoad extends JPanel{
 	private ButtonExit buttonExit=null;
 	Image image = new ImageIcon("graphics/info/gameSetPanel.png").getImage();
-	
+	public static String time0,time1,time2,time3 = "";
     public PanelLoad(){
     	this.setLayout(null);
     	
@@ -33,12 +32,29 @@ public class PanelLoad extends JPanel{
 			choose.addMouseListener(choose);
 			this.add(choose);
 		}
+		
+		getTime();
 	}
 	
 	
-    @Override
+    private void getTime() {
+		time0 = Save.getSaveTime(0);
+		time1 = Save.getSaveTime(1);
+		time2 = Save.getSaveTime(2);
+		time3 = Save.getSaveTime(3);
+	}
+
+
+	@Override
     public void paintComponent(Graphics g){
     	g.drawImage(new ImageIcon("graphics/background/loading.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+    	Font my = new Font("»ªÎÄÐÂÎº", Font.PLAIN, 28);
+    	g.setColor(Color.BLACK);
+    	g.setFont(my);
+    	g.drawString(time0, 250, 120);
+    	g.drawString(time1, 250, 240);
+    	g.drawString(time2, 250, 360);
+    	g.drawString(time3, 250, 480);
 	}
 //    
 //	@Override
