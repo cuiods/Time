@@ -299,6 +299,7 @@ public class PanelFight extends JPanel implements Runnable{
 		    ai3 = new simpleAI_STG3();
 			Thread th3 = new Thread(ai3);
 			th3.start();
+			time = new Time(DataBase.TIMELIMIT_STG2*4/6);
 			break;
 		case 4:
 			ai4 = new simpleAI_STG4();
@@ -419,14 +420,14 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * show time left
 		 */
-		if(DataBase.pass==2){
+		if(DataBase.pass==2||DataBase.pass == 3){
 			if((time!=null)&&(time.getRemainTime()>0)&&(DataBase.isPause==false)){
 				int min = time.getRemainTime()/60;
 				int second = time.getRemainTime()%60;
 				g.setColor(Color.red);
 				Font myFont = new Font("��������",Font.BOLD,28);
 				g.setFont(myFont);
-				g.drawString(min+":"+second, 700, 55);
+				g.drawString(min+":"+second, 700-(DataBase.pass-2)*500, 55+(DataBase.pass-2)*15);
 			//g.drawString(":", 700, 80);
 			//g.drawString(second+"", 720, 80);			
 			}
@@ -744,7 +745,7 @@ public class PanelFight extends JPanel implements Runnable{
 			}
 			break;
 		case 3:
-			if(DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100))){
+			if((DataBase.playerList.size() == 0||((DataBase.playerList.size()>0)&&(DataBase.playerList.get(0).getType()!=100)))||(time.getRemainTime()<=0)){
 				return -1;
 			}
 			if(DataBase.enemyList.size() == 0||((DataBase.enemyList.size()>0)&&(DataBase.enemyList.get(0).getType()!=100))){

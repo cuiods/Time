@@ -62,7 +62,9 @@ public class ButtonSave extends JLabel implements MouseListener{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		Controller.gameframe.setPanel.repaint();
+		if(Controller.gameframe.setPanel!=null){
+			Controller.gameframe.setPanel.repaint();
+		}
 	}
 
 }

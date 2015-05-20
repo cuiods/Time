@@ -15,6 +15,7 @@ import dataBase.DataBase;
 import tools.Save;
 import ui.FrameGame;
 import ui.PanelFight;
+import ui.PanelLoad;
 
 public class ButtonLoadChoose extends JLabel implements MouseListener{
 
@@ -71,7 +72,25 @@ public class ButtonLoadChoose extends JLabel implements MouseListener{
 		} catch (ClassNotFoundException | IOException e1) {
 			e1.printStackTrace();
 		}
-		Controller.changeTo(FrameGame.LOADING);
+		switch(kind){
+		case 0:
+			if(!PanelLoad.time0.equals("�մ浵")){
+				Controller.changeTo(FrameGame.LOADING);
+			}break;
+		case 1:
+			if(!PanelLoad.time1.equals("�մ浵")){
+				Controller.changeTo(FrameGame.LOADING);
+			}break;
+		case 2:
+			if(!PanelLoad.time2.equals("�մ浵")){
+				Controller.changeTo(FrameGame.LOADING);
+			}break;
+		case 3:
+			if(!PanelLoad.time3.equals("�մ浵")){
+				Controller.changeTo(FrameGame.LOADING);
+			}break;
+		
+		}
 	}
 
 }

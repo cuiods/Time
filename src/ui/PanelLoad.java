@@ -15,7 +15,7 @@ import ui.button.ButtonLoadChoose;
 public class PanelLoad extends JPanel{
 	private ButtonExit buttonExit=null;
 	Image image = new ImageIcon("graphics/info/gameSetPanel.png").getImage();
-	String time0,time1,time2,time3 = "";
+	public static String time0,time1,time2,time3 = "";
     public PanelLoad(){
     	this.setLayout(null);
     	
