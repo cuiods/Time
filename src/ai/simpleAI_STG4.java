@@ -7,8 +7,6 @@ public class simpleAI_STG4 extends AI implements Runnable{
 	double AutoAtkRate = 0.9;
 	public AIcommander AIC = new AIcommander();
 	public simpleAI_STG4(){
-		AIC.GeneMissile();
-		AIC.KillerVirus();
 	}
 	@Override
 	public void detect() {

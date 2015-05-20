@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import tools.DrawUnits;
 import ui.FrameGame;
 import ui.PanelStory;
 
@@ -68,6 +69,7 @@ public class ButtonPass3 extends JLabel implements MouseListener {
 			Controller.changeTo(FrameGame.STORYPANEL);
 			isIn=false;
 			DataBase.Tech_Harper_TIME=0;
+			DrawUnits.shadow_x=0;
 			}
 	}
 }

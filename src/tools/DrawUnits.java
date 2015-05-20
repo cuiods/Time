@@ -37,7 +37,7 @@ public class DrawUnits {
 	static JPanel panel;
 	static String[] pictures = new String[10];
 	static Image shadow; 
-	static int shadow_x=0;
+	public static int shadow_x=0;
 	static String pictures6[]={"graphics/stunt/carrier1.png","graphics/stunt/carrier2.png","graphics/stunt/carrier3.png","graphics/stunt/carrier4.png","graphics/stunt/carrier5.png","graphics/stunt/carrier6.png","graphics/stunt/carrier7.png","graphics/stunt/carrier8.png","graphics/stunt/carrier9.png","graphics/stunt/carrier10.png"};
 	public static void draw(Graphics g, JPanel p){
 		     panel = p;
