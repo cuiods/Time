@@ -37,7 +37,7 @@ public class PanelHelp extends JPanel{
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		g.drawImage(new ImageIcon("graphics/background/background1.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+		g.drawImage(new ImageIcon("graphics/background/background.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
 		g.drawImage(new ImageIcon("graphics/help/help"+picNum+".png").getImage(), 0,0,this.getWidth(),this.getHeight(),this);
 	}
 }

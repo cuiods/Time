@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -60,6 +62,7 @@ public class ButtonSave extends JLabel implements MouseListener{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
+		Controller.gameframe.setPanel.repaint();
 	}
 
 }
