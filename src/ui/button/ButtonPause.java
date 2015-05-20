@@ -14,7 +14,7 @@ public class ButtonPause extends JLabel implements MouseListener{
 	private boolean isIn1 = false;
 	private boolean isIn2 = false;
 	public ButtonPause() {
-		this.setBounds(880, 20, 30, 30);
+		this.setBounds(860, 20, 50, 50);
 	}
 	
 	@Override

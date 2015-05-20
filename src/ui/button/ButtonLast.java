@@ -23,7 +23,7 @@ public class ButtonLast extends JLabel implements MouseListener{
 
  	 public ButtonLast(){
  		 buttonImage = new ImageIcon("graphics/button/back2.png").getImage();
- 		 this.setBounds(30, 500, 80, 80);
+ 		 this.setBounds(30, 500, 71, 47);
  	
      }
  	
@@ -33,7 +33,7 @@ public class ButtonLast extends JLabel implements MouseListener{
     	 }else{
     		 buttonImage = new ImageIcon("graphics/button/back3.png").getImage();
     	 }
-    	 g.drawImage(buttonImage, 0,0,this.getWidth(), this.getHeight(),this);
+    	 g.drawImage(buttonImage, 0,0,this.getWidth(),this.getHeight(),this);
      }
 	@Override
 	public void mouseClicked(MouseEvent e) {
