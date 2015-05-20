@@ -1051,8 +1051,8 @@ public class DrawUnits {
 		if(o.getKind() == 0){
 			switch(DataBase.pass){
 			case 1: 
-				Image ecastle = new ImageIcon("graphics/soldiers/ecastle.png").getImage();
-				g.drawImage(ecastle,o.getX()-50, o.getY()-50, 200, 200, panel);
+//				Image ecastle = new ImageIcon("graphics/soldiers/ecastle.png").getImage();
+//				g.drawImage(ecastle,o.getX(), o.getY()-60, 142, 183,panel);
 				int lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG1));
 				g.setColor(Color.GREEN);
 				g.fill3DRect(625, 32, lifePercent, 10, false);
@@ -1115,8 +1115,8 @@ public class DrawUnits {
 			int lifePercent = 0;
 			switch(DataBase.pass){
 			case 1:
-				g.drawImage(new ImageIcon("graphics/soldiers/castle.png").getImage(),o.getX()-60, o.getY()-150, 150, 150, panel);
-				g.drawImage(new ImageIcon("graphics/soldiers/castle1_2.png").getImage(), 20, 460, 100, 150, panel);
+				
+				//g.drawImage(new ImageIcon("graphics/soldiers/castle1_1.png").getImage(), 20, 460, 100, 150, panel);
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG1));
 				break;
 			case 2:

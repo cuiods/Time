@@ -23,13 +23,13 @@ public class DataBase {
 	public static final int INITIAL_MONEY_INCREMENT_STG1 = 2;
 	public static final int CASTLE_HP_STG1 = 3000;//锟揭凤拷锟角憋拷锟斤拷锟斤拷锟斤拷值
 	public static final int START_LOC_X_STG1 = 50;//锟斤拷锟矫碉拷一锟截的筹拷锟斤拷位锟斤拷
-	public static final int START_LOC_Y_STG1 = 500;
+	public static final int START_LOC_Y_STG1 = 570;
 	public static final int PATH_AGLX_STG1 = 2;//锟斤拷锟矫碉拷一锟斤拷路锟斤拷锟斤拷斜锟斤拷
 	public static final int PATH_AGLY_STG1 = -1;
 
 	public static final int CASTLE_HP_ENM_STG1 = 2000;//锟叫凤拷锟角憋拷锟斤拷锟斤拷锟斤拷值
-	public static final int START_LOC_X_ENM_STG1 = 950;//锟斤拷锟矫碉拷一锟截碉拷锟剿的筹拷锟斤拷位锟斤拷
-	public static final int START_LOC_Y_ENM_STG1 = 50;
+	public static final int START_LOC_X_ENM_STG1 = 850;//锟斤拷锟矫碉拷一锟截碉拷锟剿的筹拷锟斤拷位锟斤拷
+	public static final int START_LOC_Y_ENM_STG1 = 200;
 	public static final int PATH_AGLX_ENM = -2;//锟斤拷锟矫碉拷一锟截碉拷锟斤拷路锟斤拷锟斤拷斜锟斤拷
 	public static final int PATH_AGLY_ENM = 1;
 

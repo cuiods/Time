@@ -19,7 +19,7 @@ public abstract class S_Unit implements Serializable, Runnable,Comparable<S_Unit
 		
 	protected int hp;//health point
 	
-	public int ran = (int) (Math.random()*80);
+	public int ran = (int) (Math.random()*60);
 	
 	public abstract void move();  //用于变化x和y
 	public abstract void attack();//用于攻击，减少攻击范围内敌方的生命值
