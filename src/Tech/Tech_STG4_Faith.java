@@ -15,5 +15,6 @@ public class Tech_STG4_Faith {
 			S_Unit u = DataBase.playerList.get(i);
 			u.attack+=5;
 		}
+		DataBase.Tech_Faith = false;
 	}
 }

@@ -27,6 +27,7 @@ public class Object_BlackHole extends S_Soldier{
 			this.attack();
 		}
 		DataBase.playerList.remove(this);
+		DataBase.Tech_BlackHoleProject = false;
 	}
 	@Override
 	public void move(){

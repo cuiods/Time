@@ -44,7 +44,7 @@ public class DataBase {
 	public static final int CASTLE_HP_ENM_STG2 = 1000;
 	public static final int START_LOC_X_ENM_STG2 = 990;//锟斤拷锟矫第讹拷锟截碉拷锟剿的筹拷锟斤拷位锟斤拷
 	public static final int START_LOC_Y_ENM_STG2 = 180;
-	public static final int TIMELIMIT_STG2 = 1000*60*10;
+	public static final int TIMELIMIT_STG2 = 1000*60*6;
 
 	//Parameters for stage3
 	public static final int INITIAL_MONEY_STG3 = 10000;
@@ -70,9 +70,9 @@ public class DataBase {
 	public static final int START_LOC_X_STG4 = 50;
 	public static final int START_LOC_Y_STG4 = 160;
 	public static final int BLACKHOLE_LOC_X_STG4 = 150;
-	public static final int BLACKHOLE_LOC_Y_STG4 = 450;
-	public static final int BLACKHOLE_TIMELIMIT = 20*1000;
-	public static final int SNEAKER_TIMELIMIT = 7*1000;
+	public static final int BLACKHOLE_LOC_Y_STG4 = 150;
+	public static final int BLACKHOLE_TIMELIMIT = 25*1000;
+	public static final int SNEAKER_TIMELIMIT = 9*1000;
 
 	public static final int CASTLE_HP_ENM_STG4 = 1000;
 	public static final int START_LOC_X_ENM_STG4 = 950;
