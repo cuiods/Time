@@ -146,7 +146,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 			}
 			break;
 		case 9:
-			if((DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)&&(!DataBase.LockScience)){
+			if(DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)&&(!DataBase.LockScience)){
 				new Tech_STG3_Hubble();
 				//considering the lock science,we shouldn't cut the money while player
 				//can't use the tech,so i move the act to tech classes

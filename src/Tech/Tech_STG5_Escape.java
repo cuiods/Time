@@ -7,6 +7,7 @@ public class Tech_STG5_Escape implements Runnable{
 	Time t;
 	int Deposit = 0;
 	public Tech_STG5_Escape(){
+		DataBase.Tech_Escape = true;
 		t = new Time(DataBase.ESCAPE_TIMELIMIT);
 		Deposit = DataBase.Money/2;
 		DataBase.Money -= Deposit;
@@ -15,9 +16,10 @@ public class Tech_STG5_Escape implements Runnable{
 	@Override
 	public void run() {
 		while(t.getRemainTime()>=0){
-			System.out.println(t.getRemainTime());
+			System.out.println(t.getsRemainTime());
 		}
 		DataBase.Money+= 2*Deposit; 
+		DataBase.Tech_Escape = false;
 	}
 	public void execute(){
 		Thread th = new Thread(this);
