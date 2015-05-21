@@ -11,6 +11,7 @@ import java.util.Comparator;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import tools.MusicThread;
 import units.*;
 import dataBase.DataBase;
 
@@ -18,6 +19,8 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	
 	protected int kind;
 	protected boolean isIn = false;
+	//to draw gray picture when the unit can't use
+	protected boolean canUse =false;
 	public int path = 0;
 	public ButtonUnit(int kind,int path){
 		this.kind = kind;
@@ -26,12 +29,15 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	
 	@Override
 	public void paintComponent(Graphics g){	
-		if(!isIn){
-			g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+		if(this.kind==8&&(!DataBase.Tech_HydrogenBomb)){
+			g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_3.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 		}else{
-			g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_2.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			if(!isIn){
+				g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_2.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			}
 		}
-				
 	}
 
 	@Override
@@ -45,6 +51,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		new MusicThread("music/effects/unit.wav", false).start();
 		//don't need to care about pass
 		switch(kind){
 		case 0:
