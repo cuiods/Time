@@ -41,7 +41,9 @@ public class PanelClassic extends JPanel implements Runnable{
 		public static boolean isTech_7 = false;
 		public static boolean isTech_8 = false;
 		public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
-		//to play music
+		
+		public static boolean isNet = false;
+		
 		//public static MusicPlayer fightPlayer = new MusicPlayer();
 		static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
 		
