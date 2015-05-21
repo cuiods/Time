@@ -105,7 +105,7 @@ public class PanelStart extends JPanel implements Runnable{
 	@Override
 	public void run() {
 		while(true){
-			startButton.setBounds(startButton.x, startButton.y,70+(1000-startButton.y)/6,70+(1000-startButton.y)/6);
+			startButton.setLocation(startButton.x, startButton.y);
 			loadButton.setLocation(loadButton.x,loadButton.y);
 			exitButton.setLocation(exitButton.x, exitButton.y);
 			setButton.setLocation(setButton.x, setButton.y);

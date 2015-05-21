@@ -23,13 +23,13 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
-	public int x = 550;
-	public int y = 0;
+	public int x = 850;
+	public int y = 90;
 	
 	public ButtonClassic(){
 		filepath = "graphics/button/classicbutton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(x, y, 140, 140);
+		this.setBounds(x, y, 200, 50);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -41,6 +41,7 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}
 		g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
+		
 	}
 
 	@Override
@@ -79,14 +80,15 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void run() {
-		while(y<=250){
+		while(x>=550){
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			y+=20;
+			x-=20;
 		}
+		
 	}
 
 }

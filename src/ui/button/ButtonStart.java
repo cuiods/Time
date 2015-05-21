@@ -24,14 +24,15 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
-	public int x = 400;
-	public int y = 600;
+	public int x = 800;
+	public int y = 30;
 	
 	public ButtonStart(){
 
 		filepath = "graphics/button/startButton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(x,y,70+(1000-y)/4,70+(1000-y)/4);
+		this.setBounds(x, y, 200, 50);
+		
 	}
 	
 	public void paintComponent(Graphics g){
@@ -101,13 +102,13 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void run() {
-		while(y >= 400){
+		while(x >= 500){
 			try {
 				Thread.sleep(50);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			y -= 15;
+			x -= 20;
 		}
 	}
 }

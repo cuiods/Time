@@ -27,13 +27,13 @@ public class ButtonLoad extends JLabel implements MouseListener,Runnable{
 	Image ButtonImage = null;
 	String filepath = null;
 	static boolean isIn = false;
-	public int x = 0;
-	public int y = 400;
+	public int x = 900;
+	public int y = 150;
 	
 	public ButtonLoad(){
 		filepath = "graphics/button/loadbutton1.png";
 		ButtonImage = new ImageIcon(filepath).getImage();
-		this.setBounds(x, y, 140, 140);
+		this.setBounds(x, y, 200, 50);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -76,13 +76,13 @@ public class ButtonLoad extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void run() {
-		while(x<=180){
+		while(x>=600){
 			try {
 				Thread.sleep(50);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			x+=15;
+			x-=20;
 		}
 		
 	}
