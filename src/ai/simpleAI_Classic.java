@@ -145,48 +145,63 @@ public class simpleAI_Classic extends AI implements Runnable{
 		switch(action){
 		case MedicTeam: if(this.Money>=DataBase.MEDICTEAM_P){
 			AIC.addMedicTeam(path_num);
+			AIMoney.Money-= DataBase.MEDICTEAM_P;
 		}break;
 		case Sniper: if(this.Money>=DataBase.SNIPER_P){
 			AIC.addSniper(path_num);
+			AIMoney.Money-= DataBase.SNIPER_P;
 		}break;
 		case Truck: if(this.Money>=DataBase.TRUCK_P){
 			AIC.addTruck(path_num);
+			AIMoney.Money-= DataBase.TRUCK_P;
 		}break;
 		case Rifle: if(this.Money>=DataBase.RIFLE_P){
 			AIC.addRifle(path_num);
+			AIMoney.Money-= DataBase.RIFLE_P;
 		}break;
 		case SpaceCarrier: if(this.Money>=DataBase.SPACECARRIER_P&&this.Pass==12){
 			AIC.addSpaceCarrier(path_num);
+			AIMoney.Money-= DataBase.SPACECARRIER_P;
 		}break;
 		case SpaceMan: if(this.Money>=DataBase.SPACEMAN_P&&this.Pass==12){
 			AIC.addSpaceMan(path_num);
+			AIMoney.Money-= DataBase.SPACEMAN_P;
 		}break;
 		case SpaceShip: if(this.Money>=DataBase.SPACESHIP_P&&this.Pass==12){
 			AIC.addSpaceShip(path_num);
+			AIMoney.Money-= DataBase.SPACESHIP_P;
 		}break;
 		case Drone: if(this.Money>=DataBase.DRONE_P&&this.Pass==13){
 			AIC.addDrone(path_num);
+			AIMoney.Money-= DataBase.DRONE_P;
 		}break;
 		case RazerShip: if(this.Money>=DataBase.RAZERSHIP_P&&this.Pass==13){
 			AIC.addRazerShip(path_num);
+			AIMoney.Money-= DataBase.RAZERSHIP_P;
 		}break;
 		case RobotWarrior: if(this.Money>=DataBase.ROBOTWARRIOR_P&&this.Pass==13){
 			AIC.addRobotWarrior(path_num);
+			AIMoney.Money-= DataBase.ROBOTWARRIOR_P;
 		}break;
 		case Sneaker: if(this.Money>=DataBase.SNEAKER_P&&this.Pass==13){
 			AIC.addSneaker(path_num);
+			AIMoney.Money-= DataBase.SNEAKER_P;
 		}break;
 		case LockScience: if(this.Money>=DataBase.TECH_LOCKSCIENCE_P&&this.Pass==12){
 			AIC.LockScience();
+			AIMoney.Money-= DataBase.TECH_LOCKSCIENCE_P;
 		}break;
 		case GeneMissile: if(this.Money>=DataBase.TECH_GENEMISSILE_P&&this.Pass==13){
 			AIC.GeneMissile();
+			AIMoney.Money-= DataBase.TECH_GENEMISSILE_P;
 		}break;
 		case KillerVirus: if(this.Money>=DataBase.TECH_KILLERVIRUS_P&&this.Pass==13){
 			AIC.KillerVirus();
+			AIMoney.Money-= DataBase.TECH_KILLERVIRUS_P;
 		}break;
 		case PhotonStrike: if(this.Money>=DataBase.TECH_PHOTONSTRIKE_P&&this.Pass==13){
 			AIC.PhotonStrike();
+			AIMoney.Money-= DataBase.TECH_PHOTONSTRIKE_P;
 		}break;
 		}
 	}
