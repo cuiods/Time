@@ -14,6 +14,7 @@ public class STG4_RazerShip extends S_Soldier implements Runnable{
 		}
 	    hp=DataBase.RAZERSHIP_HP;
 	    attack = DataBase.RAZERSHIP_ATK;
+	    this.Upgrade();
 		attackRange = DataBase.RAZERSHIP_AR;
 		speed = DataBase.RAZERSHIP_SPD;
 	    setType(13);

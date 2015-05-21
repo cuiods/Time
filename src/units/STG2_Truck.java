@@ -9,6 +9,7 @@ public class STG2_Truck extends S_Soldier{
 		y = DataBase.START_LOC_Y_STG2;
 	    hp=DataBase.TRUCK_HP;
 	    attack = DataBase.TRUCK_ATK;
+	    this.Upgrade();
 		attackRange = DataBase.TRUCK_AR;
 		speed = DataBase.TRUCK_SPD;
 	    setType(5);

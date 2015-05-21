@@ -10,6 +10,7 @@ public class STG1_Gunner extends S_Soldier implements Runnable {
 			y = DataBase.START_LOC_Y_STG1;
 		    hp=DataBase.GUNNER_HP;
 		    attack = DataBase.GUNNER_ATK;
+		    this.Upgrade();
 			attackRange = DataBase.GUNNER_AR;
 			speed = DataBase.GUNNER_SPD;
 		    setType(1);

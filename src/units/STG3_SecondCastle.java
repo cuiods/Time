@@ -8,6 +8,7 @@ public class STG3_SecondCastle extends S_Soldier implements Runnable{
 		y = DataBase.SECONDCASTLE_LOC_Y_STG3;
 	    hp=DataBase.SECONDCASTLE_HP;
 	    attack = DataBase.SECONDCASTLE_ATK;
+	    this.Upgrade();
 		attackRange = DataBase.SECONDCASTLE_AR;
 		speed = DataBase.SECONDCASTLE_SPD;
 	    setType(101);

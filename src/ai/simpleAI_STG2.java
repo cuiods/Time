@@ -61,33 +61,33 @@ public class simpleAI_STG2 extends AI implements Runnable{
 	public void execute(int Threat) {
 		AutoAtkRate-=0.001;
 		if(Threat<=0&&Math.random()>AutoAtkRate){
-			AIC.addRifle();
+			AIC.addRifle(0);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addTruck();
+			AIC.addTruck(0);
 		}else if(Threat>0&&Threat<200&&Math.random()>0.4){
-			AIC.addRifle();
-			AIC.addTruck();
+			AIC.addRifle(0);
+			AIC.addTruck(0);
 		}else if(Threat>=200&&Threat<340&&Math.random()>0.3){
-			AIC.addRifle();
+			AIC.addRifle(0);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addTruck();
+			AIC.addTruck(0);
 			if(Sniper_Num<=2){
-			AIC.addSniper();
+			AIC.addSniper(0);
 			Sniper_Num++;
 			}
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4){
 			if(Sniper_Num<=2){
-			AIC.addSniper();
+			AIC.addSniper(0);
 			Sniper_Num++;
 			}
 			try {
@@ -97,39 +97,39 @@ public class simpleAI_STG2 extends AI implements Runnable{
 				e.printStackTrace();
 			}
 			if(Medic_Num<=1){
-			AIC.addMedicTeam();
+			AIC.addMedicTeam(0);
 			Medic_Num++;
 			}
 		}else if(Threat>=450){
 			if(Medic_Num<=1){
-				AIC.addMedicTeam();
+				AIC.addMedicTeam(0);
 				Medic_Num++;
 				}
 			if(Sniper_Num<=2){
-				AIC.addSniper();
+				AIC.addSniper(0);
 				Sniper_Num++;
 				}
 
-			AIC.addTruck();
+			AIC.addTruck(0);
 		}
 	}
 	@Override
 	public void run() {
-		AIC.addRifle();
+		AIC.addRifle(0);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addRifle();
+		AIC.addRifle(0);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addRifle();
+		AIC.addRifle(0);
 		while(!DataBase.isPause&&DataBase.pass==2){
 			detect();
 		}

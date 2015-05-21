@@ -49,60 +49,60 @@ public class simpleAI_STG3 extends AI implements Runnable{
 	public void execute(int Threat) {
 		AutoAtkRate-=0.001;
 		if(Threat<=0&&Math.random()>AutoAtkRate){
-			AIC.addSpaceMan();
+			AIC.addSpaceMan(0);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			AIC.addSpaceShip();
+			AIC.addSpaceShip(0);
 		}else if(Threat>0&&Threat<200&&Math.random()>0.4){
-			AIC.addSpaceMan();
-			AIC.addSpaceShip();
+			AIC.addSpaceMan(0);
+			AIC.addSpaceShip(0);
 		}else if(Threat>=200&&Threat<340&&Math.random()>0.3){
-			AIC.addSpaceMan();
+			AIC.addSpaceMan(0);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addSpaceCarrier();
-			AIC.addSpaceShip();
+			AIC.addSpaceCarrier(0);
+			AIC.addSpaceShip(0);
 		}else if(Threat>=340&&Threat<450&&Math.random()>0.4&&(DataBase.LockScience==false)){
 			AIC.LockScience();
 			System.out.println("LockScience");
-			AIC.addSpaceShip();
+			AIC.addSpaceShip(0);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			AIC.addSpaceShip();
+			AIC.addSpaceShip(0);
 		}else if(Threat>=450&&(!DataBase.LockScience)){
 			AIC.LockScience();
-			AIC.addSpaceShip();
-			AIC.addSpaceCarrier();
+			AIC.addSpaceShip(0);
+			AIC.addSpaceCarrier(0);
 		}
 	}
 	@Override
 	public void run() {
-		AIC.addSpaceMan();
+		AIC.addSpaceMan(0);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addSpaceMan();
+		AIC.addSpaceMan(0);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		AIC.addSpaceShip();
+		AIC.addSpaceShip(0);
 		while(!DataBase.isPause&&DataBase.pass==3){
 			detect();
 		}

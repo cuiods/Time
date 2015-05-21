@@ -14,6 +14,7 @@ public class STG4_Drone extends S_Soldier implements Runnable{
 		}
 	    hp=DataBase.DRONE_HP;
 	    attack = DataBase.DRONE_ATK;
+	    this.Upgrade();
 		attackRange = DataBase.DRONE_AR;
 		speed = DataBase.DRONE_SPD;
 	    setType(12);

@@ -33,57 +33,64 @@ public class AIcommander {
 		th.start();
 		DataBase.enemyList.add(c);
 	}
-	public void addMedicTeam(){
+	public void addMedicTeam(int path_num){
 		STG2_MedicTeam m = new STG2_MedicTeam();
 		m.setKind(0);
+		m.path = path_num;
 		setLoc(m);
 		Thread th = new Thread(m);
 		th.start();
 		DataBase.enemyList.add(m);
 	}
-	public void addSniper(){
+	public void addSniper(int path_num){
 		STG2_Sniper s = new STG2_Sniper();
 		s.setKind(0);
+		s.path = path_num;
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
 	}
-	public void addTruck(){
+	public void addTruck(int path_num){
 		STG2_Truck t = new STG2_Truck();
 		t.setKind(0);
+		t.path = path_num;
 		setLoc(t);
 		Thread th = new Thread(t);
 		th.start();
 		DataBase.enemyList.add(t);
 	}
-	public void addRifle(){
+	public void addRifle(int path_num){
 		STG2_Rifle r = new STG2_Rifle();
 		r.setKind(0);
+		r.path = path_num;
 		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
 		DataBase.enemyList.add(r);
 	}
-	public void addSpaceShip(){
+	public void addSpaceShip(int path_num){
 		STG3_SpaceShip s = new STG3_SpaceShip();
 		s.setKind(0);
+		s.path = path_num;
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
 	}
-	public void addSpaceMan(){
+	public void addSpaceMan(int path_num){
 		STG3_SpaceMan s = new STG3_SpaceMan();
 		s.setKind(0);
+		s.path = path_num;
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
 		DataBase.enemyList.add(s);
 	}
-	public void addSpaceCarrier(){
+	public void addSpaceCarrier(int path_num){
 		STG3_SpaceCarrier s = new STG3_SpaceCarrier();
 		s.setKind(0);
+		s.path = path_num;
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
@@ -173,6 +180,17 @@ public class AIcommander {
 			if(u.path==2){u.setX(DataBase.START_LOC_X_ENM_STG5);
 			u.setY(DataBase.START_LOC_Y_ENM_STG5+330);}
 			break;
+		case 11:
+		case 12:
+		case 13:
+		case 14:
+		case 15:if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		u.setY(DataBase.START_LOC_Y_ENM_STG5);}
+		if(u.path==1){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		u.setY(DataBase.START_LOC_Y_ENM_STG5+165);}
+		if(u.path==2){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		u.setY(DataBase.START_LOC_Y_ENM_STG5+330);}
+		break;
 		}
 	}
 }
