@@ -1,5 +1,6 @@
 package Tech;
 
+import ai.AIMoney;
 import tools.Time;
 import units.S_Unit;
 import dataBase.DataBase;
@@ -7,6 +8,7 @@ import dataBase.DataBase;
 public class Tech_ENM_STG4_GeneMissile implements Runnable {
 	
 	public void execute(){
+		AIMoney.Money-=DataBase.TECH_GENEMISSILE_P;
 		DataBase.GeneMissile=true;
 		for(int i=0;i<DataBase.playerList.size();i++){
 			S_Unit ce = DataBase.playerList.get(i);

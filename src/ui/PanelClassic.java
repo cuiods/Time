@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import tools.DrawUnits;
+import tools.Money;
 import tools.MusicThread;
 import tools.PicturePlayer;
 import tools.Save;
@@ -145,6 +146,9 @@ public class PanelClassic extends JPanel implements Runnable{
 		 * set ai
 		 */
 		private void setAI(){
+			Money m = new Money();
+			Thread th = new Thread(m);
+			th.start();
 			
 		}
 		

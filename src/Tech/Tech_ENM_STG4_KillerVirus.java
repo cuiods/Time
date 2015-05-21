@@ -1,11 +1,13 @@
 package Tech;
 
+import ai.AIMoney;
 import tools.Time;
 import units.S_Unit;
 import dataBase.DataBase;
 //treat the tech as a thread because i want to draw the information....forgive me
 public class Tech_ENM_STG4_KillerVirus implements Runnable{
 	public void execute(){
+		AIMoney.Money -= DataBase.TECH_KILLERVIRUS_P;
 		DataBase.virus=true;
 		for(int i=0;i<DataBase.playerList.size();i++){
 			S_Unit ce = DataBase.playerList.get(i);

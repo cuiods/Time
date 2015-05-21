@@ -30,6 +30,7 @@ import ui.button.ButtonUnit;
 import units.*;
 import Tech.Tech_ENM_STG3_LockScience;
 import ai.cleverAI_STG1;
+import ai.simpleAI_Classic;
 import ai.simpleAI_STG1;
 import ai.simpleAI_STG2;
 import ai.simpleAI_STG3;
@@ -310,6 +311,12 @@ public class PanelFight extends JPanel implements Runnable{
 			simpleAI_STG5 ai5 = new simpleAI_STG5();
 			Thread th5 = new Thread(ai5);
 			th5.start();
+			break;
+		case 11:
+			simpleAI_Classic cai = new simpleAI_Classic();
+			Thread thc = new Thread(cai);
+			thc.start();
+			break;
 		}
 		
 		//set money

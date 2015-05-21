@@ -103,6 +103,18 @@ public class DataBase {
 	public static final int START_LOC_X_ENM_STG6 = 950;
 	public static final int START_LOC_Y_ENM_STG6 = 145;
 	public static final int CASTLE_HP_ENM_STG6 = 1000;
+	
+	//Parameters for ClassicGame
+	//For Both Enemy and Player
+	public static final int INITIAL_MONEY_CLASSIC = 2000;
+	public static final int UPGRADE_CONDITION_LV2 = 15000;
+	public static final int UPGRADE_CONDITION_LV3 = 30000;
+	//For Enemy
+	public static final int TECH_KILLERVIRUS_P = 4000;
+	public static final int TECH_GENEMISSILE_P = 7000;
+	public static final int TECH_LOCKSCIENCE_P = 3000;
+	public static final int TECH_PHOTONSTRIKE_P = 10000;
+	
 
 	//General parameters for the game
 	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
@@ -306,12 +318,15 @@ public class DataBase {
 		switch(pass){
 		case 1: Money = INITIAL_MONEY_STG1;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG1;break;
+		case 11:
 		case 2:Money = INITIAL_MONEY_STG2;
 		StartTime = 0;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG2;break;
+		case 12:
 		case 3:Money = INITIAL_MONEY_STG3;
 		Money_Increment = INITIAL_MONEY_INCREMENT_STG3;
 		Tech_Harper_TIME=0;break;
+		case 13:
 		case 4:
 			Money = INITIAL_MONEY_STG4;
 			Money_Increment = INITIAL_MONEY_INCREMENT_STG4;break;

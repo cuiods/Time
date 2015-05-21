@@ -37,6 +37,7 @@ public class AIcommander {
 		STG2_MedicTeam m = new STG2_MedicTeam();
 		m.setKind(0);
 		m.path = path_num;
+		Upgrade(m);
 		setLoc(m);
 		Thread th = new Thread(m);
 		th.start();
@@ -46,6 +47,7 @@ public class AIcommander {
 		STG2_Sniper s = new STG2_Sniper();
 		s.setKind(0);
 		s.path = path_num;
+		Upgrade(s);
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
@@ -55,6 +57,7 @@ public class AIcommander {
 		STG2_Truck t = new STG2_Truck();
 		t.setKind(0);
 		t.path = path_num;
+		Upgrade(t);
 		setLoc(t);
 		Thread th = new Thread(t);
 		th.start();
@@ -64,6 +67,7 @@ public class AIcommander {
 		STG2_Rifle r = new STG2_Rifle();
 		r.setKind(0);
 		r.path = path_num;
+		Upgrade(r);
 		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
@@ -73,6 +77,7 @@ public class AIcommander {
 		STG3_SpaceShip s = new STG3_SpaceShip();
 		s.setKind(0);
 		s.path = path_num;
+		Upgrade(s);
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
@@ -82,6 +87,7 @@ public class AIcommander {
 		STG3_SpaceMan s = new STG3_SpaceMan();
 		s.setKind(0);
 		s.path = path_num;
+		Upgrade(s);
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
@@ -91,6 +97,7 @@ public class AIcommander {
 		STG3_SpaceCarrier s = new STG3_SpaceCarrier();
 		s.setKind(0);
 		s.path = path_num;
+		Upgrade(s);
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
@@ -100,6 +107,7 @@ public class AIcommander {
 		STG4_Drone d = new STG4_Drone();
 		d.setKind(0);
 		d.path = path_num;
+		Upgrade(d);
 		setLoc(d);
 		Thread th = new Thread(d);
 		th.start();
@@ -109,6 +117,7 @@ public class AIcommander {
 		STG4_RazerShip r = new STG4_RazerShip();
 		r.setKind(0);
 		r.path = path_num;
+		Upgrade(r);
 		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
@@ -118,6 +127,7 @@ public class AIcommander {
 		STG4_RobotWarrior r = new STG4_RobotWarrior();
 		r.setKind(0);
 		r.path = path_num;
+		Upgrade(r);
 		setLoc(r);
 		Thread th = new Thread(r);
 		th.start();
@@ -127,6 +137,7 @@ public class AIcommander {
 		STG4_Sneaker s = new STG4_Sneaker();
 		s.setKind(0);
 		s.path = path_num;
+		Upgrade(s);
 		setLoc(s);
 		Thread th = new Thread(s);
 		th.start();
@@ -155,6 +166,12 @@ public class AIcommander {
 		Tech_ENM_STG4_PhotonStrike tech = new Tech_ENM_STG4_PhotonStrike();
 		tech.execute();
 	}
+	public void Upgrade(S_Unit ce){
+		if(DataBase.pass>10){
+			ce.setHp((int) (ce.getHp()*Math.pow(1.5, DataBase.pass-11)));
+			ce.attack = (int) (ce.attack*Math.pow(1.5,DataBase.pass-11));
+		}
+	}
 	public void setLoc(S_Unit u){
 		switch(DataBase.pass){
 		case 1 :u.setX(DataBase.START_LOC_X_ENM_STG1);
@@ -182,9 +199,7 @@ public class AIcommander {
 			break;
 		case 11:
 		case 12:
-		case 13:
-		case 14:
-		case 15:if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		case 13:if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5);}
 		if(u.path==1){u.setX(DataBase.START_LOC_X_ENM_STG5);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5+165);}

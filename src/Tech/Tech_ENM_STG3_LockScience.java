@@ -1,10 +1,12 @@
 package Tech;
 
+import ai.AIMoney;
 import tools.Time;
 import dataBase.DataBase;
 public class Tech_ENM_STG3_LockScience implements Runnable {
 	public Time t;
 	public Tech_ENM_STG3_LockScience(){
+		AIMoney.Money -= DataBase.TECH_LOCKSCIENCE_P;
 		t = new Time(DataBase.LOCKSCIENCE_TIMELIMIT);
 	}
 	public void execute(){
