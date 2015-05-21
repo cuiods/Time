@@ -1,6 +1,8 @@
 package ui.button;
 
 import java.awt.Graphics;
+import java.net.*;
+import java.io.*;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
@@ -9,6 +11,7 @@ import dataBase.DataBase;
 
 public class ButtonClassicUnit extends ButtonUnit{
 
+	Socket socket ;
 	public ButtonClassicUnit(int kind, int path) {
 		super(kind,path);
 	}
