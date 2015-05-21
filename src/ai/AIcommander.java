@@ -169,8 +169,11 @@ public class AIcommander {
 	public void Upgrade(S_Unit ce){
 		if(DataBase.pass>10){
 			ce.setHp((int) (ce.getHp()*Math.pow(1.5, DataBase.pass-11)));
-			ce.attack = (int) (ce.attack*Math.pow(1.5,DataBase.pass-11));
+			ce.attack = (int) (ce.attack*Math.pow(2,DataBase.pass-11));
 		}
+	}
+	public void NextAge(){
+		AIMoney.AIPass++;
 	}
 	public void setLoc(S_Unit u){
 		switch(DataBase.pass){

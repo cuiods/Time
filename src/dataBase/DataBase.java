@@ -120,7 +120,7 @@ public class DataBase {
 	
 
 	//General parameters for the game
-	public static int Money = 4000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
+	public static int Money = 7000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
 	public static int Money_Increment = 2;
 	public static int Castle_HP_ply; //锟斤拷录锟斤拷业锟角帮拷潜锟斤拷锟斤拷锟斤拷锟街碉拷锟揭拷锟斤拷莨氐牟锟酵拷锟绞硷拷锟斤拷锟酵拷锟街�
 	public static int Castle_HP_enm;

@@ -22,16 +22,47 @@ public class simpleAI_Classic extends AI implements Runnable{
 		this.Pass = AIMoney.AIPass;
 		this.Money = AIMoney.Money;
 		System.out.println(this.Pass);
+		System.out.println(DataBase.pass);
 		System.out.println(this.Money);
 		System.out.println(AIMoney.Money_Increment);
 		execute(analyzeThreat(0),analyzeThreat(1),analyzeThreat(2),analyzeDevelop(),
-				analyzeAttackPotential(analyzeThreat(0),analyzeThreat(1),analyzeThreat(2)));
+				analyzeAttackRisk(analyzeThreat(0),analyzeThreat(1),analyzeThreat(2)));
 
 	}
 
 	private void execute(int ThreatResult0, int ThreatResult1, int ThreatResult2,
 			int DevelopResult, int AttackPotentialResult ) {
-		System.out.printf("\nThreats are : %d %d %d \n",ThreatResult0,ThreatResult1,ThreatResult2);
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		System.out.printf("\nThreats are : %d %d %d \n",
+				ThreatResult0,ThreatResult1,ThreatResult2);
+		System.out.println(this.getCastlePercentage(1));
+		resist(ThreatResult0,0);
+		resist(ThreatResult1,1);
+		resist(ThreatResult2,2);
+		
+	}
+	private void resist(int Threat, int path_num){
+		boolean vacant = true;
+		int dis;
+		for(int i=0;i<DataBase.playerList.size();i++){
+			if(DataBase.playerList.get(i).path==path_num){
+			S_Unit u = DataBase.playerList.get(i); 
+			dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG5-u.getX())*(db.START_LOC_X_ENM_STG5-u.getX())+
+					(db.START_LOC_Y_ENM_STG5+165*path_num-u.getY())*(db.START_LOC_Y_ENM_STG5+165*path_num-u.getY()));
+			for(int j=0;j<DataBase.enemyList.size();j++){
+				if(DataBase.enemyList.get(j).getType()!=100){
+				if(DataBase.enemyList.get(j).path==path_num) vacant = false;
+				}
+			}
+			if (dis <=300&&vacant) this.CheckAndAdd(AIAction.Rifle, path_num);
+			}
+		}
+		System.out.println("path "+path_num+" vacant is "+vacant);
 	}
 	//analyze the Threat to our site
 	private int analyzeThreat(int path_num) {
@@ -53,36 +84,62 @@ public class simpleAI_Classic extends AI implements Runnable{
 		}
 		return balanceByLevel(result);
 	}
-	private int analyzeAttackPotential(int ThreatResult0,int ThreatResult1,int ThreatResult2){
+	private int analyzeAttackRisk(int ThreatResult0,int ThreatResult1,int ThreatResult2){
 		int weakThreat = Math.min(Math.min(ThreatResult0, ThreatResult1), ThreatResult2);
-
-		return 0;
+		return (int) (weakThreat*getCastlePercentage(1)*getCastlePercentage(1));
+	}
+	private int getWeakPath(){
+		int ThreatResult0 = analyzeThreat(0);
+		int ThreatResult1 = analyzeThreat(0);
+		int ThreatResult2 = analyzeThreat(0);
+		int path = 0;
+		int weak = ThreatResult0;
+		if(ThreatResult1<=weak){
+			path = 1;
+			weak = ThreatResult1;
+		}
+		if(ThreatResult2<=weak){
+			path = 2;
+		}
+		return path;
 	}
 	private int analyzeDevelop(){
 
 		return 0;
 	}
 	private int balanceByLevel(int prudentData){
-		int result = (int) (prudentData/(Math.pow(2.25, this.Pass-11)));
-		return (int) (result/(Math.pow(2.25, this.Pass-DataBase.pass)));
+		int result = (int) (prudentData/(Math.pow(3, this.Pass-11)));
+		return result;
 	}
-	private int getFullCastleHP(int Kind){
+	private double getCastlePercentage(int Kind){
+		double CastleHp = 0;
+		double FullCastleHp = 0;
 		if(Kind==0){
+			for(int i=0;i<DataBase.enemyList.size();i++){
+				if(DataBase.enemyList.get(i).getType()==100){
+					CastleHp = DataBase.enemyList.get(i).getHp();
+				}
+			}
 			switch(Pass){
-			case 11: return DataBase.CASTLE_HP_CLASSIC_LV1;
-			case 12: return DataBase.CASTLE_HP_CLASSIC_LV2;
-			case 13: return DataBase.CASTLE_HP_CLASSIC_LV3;
-			default:return -1;
+			case 11: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV1;break;
+			case 12: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV2;break;
+			case 13: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV3;break;
 			}
 		}
 		else{
+			for(int i=0;i<DataBase.playerList.size();i++){
+				if(DataBase.playerList.get(i).getType()==100){
+					CastleHp = DataBase.playerList.get(i).getHp();
+				}
+			}
 			switch(DataBase.pass){
-			case 11: return DataBase.CASTLE_HP_CLASSIC_LV1;
-			case 12: return DataBase.CASTLE_HP_CLASSIC_LV2;
-			case 13: return DataBase.CASTLE_HP_CLASSIC_LV3;
-			default:return -1;
+			case 11: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV1;break;
+			case 12: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV2;break;
+			case 13: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV3;break;
 			}
 		}
+		System.out.printf("FUllHP is %f and Now is %f \n",FullCastleHp,CastleHp);
+		return CastleHp/FullCastleHp;
 	}
 	public void CheckAndAdd(AIAction action,int path_num){
 		switch(action){

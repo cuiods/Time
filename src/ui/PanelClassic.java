@@ -289,19 +289,19 @@ public class PanelClassic extends JPanel implements Runnable{
 		private void setCastle(){
 				S_Castle mycastle1 = new S_Castle();
 				mycastle1.setKind(1);
-				mycastle1.setHp(DataBase.CASTLE_HP_STG5);
+				mycastle1.setHp(DataBase.CASTLE_HP_CLASSIC_LV1);
 				Thread t1 = new Thread(mycastle1);
 				t1.start();
 				DataBase.playerList.add(mycastle1);
 				S_Castle mycastle2 = new S_Castle();
 				mycastle2.setKind(1);
 				mycastle2.setY(DataBase.START_LOC_Y_STG5+165);
-				mycastle2.setHp(DataBase.CASTLE_HP_STG5);
+				mycastle2.setHp(DataBase.CASTLE_HP_CLASSIC_LV1);
 				DataBase.playerList.add(mycastle2);
 				S_Castle mycastle3 = new S_Castle();
 				mycastle3.setKind(1);
 				mycastle3.setY(DataBase.START_LOC_Y_STG5+330);
-				mycastle3.setHp(DataBase.CASTLE_HP_STG5);
+				mycastle3.setHp(DataBase.CASTLE_HP_CLASSIC_LV1);
 				DataBase.playerList.add(mycastle3);
 				
 				
@@ -309,17 +309,17 @@ public class PanelClassic extends JPanel implements Runnable{
 				enemycastle1.setKind(0);
 				enemycastle1.setX(DataBase.START_LOC_X_ENM_STG5);
 				enemycastle1.setY(DataBase.START_LOC_Y_ENM_STG5);
-				enemycastle1.setHp(DataBase.CASTLE_HP_ENM_STG5);
+				enemycastle1.setHp(DataBase.CASTLE_HP_CLASSIC_LV1);
 				S_Castle enemycastle2 = new S_Castle();
 				enemycastle2.setKind(0);
 				enemycastle2.setX(DataBase.START_LOC_X_ENM_STG5);
 				enemycastle2.setY(DataBase.START_LOC_Y_ENM_STG5+165);
-				enemycastle2.setHp(DataBase.CASTLE_HP_ENM_STG5);
+				enemycastle2.setHp(DataBase.CASTLE_HP_CLASSIC_LV1);
 				S_Castle enemycastle3 = new S_Castle();
 				enemycastle3.setKind(0);
 				enemycastle3.setX(DataBase.START_LOC_X_ENM_STG5);
 				enemycastle3.setY(DataBase.START_LOC_Y_ENM_STG5+330);
-				enemycastle3.setHp(DataBase.CASTLE_HP_ENM_STG5);
+				enemycastle3.setHp(DataBase.CASTLE_HP_CLASSIC_LV1);
 				Thread t2 = new Thread(enemycastle1);
 				t2.start();
 				DataBase.enemyList.add(enemycastle1);
