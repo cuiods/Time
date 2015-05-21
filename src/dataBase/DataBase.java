@@ -22,8 +22,8 @@ public class DataBase {
 	public static final int INITIAL_MONEY_STG1 = 2000;
 	public static final int INITIAL_MONEY_INCREMENT_STG1 = 2;
 	public static final int CASTLE_HP_STG1 = 3000;//锟揭凤拷锟角憋拷锟斤拷锟斤拷锟斤拷值
-	public static final int START_LOC_X_STG1 = 50;//锟斤拷锟矫碉拷一锟截的筹拷锟斤拷位锟斤拷
-	public static final int START_LOC_Y_STG1 = 570;
+	public static final int START_LOC_X_STG1 = 150;//锟斤拷锟矫碉拷一锟截的筹拷锟斤拷位锟斤拷
+	public static final int START_LOC_Y_STG1 = 520;
 	public static final int PATH_AGLX_STG1 = 2;//锟斤拷锟矫碉拷一锟斤拷路锟斤拷锟斤拷斜锟斤拷
 	public static final int PATH_AGLY_STG1 = -1;
 
@@ -106,9 +106,12 @@ public class DataBase {
 	
 	//Parameters for ClassicGame
 	//For Both Enemy and Player
-	public static final int INITIAL_MONEY_CLASSIC = 2000;
+	public static final int INITIAL_MONEY_CLASSIC = 7000;
 	public static final int UPGRADE_CONDITION_LV2 = 15000;
 	public static final int UPGRADE_CONDITION_LV3 = 30000;
+	public static final int CASTLE_HP_CLASSIC_LV1 = 750;
+	public static final int CASTLE_HP_CLASSIC_LV2 = 1500;
+	public static final int CASTLE_HP_CLASSIC_LV3 = 3000;
 	//For Enemy
 	public static final int TECH_KILLERVIRUS_P = 4000;
 	public static final int TECH_GENEMISSILE_P = 7000;
@@ -117,7 +120,7 @@ public class DataBase {
 	
 
 	//General parameters for the game
-	public static int Money = 200000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
+	public static int Money = 4000; //锟斤拷录锟斤拷业锟角帮拷慕锟角拷锟�
 	public static int Money_Increment = 2;
 	public static int Castle_HP_ply; //锟斤拷录锟斤拷业锟角帮拷潜锟斤拷锟斤拷锟斤拷锟街碉拷锟揭拷锟斤拷莨氐牟锟酵拷锟绞硷拷锟斤拷锟酵拷锟街�
 	public static int Castle_HP_enm;

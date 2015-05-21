@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import ai.simpleAI_Classic;
 import tools.DrawUnits;
 import tools.Money;
 import tools.MusicThread;
@@ -32,7 +33,6 @@ public class PanelClassic extends JPanel implements Runnable{
 		private ButtonGameSet gameSet = null;
 		//pause and continue button
 		private ButtonPause pause = null;
-		
 		//when game over, the panel appears
 		static PanelGameOver gameOverPanel = null;
 		//for special effects, @warning :not equal to database
@@ -146,9 +146,13 @@ public class PanelClassic extends JPanel implements Runnable{
 		 * set ai
 		 */
 		private void setAI(){
+			simpleAI_Classic ai = new simpleAI_Classic();
+			Thread aith = new Thread(ai);
+			aith.start();
+			
 			Money m = new Money();
-			Thread th = new Thread(m);
-			th.start();
+			Thread thm = new Thread(m);
+			thm.start();
 			
 		}
 		
@@ -327,7 +331,7 @@ public class PanelClassic extends JPanel implements Runnable{
 		 */
 		@Override
 		public void run() {
-			while(true){
+			while(DataBase.threadContinue){
 				//if lose
 				if(win()<0){
 					DataBase.isPause = true;
