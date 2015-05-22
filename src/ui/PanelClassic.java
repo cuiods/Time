@@ -64,11 +64,11 @@ public class PanelClassic extends JPanel implements Runnable{
 			setButtons();	
 			//clear Layout
 			setLayout(null);
-			//set AI
-			setAI();
 			//set net
 			if(DataBase.isNet){
 				setNet();
+			}else{
+				setAI();
 			}
 			//auto save
 			save();

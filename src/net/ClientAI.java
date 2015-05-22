@@ -13,7 +13,7 @@ public class ClientAI{
 	
 	public ClientAI(String ip) {
 		try {
-			socket = new Socket(ip, 5000);
+			socket = new Socket(ip, 5001);
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			writer = new PrintWriter(socket.getOutputStream());
 			System.out.println("network set up");
@@ -58,6 +58,7 @@ public class ClientAI{
 		@Override
 		public void run() {
 			String message;
+			System.out.println("listenning");
 			try {
 				while(DataBase.threadContinue&&(message = reader.readLine())!=null){
 					System.out.println("read:"+message);
@@ -73,7 +74,9 @@ public class ClientAI{
 	
 	public static void sendData(int type, String content){
 		if(socket.isConnected()){
+			System.out.println("ready to send data");
 			writer.println(new Data(type, content).toString());
+			System.out.println("data send");
 			writer.flush();
 		}
 	}

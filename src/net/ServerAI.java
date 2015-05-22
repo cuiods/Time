@@ -29,6 +29,7 @@ public class ServerAI{
 		public void run() {
 			String message;
 			try {
+				System.out.println("listenning");
 				while(DataBase.threadContinue&&(message = reader.readLine())!=null){
 					System.out.println("read:"+message);
 					execute(message);
@@ -44,7 +45,7 @@ public class ServerAI{
 	
 	public ServerAI() {
 		try {
-			ServerSocket server = new ServerSocket(5000);
+			ServerSocket server = new ServerSocket(5001);
 			Socket client = server.accept();
 			
 			Thread t = new Thread(new ClientHander(client));
@@ -86,7 +87,9 @@ public class ServerAI{
 	
 	public static void sendData(int type, String content){
 		if(socket.isConnected()){
+			System.out.println("ready to send data");
 			writer.println(new Data(type, content).toString());
+			System.out.println("data send");
 			writer.flush();
 		}
 	}

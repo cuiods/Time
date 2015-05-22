@@ -60,6 +60,7 @@ public class ButtonOnlineStart extends JLabel implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		DataBase.isNet = true;
 		if(DataBase.isServer){
+			DataBase.threadContinue = true;
 			new ServerAI();
 			while(true){
 				if(ServerAI.socket.isConnected()){
@@ -68,6 +69,7 @@ public class ButtonOnlineStart extends JLabel implements MouseListener{
 				}
 			}
 		}else{
+			DataBase.threadContinue = true;
 			new ClientAI(PanelNetSet.textIP.getText());
 			while(true){
 				if(ClientAI.socket.isConnected()){
