@@ -861,13 +861,15 @@ public class DrawUnits {
 					g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
 				}else if(o.attacking){
 					if(!DataBase.isPause){
+						Image razer = new ImageIcon("graphics/stunt/razer.png").getImage();
 						ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
 						g.setColor(Color.red);
 						S_Unit e = DataBase.enemyList.get(o.detect());
-						g.drawLine(o.x+64, o.y+o.ran+31-40, e.x+25, e.y+30);
+//						g.drawLine(o.x+64, o.y+o.ran+31-40, e.x+25, e.y+30);
 						g.drawImage(ship,o.getX(), o.getY()+o.ran-40, 200, 94, panel);
-						g.drawLine(o.x+65, o.y+o.ran+32-40, e.x+25, e.y+30);
-						g.drawLine(o.x+66, o.y+o.ran+33-40, e.x+25, e.y+30);
+						if(e.caldistance(e.x, o.x, e.y, o.y)<o.attackRange)
+						g.drawImage(razer,o.x+65, o.y+o.ran+32-40, e.x+25, e.y+30,0, 0, e.caldistance(e.x, o.x, e.y, o.y), 20,panel);
+//						g.drawLine(o.x+66, o.y+o.ran+33-40, e.x+25, e.y+30);
 						g.drawImage(new ImageIcon("graphics/soldiers/s4/razerattac.gif").getImage(),o.getX()+50, o.getY()+o.ran-24, 30, 30, panel);
 					}else{
 						ship = new ImageIcon("graphics/soldiers/s4/razership.png").getImage();
@@ -888,13 +890,14 @@ public class DrawUnits {
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();
-					g.setColor(Color.YELLOW);
+					Image razer1 = new ImageIcon("graphics/stunt/razer1.png").getImage();
 					S_Unit e = DataBase.playerList.get(o.detect());
-					g.drawLine(o.x+77, o.y+o.ran+64-40, e.x+25, e.y+30);
 					g.drawImage(ship1,o.getX(), o.getY()+o.ran-40, 200, 156, panel);
-					g.drawLine(o.x+76, o.y+o.ran+63-40, e.x+25, e.y+30);
-					g.drawLine(o.x+78, o.y+o.ran+65-40, e.x+25, e.y+30);
-					g.drawLine(o.x+79, o.y+o.ran+66-40, e.x+25, e.y+30);
+					if(e.caldistance(e.x, o.x, e.y, o.y)<o.attackRange)
+					g.drawImage(razer1,o.x+80, o.y+o.ran+70, e.x+25, e.y,0, 0,e.caldistance(e.x, o.x, e.y, o.y), 20,panel);
+//					g.drawLine(o.x+76, o.y+o.ran+63-40, e.x+25, e.y+30);
+//					g.drawLine(o.x+78, o.y+o.ran+65-40, e.x+25, e.y+30);
+//					g.drawLine(o.x+79, o.y+o.ran+66-40, e.x+25, e.y+30);
 				}else{
 					ship1 = new ImageIcon("graphics/soldiers/en4/razership.png").getImage();
 					g.drawImage(ship1,o.getX(), o.getY()+o.ran-40, 200, 156, panel);

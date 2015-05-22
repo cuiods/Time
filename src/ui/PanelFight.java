@@ -441,14 +441,14 @@ public class PanelFight extends JPanel implements Runnable{
 		/*
 		 * show time left
 		 */
-		if(DataBase.pass==2||DataBase.pass == 3){
+		if(DataBase.pass==2||DataBase.pass==3){
 			if((time!=null)&&(time.getRemainTime()>0)&&(DataBase.isPause==false)){
 				int min = time.getRemainTime()/60;
 				int second = time.getRemainTime()%60;
 				g.setColor(Color.red);
 				Font myFont = new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28);
 				g.setFont(myFont);
-				g.drawString(min+":"+second, 700-(DataBase.pass-2)*500, 55+(DataBase.pass-2)*15);
+				g.drawString(min+":"+second, 700-(DataBase.pass-2)*600, 55);
 			//g.drawString(":", 700, 80);
 			//g.drawString(second+"", 720, 80);			
 			}
