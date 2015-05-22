@@ -566,10 +566,10 @@ public class PanelFight extends JPanel implements Runnable{
 				   pictures[i-1]="graphics/stunt/revolution/revolution"+i+".png";
 			  }
 			PicturePlayer pic = new PicturePlayer(pictures, false,30);
-			pic.panelPlay(350, 50, g, this, 0);
-			if(PicturePlayer.time0 < 31){
+			pic.panelPlay(350, 50, g, this, 1);
+			if(PicturePlayer.time1 < 31){
 				isTech_14 = false;
-				PicturePlayer.time0 = 1000;
+				PicturePlayer.time1 = 1000;
 			}
 	   }
 	}
@@ -732,7 +732,7 @@ public class PanelFight extends JPanel implements Runnable{
 				//if lose, the param is false, then you should add game over panel
 				if(DataBase.pass==6){
 					PanelFade fadePanel2 = new PanelFade();
-					fadePanel2.addImage(new ImageIcon("graphics/badge/badge3.png").getImage());
+					fadePanel2.addImage(new ImageIcon("graphics/background/last.png").getImage());
 					Controller.gameframe.getContentPane().setVisible(true);
 					Controller.gameframe.setContentPane(fadePanel2);
 					fadePanel2.showImage();
