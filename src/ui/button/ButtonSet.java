@@ -20,7 +20,7 @@ import ui.FrameGame;
 public class ButtonSet extends JLabel implements MouseListener,Runnable{
 	Image ButtonImage = null;
 	String filepath = null;
-	static boolean isIn = false;
+	public boolean isIn = false;
 	public int x = 950;
 	public int y = 210;
 	public ButtonSet(){
@@ -30,7 +30,7 @@ public class ButtonSet extends JLabel implements MouseListener,Runnable{
 	}
 	
 	public void paintComponent(Graphics g){
-		if(!isIn){
+		if(isIn){
 			filepath = "graphics/button/helpbutton1.png";
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}else{

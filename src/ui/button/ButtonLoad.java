@@ -26,7 +26,7 @@ public class ButtonLoad extends JLabel implements MouseListener,Runnable{
 	Image load=null;
 	Image ButtonImage = null;
 	String filepath = null;
-	static boolean isIn = false;
+	public boolean isIn = false;
 	public int x = 900;
 	public int y = 150;
 	
@@ -37,7 +37,7 @@ public class ButtonLoad extends JLabel implements MouseListener,Runnable{
 	}
 	
 	public void paintComponent(Graphics g){
-		if(!isIn){
+		if(isIn){
 			filepath = "graphics/button/loadgame1.png";
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}else{

@@ -23,8 +23,8 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 
 	Image ButtonImage = null;
 	String filepath = null;
-	static boolean isIn1 = false;
-	static boolean isIn2 = false;
+	public boolean isIn1 = false;
+	public boolean isIn2 = false;
 	public int type = 0;
 	public int x = 1050;
 	public int y = 330;
@@ -37,7 +37,7 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 	
 	public void paintComponent(Graphics g){
 		if(type == 0){
-			if(!isIn1){
+			if(isIn1){
 				filepath = "graphics/button/exitbutton1.png";
 				ButtonImage = new ImageIcon(filepath).getImage();
 			}else{

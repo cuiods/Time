@@ -22,7 +22,7 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 	
 	Image ButtonImage = null;
 	String filepath = null;
-	static boolean isIn = false;
+	public boolean isIn = false;
 	public int x = 850;
 	public int y = 90;
 	
@@ -33,8 +33,8 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 	}
 	
 	public void paintComponent(Graphics g){
-		if(!isIn){
-			filepath = "graphics/button/classic1.png";
+		if(isIn){
+			filepath = "graphics/button/classic.png";
 			ButtonImage = new ImageIcon(filepath).getImage();
 		}else{
 			filepath = "graphics/button/classicButtonMoveIn.png";

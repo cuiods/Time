@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 
 import tools.MusicPlayer;
 import tools.MusicThread;
+import tools.PicturePlayer;
 import ui.FrameGame;
 
 
@@ -23,7 +24,7 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 
 	Image ButtonImage = null;
 	String filepath = null;
-	static boolean isIn = false;
+	public boolean isIn = false;
 	public int x = 800;
 	public int y = 30;
 	
@@ -36,14 +37,10 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 	}
 	
 	public void paintComponent(Graphics g){
-		if(!isIn){
-			filepath = "graphics/button/startbutton1.png";
-			ButtonImage = new ImageIcon(filepath).getImage();
-		}else{
-			filepath = "graphics/button/startButtonMoveIn.png";
-			ButtonImage = new ImageIcon(filepath).getImage();
+		if(isIn){
+			g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
 		}
-		g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
+		
 	}
 
 	@Override

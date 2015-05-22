@@ -1,31 +1,40 @@
 package ui.button;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
 
+import tools.MusicThread;
 import dataBase.DataBase;
 
-public class ButtonNet extends JPanel implements MouseListener,Runnable{
+public class ButtonNet extends JLabel implements MouseListener,Runnable{
 
+	Image ButtonImage = null;
+	String filepath = null;
 	public int x = 1000;
 	public int y = 270;
-	private boolean isIn = false;
+	public boolean isIn = false;
 	
 	public ButtonNet() {
-		setBounds(x, y, 200, 50);
+		filepath = "graphics/button/online.png";
+		ButtonImage = new ImageIcon(filepath).getImage();
+		this.setBounds(x, y, 200, 50);
 	}
 	
 	@Override
-	protected void paintComponent(Graphics g) {
-		if(!isIn){
-			g.drawImage(new ImageIcon("graphics/button/online.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+	public void paintComponent(Graphics g){
+		if(isIn){
+			filepath = "graphics/button/online.png";
+			ButtonImage = new ImageIcon(filepath).getImage();
 		}else{
-			g.drawImage(new ImageIcon("graphics/button/online.gif").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
+			filepath = "graphics/button/online0.png";
+			ButtonImage = new ImageIcon(filepath).getImage();
 		}
+		g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
 	}
 	
 	@Override
@@ -38,7 +47,7 @@ public class ButtonNet extends JPanel implements MouseListener,Runnable{
 	public void mouseEntered(MouseEvent e) {
 		isIn = true;
 		repaint();
-		
+		new MusicThread("music/effects/moveIn.wav", false).start();
 	}
 
 	@Override
@@ -51,7 +60,7 @@ public class ButtonNet extends JPanel implements MouseListener,Runnable{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		new MusicThread("music/effects/clicked.wav", false).start();
 	}
 
 	@Override
@@ -62,20 +71,16 @@ public class ButtonNet extends JPanel implements MouseListener,Runnable{
 
 	@Override
 	public void run() {
-		while(!DataBase.threadContinue){
-			if(x>=700){
-				x-=20;
-			}
+		while(x>=700){
 			try {
 				Thread.sleep(50);
-			} catch (Exception e) {
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			repaint();
+			x-=20;
 		}
-
 		
 	}
+
 
 }
