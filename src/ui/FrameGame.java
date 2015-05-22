@@ -165,6 +165,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 		switch(panelNum){
 		case 0:
 			DataBase.threadContinue = false;
+			DataBase.isNet = false;
 			DataBase.recover();
 			startPanel = new PanelStart();
 			setContentPane(startPanel);

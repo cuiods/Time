@@ -28,7 +28,7 @@ public class ClientAI{
 		AIcommander ai = new AIcommander();
 		switch(Data.getType(message)){
 		case 0:
-			PanelClassic.textarea.append("receive: "+Data.getContent(message));
+			PanelClassic.textarea.append("receive: "+Data.getContent(message)+"\n");
 			break;
 		case 1:
 			String[] m = Data.getContent(message).split("_");
