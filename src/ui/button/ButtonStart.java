@@ -27,6 +27,7 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 	public boolean isIn = false;
 	public int x = 800;
 	public int y = 30;
+	public int type = 0;
 	
 	public ButtonStart(){
 
@@ -37,10 +38,17 @@ public class ButtonStart extends JLabel implements MouseListener,Runnable{
 	}
 	
 	public void paintComponent(Graphics g){
-		if(isIn){
-			g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
+		if(type==0){
+			if(isIn){
+				g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
+			}
+		}else{
+			if(!isIn){
+				g.drawImage(ButtonImage, 0, 0, this.getWidth(), this.getHeight(), this);
+			}else{
+				g.drawImage(new ImageIcon("graphics/button/startIn.png").getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+			}
 		}
-		
 	}
 
 	@Override

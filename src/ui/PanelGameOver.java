@@ -33,7 +33,7 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 	public PanelGameOver(boolean iswin){
 		this.isWin = iswin;
 		this.setBounds(320, 180, 375, 204);
-		Controller.gameframe.remove(Controller.gameframe.fightPanel);
+		Controller.gameframe.remove(Controller.gameframe.classicPanel);
 		if(iswin){
 			//System.out.println("yes");
 			win = new ImageIcon("graphics/info/youwin.png").getImage();

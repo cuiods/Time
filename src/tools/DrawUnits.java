@@ -1104,6 +1104,33 @@ public class DrawUnits {
 					g.fill3DRect(625+lifePercent6, 32, 200-lifePercent6, 10, false);			
 				}
 				break;
+			case 11:
+				int lifePercent11 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_CLASSIC_LV1));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent11, 10, false);
+				if(lifePercent11!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent11, 32, 200-lifePercent11, 10, false);			
+				}
+				break;
+			case 12:
+				int lifePercent12 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_CLASSIC_LV2));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent12, 10, false);
+				if(lifePercent12!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent12, 32, 200-lifePercent12, 10, false);			
+				}
+				break;
+			case 13:
+				int lifePercent13 = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_CLASSIC_LV3));
+				g.setColor(Color.GREEN);
+				g.fill3DRect(625, 32, lifePercent13, 10, false);
+				if(lifePercent13!=200){
+					g.setColor(Color.RED);
+					g.fill3DRect(625+lifePercent13, 32, 200-lifePercent13, 10, false);			
+				}
+				break;
 			default:
 				int lifePercentd = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_ENM_STG5));
 				g.setColor(Color.GREEN);
@@ -1138,6 +1165,15 @@ public class DrawUnits {
 			case 6:
 				g.drawImage(new ImageIcon("graphics/soldiers/castle6.png").getImage(),o.getX()-50, o.getY(), 175, 215, panel);
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG6));
+				break;
+			case 11:
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_CLASSIC_LV1));
+				break;
+			case 12:
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_CLASSIC_LV2));
+				break;
+			case 13:
+				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_CLASSIC_LV3));
 				break;
 			default:
 				lifePercent = (int)(200*(o.getHp()*1.0/DataBase.CASTLE_HP_STG5));

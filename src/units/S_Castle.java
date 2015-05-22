@@ -56,7 +56,7 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 
 	@Override
 	public void run() {
-		while(true){
+		while(DataBase.threadContinue){
 			if(this.getKind()==0){
 				if(AIMoney.AIPass==12&&!this.updateLV2){
 					this.hp+=DataBase.CASTLE_HP_CLASSIC_LV2-DataBase.CASTLE_HP_CLASSIC_LV1;
@@ -68,7 +68,7 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 				}
 			}
 			if(this.getKind()==1){
-				System.out.println("This is player castle");
+				//System.out.println("This is player castle");
 				if(DataBase.pass==12&&!this.updateLV2){
 					this.hp+=(DataBase.CASTLE_HP_CLASSIC_LV2-DataBase.CASTLE_HP_CLASSIC_LV1);
 					this.updateLV2 = true;
@@ -110,34 +110,62 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 						int small1 = 1000000;
 						int small2 = 1000000;
 						if(DataBase.playerList.size()>=3&&DataBase.playerList.get(0).getType() == 100&&DataBase.playerList.get(1).getType() == 100&&DataBase.playerList.get(2).getType() == 100){
-							if(DataBase.playerList.get(0).hp>DataBase.playerList.get(1).hp){
-						    	small1 = DataBase.playerList.get(1).hp;
-						    }else{
-						    	small1 = DataBase.playerList.get(0).hp;
-						    }
-						    if(small1>DataBase.playerList.get(2).hp){
-					    		small1 = DataBase.playerList.get(2).hp;
-					    	}
-						    DataBase.playerList.get(0).hp = DataBase.playerList.get(1).hp = DataBase.playerList.get(2).hp = small1;
+							for(int i = 0; i <3; i++){
+								if(small1>=DataBase.enemyList.get(i).hp){
+									small1 = DataBase.enemyList.get(i).hp;
+								}
+							}
+							DataBase.playerList.get(0).hp =small1;
+						    DataBase.playerList.get(1).hp =small1;
+						    DataBase.playerList.get(2).hp =small1;
 						}
 						if(DataBase.enemyList.size()>=3&&DataBase.enemyList.get(0).getType() == 100&&DataBase.enemyList.get(1).getType() == 100&&DataBase.enemyList.get(2).getType() == 100){
-							if(DataBase.enemyList.get(0).hp>DataBase.enemyList.get(1).hp){
-						    	small2 = DataBase.enemyList.get(1).hp;
-						    }else{
-						    	small2 = DataBase.enemyList.get(0).hp;
-						    }
-						    if(small1>DataBase.enemyList.get(2).hp){
-					    		small2 = DataBase.enemyList.get(2).hp;
-					    	}
-						    DataBase.enemyList.get(0).hp = DataBase.enemyList.get(1).hp = DataBase.enemyList.get(2).hp = small2;
+							for(int i = 0; i < 3; i++){
+								if(DataBase.enemyList.get(i).hp<=small2){
+									small2 = DataBase.enemyList.get(i).hp;
+								}
+							}
+						    DataBase.enemyList.get(0).hp =small2;
+						    DataBase.enemyList.get(1).hp =small2;
+						    DataBase.enemyList.get(2).hp =small2;
 						}
 				
 					}
 //				}
 				break;
+			case 11:
+			case 12:
+			case 13:
+				if(Controller.gameframe.classicPanel!=null&&Controller.gameframe.classicPanel.win()==0){
+					int small1 = 1000000;
+					int small2 = 1000000;
+					if(DataBase.playerList.size()>=3&&DataBase.playerList.get(0).getType() == 100&&DataBase.playerList.get(1).getType() == 100&&DataBase.playerList.get(2).getType() == 100){
+						for(int i = 0; i <3; i++){
+							if(small1>=DataBase.enemyList.get(i).hp){
+								small1 = DataBase.enemyList.get(i).hp;
+							}
+						}
+						DataBase.playerList.get(0).hp =small1;
+					    DataBase.playerList.get(1).hp =small1;
+					    DataBase.playerList.get(2).hp =small1;
+					}
+					if(DataBase.enemyList.size()>=3&&DataBase.enemyList.get(0).getType() == 100&&DataBase.enemyList.get(1).getType() == 100&&DataBase.enemyList.get(2).getType() == 100){
+						for(int i = 0; i < 3; i++){
+							if(DataBase.enemyList.get(i).hp<=small2){
+								small2 = DataBase.enemyList.get(i).hp;
+							}
+						}
+					    DataBase.enemyList.get(0).hp =small2;
+					    DataBase.enemyList.get(1).hp =small2;
+					    DataBase.enemyList.get(2).hp =small2;
+					}
+			
+				}
+//			}
+			break;
 			}
 			try {
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
