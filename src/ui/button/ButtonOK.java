@@ -42,7 +42,7 @@ public class ButtonOK extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		Controller.changeTo(FrameGame.FIGHTPANEL);
+		Controller.changeTo(FrameGame.LOADING);
 		DataBase.isPause = false;
 	}
 

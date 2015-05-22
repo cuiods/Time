@@ -187,6 +187,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 				new Tech_STG4_FourthTechRevolution();
 				DataBase.Money -= DataBase.Tech_FourthTechRevolution_P;
 				new MusicThread("music/effects/techrevolution.wav", false).start();
+				PanelFight.isTech_14=true;
 			}
 			break;
 		case 16:

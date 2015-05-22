@@ -75,7 +75,7 @@ public class PanelStory extends PanelFade implements MouseListener {
 			picNum++;
 			repaint();
 		}else{
-			Controller.changeTo(FrameGame.LOADING);
+			Controller.changeTo(FrameGame.AIMPANEL);
 			picNum=1;
 		}
 	 }
