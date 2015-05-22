@@ -63,6 +63,8 @@ public class ButtonOnlineStart extends JLabel implements MouseListener{
 		DataBase.isPause = false;
 		if(DataBase.isServer){
 			DataBase.threadContinue = true;
+			PanelNetSet.show = true;
+			Controller.gameframe.repaint();
 			new ServerAI();
 			while(true){
 				if(ServerAI.socket.isConnected()){

@@ -18,6 +18,7 @@ public class PanelNetSet extends JPanel{
 
 	String IP = null;
 	public static JTextField textIP = null;
+	public static boolean show = false;
 	public PanelNetSet() {
 		setLayout(null);
 		
@@ -58,5 +59,10 @@ public class PanelNetSet extends JPanel{
 		g.setColor(Color.red);
 		g.setFont(font);
 		g.drawString(IP, 545, 285);
+		
+		if(show){
+			System.out.println("show");
+			g.drawImage(new ImageIcon("graphics/net/wait.png").getImage(), 340, 400, 320, 70, this);
+		}
 	}
 }

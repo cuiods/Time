@@ -59,6 +59,7 @@ public class ButtonClassic extends JLabel implements MouseListener,Runnable{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		DataBase.pass = 11;
+		DataBase.isPause = false;
 		Controller.changeTo(FrameGame.CLASSICPANEL);
 		isIn = false;
 	}
