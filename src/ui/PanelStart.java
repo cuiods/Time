@@ -110,6 +110,7 @@ public class PanelStart extends JPanel implements Runnable{
 	}
 	
 	public void drawGif(Graphics g){
+		
 		if(startButton.isIn==false){
 			String[] picture1 = {"graphics/button/start1.png","graphics/button/start2.png","graphics/button/start3.png","graphics/button/start4.png","graphics/button/start5.png","graphics/button/start6.png","graphics/button/start7.png","graphics/button/start8.png","graphics/button/start9.png","graphics/button/start10.png"};
 			PicturePlayer pic1 = new PicturePlayer(picture1, true, 7);

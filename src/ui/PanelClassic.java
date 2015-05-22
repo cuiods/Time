@@ -379,7 +379,6 @@ public class PanelClassic extends JPanel implements Runnable{
 					DataBase.isPause = true;
 					//if lose, the param is false, then you should add game over panel
 					gameOverPanel = new PanelGameOver(false);
-					gameOverPanel.addMouseListener(gameOverPanel);
 					this.add(gameOverPanel);
 					this.repaint();
 					/*
@@ -391,7 +390,6 @@ public class PanelClassic extends JPanel implements Runnable{
 				if(win()>0){
 					DataBase.isPause = true;
 					gameOverPanel = new PanelGameOver(true);
-					gameOverPanel.addMouseListener(gameOverPanel);
 					this.add(gameOverPanel);
 					this.repaint();
 					break;

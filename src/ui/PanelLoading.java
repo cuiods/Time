@@ -38,7 +38,7 @@ public class PanelLoading extends JPanel{
 			 * to be changed  @Warning!
 			 */
 			DataBase.recover();
-			Controller.changeTo(FrameGame.AIMPANEL);
+			Controller.changeTo(FrameGame.FIGHTPANEL);
 		}
 		time-=2;
 		this.repaint();
