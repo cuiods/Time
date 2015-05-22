@@ -18,7 +18,7 @@ public class PanelLoading extends JPanel{
 	int time = 1000;
 	
 	public PanelLoading(){
-		background = new ImageIcon("graphics/progress bar/loading.png").getImage();
+		//background = new ImageIcon("graphics/progress bar/loading.png").getImage();
 		loading = new ImageIcon("graphics/progress bar/loading.gif").getImage();
 		this.setSize(1000, 600);
 	}
@@ -42,7 +42,7 @@ public class PanelLoading extends JPanel{
 		}
 		time-=2;
 		this.repaint();
-		g.drawImage(background,0, 0, this.getWidth(), this.getHeight(),this);
+		//g.drawImage(background,0, 0, this.getWidth(), this.getHeight(),this);
 		g.drawImage(loading,0, 0,this.getWidth(), this.getHeight(),this);
 		g.drawImage(loadingPath, 300, 500, 400,20,this);
 		

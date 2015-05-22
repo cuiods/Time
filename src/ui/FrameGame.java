@@ -66,9 +66,12 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 		
 		//set cursor
 		Toolkit toolkit = Toolkit.getDefaultToolkit();   
-		Image image = toolkit.getImage("graphics/icon/cursor.png");
+		Image image = toolkit.getImage("graphics/icon/cursor1.png");
 		Cursor c = toolkit.createCustomCursor(image , new Point(5,5), "icon/cursor.png");  
 		this.setCursor (c);
+		
+		//set icon
+		this.setIconImage(new ImageIcon("graphics/badge/icon.png").getImage());
 		
 		this.setUndecorated(true);
 		this.setVisible(true);
@@ -167,6 +170,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			DataBase.threadContinue = false;
 			DataBase.isNet = false;
 			DataBase.pass = 0;
+			DataBase.StartTime = 0;
 			DataBase.recover();
 			startPanel = new PanelStart();
 			setContentPane(startPanel);
