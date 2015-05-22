@@ -163,6 +163,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	protected void addSneaker() {
 		STG4_Sneaker sneaker = new STG4_Sneaker();
 		sneaker.setKind(1);
+		sneaker.Upgrade();
 		sneaker.path = path;
 		switch(DataBase.pass){
 		case 4:sneaker.y += 240*path;break;
@@ -184,6 +185,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	protected void addRobotWarrior() {
 		STG4_RobotWarrior robot = new STG4_RobotWarrior();
 		robot.setKind(1);
+		robot.Upgrade();
 		robot.path = path;
 		switch(DataBase.pass){
 		case 4:robot.y += 240*path;break;
@@ -205,6 +207,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	protected void addRazership() {
 		STG4_RazerShip ship = new STG4_RazerShip();
 		ship.setKind(1);
+		ship.Upgrade();
 		ship.path = path;
 		switch(DataBase.pass){
 		case 4:ship.y += 240*path;break;
@@ -226,6 +229,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	protected void addDrone() {
 		STG4_Drone drone = new STG4_Drone();
 		drone.setKind(1);
+		drone.Upgrade();
 		drone.path = path;
 		switch(DataBase.pass){
 		case 4:drone.y += 240*path;break;
@@ -248,6 +252,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		
 		STG3_SpaceShip spaceship = new STG3_SpaceShip();
 		spaceship.setKind(1);
+		spaceship.Upgrade();
 		spaceship.path = path;
 		switch(DataBase.pass){
 		case 3:break;
@@ -270,6 +275,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	protected void addSpaceman() {
 		STG3_SpaceMan spaceman = new STG3_SpaceMan();
 		spaceman.setKind(1);
+		spaceman.Upgrade();
 		spaceman.path = path;
 		switch(DataBase.pass){
 		case 3:break;
@@ -293,6 +299,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	protected void addSpacecarrier() {
 		STG3_SpaceCarrier spacecarrier = new STG3_SpaceCarrier();
 		spacecarrier.setKind(1);
+		spacecarrier.Upgrade();
 		spacecarrier.path = path;
 		switch(DataBase.pass){
 		case 3:break;
@@ -411,6 +418,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		STG2_MedicTeam medic = new STG2_MedicTeam();
 		// set player
 		medic.setKind(1);
+		medic.Upgrade();
 		medic.path = path;
 		switch(DataBase.pass){
 		case 2:break;
@@ -437,6 +445,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		STG2_Sniper sniper = new STG2_Sniper();
 		// set player
 		sniper.setKind(1);
+		sniper.Upgrade();
 		sniper.path = path;
 		switch(DataBase.pass){
 		case 2:break;
@@ -461,6 +470,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		STG2_Truck truck = new STG2_Truck();
 		// set player
 		truck.setKind(1);
+		truck.Upgrade();
 		truck.path= path;
 		switch(DataBase.pass){
 		case 2:break;
@@ -487,6 +497,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 		STG2_Rifle rifle = new STG2_Rifle();
 		// set player
 		rifle.setKind(1);
+		rifle.Upgrade();
 		rifle.path = path;
 		switch(DataBase.pass){
 		case 2:break;

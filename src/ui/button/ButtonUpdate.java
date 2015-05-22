@@ -47,8 +47,13 @@ public class ButtonUpdate extends JLabel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(DataBase.pass<13){
+		if(DataBase.pass==11&&DataBase.Money>=DataBase.UPGRADE_CONDITION_LV2){
 			DataBase.pass++;
+			DataBase.Money-=DataBase.UPGRADE_CONDITION_LV2;
+		}
+		if(DataBase.pass==12&&DataBase.Money>=DataBase.UPGRADE_CONDITION_LV3){
+			DataBase.pass++;
+			DataBase.Money-=DataBase.UPGRADE_CONDITION_LV3;
 		}
 		
 	}

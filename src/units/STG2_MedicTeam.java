@@ -10,7 +10,6 @@ public class STG2_MedicTeam extends S_Soldier implements Runnable{
 		y = DataBase.START_LOC_Y_STG2;
 	    hp=DataBase.MEDICTEAM_HP;
 	    attack = DataBase.MEDICTEAM_ATK;
-	    this.Upgrade();
 		attackRange = DataBase.MEDICTEAM_AR;
 		speed = DataBase.MEDICTEAM_SPD;
 	    setType(3);
