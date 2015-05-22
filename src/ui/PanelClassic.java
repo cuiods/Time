@@ -1,16 +1,22 @@
 package ui;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-import ai.simpleAI_Classic;
 import tools.DrawUnits;
 import tools.Money;
 import tools.MusicThread;
@@ -20,9 +26,11 @@ import ui.button.ButtonClassicScience;
 import ui.button.ButtonClassicUnit;
 import ui.button.ButtonGameSet;
 import ui.button.ButtonPause;
+import ui.button.ButtonSend;
 import ui.button.ButtonUpdate;
 import units.S_Castle;
 import units.S_Unit;
+import ai.simpleAI_Classic;
 import dataBase.DataBase;
 
 public class PanelClassic extends JPanel implements Runnable{
@@ -42,7 +50,8 @@ public class PanelClassic extends JPanel implements Runnable{
 		public static boolean isTech_8 = false;
 		public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
 		
-		public static boolean isNet = false;
+		public static JTextArea textarea;
+		public static JTextField textfield;
 		
 		//public static MusicPlayer fightPlayer = new MusicPlayer();
 		static MusicThread musicPlay  = new MusicThread("music/background/pass1.wav", true);
@@ -58,6 +67,10 @@ public class PanelClassic extends JPanel implements Runnable{
 			setLayout(null);
 			//set AI
 			setAI();
+			//set net
+			if(DataBase.isNet){
+				setNet();
+			}
 			//auto save
 			save();
 		}
@@ -72,6 +85,7 @@ public class PanelClassic extends JPanel implements Runnable{
 			drawEffects(g);
 			
 			drawInformation(g);
+			
 		
 		}
 		private void drawInformation(Graphics g) {
@@ -173,6 +187,28 @@ public class PanelClassic extends JPanel implements Runnable{
 //			musicPlay.start();
 		}
 		
+		private void setNet(){
+			textarea = new JTextArea(100,200);
+			textarea.setLineWrap(true);
+			textarea.setWrapStyleWord(true);
+			JScrollPane jsp = new JScrollPane(textarea){
+				@Override
+				public void paintComponent(Graphics g){
+					 Graphics2D g1 = (Graphics2D) g;
+					 g1.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.5F));
+				}
+			};
+			jsp.setBounds(800, 420, 200, 150);
+			textfield = new JTextField(20);
+			textfield.setBounds(800,570,130,30);
+			add(jsp);
+			add(textfield);	
+			
+			ButtonSend send = new ButtonSend();
+			send.addMouseListener(send);
+			add(send);
+			
+		}
 		/**
 		 * auto save
 		 */

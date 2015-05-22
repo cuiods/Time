@@ -9,8 +9,8 @@ import dataBase.DataBase;
 public class ServerAI{
 	
 	BufferedReader reader;
-	static Socket socket;
-	static PrintWriter writer;
+	public static Socket socket;
+	public static PrintWriter writer;
 	
 	public class ClientHander implements Runnable{
 		

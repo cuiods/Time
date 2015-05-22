@@ -11,6 +11,8 @@ public class DataBase {
 
 	//锟斤拷录锟角凤拷锟斤拷停
 	public static boolean isPause = false;
+	public static boolean isNet = false;
+	public static boolean isServer = true;
 	
 	public static boolean threadContinue = true;
 

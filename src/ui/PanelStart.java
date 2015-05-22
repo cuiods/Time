@@ -4,18 +4,16 @@ import gamecontrol.Controller;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.IOException;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import tools.MusicPlayer;
+import dataBase.DataBase;
 import tools.MusicThread;
 import ui.button.ButtonClassic;
 import ui.button.ButtonExit;
 import ui.button.ButtonLoad;
+import ui.button.ButtonNet;
 import ui.button.ButtonSet;
 import ui.button.ButtonStart;
 
@@ -33,6 +31,7 @@ public class PanelStart extends JPanel implements Runnable{
 	ButtonSet setButton = null;
 	ButtonLoad loadButton = null;
 	ButtonClassic classicButton = null;
+	ButtonNet netButton = null;
 	static MusicThread musicPlay  = new MusicThread("music/background/main.wav", true);
 	static boolean isplay = false;
 	
@@ -49,6 +48,7 @@ public class PanelStart extends JPanel implements Runnable{
 		setButton = new ButtonSet();
 		loadButton = new ButtonLoad();
 		classicButton = new ButtonClassic();
+		netButton = new ButtonNet();
 		
 		//clear layout
 		this.setLayout(null);
@@ -59,6 +59,7 @@ public class PanelStart extends JPanel implements Runnable{
 		setButton.addMouseListener(setButton);
 		loadButton.addMouseListener(loadButton);
 		classicButton.addMouseListener(classicButton);
+		netButton.addMouseListener(netButton);
 		
 		//add buttons
 		this.add(startButton);
@@ -66,6 +67,7 @@ public class PanelStart extends JPanel implements Runnable{
 		this.add(classicButton);
 		this.add(loadButton);
 		this.add(setButton);
+		this.add(netButton);
 		
 		//start thread
 		Thread panel = new Thread(this);
@@ -80,6 +82,8 @@ public class PanelStart extends JPanel implements Runnable{
 		set.start();
 		Thread classic = new Thread(classicButton);
 		classic.start();
+		Thread net  = new Thread(netButton);
+		net.start();
 		
 		setMusic();
 	}
@@ -104,12 +108,13 @@ public class PanelStart extends JPanel implements Runnable{
 
 	@Override
 	public void run() {
-		while(true){
+		while(!DataBase.threadContinue){
 			startButton.setLocation(startButton.x, startButton.y);
 			loadButton.setLocation(loadButton.x,loadButton.y);
 			exitButton.setLocation(exitButton.x, exitButton.y);
 			setButton.setLocation(setButton.x, setButton.y);
 			classicButton.setLocation(classicButton.x, classicButton.y);
+			netButton.setLocation(netButton.x, netButton.y);
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
