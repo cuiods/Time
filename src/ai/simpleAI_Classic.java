@@ -4,7 +4,6 @@ import units.S_Unit;
 import dataBase.DataBase;
 
 public class simpleAI_Classic extends AI implements Runnable{
-	public int Threat = 0;
 	public int Pass = 11;
 	public int Money = 0;
 	AIMoney m;
@@ -31,7 +30,7 @@ public class simpleAI_Classic extends AI implements Runnable{
 	}
 
 	private void execute(int ThreatResult0, int ThreatResult1, int ThreatResult2,
-			int DevelopResult, int AttackPotentialResult ) {
+			int DevelopResult, int AttackRiskResult ) {
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
@@ -41,25 +40,105 @@ public class simpleAI_Classic extends AI implements Runnable{
 		System.out.printf("\nThreats are : %d %d %d \n",
 				ThreatResult0,ThreatResult1,ThreatResult2);
 		System.out.println(this.getCastlePercentage(1));
-		resist(ThreatResult0,0);
-		resist(ThreatResult1,1);
-		resist(ThreatResult2,2);
-		
+		if(AIMoney.Money>18000&&this.Pass==11){
+			AIC.NextAge();
+		}
+		if(AIMoney.Money>35000&&this.Pass==12){
+			AIC.NextAge();
+		}
+		if(ThreatResult0+ThreatResult1+ThreatResult2>=2300
+				&&ThreatResult0+ThreatResult1+ThreatResult2<3000){
+			this.CheckAndAdd(AIAction.KillerVirus, 0);
+		}else{
+			if(ThreatResult0+ThreatResult1+ThreatResult2>=3000
+					&&ThreatResult0+ThreatResult1+ThreatResult2<4000){
+				this.CheckAndAdd(AIAction.KillerVirus, 0);
+				this.CheckAndAdd(AIAction.KillerVirus, 0);
+			}else{
+				if(ThreatResult0+ThreatResult1+ThreatResult2>=4000
+						&&ThreatResult0+ThreatResult1+ThreatResult2<5000){
+					this.CheckAndAdd(AIAction.KillerVirus, 0);
+					this.CheckAndAdd(AIAction.GeneMissile, 0);
+				}else{
+					if(ThreatResult0+ThreatResult1+ThreatResult2>=5000){
+						this.CheckAndAdd(AIAction.PhotonStrike, 0);
+					}
+				}
+			}
+		}
+		if(ThreatResult0+ThreatResult1+ThreatResult2<2300){
+			if(Math.abs(Math.max(ThreatResult0, Math.max(ThreatResult1, ThreatResult2))
+					-(Math.max(ThreatResult0, Math.max(ThreatResult1, ThreatResult2))))>300){
+				attack(this.getWeakPath(),AttackRiskResult);
+				for(int i=0;i<=2;i++){
+					if(i!=this.getWeakPath()){
+						resist(i);
+					}
+				}
+			}else{
+				resist(0);
+				resist(1);
+				resist(2);
+			}
+		}
+
 	}
-	private void resist(int Threat, int path_num){
+	private void attack(int path_num,int attackRisk){
+		this.CheckAndAdd(AIAction.Rifle, path_num);
+		this.CheckAndAdd(AIAction.SpaceMan, path_num);
+		this.CheckAndAdd(AIAction.Drone, path_num);
+		if(attackRisk<300){
+		this.CheckAndAdd(AIAction.Rifle, path_num);
+		this.CheckAndAdd(AIAction.SpaceMan, path_num);
+		this.CheckAndAdd(AIAction.Drone, path_num);
+		}
+		this.CheckAndAdd(AIAction.SpaceShip, path_num);
+		this.CheckAndAdd(AIAction.RazerShip, path_num);
+		this.CheckAndAdd(AIAction.Truck, path_num);
+		this.CheckAndAdd(AIAction.SpaceCarrier, path_num);
+		this.CheckAndAdd(AIAction.Sneaker, path_num);
+		this.CheckAndAdd(AIAction.RobotWarrior, path_num);
+		if(attackRisk<400){
+		this.CheckAndAdd(AIAction.SpaceShip, path_num);
+		this.CheckAndAdd(AIAction.RazerShip, path_num);
+		this.CheckAndAdd(AIAction.Truck, path_num);
+		this.CheckAndAdd(AIAction.SpaceCarrier, path_num);
+		this.CheckAndAdd(AIAction.Sneaker, path_num);
+		this.CheckAndAdd(AIAction.RobotWarrior, path_num);
+		}
+	}
+	//Done
+	private void resist(int path_num){
+		Threat = analyzeThreat(path_num);
 		boolean vacant = true;
 		int dis;
 		for(int i=0;i<DataBase.playerList.size();i++){
 			if(DataBase.playerList.get(i).path==path_num){
-			S_Unit u = DataBase.playerList.get(i); 
-			dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG5-u.getX())*(db.START_LOC_X_ENM_STG5-u.getX())+
-					(db.START_LOC_Y_ENM_STG5+165*path_num-u.getY())*(db.START_LOC_Y_ENM_STG5+165*path_num-u.getY()));
-			for(int j=0;j<DataBase.enemyList.size();j++){
-				if(DataBase.enemyList.get(j).getType()!=100){
-				if(DataBase.enemyList.get(j).path==path_num) vacant = false;
+				S_Unit u = DataBase.playerList.get(i); 
+				dis = (int) Math.sqrt((db.START_LOC_X_ENM_STG5-u.getX())*(db.START_LOC_X_ENM_STG5-u.getX())+
+						(db.START_LOC_Y_ENM_STG5+165*path_num-u.getY())*(db.START_LOC_Y_ENM_STG5+165*path_num-u.getY()));
+				for(int j=0;j<DataBase.enemyList.size();j++){
+					if(DataBase.enemyList.get(j).getType()!=100){
+						if(DataBase.enemyList.get(j).path==path_num) vacant = false;
+					}
 				}
-			}
-			if (dis <=300&&vacant) this.CheckAndAdd(AIAction.Rifle, path_num);
+				if (dis <=300&&vacant&&Threat<=250){
+					this.CheckAndAdd(AIAction.Rifle, path_num);
+					this.CheckAndAdd(AIAction.SpaceMan, path_num);
+					this.CheckAndAdd(AIAction.Drone, path_num);
+				}
+				if (dis <=300&&vacant&&Threat>250&&Threat<=500){
+					this.CheckAndAdd(AIAction.MedicTeam, getRandomPath());
+					this.CheckAndAdd(AIAction.Sniper,getRandomPath() );
+					this.CheckAndAdd(AIAction.SpaceShip, path_num);
+					this.CheckAndAdd(AIAction.RazerShip, path_num);
+				}
+				if (dis <=300&&vacant&&Threat>500&&Threat<=800){
+					this.CheckAndAdd(AIAction.Truck, path_num);
+					this.CheckAndAdd(AIAction.SpaceCarrier, path_num);
+					this.CheckAndAdd(AIAction.Sneaker, path_num);
+					this.CheckAndAdd(AIAction.RobotWarrior, path_num);
+				}
 			}
 		}
 		System.out.println("path "+path_num+" vacant is "+vacant);
@@ -84,10 +163,12 @@ public class simpleAI_Classic extends AI implements Runnable{
 		}
 		return balanceByLevel(result);
 	}
+	//Done 
 	private int analyzeAttackRisk(int ThreatResult0,int ThreatResult1,int ThreatResult2){
 		int weakThreat = Math.min(Math.min(ThreatResult0, ThreatResult1), ThreatResult2);
 		return (int) (weakThreat*getCastlePercentage(1)*getCastlePercentage(1));
 	}
+	//Done
 	private int getWeakPath(){
 		int ThreatResult0 = analyzeThreat(0);
 		int ThreatResult1 = analyzeThreat(0);
@@ -107,10 +188,12 @@ public class simpleAI_Classic extends AI implements Runnable{
 
 		return 0;
 	}
+	//Done
 	private int balanceByLevel(int prudentData){
 		int result = (int) (prudentData/(Math.pow(3, this.Pass-11)));
 		return result;
 	}
+	//Done
 	private double getCastlePercentage(int Kind){
 		double CastleHp = 0;
 		double FullCastleHp = 0;
@@ -141,21 +224,22 @@ public class simpleAI_Classic extends AI implements Runnable{
 		System.out.printf("FUllHP is %f and Now is %f \n",FullCastleHp,CastleHp);
 		return CastleHp/FullCastleHp;
 	}
+	//Done
 	public void CheckAndAdd(AIAction action,int path_num){
 		switch(action){
-		case MedicTeam: if(this.Money>=DataBase.MEDICTEAM_P){
+		case MedicTeam: if(this.Money>=DataBase.MEDICTEAM_P&&AIMoney.AIPass==11){
 			AIC.addMedicTeam(path_num);
 			AIMoney.Money-= DataBase.MEDICTEAM_P;
 		}break;
-		case Sniper: if(this.Money>=DataBase.SNIPER_P){
+		case Sniper: if(this.Money>=DataBase.SNIPER_P&&AIMoney.AIPass==11){
 			AIC.addSniper(path_num);
 			AIMoney.Money-= DataBase.SNIPER_P;
 		}break;
-		case Truck: if(this.Money>=DataBase.TRUCK_P){
+		case Truck: if(this.Money>=DataBase.TRUCK_P&&AIMoney.AIPass==11){
 			AIC.addTruck(path_num);
 			AIMoney.Money-= DataBase.TRUCK_P;
 		}break;
-		case Rifle: if(this.Money>=DataBase.RIFLE_P){
+		case Rifle: if(this.Money>=DataBase.RIFLE_P&&AIMoney.AIPass==11){
 			AIC.addRifle(path_num);
 			AIMoney.Money-= DataBase.RIFLE_P;
 		}break;
@@ -205,6 +289,10 @@ public class simpleAI_Classic extends AI implements Runnable{
 		}break;
 		}
 	}
+	private int getRandomPath(){
+		return (int) (Math.random()*3);
+	}
+	//Done
 	@Override
 	public void run() {
 		while(DataBase.threadContinue){
