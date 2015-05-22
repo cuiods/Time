@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import tools.MusicPlayer;
 import tools.MusicThread;
 import ui.FrameGame;
+import ui.PanelFade;
 import ui.PanelStart;
 import dataBase.DataBase;
 
@@ -80,7 +81,13 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 	public void mousePressed(MouseEvent e) {
 		new MusicThread("music/effects/clicked.wav", false).start();
 		if(type == 0 || type == 1){
-			Controller.exitGame();
+			PanelFade fadePanel2 = new PanelFade();
+			fadePanel2.setType(2);
+			fadePanel2.addImage(new ImageIcon("graphics/background/last.png").getImage());
+			Controller.gameframe.getContentPane().setVisible(true);
+			Controller.gameframe.setContentPane(fadePanel2);
+			fadePanel2.showImage();
+		//	Controller.exitGame();
 		}else if(type == 2){
 			Controller.changeTo(FrameGame.FIGHTPANEL);
 			isIn1 = false;

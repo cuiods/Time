@@ -124,7 +124,10 @@ loop:    while(true){
             case 1:
             	flag=(flag+1)%images.size();
             	break;
+            case 2:
+            	Controller.exitGame();
             }
+            	
         } 
     		
 	}  
