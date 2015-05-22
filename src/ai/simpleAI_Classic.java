@@ -185,7 +185,7 @@ public class simpleAI_Classic extends AI implements Runnable{
 		return path;
 	}
 	private int analyzeDevelop(){
-
+		
 		return 0;
 	}
 	//Done
