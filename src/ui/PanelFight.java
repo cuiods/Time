@@ -71,6 +71,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_9 = false;
 	public static boolean isTech_20 = false;
 	public static boolean isTech_13 = false;
+	public static boolean isTech_14 = false;
 	public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
@@ -143,6 +144,7 @@ public class PanelFight extends JPanel implements Runnable{
 					g.drawImage(new ImageIcon("graphics/info/genemissile.png").getImage(),450,500,440,57,this);
 				
 			    }
+				g.drawImage(new ImageIcon("graphics/info/attack"+DataBase.Wave+".png").getImage(), 380, 550, 239, 40, this);
           break;
 		}
 		
@@ -439,7 +441,7 @@ public class PanelFight extends JPanel implements Runnable{
 				int min = time.getRemainTime()/60;
 				int second = time.getRemainTime()%60;
 				g.setColor(Color.red);
-				Font myFont = new Font("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",Font.BOLD,28);
+				Font myFont = new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28);
 				g.setFont(myFont);
 				g.drawString(min+":"+second, 700-(DataBase.pass-2)*500, 55+(DataBase.pass-2)*15);
 			//g.drawString(":", 700, 80);
@@ -547,6 +549,18 @@ public class PanelFight extends JPanel implements Runnable{
 			pic.panelPlay(250, 50, g, this, 0);
 			if(PicturePlayer.time0 < 31){
 				isTech_13 = false;
+				PicturePlayer.time0 = 1000;
+			}
+	   }
+	   if(isTech_14){
+		   String pictures[] = new String[10];
+			for(int i=1;i<=pictures.length;i++){
+				   pictures[i-1]="graphics/stunt/revolution/revolution"+i+".png";
+			  }
+			PicturePlayer pic = new PicturePlayer(pictures, false,30);
+			pic.panelPlay(350, 50, g, this, 0);
+			if(PicturePlayer.time0 < 31){
+				isTech_14 = false;
 				PicturePlayer.time0 = 1000;
 			}
 	   }
@@ -716,9 +730,7 @@ public class PanelFight extends JPanel implements Runnable{
 					fadePanel2.showImage();
 				}else{
 					gameOverPanel = new PanelGameOver(false);
-					gameOverPanel.addMouseListener(gameOverPanel);
 					this.add(gameOverPanel);
-					
 				}
 				this.repaint();
 				/*
@@ -737,7 +749,6 @@ public class PanelFight extends JPanel implements Runnable{
 					fadePanel2.showImage();
 				}else{
 					gameOverPanel = new PanelGameOver(true);
-					gameOverPanel.addMouseListener(gameOverPanel);
 					this.add(gameOverPanel);
 				}
 				this.repaint();
