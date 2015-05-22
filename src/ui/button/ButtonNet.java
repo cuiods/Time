@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -8,7 +10,11 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+<<<<<<< HEAD
 import tools.MusicThread;
+=======
+import ui.FrameGame;
+>>>>>>> origin/master
 import dataBase.DataBase;
 
 public class ButtonNet extends JLabel implements MouseListener,Runnable{
@@ -65,8 +71,8 @@ public class ButtonNet extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		Controller.changeTo(FrameGame.NETSETPANEL);
+		isIn = false;
 	}
 
 	@Override

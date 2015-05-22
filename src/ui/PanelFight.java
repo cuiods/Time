@@ -547,7 +547,7 @@ public class PanelFight extends JPanel implements Runnable{
 			pic.panelPlay(250, 50, g, this, 0);
 			if(PicturePlayer.time0 < 31){
 				isTech_13 = false;
-				PicturePlayer.time9 = 1000;
+				PicturePlayer.time0 = 1000;
 			}
 	   }
 	}

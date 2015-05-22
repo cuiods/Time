@@ -9,7 +9,6 @@ public class STG3_SpaceCarrier extends S_Soldier implements Runnable{
 		y = DataBase.START_LOC_Y_STG3;
 		hp=DataBase.SPACECARRIER_HP;
 		attack = DataBase.SPACECARRIER_ATK;
-		this.Upgrade();
 		attackRange = DataBase.SPACECARRIER_AR;
 		speed = DataBase.SPACECARRIER_SPD;
 		setType(9);

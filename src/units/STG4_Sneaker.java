@@ -18,7 +18,6 @@ public class STG4_Sneaker extends S_Soldier implements Runnable{
 		}
 	    hp=DataBase.SNEAKER_HP;
 	    attack = DataBase.SNEAKER_ATK;
-	    this.Upgrade();
 		attackRange = DataBase.SNEAKER_AR;
 		speed = DataBase.SNEAKER_SPD;
 	    setType(15);

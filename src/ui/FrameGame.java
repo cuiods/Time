@@ -210,7 +210,10 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			setContentPane(classicPanel);
 			Thread t = new Thread(classicPanel);
 			t.start();
+			break;
 		case 10:
+			netSetPanel = new PanelNetSet();
+			setContentPane(netSetPanel);
 			break;
 		case 9:
 			aimPanel = new PanelAim();

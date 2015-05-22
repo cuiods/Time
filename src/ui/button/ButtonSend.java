@@ -57,10 +57,14 @@ public class ButtonSend extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		PanelClassic.textarea.append("me: "+PanelClassic.textfield.getText()+"\n");
-		if(ServerAI.socket.isConnected()){
-			if(DataBase.isServer){
+		if(DataBase.isServer){
+			if(ServerAI.socket.isConnected()){
+				System.out.println("ready to send message to client");
 				ServerAI.sendData(0, PanelClassic.textfield.getText());
-			}else{
+			}
+		}else{
+			if(ClientAI.socket.isConnected()){
+				System.out.println("ready to send message to server");
 				ClientAI.sendData(0, PanelClassic.textfield.getText());
 			}
 		}

@@ -168,12 +168,18 @@ public class AIcommander {
 	}
 	public void Upgrade(S_Unit ce){
 		if(DataBase.pass>10){
-			ce.setHp((int) (ce.getHp()*Math.pow(1.5, DataBase.pass-11)));
-			ce.attack = (int) (ce.attack*Math.pow(2,DataBase.pass-11));
+			ce.setHp((int) (ce.getHp()*Math.pow(1.5, AIMoney.AIPass-11)));
+			ce.attack = (int) (ce.attack*Math.pow(2,AIMoney.AIPass-11));
 		}
 	}
 	public void NextAge(){
 		AIMoney.AIPass++;
+		if(AIMoney.AIPass==11){
+		AIMoney.Money-=DataBase.UPGRADE_CONDITION_LV2;
+		}
+		if(AIMoney.AIPass==12){
+			AIMoney.Money-=DataBase.UPGRADE_CONDITION_LV3;
+			}
 	}
 	public void setLoc(S_Unit u){
 		switch(DataBase.pass){
@@ -202,11 +208,11 @@ public class AIcommander {
 			break;
 		case 11:
 		case 12:
-		case 13:if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		case 13:if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5-100);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5);}
-		if(u.path==1){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		if(u.path==1){u.setX(DataBase.START_LOC_X_ENM_STG5-100);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5+165);}
-		if(u.path==2){u.setX(DataBase.START_LOC_X_ENM_STG5);
+		if(u.path==2){u.setX(DataBase.START_LOC_X_ENM_STG5-100);
 		u.setY(DataBase.START_LOC_Y_ENM_STG5+330);}
 		break;
 		}

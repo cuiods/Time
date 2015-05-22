@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import tools.MusicThread;
+
 public class PanelFade extends JPanel implements Runnable{
 
 	private ArrayList<Image> images=new ArrayList<Image>();
@@ -86,6 +88,7 @@ loop:    while(true){
             /*
              * pause for 3 seconds
              */
+            new MusicThread("music/background/start.wav", false).start();
             try {  
                 Thread.sleep(3000L);  
             } catch (InterruptedException e1) {  

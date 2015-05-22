@@ -12,7 +12,7 @@ public class STG2_Rifle extends S_Soldier implements Runnable{
 		y = DataBase.START_LOC_Y_STG2;
     	hp=DataBase.RIFLE_HP;
     	attack = DataBase.RIFLE_ATK;
-    	this.Upgrade();
+ 
 		attackRange = DataBase.RIFLE_AR;
 		speed = DataBase.RIFLE_SPD;
     	setType(6);

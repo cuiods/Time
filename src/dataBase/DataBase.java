@@ -10,7 +10,7 @@ public class DataBase {
 	public static int passAlready = 6;
 
 	//锟斤拷录锟角凤拷锟斤拷停
-	public static boolean isPause = false;
+	public static boolean isPause = true;
 	public static boolean isNet = false;
 	public static boolean isServer = true;
 	

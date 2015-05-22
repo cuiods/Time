@@ -2,17 +2,18 @@ package net;
 import java.io.*;
 import java.net.*;
 
+import ui.PanelClassic;
 import ai.AIcommander;
 import dataBase.DataBase;
 public class ClientAI{
 	
-	static Socket socket;
+	public static Socket socket;
 	BufferedReader reader;
 	static PrintWriter writer;
 	
 	public ClientAI(String ip) {
 		try {
-			socket = new Socket(ip, 5000);
+			socket = new Socket(ip, 5001);
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			writer = new PrintWriter(socket.getOutputStream());
 			System.out.println("network set up");
@@ -26,7 +27,9 @@ public class ClientAI{
 	private void execute(String message) {
 		AIcommander ai = new AIcommander();
 		switch(Data.getType(message)){
-		case 0:break;
+		case 0:
+			PanelClassic.textarea.append("receive: "+Data.getContent(message));
+			break;
 		case 1:
 			String[] m = Data.getContent(message).split("_");
 			int path = Integer.parseInt(m[0]);
@@ -55,6 +58,7 @@ public class ClientAI{
 		@Override
 		public void run() {
 			String message;
+			System.out.println("listenning");
 			try {
 				while(DataBase.threadContinue&&(message = reader.readLine())!=null){
 					System.out.println("read:"+message);
@@ -70,7 +74,9 @@ public class ClientAI{
 	
 	public static void sendData(int type, String content){
 		if(socket.isConnected()){
+			System.out.println("ready to send data");
 			writer.println(new Data(type, content).toString());
+			System.out.println("data send");
 			writer.flush();
 		}
 	}

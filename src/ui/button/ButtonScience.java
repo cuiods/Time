@@ -42,13 +42,13 @@ public class ButtonScience extends JPanel implements MouseListener{
 	public void paintComponent(Graphics g){
 		//when you name a picture,care for the name, or it can't be shown
 		if(!isIn){
-			if(DataBase.LockScience){
+			if(DataBase.LockScience||(DataBase.pass==4&&!DataBase.Tech_FourthTechRevolution&&(this.kind==13||this.kind==15))){
 				g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_2.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
 			}else{
 				g.drawImage(new ImageIcon("graphics/info/tech"+kind+".png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
 			}
 		}else{
-			if(DataBase.LockScience){
+			if(DataBase.LockScience||(DataBase.pass==4&&!DataBase.Tech_FourthTechRevolution&&(this.kind==13||this.kind==15))){
 				g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_2.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
 			}else{
 				g.drawImage(new ImageIcon("graphics/info/tech"+kind+"_1.png").getImage(), 0,0,this.getWidth(), this.getHeight(),this);
@@ -147,9 +147,8 @@ public class ButtonScience extends JPanel implements MouseListener{
 			}
 			break;
 		case 9:
-			if(DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)&&(!DataBase.LockScience)){
+			if((DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)&&(!DataBase.LockScience)){
 				new Tech_STG3_Hubble();
-				new MusicThread("music/effects/shadow.wav", false).start();
 				//considering the lock science,we shouldn't cut the money while player
 				//can't use the tech,so i move the act to tech classes
 			}
@@ -157,19 +156,16 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 10:
 			if(!DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_SuperComputer_P>=0)&&(!DataBase.LockScience)){
 				new Tech_STG3_SuperComputer();
-				new MusicThread("music/effects/supercomputer.wav", false).start();
 			}
 			break;
 		case 11:
 			if(!DataBase.Tech_SecondCastle&&(DataBase.Money-DataBase.Tech_SecondCastle_P>=0)&&(!DataBase.LockScience)){
 				new Tech_STG3_SecondCastle();
-				new MusicThread("music/effects/secondcastle.wav", false).start();
 			}
 			break;
 		case 12:
 			if(!DataBase.Tech_HydrogenBomb&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)&&(!DataBase.LockScience)){
 				new Tech_STG3_HydrogenBomb();
-				new MusicThread("music/effects/qingdan.wav", false).start();
 			}
 	
 			break;
@@ -179,16 +175,11 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 15:
 			if(!DataBase.Tech_BlackHoleProject&&(DataBase.Money-DataBase.Tech_BlackHoleProject_P>=0)){
 				new Tech_STG4_BlackHoleProject();
-				DataBase.Money -= DataBase.Tech_BlackHoleProject_P;
-				new MusicThread("music/effects/blackhole.wav", false).start();
 			}
 			break;
 		case 13:
 			if(!DataBase.Tech_Faith&&(DataBase.Money-DataBase.Tech_Faith_P>=0)){
 				new Tech_STG4_Faith();
-				DataBase.Money -= DataBase.Tech_Faith_P;
-				PanelFight.isTech_13=true;
-				new MusicThread("music/effects/faith.wav", false).start();
 			}
 			break;
 		case 14:

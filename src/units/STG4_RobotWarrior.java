@@ -14,7 +14,6 @@ public class STG4_RobotWarrior extends S_Soldier implements Runnable{
 		}
 	    hp=DataBase.ROBOTWARRIOR_HP;
 	    attack = DataBase.ROBOTWARRIOR_ATK;
-	    this.Upgrade();
 		attackRange = DataBase.ROBOTWARRIOR_AR;
 		speed = DataBase.ROBOTWARRIOR_SPD;
 	    setType(14);

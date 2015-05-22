@@ -32,38 +32,36 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 	 */
 	public PanelGameOver(boolean iswin){
 		this.isWin = iswin;
-		this.setBounds(320, 140, 400, 300);
+		this.setBounds(320, 180, 375, 204);
 		Controller.gameframe.remove(Controller.gameframe.fightPanel);
-		gameover = new ImageIcon("graphics/info/gameover.png").getImage();
 		if(iswin){
 			//System.out.println("yes");
-			win = new ImageIcon("graphics/info/win.png").getImage();
-			exit = new ImageIcon("graphics/button/exit2.png").getImage();
-			next = new ImageIcon("graphics/button/nextGame.png").getImage();
-			exit1 = new ImageIcon("graphics/button/exitgame1.png").getImage();
-			next1 = new ImageIcon("graphics/button/again1.png").getImage();
+			win = new ImageIcon("graphics/info/youwin.png").getImage();
+			exit = new ImageIcon("graphics/button/give.png").getImage();
+			next = new ImageIcon("graphics/button/next.png").getImage();
+			exit1 = new ImageIcon("graphics/button/give1.png").getImage();
+			next1 = new ImageIcon("graphics/button/next1.png").getImage();
 		}else{
-			win = new ImageIcon("graphics/info/lose.png").getImage();
-			exit = new ImageIcon("graphics/button/exitgame.png").getImage();
-			next = new ImageIcon("graphics/button/again.png").getImage();
-			exit1 = new ImageIcon("graphics/button/exitgame1.png").getImage();
-			next1 = new ImageIcon("graphics/button/again1.png").getImage();
+			win = new ImageIcon("graphics/info/gameover.png").getImage();
+			exit = new ImageIcon("graphics/button/give.png").getImage();
+			next = new ImageIcon("graphics/button/next.png").getImage();
+			exit1 = new ImageIcon("graphics/button/give1.png").getImage();
+			next1 = new ImageIcon("graphics/button/next1.png").getImage();
 		}
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
-		g.drawImage(gameover, 0, 0, this.getWidth(),this.getHeight(),this);
-		g.drawImage(win, 80, 80, 240,100,this);
+		g.drawImage(win, 0, 0, 375,204,this);
 		if(!isIn1){
-			g.drawImage(exit, 220, 200, 120, 50, this);
+			g.drawImage(exit, 30, 130, 152, 34, this);
 		}else{
-			g.drawImage(exit1, 220, 200, 120, 50, this);
+			g.drawImage(exit1, 30, 130, 152, 34, this);
 		}
 		if(!isIn2){
-			g.drawImage(next, 50, 200, 120, 50, this);
+			g.drawImage(next, 200, 130, 152, 34, this);
 		}else{
-			g.drawImage(next1, 50, 200, 120, 50, this);
+			g.drawImage(next1, 200, 130, 152, 34, this);
 		}
 	}
 
@@ -90,14 +88,14 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if(e.getX()>=220&&e.getX()<=340&&e.getY()>=200&&e.getY()<=250){
+		if(e.getX()>=30&&e.getX()<=182&&e.getY()>=130&&e.getY()<=164){
 			//return to start panel("exit")
 			DataBase.recover();
 			
 			//restart
 			Controller.changeTo(FrameGame.STARTPANEL);
 						
-		}else if(e.getX()>=50&&e.getX()<=170&&e.getY()>=200&&e.getY()<=250){
+		}else if(e.getX()>=200&&e.getX()<=330&&e.getY()>=130&&e.getY()<=164){
 			
 			//restart the game
 			if(!isWin){
@@ -116,14 +114,14 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 
 	@Override
 	public void run() {
-		while(true){
+		while(true&&DataBase.threadContinue){
 			Point point = MouseInfo.getPointerInfo().getLocation();
-			if(point.getX()>=220&&point.getX()<=340&&point.getY()>=200&&point.getY()<=250){
+			if(point.getX()>=348&&point.getX()<=503&&point.getY()>=312&&point.getY()<=345){
 				isIn1 = true;
 			}else{
 				isIn1 = false;
 			}
-			if(point.getX()>=50&&point.getX()<=170&&point.getY()>=200&&point.getY()<=250){
+			if(point.getX()>=521&&point.getX()<=673&&point.getY()>=312&&point.getY()<=345){
 				isIn2 = true;
 			}else{
 				isIn2 = false;
@@ -131,7 +129,7 @@ public class PanelGameOver extends JPanel implements MouseListener, Runnable{
 			this.repaint();
 			
 			try {
-				Thread.sleep(100); 
+				Thread.sleep(50); 
 			} catch (InterruptedException e) { 
 				e.printStackTrace();
 			}

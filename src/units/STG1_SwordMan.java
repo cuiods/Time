@@ -14,7 +14,6 @@ public class STG1_SwordMan extends S_Soldier implements Runnable{
 		y = DataBase.START_LOC_Y_STG1;
     	hp=DataBase.SWORDMAN_HP;
     	attack = DataBase.SWORDMAN_ATK;
-    	this.Upgrade();
 		attackRange = DataBase.SWORDMAN_AR;
 		speed = DataBase.SWORDMAN_SPD;
     	setType(0);

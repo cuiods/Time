@@ -289,7 +289,7 @@ public abstract class S_Soldier extends S_Unit{
 			}
 		}
 		public void Upgrade(){
-			if(DataBase.pass >10){
+			if(DataBase.pass >10&&this.getKind()==1){
 			this.hp = (int) (this.hp*Math.pow(1.5, DataBase.pass-11));
 			this.attack = (int) (this.attack*Math.pow(2, DataBase.pass-11));
 			}
