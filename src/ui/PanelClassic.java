@@ -228,7 +228,7 @@ public class PanelClassic extends JPanel implements Runnable{
 
 		private void drawBackground(Graphics g){
 			//load background image
-			fightBackGround = new ImageIcon("graphics/background/fightbackground6.png").getImage();
+			fightBackGround = new ImageIcon("graphics/background/classic.png").getImage();
 
 			//money image
 			Image money = new ImageIcon("graphics/info/money1.png").getImage();

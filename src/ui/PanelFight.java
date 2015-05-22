@@ -402,6 +402,9 @@ public class PanelFight extends JPanel implements Runnable{
 		}else{
 			g.drawImage(new ImageIcon("graphics/info/life.png").getImage(), 605, 15, 240, 45, this);
 	    }
+		if(DataBase.pass==3){
+			g.drawImage(new ImageIcon("graphics/info/timeleft.png").getImage(), 10, 10, 110,60,this);
+		}
 		g.drawImage(tech, 304, 58, 130, 110, this);
 
 		//show money
@@ -445,10 +448,10 @@ public class PanelFight extends JPanel implements Runnable{
 			if((time!=null)&&(time.getRemainTime()>0)&&(DataBase.isPause==false)){
 				int min = time.getRemainTime()/60;
 				int second = time.getRemainTime()%60;
-				g.setColor(Color.red);
+				g.setColor(Color.BLUE);
 				Font myFont = new Font("Î¢ÈíÑÅºÚ",Font.BOLD,28);
 				g.setFont(myFont);
-				g.drawString(min+":"+second, 700-(DataBase.pass-2)*600, 55);
+				g.drawString(min+":"+second, 700-(DataBase.pass-2)*670, 55-(DataBase.pass-2)*10);
 			//g.drawString(":", 700, 80);
 			//g.drawString(second+"", 720, 80);			
 			}
