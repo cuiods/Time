@@ -29,6 +29,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     public PanelGameSet setPanel = null;
     public PanelHelp helpPanel = null;
     public PanelClassic classicPanel = null;
+    public PanelNetSet netSetPanel = null;
     
     public static final int STARTPANEL = 0;
     public static final int FIGHTPANEL = 1;
@@ -39,6 +40,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
     public static final int SETPANEL = 6;
     public static final int HELPPANEL = 7;
     public static final int CLASSICPANEL = 8;
+    public static final int NETSETPANEL= 9;
     
     private int tempX;  
     private int tempY;  
@@ -205,6 +207,7 @@ public class FrameGame extends JFrame implements MouseListener,MouseMotionListen
 			setContentPane(classicPanel);
 			Thread t = new Thread(classicPanel);
 			t.start();
+		case 9:
 		}
 		System.out.println(DataBase.threadContinue);
 		repaint();
