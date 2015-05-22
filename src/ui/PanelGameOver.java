@@ -32,7 +32,11 @@ public class PanelGameOver extends JPanel {
 		this.isWin = iswin;
 		this.setBounds(320, 180, 375, 204);
 		setLayout(null);
-		Controller.gameframe.remove(Controller.gameframe.fightPanel);
+		if(DataBase.pass<10){
+			Controller.gameframe.remove(Controller.gameframe.fightPanel);
+		}else{
+			Controller.gameframe.remove(Controller.gameframe.classicPanel);
+		}
 		give = new ButtonGiveup();
 		give.addMouseListener(give);
 		give.setBounds(30, 130, 152,34);
