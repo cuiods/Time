@@ -10,11 +10,11 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-<<<<<<< HEAD
+
 import tools.MusicThread;
-=======
+
 import ui.FrameGame;
->>>>>>> origin/master
+
 import dataBase.DataBase;
 
 public class ButtonNet extends JLabel implements MouseListener,Runnable{
