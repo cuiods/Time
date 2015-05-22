@@ -60,9 +60,9 @@ public class PanelNetSet extends JPanel{
 		g.setFont(font);
 		g.drawString(IP, 545, 285);
 		
-		if(show){
-			System.out.println("show");
+		if(!show){
 			g.drawImage(new ImageIcon("graphics/net/wait.png").getImage(), 340, 400, 320, 70, this);
+			g.drawImage(new ImageIcon("graphics/net/wait.gif").getImage(), 530, 400, 100, 70, this);
 		}
 	}
 }
