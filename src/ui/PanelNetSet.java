@@ -1,12 +1,14 @@
 package ui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import ui.button.ButtonNetChoose;
 import ui.button.ButtonOnlineStart;
@@ -14,6 +16,8 @@ import ui.button.ButtonReturn;
 
 public class PanelNetSet extends JPanel{
 
+	String IP = null;
+	public static JTextField textIP = null;
 	public PanelNetSet() {
 		setLayout(null);
 		
@@ -33,10 +37,26 @@ public class PanelNetSet extends JPanel{
 	    start.addMouseListener(start);
 	    add(start);
 	    
+	    //get IP
+	    try {
+			IP = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+	    
+	    //set text field
+	    textIP = new JTextField();
+	    textIP.setBounds(580, 300, 100, 20);
+	    add(textIP);
+	    
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
 		g.drawImage(new ImageIcon("graphics/background/background.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 		g.drawImage(new ImageIcon("graphics/net/netset.png").getImage(), 400,50,434,306, this);
+		Font font = new Font("Î¢ÈíÑÅºÚ", Font.BOLD,20);
+		g.setColor(Color.red);
+		g.setFont(font);
+		g.drawString(IP, 545, 285);
 	}
 }

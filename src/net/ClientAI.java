@@ -2,11 +2,12 @@ package net;
 import java.io.*;
 import java.net.*;
 
+import ui.PanelClassic;
 import ai.AIcommander;
 import dataBase.DataBase;
 public class ClientAI{
 	
-	static Socket socket;
+	public static Socket socket;
 	BufferedReader reader;
 	static PrintWriter writer;
 	
@@ -26,7 +27,9 @@ public class ClientAI{
 	private void execute(String message) {
 		AIcommander ai = new AIcommander();
 		switch(Data.getType(message)){
-		case 0:break;
+		case 0:
+			PanelClassic.textarea.append("receive: "+Data.getContent(message));
+			break;
 		case 1:
 			String[] m = Data.getContent(message).split("_");
 			int path = Integer.parseInt(m[0]);

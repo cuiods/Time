@@ -3,6 +3,7 @@ package net;
 import java.net.*;
 import java.io.*;
 
+import ui.PanelClassic;
 import ai.AIcommander;
 import dataBase.DataBase;
 
@@ -58,7 +59,9 @@ public class ServerAI{
 	private void execute(String message){
 		AIcommander ai = new AIcommander();
 		switch(Data.getType(message)){
-		case 0:break;
+		case 0:
+			PanelClassic.textarea.append("receive: "+Data.getContent(message));
+			break;
 		case 1:
 			String[] m = Data.getContent(message).split("_");
 			int path = Integer.parseInt(m[0]);
