@@ -4,10 +4,13 @@ import gamecontrol.Controller;
 
 import java.io.Serializable;
 
+import ai.AIMoney;
 import dataBase.DataBase;
 
 public class S_Castle extends S_Unit implements Runnable, Serializable{
 	public int addSpeed = 1;
+	boolean updateLV2 = false;
+	boolean updateLV3 = false;
 	public S_Castle(){
 		switch(DataBase.pass){
 		case 1:x = DataBase.START_LOC_X_STG1 ;
@@ -22,6 +25,7 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 		case 4:x = DataBase.START_LOC_X_STG4;
 		y = DataBase.START_LOC_Y_STG4;
 		hp = DataBase.CASTLE_HP_STG4;break;
+		case 11:hp=DataBase.CASTLE_HP_CLASSIC_LV1;break;
 		}
 		setType(100);
 	}
@@ -53,6 +57,29 @@ public class S_Castle extends S_Unit implements Runnable, Serializable{
 	@Override
 	public void run() {
 		while(true){
+			if(this.getKind()==0){
+				if(AIMoney.AIPass==12&&!this.updateLV2){
+					this.hp+=DataBase.CASTLE_HP_CLASSIC_LV2-DataBase.CASTLE_HP_CLASSIC_LV1;
+					this.updateLV2 = true;
+				}
+				if(AIMoney.AIPass==13&&!this.updateLV3){
+					this.hp+=DataBase.CASTLE_HP_CLASSIC_LV3-DataBase.CASTLE_HP_CLASSIC_LV2;
+					this.updateLV3 = true;
+				}
+			}
+			if(this.getKind()==1){
+				System.out.println("This is player castle");
+				if(DataBase.pass==12&&!this.updateLV2){
+					this.hp+=(DataBase.CASTLE_HP_CLASSIC_LV2-DataBase.CASTLE_HP_CLASSIC_LV1);
+					this.updateLV2 = true;
+					System.out.println("Upgrade LV2");
+				}
+				if(DataBase.pass==13&&!this.updateLV3){
+					this.hp+=(DataBase.CASTLE_HP_CLASSIC_LV3-DataBase.CASTLE_HP_CLASSIC_LV2);
+					this.updateLV3 = true;
+					System.out.println("Upgrade LV3");
+				}
+			}
 			if(needAdd()){
 				hp+=addSpeed;
 			}
