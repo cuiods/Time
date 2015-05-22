@@ -580,10 +580,11 @@ public class DrawUnits {
 		switch(o.getKind()){
 		case 1:
 			
-			Image hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb.png").getImage();
+			Image hbomb = new ImageIcon("graphics/soldiers/s3/HydrogenBomb1.png").getImage();
 			g.drawImage(hbomb, o.getX(), o.getY()+o.ran,176,80,panel);
 			
 			if(o.attacking){
+				new MusicThread("music/effects/bomb.wav", false).start();
 				
 				for(int i=1;i<11;i++){
 					pictures[i-1]="graphics/stunt/tech3_"+i+".png";
@@ -726,7 +727,7 @@ public class DrawUnits {
 			}else if(o.attacking){
 				if(!DataBase.isPause){
 					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.gif").getImage();
-					g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 180, 120, panel);
+					g.drawImage(spaceman0,o.getX()-100, o.getY()+o.ran, 230, 120, panel);
 				}else{
 					spaceman0 = new ImageIcon("graphics/soldiers/en3/soldier4.png").getImage();
 					g.drawImage(spaceman0,o.getX(), o.getY()+o.ran, 90, 120, panel);
@@ -752,14 +753,16 @@ public class DrawUnits {
 				}else{
 					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
 				}
+				g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 120,90, panel);
 			}else if(o.attacking){
 				if(!DataBase.isPause){
-					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.gif").getImage();
+					g.drawImage(spaceship,o.getX()-40, o.getY()+o.ran-40, 204,153, panel);
 				}else{
 					spaceship = new ImageIcon("graphics/soldiers/s3/spaceship.png").getImage();
+					g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 120,90, panel);
 				}
 			}
-			g.drawImage(spaceship,o.getX(), o.getY()+o.ran, 144,85, panel);
 			break;
 		case 0:
 			Image spaceship0 = new ImageIcon("graphics/soldiers/en3/ufo.png").getImage();

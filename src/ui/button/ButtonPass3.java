@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 
 import tools.DrawUnits;
 import ui.FrameGame;
+import ui.PanelFight;
 import ui.PanelStory;
 
 
@@ -70,6 +71,10 @@ public class ButtonPass3 extends JLabel implements MouseListener {
 			isIn=false;
 			DataBase.Tech_Harper_TIME=0;
 			DrawUnits.shadow_x=0;
+			PanelFight.computer_x=0;
+			PanelFight.computer_y=0;
+			PanelFight.computer_w=1000;
+			PanelFight.computer_h=600;
 			}
 	}
 }

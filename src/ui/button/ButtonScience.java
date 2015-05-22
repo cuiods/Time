@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import tools.MusicThread;
 import ui.PanelFight;
 import ui.PanelTechInfor;
 import Tech.*;
@@ -148,6 +149,7 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 9:
 			if(DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_Harper_P>=0)&&(DataBase.Tech_Harper_TIME<3)&&(!DataBase.LockScience)){
 				new Tech_STG3_Hubble();
+				new MusicThread("music/effects/shadow.wav", false).start();
 				//considering the lock science,we shouldn't cut the money while player
 				//can't use the tech,so i move the act to tech classes
 			}
@@ -155,16 +157,19 @@ public class ButtonScience extends JPanel implements MouseListener{
 		case 10:
 			if(!DataBase.Tech_SuperComputer&&(DataBase.Money-DataBase.Tech_SuperComputer_P>=0)&&(!DataBase.LockScience)){
 				new Tech_STG3_SuperComputer();
+				new MusicThread("music/effects/supercomputer.wav", false).start();
 			}
 			break;
 		case 11:
 			if(!DataBase.Tech_SecondCastle&&(DataBase.Money-DataBase.Tech_SecondCastle_P>=0)&&(!DataBase.LockScience)){
 				new Tech_STG3_SecondCastle();
+				new MusicThread("music/effects/secondcastle.wav", false).start();
 			}
 			break;
 		case 12:
 			if(!DataBase.Tech_HydrogenBomb&&(DataBase.Money-DataBase.Tech_HydrogenBomb_P>=0)&&(!DataBase.LockScience)){
 				new Tech_STG3_HydrogenBomb();
+				new MusicThread("music/effects/qingdan.wav", false).start();
 			}
 	
 			break;
@@ -175,18 +180,22 @@ public class ButtonScience extends JPanel implements MouseListener{
 			if(!DataBase.Tech_BlackHoleProject&&(DataBase.Money-DataBase.Tech_BlackHoleProject_P>=0)){
 				new Tech_STG4_BlackHoleProject();
 				DataBase.Money -= DataBase.Tech_BlackHoleProject_P;
+				new MusicThread("music/effects/blackhole.wav", false).start();
 			}
 			break;
 		case 13:
 			if(!DataBase.Tech_Faith&&(DataBase.Money-DataBase.Tech_Faith_P>=0)){
 				new Tech_STG4_Faith();
 				DataBase.Money -= DataBase.Tech_Faith_P;
+				PanelFight.isTech_13=true;
+				new MusicThread("music/effects/faith.wav", false).start();
 			}
 			break;
 		case 14:
 			if(!DataBase.Tech_FourthTechRevolution&&(DataBase.Money-DataBase.Tech_FourthTechRevolution_P>=0)){
 				new Tech_STG4_FourthTechRevolution();
 				DataBase.Money -= DataBase.Tech_FourthTechRevolution_P;
+				new MusicThread("music/effects/techrevolution.wav", false).start();
 			}
 			break;
 		case 16:

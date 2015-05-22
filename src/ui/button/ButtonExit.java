@@ -26,8 +26,8 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 	static boolean isIn1 = false;
 	static boolean isIn2 = false;
 	public int type = 0;
-	public int x = 1000;
-	public int y = 270;
+	public int x = 1050;
+	public int y = 330;
 	
 	public ButtonExit(){
 		filepath = "graphics/button/exitbutton1.png";
@@ -126,7 +126,7 @@ public class ButtonExit extends JLabel implements MouseListener,Runnable{
 
 	@Override
 	public void run() {
-		while(x>=700){
+		while(x>=750){
 			x-=20;
 			try {
 				Thread.sleep(50);

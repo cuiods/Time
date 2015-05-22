@@ -14,6 +14,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import tools.Big2Small;
 import tools.Checker;
 import tools.DrawUnits;
 import tools.Money;
@@ -57,6 +58,11 @@ public class PanelFight extends JPanel implements Runnable{
 	private Time time = null;
 	//when game over, the panel appears
 	static PanelGameOver gameOverPanel = null;
+	//to draw the effects of super computer
+	public static int computer_x=0;
+	public static int computer_y=0;
+	public static int computer_h=600;
+	public static int computer_w=1000;
 	//for special effects, @warning :not equal to database
 	public static boolean isTech_3 = false;
 	public static boolean isTech_6 = false;
@@ -64,6 +70,7 @@ public class PanelFight extends JPanel implements Runnable{
 	public static boolean isTech_8 = false;
 	public static boolean isTech_9 = false;
 	public static boolean isTech_20 = false;
+	public static boolean isTech_13 = false;
 	public static ArrayList<S_Unit> enemy = new ArrayList<S_Unit>();
 	//to play music
 	//public static MusicPlayer fightPlayer = new MusicPlayer();
@@ -522,6 +529,26 @@ public class PanelFight extends JPanel implements Runnable{
 			   isTech_20=false;
 			   PicturePlayer.time4=1000;
 		   }
+	   }
+	   
+	   if(DataBase.Tech_SuperComputer){
+		   g.drawImage(new ImageIcon("graphics/stunt/supercomputer.png").getImage(),computer_x, computer_y,computer_w,computer_h,this);
+		   Big2Small s = new Big2Small();
+		   Thread t = new Thread(s);
+		   t.start();
+	   }
+	   
+	   if(isTech_13){
+		   String pictures[] = new String[10];
+			for(int i=1;i<=pictures.length;i++){
+				   pictures[i-1]="graphics/stunt/fuhao"+i+".png";
+			  }
+			PicturePlayer pic = new PicturePlayer(pictures, false,30);
+			pic.panelPlay(250, 50, g, this, 0);
+			if(PicturePlayer.time0 < 31){
+				isTech_13 = false;
+				PicturePlayer.time9 = 1000;
+			}
 	   }
 	}
 
