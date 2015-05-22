@@ -149,7 +149,7 @@ public class simpleAI_STG4 extends AI implements Runnable{
 		AIC.addRazerShip(this.getRadomPath());
 		while(!DataBase.isPause&&DataBase.pass==4){
 			System.out.println("have send"+this.SendSoldierNum);
-			if(this.SendSoldierNum==30){
+			if(this.SendSoldierNum==20){
 				DataBase.Wave ++;
 				DataBase.WaveGap = true;
 				this.SendSoldierNum = 0;
