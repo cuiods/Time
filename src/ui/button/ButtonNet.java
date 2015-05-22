@@ -1,5 +1,7 @@
 package ui.button;
 
+import gamecontrol.Controller;
+
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -7,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import ui.FrameGame;
 import dataBase.DataBase;
 
 public class ButtonNet extends JPanel implements MouseListener,Runnable{
@@ -56,8 +59,8 @@ public class ButtonNet extends JPanel implements MouseListener,Runnable{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		Controller.changeTo(FrameGame.NETSETPANEL);
+		isIn = false;
 	}
 
 	@Override
