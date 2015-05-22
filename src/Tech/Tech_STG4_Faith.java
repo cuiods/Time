@@ -1,5 +1,7 @@
 package Tech;
 
+import tools.MusicThread;
+import ui.PanelFight;
 import units.S_Unit;
 import dataBase.DataBase;
 
@@ -15,6 +17,9 @@ public class Tech_STG4_Faith {
 			S_Unit u = DataBase.playerList.get(i);
 			u.attack+=5;
 		}
+		DataBase.Money -= DataBase.Tech_Faith_P;
+		PanelFight.isTech_13=true;
+		new MusicThread("music/effects/faith.wav", false).start();
 		DataBase.Tech_Faith = false;
 	}
 }

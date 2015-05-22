@@ -31,7 +31,7 @@ public class ButtonUnit extends JLabel implements MouseListener{
 	public void paintComponent(Graphics g){	
 		if(this.kind==8&&(!DataBase.Tech_HydrogenBomb)){
 			g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_3.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
-		}else{
+		}else {
 			if(!isIn){
 				g.drawImage(new ImageIcon("graphics/info/units/s"+this.kind+"_1.png").getImage(), 0, 0, this.getWidth(),this.getHeight(),this);
 			}else{

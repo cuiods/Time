@@ -1,5 +1,6 @@
 package Tech;
 
+import tools.MusicThread;
 import dataBase.DataBase;
 
 public class Tech_STG4_BlackHoleProject {
@@ -11,6 +12,8 @@ public class Tech_STG4_BlackHoleProject {
 			DataBase.playerList.add(bh);
 			Thread th = new Thread(bh);
 			th.start();
+			DataBase.Money -= DataBase.Tech_BlackHoleProject_P;
+			new MusicThread("music/effects/blackhole.wav", false).start();
 		}
 	}
 }
