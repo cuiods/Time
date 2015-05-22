@@ -143,6 +143,38 @@ public class AIcommander {
 		th.start();
 		DataBase.enemyList.add(s);
 	}
+	public void addCaptain(){
+		STG6_Captain s = new STG6_Captain();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
+	public void addDataMan(){
+		STG6_DataMan s = new STG6_DataMan();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
+	public void addArtDesigner(){
+		STG6_Artdesigner s = new STG6_Artdesigner();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
+	public void addJobHunter(){
+		STG6_JobHunter s = new STG6_JobHunter();
+		s.setKind(0);
+		setLoc(s);
+		Thread th = new Thread(s);
+		th.start();
+		DataBase.enemyList.add(s);
+	}
 	public void LockScience(){
 		System.out.println("LockScience");
 	    tech = new Tech_ENM_STG3_LockScience();
@@ -206,6 +238,8 @@ public class AIcommander {
 			if(u.path==2){u.setX(DataBase.START_LOC_X_ENM_STG5);
 			u.setY(DataBase.START_LOC_Y_ENM_STG5+330);}
 			break;
+		case 6:u.setX(DataBase.START_LOC_X_ENM_STG6);
+		u.setY(DataBase.START_LOC_Y_ENM_STG6); break;
 		case 11:
 		case 12:
 		case 13:if(u.path==0){u.setX(DataBase.START_LOC_X_ENM_STG5-100);
