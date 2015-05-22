@@ -67,9 +67,8 @@ public class PanelClassic extends JPanel implements Runnable{
 			//set net
 			if(DataBase.isNet){
 				setNet();
-			}else{
-				setAI();
 			}
+		    setAI();
 			//auto save
 			save();
 		}
@@ -161,9 +160,11 @@ public class PanelClassic extends JPanel implements Runnable{
 		 * set ai
 		 */
 		private void setAI(){
-			simpleAI_Classic ai = new simpleAI_Classic();
-			Thread aith = new Thread(ai);
-			aith.start();
+			if(!DataBase.isNet){
+				simpleAI_Classic ai = new simpleAI_Classic();
+				Thread aith = new Thread(ai);
+				aith.start();
+			}
 			
 			Checker ck = new Checker();
 			Thread t = new Thread(ck);

@@ -59,6 +59,8 @@ public class ButtonOnlineStart extends JLabel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		DataBase.isNet = true;
+		DataBase.pass = 11;
+		DataBase.isPause = false;
 		if(DataBase.isServer){
 			DataBase.threadContinue = true;
 			new ServerAI();
