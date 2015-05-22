@@ -20,10 +20,10 @@ public class simpleAI_Classic extends AI implements Runnable{
 	public void detect() {
 		this.Pass = AIMoney.AIPass;
 		this.Money = AIMoney.Money;
-		System.out.println(this.Pass);
-		System.out.println(DataBase.pass);
-		System.out.println(this.Money);
-		System.out.println(AIMoney.Money_Increment);
+		// System.out.println(this.Pass);
+		// System.out.println(DataBase.pass);
+		// System.out.println(this.Money);
+		// System.out.println(AIMoney.Money_Increment);
 		execute(analyzeThreat(0),analyzeThreat(1),analyzeThreat(2),analyzeDevelop(),
 				analyzeAttackRisk(analyzeThreat(0),analyzeThreat(1),analyzeThreat(2)));
 
@@ -37,9 +37,9 @@ public class simpleAI_Classic extends AI implements Runnable{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		System.out.printf("\nThreats are : %d %d %d \n",
-				ThreatResult0,ThreatResult1,ThreatResult2);
-		System.out.println(this.getCastlePercentage(1));
+		// System.out.printf("\nThreats are : %d %d %d \n",
+//		ThreatResult0,ThreatResult1,ThreatResult2);
+		// System.out.println(this.getCastlePercentage(1));
 		if(AIMoney.Money>18000&&this.Pass==11){
 			AIC.NextAge();
 		}
@@ -88,9 +88,9 @@ public class simpleAI_Classic extends AI implements Runnable{
 		this.CheckAndAdd(AIAction.SpaceMan, path_num);
 		this.CheckAndAdd(AIAction.Drone, path_num);
 		if(attackRisk<300){
-		this.CheckAndAdd(AIAction.Rifle, path_num);
-		this.CheckAndAdd(AIAction.SpaceMan, path_num);
-		this.CheckAndAdd(AIAction.Drone, path_num);
+			this.CheckAndAdd(AIAction.Rifle, path_num);
+			this.CheckAndAdd(AIAction.SpaceMan, path_num);
+			this.CheckAndAdd(AIAction.Drone, path_num);
 		}
 		this.CheckAndAdd(AIAction.SpaceShip, path_num);
 		this.CheckAndAdd(AIAction.RazerShip, path_num);
@@ -99,12 +99,12 @@ public class simpleAI_Classic extends AI implements Runnable{
 		this.CheckAndAdd(AIAction.Sneaker, path_num);
 		this.CheckAndAdd(AIAction.RobotWarrior, path_num);
 		if(attackRisk<400){
-		this.CheckAndAdd(AIAction.SpaceShip, path_num);
-		this.CheckAndAdd(AIAction.RazerShip, path_num);
-		this.CheckAndAdd(AIAction.Truck, path_num);
-		this.CheckAndAdd(AIAction.SpaceCarrier, path_num);
-		this.CheckAndAdd(AIAction.Sneaker, path_num);
-		this.CheckAndAdd(AIAction.RobotWarrior, path_num);
+			this.CheckAndAdd(AIAction.SpaceShip, path_num);
+			this.CheckAndAdd(AIAction.RazerShip, path_num);
+			this.CheckAndAdd(AIAction.Truck, path_num);
+			this.CheckAndAdd(AIAction.SpaceCarrier, path_num);
+			this.CheckAndAdd(AIAction.Sneaker, path_num);
+			this.CheckAndAdd(AIAction.RobotWarrior, path_num);
 		}
 	}
 	//Done
@@ -141,7 +141,7 @@ public class simpleAI_Classic extends AI implements Runnable{
 				}
 			}
 		}
-		System.out.println("path "+path_num+" vacant is "+vacant);
+		// System.out.println("path "+path_num+" vacant is "+vacant);
 	}
 	//analyze the Threat to our site
 	private int analyzeThreat(int path_num) {
@@ -185,7 +185,7 @@ public class simpleAI_Classic extends AI implements Runnable{
 		return path;
 	}
 	private int analyzeDevelop(){
-		
+
 		return 0;
 	}
 	//Done
@@ -221,7 +221,7 @@ public class simpleAI_Classic extends AI implements Runnable{
 			case 13: FullCastleHp = DataBase.CASTLE_HP_CLASSIC_LV3;break;
 			}
 		}
-		System.out.printf("FUllHP is %f and Now is %f \n",FullCastleHp,CastleHp);
+		// System.out.printf("FUllHP is %f and Now is %f \n",FullCastleHp,CastleHp);
 		return CastleHp/FullCastleHp;
 	}
 	//Done
