@@ -1,11 +1,11 @@
 # Time : 基于Java swing的以《三体》为背景的对战小游戏
 ##游戏截图:
-![](screenshot/20170224101040.png)
-![](screenshot/20170224101053.png)
-![](screenshot/20170224101117.png)
-![](screenshot/20170224101148.png)
-![](screenshot/20170224101230.png)
-![](screenshot/20170224101159.png)
+![](screenshot/1.png)
+![](screenshot/2.png)
+![](screenshot/3.png)
+![](screenshot/4.png)
+![](screenshot/5.jpg)
+![](screenshot/6.jpg)
 ##运行方法：
 点击`TIME.jar`运行，运行目录下必须有`/music`和`/graphics`资源文件夹。
 ##游戏介绍：
